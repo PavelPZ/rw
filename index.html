@@ -1,0 +1,23 @@
+﻿<!doctype html>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+<link href="rw-gui-rt/toolbox.css" rel="stylesheet" />
+
+<script src="jspm_packages/npm/core-js@2.4.1/client/shim.min.js"></script>
+<script src="jspm_packages/system.src.js"></script>
+<script src="jspm.config.js"></script>
+<!-- **** BUNDLE version, after call: jspm bundle index.js - react - react-dom app-bundle.js --minify
+<script src="app-bundle.js"></script>
+ -->
+
+<script>
+  System.config({"defaultJSExtensions": true});
+  //System.import('rw-router/test.js').then(function (m) { m.init(); });
+  //System.import('rw-redux/test.js').then(function (m) { m.init(); });
+  System.import('rw-gui-rt/block-gui/test.js').then(function (m) { m.init(); });
+</script>
+<body>
+  <div id="content"></div>
+</body>
+

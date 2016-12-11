@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{50D3FC13-B1CB-49D1-B619-067CFC04B345}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="index.html" />
+    <Content Include="jspm.config.js" />
+    <Content Include="rw-router\url-parser.js" />
+    <Content Include="rw-gui-rt\toolbox.css" />
+    <Content Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="tsconfig.json" />
+    <Content Include="package.json" />
+    <Content Include="packages.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="app-config.ts" />
+    <TypeScriptCompile Include="rw-gui-rt\block-gui\test.tsx" />
+    <TypeScriptCompile Include="rw-gui-rt\block-gui\index.tsx" />
+    <TypeScriptCompile Include="rw-lib\base64.ts" />
+    <TypeScriptCompile Include="rw-lib\cammel-case.ts" />
+    <TypeScriptCompile Include="rw-lib\common.ts" />
+    <TypeScriptCompile Include="rw-lib\cookie.ts" />
+    <TypeScriptCompile Include="rw-lib\crypt.ts" />
+    <TypeScriptCompile Include="rw-lib\date2int.ts" />
+    <TypeScriptCompile Include="rw-lib\random.ts" />
+    <TypeScriptCompile Include="rw-lib\RJSON.ts" />
+    <TypeScriptCompile Include="rw-lib\string2bytes.ts" />
+    <TypeScriptCompile Include="rw-lib\unicode.ts" />
+    <TypeScriptCompile Include="rw-redux\action-player.tsx" />
+    <TypeScriptCompile Include="rw-redux\app-loader.tsx" />
+    <TypeScriptCompile Include="rw-redux\async.ts" />
+    <TypeScriptCompile Include="rw-redux\block-gui.ts" />
+    <TypeScriptCompile Include="rw-redux\test.tsx" />
+    <TypeScriptCompile Include="rw-redux\types.ts" />
+    <TypeScriptCompile Include="rw-router\lib.ts" />
+    <TypeScriptCompile Include="rw-router\router.ts" />
+    <TypeScriptCompile Include="rw-router\state.ts" />
+    <TypeScriptCompile Include="rw-router\test.tsx" />
+    <TypeScriptCompile Include="rw-router\url-parser.ts" />
+    <TypeScriptCompile Include="typings\classnames\classnames.d.ts" />
+    <TypeScriptCompile Include="typings\lib.fetch.d.ts" />
+    <TypeScriptCompile Include="typings\lib.streams.d.ts" />
+    <TypeScriptCompile Include="typings\lodash\lodash.d.ts" />
+    <TypeScriptCompile Include="typings\react-redux\react-redux.d.ts" />
+    <TypeScriptCompile Include="typings\react\react-dom.d.ts" />
+    <TypeScriptCompile Include="typings\react\react.d.ts" />
+    <TypeScriptCompile Include="typings\redux-logger\redux-logger.d.ts" />
+    <TypeScriptCompile Include="typings\redux\redux.d.ts" />
+    <TypeScriptCompile Include="typings\reselect.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="rw-lib\base64.cs" />
+    <Compile Include="rw-lib\common.cs" />
+    <Compile Include="rw-lib\crypt.cs" />
+    <Compile Include="rw-lib\string2bytes.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>rw</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60794</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:60794/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+</Project>
