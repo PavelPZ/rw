@@ -1,0 +1,32 @@
+//D:\rw\rw\jspm_packages\npm\react-toolbox@1.3.2\lib\overlay\index.d.ts
+import * as React from "react";
+import ReactToolbox from "../index";
+
+export interface OverlayTheme {
+  active?: string;
+  backdrop?: string;
+  invisible?: string;
+  overlay?: string;
+  right?: string;
+}
+
+interface OverlayProps extends ReactToolbox.Props {
+  /**
+   * If true, the drawer will be visible.
+   * @default false
+   */
+  active?: boolean;
+  /**
+   * Children to pass through the component.
+   */
+  children?: React.ReactNode;
+
+  invisible?: boolean;
+  onEscKeyDown?: Function;
+  onClick?: Function;
+  theme?: OverlayTheme;
+}
+
+export class Overlay extends React.Component<OverlayProps, {}> { }
+
+export default Overlay;
