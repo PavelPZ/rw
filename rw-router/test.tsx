@@ -2,10 +2,10 @@
 import { IRootState } from '../rw-redux/types';
 import { appInit } from '../rw-redux/app-loader';
 import { blockGuiReducerFnc } from '../rw-redux/block-gui';
-import BlockGui from '../rw-gui-rt/block-gui/index';
 import { RouteHook, routeReducerFnc, RouteHandler, init as routerInit, navigate } from './router';
 import { config } from '../app-config';
 import { IRouteData, IRouteDir } from './url-parser';
+import getRTAppRoot from '../rw-gui-rt/app-root';
 
 import { routeTreeToDir, route, routeDirToTree, routeModify, parentPath } from './lib';
 
@@ -81,7 +81,7 @@ const rootReducer = (state: IRootState, action: any): IRootState => {
 }
 
 export function init() {
-  appInit(rootReducer, document.getElementById('content'), () => <div><BlockGui /><RouteHook parentPath='' hookId='' /></div>);
+  appInit(rootReducer, document.getElementById('content'), getRTAppRoot);
   routerInit(() => createAppRoute('Hallo world x', createChildRoute('Child 1'), createChildRoute('Child 2')));
 }
 

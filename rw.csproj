@@ -139,6 +139,8 @@
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\utils\time.js" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\utils\utils.js" />
     <Content Include="rw-gui-rt\toolbox.css" />
+    <TypeScriptCompile Include="rw-gui-rt\theme.ts" />
+    <TypeScriptCompile Include="rw-gui-rt\app-root.tsx" />
     <TypeScriptCompile Include="typings\react-css-themr\react-css-themr.d.ts" />
     <Content Include="web.config" />
   </ItemGroup>
@@ -167,7 +169,6 @@
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\list\theme.json" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\menu\theme.json" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\navigation\theme.json" />
-    <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\overlay\theme.json" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\progress_bar\theme.json" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\radio\theme.json" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\ripple\theme.json" />
@@ -229,6 +230,7 @@
     <TypeScriptCompile Include="typings\react-toolbox\dropdown.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\font_icon.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\index.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\ALL.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\input.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\layout.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\link.d.ts" />
@@ -237,7 +239,6 @@
     <TypeScriptCompile Include="typings\react-toolbox\navigation.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\progress_bar.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\radio.d.ts" />
-    <TypeScriptCompile Include="typings\react-toolbox\react-toolbox.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\ripple.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\slider.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\snackbar.d.ts" />
@@ -245,6 +246,7 @@
     <TypeScriptCompile Include="typings\react-toolbox\table.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\tabs.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\time_picker.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\overlay.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\tooltip.d.ts" />
     <TypeScriptCompile Include="typings\react\react-dom.d.ts" />
     <TypeScriptCompile Include="typings\react\react.d.ts" />
