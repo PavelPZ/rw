@@ -24,6 +24,7 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="index.html" />
+    <Content Include="JavaScript.js" />
     <Content Include="jspm.config.js" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\animations\index.js" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\app_bar\AppBar.js" />
@@ -47,7 +48,6 @@
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\checkbox\index.js" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\chip\Chip.js" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\chip\index.js" />
-    <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\chip\__test__\index.spec.js" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\date_picker\Calendar.js" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\date_picker\CalendarDay.js" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\date_picker\CalendarMonth.js" />
@@ -93,7 +93,6 @@
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\menu\Menu.js" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\menu\MenuDivider.js" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\menu\MenuItem.js" />
-    <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\menu\__test__\index.spec.js" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\navigation\index.js" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\navigation\Navigation.js" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\overlay\index.js" />
@@ -140,6 +139,7 @@
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\utils\time.js" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\utils\utils.js" />
     <Content Include="rw-gui-rt\toolbox.css" />
+    <TypeScriptCompile Include="typings\react-css-themr\react-css-themr.d.ts" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -178,7 +178,6 @@
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\tabs\theme.json" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\time_picker\theme.json" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\tooltip\theme.json" />
-    <Content Include="jspm_packages\npm\react-toolbox%401.3.2\package.json" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -188,38 +187,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app-config.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\app_bar\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\autocomplete\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\avatar\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\button\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\card\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\checkbox\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\chip\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\date_picker\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\dialog\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\drawer\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\dropdown\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\font_icon\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\hoc\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\index.d.ts" />
     <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\input\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\layout\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\link\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\list\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\menu\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\navigation\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\overlay\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\progress_bar\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\radio\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\ripple\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\slider\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\snackbar\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\switch\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\table\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\tabs\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\time_picker\index.d.ts" />
-    <TypeScriptCompile Include="jspm_packages\npm\react-toolbox%401.3.2\lib\tooltip\index.d.ts" />
     <TypeScriptCompile Include="rw-gui-rt\test.tsx" />
     <TypeScriptCompile Include="rw-gui-rt\block-gui\index.tsx" />
     <TypeScriptCompile Include="rw-lib\base64.ts" />
@@ -248,6 +216,36 @@
     <TypeScriptCompile Include="typings\lib.streams.d.ts" />
     <TypeScriptCompile Include="typings\lodash\lodash.d.ts" />
     <TypeScriptCompile Include="typings\react-redux\react-redux.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\app_bar.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\autocomplete.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\avatar.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\button.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\card.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\checkbox.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\chip.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\date_picker.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\dialog.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\drawer.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\dropdown.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\font_icon.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\index.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\input.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\layout.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\link.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\list.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\menu.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\navigation.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\progress_bar.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\radio.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\react-toolbox.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\ripple.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\slider.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\snackbar.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\switch.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\table.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\tabs.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\time_picker.d.ts" />
+    <TypeScriptCompile Include="typings\react-toolbox\tooltip.d.ts" />
     <TypeScriptCompile Include="typings\react\react-dom.d.ts" />
     <TypeScriptCompile Include="typings\react\react.d.ts" />
     <TypeScriptCompile Include="typings\redux-logger\redux-logger.d.ts" />
@@ -266,13 +264,7 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="jspm_packages\npm\react-toolbox%401.3.2\lib\button\__test__\" />
-    <Folder Include="jspm_packages\npm\react-toolbox%401.3.2\lib\date_picker\__test__\" />
-    <Folder Include="jspm_packages\npm\react-toolbox%401.3.2\lib\progress_bar\__test__\" />
-    <Folder Include="jspm_packages\npm\react-toolbox%401.3.2\lib\slider\__tests__\" />
-    <Folder Include="jspm_packages\npm\react-toolbox%401.3.2\lib\tabs\__tests__\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
   </PropertyGroup>

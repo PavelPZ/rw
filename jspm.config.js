@@ -1,5 +1,4 @@
 SystemJS.config({
-  
   browserConfig: {
     "paths": {
       "npm:": "/jspm_packages/npm/"
@@ -44,6 +43,7 @@ SystemJS.config({
     "process": "npm:jspm-nodelibs-process@0.2.0",
     "react": "npm:react@15.4.1",
     "react-addons-css-transition-group": "npm:react-addons-css-transition-group@15.4.1",
+    "react-css-themr": "npm:react-css-themr@1.6.1",
     "react-dom": "npm:react-dom@15.4.1",
     "react-redux": "npm:react-redux@4.4.6",
     "react-toolbox": "npm:react-toolbox@1.3.2",
