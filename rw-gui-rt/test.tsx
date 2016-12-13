@@ -7,7 +7,7 @@ import { ThemeProvider } from "react-css-themr";
 export function init() {
   ReactDOM.render(<div>
     <ThemeProvider theme={theme}>
-      <div>
+      <div className='D(f)'>
         <Button primary raised>Hallo world</Button><br />
       </div>
     </ThemeProvider>

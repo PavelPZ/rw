@@ -1,3 +1,7 @@
 .Bg\(t\) {
   background: transparent;
 }
+.D\(f\) {
+  display: -ms-flexbox;
+  display: flex;
+}

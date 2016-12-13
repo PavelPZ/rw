@@ -24,7 +24,7 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <None Include=".babelrc" />
-    <None Include="gulpfile.js_" />
+    <Content Include="gulpfile.js" />
     <Content Include="index.html" />
     <Content Include="JavaScript.js" />
     <Content Include="jspm.config.js" />
@@ -182,6 +182,7 @@
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\tabs\theme.json" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\time_picker\theme.json" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\tooltip\theme.json" />
+    <Content Include="refreshCSS.cmd" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

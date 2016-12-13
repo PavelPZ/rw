@@ -98,7 +98,6 @@ type TTheme = {
   RTTooltip: TooltipTheme,
 };
 
-let theme2: TTheme;
 const theme: TTheme = {
   "RTAppBar": {
     "appBar": "rt-app_bar-theme-appBar",
@@ -468,29 +467,29 @@ const theme: TTheme = {
     "tooltipInner": "rt-tooltip-theme-tooltipInner"
   },
 
-  RTBrowseButton: theme2.RTButton,
-  RTIconButton: theme2.RTButton,
-  RTCardActions: theme2.RTCardAll,
-  RTCardTitle: theme2.RTCardAll,
-  RTCardMedia: theme2.RTCardAll,
-  RTCardText: theme2.RTCardAll,
-  RTNavDrawer: theme2.RTLayoutAll,
-  RTPanel: theme2.RTLayoutAll,
-  RTSidebar: theme2.RTLayoutAll,
-  RTListCheckbox: theme2.RTListAll,
-  RTListItem: theme2.RTListAll,
-  RTListDivider: theme2.RTListAll,
-  RTListSubHeader: theme2.RTListAll,
-  RTMenuDivider: theme2.RTMenuAll,
-  RTMenuItem: theme2.RTMenuAll,
-  RTIconMenu: theme2.RTMenuAll,
-  RTTab: theme2.RTTabsAll,
+  RTBrowseButton: null,
+  RTIconButton: null,
+  RTCardActions: null,
+  RTCardTitle: null,
+  RTCardMedia: null,
+  RTCardText: null,
+  RTNavDrawer: null,
+  RTPanel: null,
+  RTSidebar: null,
+  RTListCheckbox: null,
+  RTListItem: null,
+  RTListDivider: null,
+  RTListSubHeader: null,
+  RTMenuDivider: null,
+  RTMenuItem: null,
+  RTIconMenu: null,
+  RTTab: null,
 
-  RTCard: theme2.RTCardAll,
-  RTLayout: theme2.RTLayoutAll,
-  RTList: theme2.RTListAll,
-  RTMenu: theme2.RTMenuAll,
-  RTTabs: theme2.RTTabsAll,
+  RTCard: null,
+  RTLayout: null,
+  RTList: null,
+  RTMenu: null,
+  RTTabs: null,
 };
 
 theme.RTBrowseButton = theme.RTButton;
