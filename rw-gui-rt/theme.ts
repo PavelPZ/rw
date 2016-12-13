@@ -100,7 +100,7 @@ type TTheme = {
 
 let theme2: TTheme;
 const theme: TTheme = {
-  RTAppBar: {
+  "RTAppBar": {
     "appBar": "rt-app_bar-theme-appBar",
     "flat": "rt-app_bar-theme-flat",
     "fixed": "rt-app_bar-theme-fixed",
@@ -109,7 +109,7 @@ const theme: TTheme = {
     "rightIcon": "rt-app_bar-theme-rightIcon",
     "scrollHide": "rt-app_bar-theme-scrollHide"
   },
-  RTAutocomplete: {
+  "RTAutocomplete": {
     "autocomplete": "rt-autocomplete-theme-autocomplete",
     "focus": "rt-autocomplete-theme-focus",
     "suggestions": "rt-autocomplete-theme-suggestions",
@@ -120,12 +120,12 @@ const theme: TTheme = {
     "active": "rt-autocomplete-theme-active",
     "input": "rt-autocomplete-theme-input"
   },
-  RTAvatar: {
+  "RTAvatar": {
     "avatar": "rt-avatar-theme-avatar",
     "image": "rt-avatar-theme-image",
     "letter": "rt-avatar-theme-letter"
   },
-  RTButton: {
+  "RTButton": {
     "button": "rt-button-theme-button",
     "raised": "rt-button-theme-raised",
     "flat": "rt-button-theme-flat",
@@ -139,7 +139,7 @@ const theme: TTheme = {
     "primary": "rt-button-theme-primary",
     "accent": "rt-button-theme-accent"
   },
-  RTCardAll: {
+  "RTCardAll": {
     "card": "rt-card-theme-card",
     "raised": "rt-card-theme-raised",
     "cardMedia": "rt-card-theme-cardMedia",
@@ -155,7 +155,7 @@ const theme: TTheme = {
     "title": "rt-card-theme-title",
     "small": "rt-card-theme-small"
   },
-  RTCheckbox: {
+  "RTCheckbox": {
     "field": "rt-checkbox-theme-field",
     "ripple": "rt-checkbox-theme-ripple",
     "text": "rt-checkbox-theme-text",
@@ -165,7 +165,7 @@ const theme: TTheme = {
     "checkmark-expand": "rt-checkbox-theme-checkmark-expand",
     "disabled": "rt-checkbox-theme-disabled"
   },
-  RTChip: {
+  "RTChip": {
     "chip": "rt-chip-theme-chip",
     "avatar": "rt-chip-theme-avatar",
     "deletable": "rt-chip-theme-deletable",
@@ -173,7 +173,7 @@ const theme: TTheme = {
     "deleteIcon": "rt-chip-theme-deleteIcon",
     "deleteX": "rt-chip-theme-deleteX"
   },
-  RTDatePicker: {
+  "RTDatePicker": {
     "input": "rt-date_picker-theme-input",
     "disabled": "rt-date_picker-theme-disabled",
     "inputElement": "rt-date_picker-theme-inputElement",
@@ -196,7 +196,7 @@ const theme: TTheme = {
     "day": "rt-date_picker-theme-day",
     "month": "rt-date_picker-theme-month"
   },
-  RTDialog: {
+  "RTDialog": {
     "dialog": "rt-dialog-theme-dialog",
     "active": "rt-dialog-theme-active",
     "small": "rt-dialog-theme-small",
@@ -208,13 +208,13 @@ const theme: TTheme = {
     "navigation": "rt-dialog-theme-navigation",
     "button": "rt-dialog-theme-button"
   },
-  RTDrawer: {
+  "RTDrawer": {
     "drawer": "rt-drawer-theme-drawer",
     "active": "rt-drawer-theme-active",
     "right": "rt-drawer-theme-right",
     "left": "rt-drawer-theme-left"
   },
-  RTDropdown: {
+  "RTDropdown": {
     "dropdown": "rt-dropdown-theme-dropdown",
     "active": "rt-dropdown-theme-active",
     "values": "rt-dropdown-theme-values",
@@ -229,7 +229,7 @@ const theme: TTheme = {
     "error": "rt-dropdown-theme-error",
     "selected": "rt-dropdown-theme-selected"
   },
-  RTInput: {
+  "RTInput": {
     "input": "rt-input-theme-input",
     "withIcon": "rt-input-theme-withIcon",
     "icon": "rt-input-theme-icon",
@@ -246,7 +246,7 @@ const theme: TTheme = {
     "errored": "rt-input-theme-errored",
     "hidden": "rt-input-theme-hidden"
   },
-  RTLayoutAll: {
+  "RTLayoutAll": {
     "layout": "rt-layout-theme-layout",
     "navDrawer": "rt-layout-theme-navDrawer",
     "scrim": "rt-layout-theme-scrim",
@@ -285,12 +285,12 @@ const theme: TTheme = {
     "width-66": "rt-layout-theme-width-66",
     "width-75": "rt-layout-theme-width-75"
   },
-  RTLink: {
+  "RTLink": {
     "icon": "rt-link-theme-icon",
     "link": "rt-link-theme-link",
     "active": "rt-link-theme-active"
   },
-  RTListAll: {
+  "RTListAll": {
     "list": "rt-list-theme-list",
     "subheader": "rt-list-theme-subheader",
     "divider": "rt-list-theme-divider",
@@ -310,7 +310,7 @@ const theme: TTheme = {
     "itemText": "rt-list-theme-itemText",
     "primary": "rt-list-theme-primary"
   },
-  RTMenuAll: {
+  "RTMenuAll": {
     "iconMenu": "rt-menu-theme-iconMenu",
     "icon": "rt-menu-theme-icon",
     "menu": "rt-menu-theme-menu",
@@ -331,17 +331,17 @@ const theme: TTheme = {
     "shortcut": "rt-menu-theme-shortcut",
     "menuDivider": "rt-menu-theme-menuDivider"
   },
-  RTNavigation: {
+  "RTNavigation": {
     "horizontal": "rt-navigation-theme-horizontal",
     "vertical": "rt-navigation-theme-vertical"
   },
-  RTOverlay: {
+  "RTOverlay": {
     "overlay": "rt-overlay-theme-overlay",
     "invisible": "rt-overlay-theme-invisible",
     "backdrop": "rt-overlay-theme-backdrop",
     "active": "rt-overlay-theme-active"
   },
-  RTProgressBar: {
+  "RTProgressBar": {
     "linear": "rt-progress_bar-theme-linear",
     "indeterminate": "rt-progress_bar-theme-indeterminate",
     "value": "rt-progress_bar-theme-value",
@@ -355,7 +355,7 @@ const theme: TTheme = {
     "multicolor": "rt-progress_bar-theme-multicolor",
     "colors": "rt-progress_bar-theme-colors"
   },
-  RTRadio: {
+  "RTRadio": {
     "radio": "rt-radio-theme-radio",
     "radioChecked": "rt-radio-theme-radioChecked",
     "ripple": "rt-radio-theme-ripple",
@@ -364,13 +364,13 @@ const theme: TTheme = {
     "text": "rt-radio-theme-text",
     "input": "rt-radio-theme-input"
   },
-  RTRipple: {
+  "RTRipple": {
     "ripple": "rt-ripple-theme-ripple",
     "rippleWrapper": "rt-ripple-theme-rippleWrapper",
     "rippleRestarting": "rt-ripple-theme-rippleRestarting",
     "rippleActive": "rt-ripple-theme-rippleActive"
   },
-  RTSlider: {
+  "RTSlider": {
     "container": "rt-slider-theme-container",
     "knob": "rt-slider-theme-knob",
     "innerknob": "rt-slider-theme-innerknob",
@@ -385,7 +385,7 @@ const theme: TTheme = {
     "pressed": "rt-slider-theme-pressed",
     "ring": "rt-slider-theme-ring"
   },
-  RTSnackbar: {
+  "RTSnackbar": {
     "snackbar": "rt-snackbar-theme-snackbar",
     "accept": "rt-snackbar-theme-accept",
     "button": "rt-snackbar-theme-button",
@@ -394,7 +394,7 @@ const theme: TTheme = {
     "active": "rt-snackbar-theme-active",
     "label": "rt-snackbar-theme-label"
   },
-  RTSwitch: {
+  "RTSwitch": {
     "field": "rt-switch-theme-field",
     "disabled": "rt-switch-theme-disabled",
     "text": "rt-switch-theme-text",
@@ -406,14 +406,14 @@ const theme: TTheme = {
     "switch-on": "rt-switch-theme-switch-on",
     "switch-off": "rt-switch-theme-switch-off"
   },
-  RTTable: {
+  "RTTable": {
     "table": "rt-table-theme-table",
     "selectable": "rt-table-theme-selectable",
     "row": "rt-table-theme-row",
     "selected": "rt-table-theme-selected",
     "editable": "rt-table-theme-editable"
   },
-  RTTabsAll: {
+  "RTTabsAll": {
     "tabs": "rt-tabs-theme-tabs",
     "navigation": "rt-tabs-theme-navigation",
     "navigationContainer": "rt-tabs-theme-navigationContainer",
@@ -432,7 +432,7 @@ const theme: TTheme = {
     "fixed": "rt-tabs-theme-fixed",
     "inverse": "rt-tabs-theme-inverse"
   },
-  RTTimePicker: {
+  "RTTimePicker": {
     "input": "rt-time_picker-theme-input",
     "disabled": "rt-time_picker-theme-disabled",
     "inputElement": "rt-time_picker-theme-inputElement",
@@ -459,7 +459,7 @@ const theme: TTheme = {
     "small": "rt-time_picker-theme-small",
     "knob": "rt-time_picker-theme-knob"
   },
-  RTTooltip: {
+  "RTTooltip": {
     "tooltip": "rt-tooltip-theme-tooltip",
     "tooltipActive": "rt-tooltip-theme-tooltipActive",
     "tooltipTop": "rt-tooltip-theme-tooltipTop",
@@ -470,26 +470,50 @@ const theme: TTheme = {
 
   RTBrowseButton: theme2.RTButton,
   RTIconButton: theme2.RTButton,
-  RTCard: theme2.RTCardAll,
   RTCardActions: theme2.RTCardAll,
   RTCardTitle: theme2.RTCardAll,
   RTCardMedia: theme2.RTCardAll,
   RTCardText: theme2.RTCardAll,
-  RTLayout: theme2.RTLayoutAll,
   RTNavDrawer: theme2.RTLayoutAll,
   RTPanel: theme2.RTLayoutAll,
   RTSidebar: theme2.RTLayoutAll,
-  RTList: theme2.RTListAll,
   RTListCheckbox: theme2.RTListAll,
   RTListItem: theme2.RTListAll,
   RTListDivider: theme2.RTListAll,
   RTListSubHeader: theme2.RTListAll,
-  RTMenu: theme2.RTMenuAll,
   RTMenuDivider: theme2.RTMenuAll,
   RTMenuItem: theme2.RTMenuAll,
   RTIconMenu: theme2.RTMenuAll,
-  RTTabs: theme2.RTTabsAll,
   RTTab: theme2.RTTabsAll,
+
+  RTCard: theme2.RTCardAll,
+  RTLayout: theme2.RTLayoutAll,
+  RTList: theme2.RTListAll,
+  RTMenu: theme2.RTMenuAll,
+  RTTabs: theme2.RTTabsAll,
 };
+
+theme.RTBrowseButton = theme.RTButton;
+theme.RTIconButton = theme.RTButton;
+theme.RTCardActions = theme.RTCardAll;
+theme.RTCardTitle = theme.RTCardAll;
+theme.RTCardMedia = theme.RTCardAll;
+theme.RTCardText = theme.RTCardAll;
+theme.RTNavDrawer = theme.RTLayoutAll;
+theme.RTPanel = theme.RTLayoutAll;
+theme.RTSidebar = theme.RTLayoutAll;
+theme.RTListCheckbox = theme.RTListAll;
+theme.RTListItem = theme.RTListAll;
+theme.RTListDivider = theme.RTListAll;
+theme.RTListSubHeader = theme.RTListAll;
+theme.RTMenuDivider = theme.RTMenuAll;
+theme.RTMenuItem = theme.RTMenuAll;
+theme.RTIconMenu = theme.RTMenuAll;
+theme.RTTab = theme.RTTabsAll;
+theme.RTCard = theme.RTCardAll;
+theme.RTLayout = theme.RTLayoutAll;
+theme.RTList = theme.RTListAll;
+theme.RTMenu = theme.RTMenuAll;
+theme.RTTabs = theme.RTTabsAll;
 
 export default theme;

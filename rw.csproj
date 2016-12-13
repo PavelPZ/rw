@@ -24,7 +24,7 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <None Include=".babelrc" />
-    <Content Include="gulpfile.js" />
+    <None Include="gulpfile.js_" />
     <Content Include="index.html" />
     <Content Include="JavaScript.js" />
     <Content Include="jspm.config.js" />
