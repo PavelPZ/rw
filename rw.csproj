@@ -23,6 +23,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <None Include=".babelrc" />
+    <Content Include="gulpfile.js" />
     <Content Include="index.html" />
     <Content Include="JavaScript.js" />
     <Content Include="jspm.config.js" />
@@ -138,6 +140,7 @@
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\utils\testing.js" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\utils\time.js" />
     <Content Include="jspm_packages\npm\react-toolbox%401.3.2\lib\utils\utils.js" />
+    <Content Include="rw-gui-rt\test.css" />
     <Content Include="rw-gui-rt\toolbox.css" />
     <TypeScriptCompile Include="rw-gui-rt\theme.ts" />
     <TypeScriptCompile Include="rw-gui-rt\app-root.tsx" />

@@ -2,6 +2,7 @@ declare namespace __RT {
   import React = __React;
 
   export interface DropdownTheme {
+    required?: string;
     /**
      * Added to the root element when the dropdown is active.
      */

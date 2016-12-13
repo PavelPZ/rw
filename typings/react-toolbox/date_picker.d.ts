@@ -2,6 +2,7 @@ declare namespace __RT {
   import React = __React;
 
   export interface DatePickerTheme {
+    inputElement?: string;
     /**
      * Used for the active day and year.
      */

@@ -7,7 +7,7 @@ declare namespace __RT {
     overlay?: string;
   }
 
-  interface OverlayProps {
+  interface OverlayProps extends Props {
     theme?: OverlayTheme;
     active?: boolean;
     invisible?: boolean;

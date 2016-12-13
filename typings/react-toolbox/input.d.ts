@@ -2,6 +2,9 @@ declare namespace __RT {
   import React = __React;
 
   export interface InputTheme {
+    label?: string;
+    fixed?: string;
+    filled?: string;
     /**
      * Used for the bar under the input.
      */

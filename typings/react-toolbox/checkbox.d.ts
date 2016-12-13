@@ -30,6 +30,7 @@ declare namespace __RT {
      * Used for the text label.
      */
     text?: string;
+    ['checkmark-expand']?: string
   }
 
   interface CheckboxProps extends Props {

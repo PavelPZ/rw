@@ -2,6 +2,10 @@ declare namespace __RT {
   import React = __React;
 
   export interface ProgressBarTheme {
+    ['linear-indeterminate-bar']?: string;
+    ['circular-indeterminate-bar-rotate']?: string;
+    ['circular-indeterminate-bar-dash']?: string;
+    colors?: string;
     /**
      * Used to style the buffer element in the linear progress.
      */

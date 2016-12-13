@@ -1,6 +1,25 @@
 declare namespace __RT {
   import React = __React;
 
+  export interface TabsThemeAll {
+    tabs?: string;
+    navigation?: string;
+    navigationContainer?: string;
+    arrow?: string;
+    arrowContainer?: string;
+    label?: string;
+    active?: string;
+    disabled?: string;
+    hidden?: string;
+    withIcon?: string;
+    withText?: string;
+    icon?: string;
+    pointer?: string;
+    disableAnimation?: string;
+    tab?: string;
+    fixed?: string;
+    inverse?: string;
+  }
   export interface TabsTheme {
     /**
      * Added to the active tab content and header.

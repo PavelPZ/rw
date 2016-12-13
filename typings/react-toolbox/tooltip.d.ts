@@ -13,6 +13,11 @@ declare namespace __RT {
      * Wrapper for the root element used to position the tooltip.
      */
     tooltipWrapper?: string;
+
+    tooltipTop?: string;
+    tooltipLeft?: string;
+    tooltipRight?: string;
+    tooltipInner?: string;
   }
 
   interface TooltipProps {

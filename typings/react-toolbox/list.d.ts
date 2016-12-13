@@ -1,6 +1,28 @@
 declare namespace __RT {
   import React = __React;
 
+  export interface ListThemeAll {
+    list?: string;
+    subheader?: string;
+    divider?: string;
+    inset?: string;
+    listItem?: string;
+    ripple?: string;
+    item?: string;
+    selectable?: string;
+    disabled?: string;
+    checkboxItem?: string;
+    checkbox?: string;
+    left?: string;
+    right?: string;
+    itemAction?: string;
+    itemContentRoot?: string;
+    large?: string;
+    itemText?: string;
+    primary?: string;
+  }
+
+
   export interface ListTheme {
     /**
      * Used for the root element of the list.

@@ -2,6 +2,8 @@ declare namespace __RT {
   import React = __React;
 
   export interface TimePickerTheme {
+    disabled?: string;
+    inputElement?: string;
     /**
      * Added to the number which is active in clock face.
      */

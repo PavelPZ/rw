@@ -1,6 +1,23 @@
 declare namespace __RT {
   import React = __React;
 
+  export interface CardThemeAll {
+    card?: string;
+    raised?: string;
+
+    cardMedia?: string;
+    wide?: string;
+    square?: string;
+    content?: string;
+    contentOverlay?: string;
+    cardTitle?: string;
+    cardActions?: string;
+    cardText?: string;
+    subtitle?: string;
+    large?: string;
+    title?: string;
+    small?: string;
+  }
   export interface CardTheme {
     card?: string;
     raised?: string;

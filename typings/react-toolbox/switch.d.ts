@@ -2,6 +2,8 @@ declare namespace __RT {
   import React = __React;
 
   export interface SwitchTheme {
+    ['switch-on']?: string;
+    ['switch-off']?: string;
     /**
      * Used for the root element if the component is disabled.
      */

@@ -1,6 +1,28 @@
 declare namespace __RT {
   import React = __React;
 
+  export interface MenuThemeAll {
+    iconMenu?: string;
+    icon?: string;
+    menu?: string;
+    topLeft?: string;
+    outline?: string;
+    topRight?: string;
+    bottomLeft?: string;
+    bottomRight?: string;
+    static?: string;
+    menuInner?: string;
+    rippled?: string;
+    active?: string;
+    menuItem?: string;
+    disabled?: string;
+    selected?: string;
+    ripple?: string;
+    caption?: string;
+    shortcut?: string;
+    menuDivider?: string;
+  }
+
   export interface MenuTheme {
     /**
      * Added to the root element when menu is active.

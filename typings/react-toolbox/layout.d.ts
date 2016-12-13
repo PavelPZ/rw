@@ -1,6 +1,47 @@
 declare namespace __RT {
   import React = __React;
 
+  export interface LayoutThemeAll {
+    layout?: string;
+    navDrawer?: string;
+    scrim?: string;
+    drawerContent?: string;
+    scrollY?: string;
+    pinned?: string;
+    active?: string;
+    wide?: string;
+    smPermanent?: string;
+    smTabletPermanent?: string;
+    mdPermanent?: string;
+    lgPermanent?: string;
+    lgTabletPermanent?: string;
+    xlPermanent?: string;
+    xxlPermanent?: string;
+    xxxlPermanent?: string;
+    panel?: string;
+    sidebar?: string;
+    sidebarContent?: string;
+    ['width-1']?: string;
+    ['width-2']?: string;
+    ['width-3']?: string;
+    ['width-4']?: string;
+    ['width-5']?: string;
+    ['width-6']?: string;
+    ['width-7']?: string;
+    ['width-8']?: string;
+    ['width-9']?: string;
+    ['width-10']?: string;
+    ['width-11']?: string;
+    ['width-12']?: string;
+    ['width-100']?: string;
+    ['width-25']?: string;
+    ['width-33']?: string;
+    ['width-50']?: string;
+    ['width-66']?: string;
+    ['width-75']?: string;
+  }
+
+
   export interface LayoutTheme {
     /**
      * Class used in the container to position and align inner items.

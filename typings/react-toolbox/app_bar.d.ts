@@ -26,6 +26,8 @@ declare namespace __RT {
      * Added to the right icon app bar element.
      */
     rightIcon?: string;
+
+    scrollHide?: string;
   }
 
   interface AppBarProps extends Props {

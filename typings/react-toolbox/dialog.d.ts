@@ -2,6 +2,10 @@ declare namespace __RT {
   import React = __React;
 
   export interface DialogTheme {
+    small?: string;
+    normal?: string;
+    large?: string;
+    fullscreen?: string;
     /**
      * Used for the root when the dialog is active.
      */

@@ -89,6 +89,9 @@
   },
   "dependencies": {
     "tslib": "^1.2.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-atomizer": "^3.0.6"
   }
 }
-
