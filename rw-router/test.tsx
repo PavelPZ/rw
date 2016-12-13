@@ -5,7 +5,7 @@ import { blockGuiReducerFnc } from '../rw-redux/block-gui';
 import { RouteHook, routeReducerFnc, RouteHandler, init as routerInit, navigate } from './router';
 import { config } from '../app-config';
 import { IRouteData, IRouteDir } from './url-parser';
-import getRTAppRoot from '../rw-gui-rt/app-root';
+import getRTAppRoot from '../rw-gui-rt/gui-rt';
 
 import { routeTreeToDir, route, routeDirToTree, routeModify, parentPath } from './lib';
 

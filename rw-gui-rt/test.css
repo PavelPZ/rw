@@ -1,7 +1,81 @@
 .Bg\(t\) {
   background: transparent;
 }
-.D\(f\) {
-  display: -ms-flexbox;
-  display: flex;
+.H\(0\) {
+  height: 0;
+}
+.Op\(0\) {
+  opacity: 0;
+}
+.foo:hover > .foo\:h\>Op\(1\) {
+  opacity: 1;
+}
+.Px\(10px\) {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.Pos\(r\) {
+  position: relative;
+}
+.BdX {
+  border-top-width: 0;
+  border-right-width: 1px;
+  border-bottom-width: 0;
+  border-left-width: 1px;
+  border-style: solid;
+}
+.Cf:before, .Cf:after {
+  content: " ";
+  display: table;
+}
+.Cf:after {
+  clear: both;
+}
+.Cf, a[class*=LineClamp], .Row {
+  zoom: 1;
+}
+[class*=LineClamp] {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+a[class*=LineClamp], .Row {
+  display: inline-block;
+}
+a[class*=LineClamp] {
+  display : -webkit-box;
+  *display: inline;
+}
+a[class*=LineClamp]:after {
+  content: ".";
+  font-size: 0;
+  visibility: hidden;
+  display: inline-block;
+  overflow: hidden;
+  height: 0;
+  width: 0;
+}
+.LineClamp\(3\,20px\) {
+  -webkit-line-clamp: 3;
+  max-height: 20px;
+}
+.Row {
+  clear: both;
+  vertical-align: top;
+  width: 100%;
+  box-sizing: border-box;
+  *display: block;
+  *width: auto;
+}
+.StretchedBox {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+@supports (display:-moz-box) {
+  [class*=LineClamp] {
+    display: block;
+  }
 }

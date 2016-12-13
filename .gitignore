@@ -254,3 +254,4 @@ paket-files/
 jspm_packages/
 *.js
 !jspm.config.js
+!gulpfile.js
