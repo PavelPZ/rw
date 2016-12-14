@@ -1,6 +1,6 @@
 ﻿import { MiddlewareAPI, Action, Dispatch } from 'redux';
 
-export type TMiddlewareAPI = MiddlewareAPI<any>;
+export type TMiddlewareAPI = MiddlewareAPI<IRootState>;
 export type Middleware<T extends Action> = (middlAPI: TMiddlewareAPI) => (next: TDispatch) => (act: T) => void;
 export type TMiddleware = Middleware<Action>;
 export type TDispatch = Dispatch<any>;

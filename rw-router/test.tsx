@@ -3,10 +3,12 @@ import { IRootState, TMiddlewareAPI } from '../rw-redux/types';
 import { appInit } from '../rw-redux/app-loader';
 import { blockGuiReducerFnc } from '../rw-redux/block-gui';
 import { routeReducerFnc, RouteHandler, init as routerInit, navigate } from './router';
-import { RouteHook } from './block-gui';
+import { RouteHook } from './route-hook';
 import { config } from '../app-config';
 import { IRouteData, IRouteDir } from './url-parser';
 import getRTAppRoot from '../rw-gui-rt/get-app-root';
+
+import { loginReducerFnc } from '../rw-login/login';
 
 import { routeTreeToDir, route, routeDirToTree, routeModify, parentPath } from './lib';
 
@@ -69,7 +71,7 @@ class ChildHandler extends RouteHandler<IAppChildRoute> {
   }
   unPrepare(route: IAppChildRoute): Promise<never> { return new Promise<never>(resolve => setTimeout(() => resolve(), 500)); }
   normalizeStringProps(route: IAppChildRoute) { if (typeof route.numId === 'string') route.numId = parseInt(route.numId as any); }
-  loginNeeded(route: IAppChildRoute, api: TMiddlewareAPI): boolean { return route.numId > 22; }
+  loginNeeded(route: IAppChildRoute, api: TMiddlewareAPI): boolean { return route.numId >= 22; }
 }
 new ChildHandler(APP_CHILD);
 
@@ -80,6 +82,7 @@ const rootReducer = (state: IRootState, action: any): IRootState => {
   return {
     ...blockGuiReducerFnc(state, action),
     ...routeReducerFnc(state, action),
+    ...loginReducerFnc(state, action),
   };
 }
 

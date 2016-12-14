@@ -43,42 +43,42 @@ function pushState(route: IRouteDir) {
 
 function changeRoute(newRoute: IRouteDir, withPustState: boolean, subPath?: string) { dispatchRouterActionStart(store.dispatch, newRoute, withPustState, subPath); }
 
-interface IRouterAsyncParData { newRoute: IRouteDir; withPustState: boolean; subPath: string; }
-const loginREDIRECT = 'router.LOGIN_REDIRECT'; interface ILoginRedirectAction extends Action { type: 'router.LOGIN_REDIRECT', par: IRouterAsyncParData }
-const dispatchLoginRedirect = (dispatch: TDispatch, par: IRouterAsyncParData) => dispatch({ type: loginREDIRECT, par: par } as ILoginRedirectAction);
+export const loginREDIRECT = 'router.LOGIN_REDIRECT'; export interface ILoginRedirectAction extends Action { type: 'router.LOGIN_REDIRECT', returnUrl: string }
+const dispatchLoginRedirect = (dispatch: TDispatch, returnUrl: string) => dispatch({ type: loginREDIRECT, returnUrl: returnUrl } as ILoginRedirectAction);
 
-const routerCHANGE_START = 'router.CHANGE_START'; type IRouterAsyncPar = IAsyncProcPar & IRouterAsyncParData; 
+const routerCHANGE_START = 'router.CHANGE_START'; interface IRouterAsyncPar extends IAsyncProcPar { newRoute: IRouteDir; withPustState: boolean; subPath: string; }
 const dispatchRouterActionStart = (dispatch: TDispatch, newRoute: IRouteDir, withPustState: boolean, subPath: string) => dispatch(doAsyncAction<IRouterAsyncPar>({ type: routerCHANGE_START, newRoute: newRoute, withPustState: withPustState, subPath: subPath }));
 
 const routerCHANGE_END = 'router.CHANGE_END'; interface IDoRouteChangeEnd extends IAsyncResultAction<string> { type: 'router.CHANGE_END'; newRoute: IRouteDir; withPustState: boolean; }
 const dispatchRouteActionEnd = (dispatch: TDispatch, newRoute: IRouteDir, withPustState: boolean) => dispatch({ type: routerCHANGE_END, newRoute: newRoute, withPustState: withPustState } as IDoRouteChangeEnd);
 
 addAsyncProc<IRouterAsyncPar>(routerCHANGE_START, async (par, completed, api) => {
-  const router = (api.getState() as IRootState).router;
-  const diffs = diff(router, par.newRoute, par.subPath);
+  const routerOld = api.getState().router;
+  const diffs = diff(routerOld, par.newRoute, par.subPath);
+  const modifyRouteState = () => { //merge: old routes, delete modified routes, add new routes
+    const routerNew = { ...routerOld } as IRouteDir;
+    diffs.changedAll.forEach(path => delete routerNew[path]);
+    diffs.newAll.forEach(path => routerNew[path] = par.newRoute[path]);
+    return routerNew;
+  }
 
   //Login redirect chance
-  if (diffs.newAll) {
-    const doCancel = diffs.newAll.find(path => {
+  if (!api.getState().login.isLogged) {
+    const loginNeeded = diffs.newAll.find(path => {
       const rt = par.newRoute[path];
-      return !RouteHandler.find(rt.handlerId).loginNeeded(rt, api);
+      return RouteHandler.find(rt.handlerId).loginNeeded(rt, api);
     });
-    if (doCancel) { completed(() => dispatchLoginRedirect(api.dispatch, { newRoute: par.newRoute, subPath: par.subPath, withPustState: par.withPustState })); return; }
+    if (loginNeeded) { completed(() => dispatchLoginRedirect(api.dispatch, route2string(modifyRouteState()))); return; }
   }
 
   //Unprepare old routes
-  await Promise.all(diffs.changedAll.map(path => router[path]).map(rt => RouteHandler.find(rt.handlerId).unPrepare(rt)));
+  await Promise.all(diffs.changedAll.map(path => routerOld[path]).map(rt => RouteHandler.find(rt.handlerId).unPrepare(rt)));
 
   //Modify route state
-  const routerNew = { ...router } as IRouteDir;
-  diffs.changedAll.forEach(path => delete routerNew[path]);
-  diffs.newAll.forEach(path => routerNew[path] = par.newRoute[path]);
+  const routerNew = modifyRouteState();
 
-  //Prepare new routes
+  //Prepare new routes, async data to route
   const asyncData = await Promise.all(diffs.newAll.map(path => routerNew[path]).map(rt => RouteHandler.find(rt.handlerId).prepare(rt)));
-
-  //preparation result (= async data) to route
-  //asyncData.forEach(ad => routerNew[ad.path].$asyncData = ad.data);
   for (let i = 0; i < diffs.newAll.length; i++) if (asyncData[i]) routerNew[diffs.newAll[i]].$asyncData = asyncData[i];
 
   //Route end: modify app state etc.

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 
 //******
-import { startRecording, playActions } from './action-player.js';
+import { startRecording, playRecording } from './action-player.js';
 import { addAsyncProc, doAsyncAction, IAsyncStartAction, IAsyncResultAction, ASYNC_END, ASYNC_START, noRecordFnc, IAsyncProcPar } from './async';  
 import { appInit } from './app-loader';
 import { Reducer, TDispatch, IRootState, IMapDispatchToProps } from './types';
@@ -61,8 +61,8 @@ const ParentPresent: React.StatelessComponent<IParentMapStateToProps & IParentMa
     {/*props.childIds.map(id => <Child id={id} key={id} />)*/}
     <BlockGui />
     <Counter />
-    <div onClick={ev => { ev.preventDefault(); startRecording(); } }>Start recording</div>
-    <div onClick={ev => { ev.preventDefault(); playActions(); } }>Play actions</div>
+    <div onClick={ev => { ev.preventDefault(); startRecording('current'); } }>Start recording</div>
+    <div onClick={ev => { ev.preventDefault(); playRecording(); } }>Play actions</div>
   </div>;
 };
 

@@ -3,8 +3,9 @@
 //*****
 import { TMiddlewareAPI, Middleware } from './types';
 
-export let isRecording = { value: false };
-export const recordedActions: { startStatus: {}; actions: Array<Action> } = { startStatus: {}, actions: [] }
+export let recordingHook = {
+  pushActions: (act: Action) => { }
+};
 
 export type TAsyncComplete = (onResolve?: () => void) => void;
 export interface IAsyncProcPar { type: string; }
@@ -32,7 +33,7 @@ export const doAsyncErrorAction = (msg: any) => ({ type: ASYNC_ERROR, msg: msg }
 
 export const asyncMiddleware: Middleware<IAsyncStartAction> = middlAPI => next => act => {
   next(act);
-  if (isRecording.value && !noRecordFlag && typeof act == 'object') recordedActions.actions.push(act); //typeof act == 'object' je kvuli ev. Thunk action
+  if (!noRecordFlag && typeof act == 'object') recordingHook.pushActions(act); //typeof act == 'object' je kvuli ev. Thunk action
   if (act.type != ASYNC_START) return;
   const asyncProc = asyncProcs[act.asyncProcName];
   noRecordFnc(() => //no record action zone, before async 

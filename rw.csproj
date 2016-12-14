@@ -32,7 +32,7 @@
     <TypeScriptCompile Include="rw-gui-rt\theme.ts" />
     <TypeScriptCompile Include="rw-gui-rt\get-app-root.tsx" />
     <TypeScriptCompile Include="rw-login\login.ts" />
-    <TypeScriptCompile Include="rw-router\block-gui.tsx" />
+    <TypeScriptCompile Include="rw-router\route-hook.tsx" />
     <TypeScriptCompile Include="typings\react-css-themr\react-css-themr.d.ts" />
     <Content Include="web.config" />
   </ItemGroup>

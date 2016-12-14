@@ -18,7 +18,7 @@ export const blockGuiReducerFnc = (state: IRootState, action: any): IRootState =
   }
 }
 
-export const blockGui = connect<IBlockGuiMapStateToProps, IMapDispatchToProps, never>((state: IRootState) => ({ counterProp: state.blockGui.counter }));
+export const blockGui = connect<IBlockGuiMapStateToProps, IMapDispatchToProps, never>((state: IRootState) => ({ counterProp: state.blockGui.counter } as IBlockGuiMapStateToProps));
 
 export interface IBlockGuiState { counter: number; }
 export type TBlockGuiPresent = React.StatelessComponent<IBlockGuiMapStateToProps & IMapDispatchToProps>;

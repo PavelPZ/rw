@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { RouteHandler } from 'router';
+import { RouteHandler } from './router';
 import { IRouteDir } from './url-parser';
 import { IMapDispatchToProps, IRootState } from '../rw-redux/types';
 import { connect } from 'react-redux';
