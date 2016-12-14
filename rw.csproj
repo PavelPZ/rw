@@ -26,10 +26,13 @@
     <Content Include="gulpfile.js" />
     <Content Include="index.html" />
     <Content Include="jspm.config.js" />
+    <Content Include="rw-gui-rt\HelpAtomizer.txt" />
     <Content Include="rw-gui-rt\test.css" />
     <Content Include="rw-gui-rt\toolbox.css" />
     <TypeScriptCompile Include="rw-gui-rt\theme.ts" />
-    <TypeScriptCompile Include="rw-gui-rt\gui-rt.tsx" />
+    <TypeScriptCompile Include="rw-gui-rt\get-app-root.tsx" />
+    <TypeScriptCompile Include="rw-login\login.ts" />
+    <TypeScriptCompile Include="rw-router\block-gui.tsx" />
     <TypeScriptCompile Include="typings\react-css-themr\react-css-themr.d.ts" />
     <Content Include="web.config" />
   </ItemGroup>
@@ -48,7 +51,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="app-config.ts" />
     <TypeScriptCompile Include="rw-gui-rt\test.tsx" />
-    <TypeScriptCompile Include="rw-gui-rt\block-gui\index.tsx" />
+    <TypeScriptCompile Include="rw-gui-rt\block-gui\block-gui.tsx" />
     <TypeScriptCompile Include="rw-lib\base64.ts" />
     <TypeScriptCompile Include="rw-lib\cammel-case.ts" />
     <TypeScriptCompile Include="rw-lib\common.ts" />

@@ -37,11 +37,11 @@ export const route2string = (route: IRouteDir) => {
   return config.basicUrl + (urlStr ? (config.route.isHashRouter ? '#' : '?') + urlStr : '');
 }
 
-export const string2route = (url: string) => {
+export const string2route = (url: string, normalizeStringProps: (props: IRouteData) => void) => {
   if (!url.toLowerCase().startsWith(config.basicUrl)) return null; //throw new Error(`location.href does not start with ${config.basicUrl}`);
   url = clearSlashes(url.substr(config.basicUrl.length)); if (!url) return null;
   if (!config.route.isHashRouter) url = url.split('#')[0]; //odrizni # pro not hash route
-  return decodeUrlLow(url);
+  return decodeUrlLow(url, normalizeStringProps);
 }
 
 const clearSlashes = (path: string) => { return path.replace(/\/$/, '').replace(/^[\#\/\?]?/, ''); }
@@ -93,7 +93,7 @@ const encodeUrlLow = (state: IRouteDir) => {
 }
 
 // DECODE
-const decodeUrlLow = (url: string) => {
+const decodeUrlLow = (url: string, normalizeStringProps: (props: IRouteData) => void) => {
 
   const resRoutes: Array<IRouteData> = [];
 
@@ -119,6 +119,7 @@ const decodeUrlLow = (url: string) => {
       const nv = parts[i].split('=');
       st.route[nv[0]] = decodeURIComponent(nv[1]);
     }
+    if (normalizeStringProps) normalizeStringProps(st.route);
   };
 
   //TODO: patri jinam
@@ -163,7 +164,7 @@ const decodeUrlLow = (url: string) => {
 
 export const test = () => {
   const src = 'hand1;a=1;b=2/hand2;c=1;d=2$//ch1-hand3;e=1;f=2/hand31;c=1;d=2$//ch1-hand32;e=1;f=2$//ch2-hand33;g=1;h=2$/$//ch2-hand4;g=1;h=2';
-  const res = decodeUrlLow(src);
+  const res = decodeUrlLow(src, null);
   const json = JSON.stringify(res, null, 2);
   const url = encodeUrlLow(res);
   if (url != src) alert('url != src');

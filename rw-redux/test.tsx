@@ -135,7 +135,7 @@ const Child = connect<IChildMapStateToProps, IChildMapDispatchToProps, IChildOwn
     }
     return { textProp: st.childs[props.id].text }
   },
-  (dispatch: ReactRedux.Dispatch<any>, props: IChildOwnProps) => ({ onClickProp: (ev?: React.SyntheticEvent) => { if (ev) ev.preventDefault(); return dispatchChildActionStart(dispatch, props.id); } })
+  (dispatch: TDispatch, props: IChildOwnProps) => ({ onClickProp: (ev?: React.SyntheticEvent) => { if (ev) ev.preventDefault(); return dispatchChildActionStart(dispatch, props.id); } })
 )(ChildPresent);
 
 /***********************************************
@@ -144,7 +144,7 @@ const Child = connect<IChildMapStateToProps, IChildMapDispatchToProps, IChildOwn
 
 export type COUNTER = 'COUNTER'; export const COUNTER: COUNTER = 'COUNTER';
 export interface ICounterAction extends Action { type: COUNTER; }
-const dispatchCounterAction = (dispatch: TDispatch) => dispatch({ type: COUNTER });
+const dispatchCounterAction = (dispatch: TDispatch) => dispatch({ type: COUNTER } as ICounterAction);
 
 interface ICounterState { count: number; }
 

@@ -1,11 +1,12 @@
 ﻿import React from 'react';
-import { IRootState } from '../rw-redux/types';
+import { IRootState, TMiddlewareAPI } from '../rw-redux/types';
 import { appInit } from '../rw-redux/app-loader';
 import { blockGuiReducerFnc } from '../rw-redux/block-gui';
-import { RouteHook, routeReducerFnc, RouteHandler, init as routerInit, navigate } from './router';
+import { routeReducerFnc, RouteHandler, init as routerInit, navigate } from './router';
+import { RouteHook } from './block-gui';
 import { config } from '../app-config';
 import { IRouteData, IRouteDir } from './url-parser';
-import getRTAppRoot from '../rw-gui-rt/gui-rt';
+import getRTAppRoot from '../rw-gui-rt/get-app-root';
 
 import { routeTreeToDir, route, routeDirToTree, routeModify, parentPath } from './lib';
 
@@ -53,20 +54,22 @@ const RootPresenter: React.StatelessComponent<IRootPresenterProps & IAppRootRout
 const APP_CHILD = 'test.AppChild';
 interface IAppChildRoute extends IRouteData {
   handlerId: 'test.AppChild';
-  subTitle: string;
+  numId: number;
 }
-const createChildRoute = (subTitle: string) => ({ handlerId: APP_CHILD, subTitle: subTitle } as IAppChildRoute)
+const createChildRoute = (numId: number) => ({ handlerId: APP_CHILD, numId: numId } as IAppChildRoute)
 
 class ChildHandler extends RouteHandler<IAppChildRoute> {
-  createComponent(routeData: IAppChildRoute, state:IRouteDir): JSX.Element {
+  createComponent(routeData: IAppChildRoute, state: IRouteDir): JSX.Element {
     console.log('render ChildHandler');
     const parPath = parentPath(state, routeData.path);
     return <div>
-      <h2>{routeData.subTitle}</h2>
-      <a href="#" onClick={ev => navigate(routeModify<IAppRootRoute>(state, parPath, res => { res.title += ' x'; res.$childs.ch1.subTitle += ' x';}), ev, parPath)}>Click</a>
+      <h2>{routeData.numId}</h2>
+      <a href="#" onClick={ev => navigate(routeModify<IAppRootRoute>(state, parPath, res => { res.title += ' x'; res.$childs.ch1.numId += 1; }), ev, parPath)}>Click</a>
     </div>;
   }
-  unPrepare(route: IRouteData): Promise<never> { return new Promise<never>(resolve => setTimeout(() => resolve(), 500)); }
+  unPrepare(route: IAppChildRoute): Promise<never> { return new Promise<never>(resolve => setTimeout(() => resolve(), 500)); }
+  normalizeStringProps(route: IAppChildRoute) { if (typeof route.numId === 'string') route.numId = parseInt(route.numId as any); }
+  loginNeeded(route: IAppChildRoute, api: TMiddlewareAPI): boolean { return route.numId > 22; }
 }
 new ChildHandler(APP_CHILD);
 
@@ -82,6 +85,6 @@ const rootReducer = (state: IRootState, action: any): IRootState => {
 
 export function init() {
   appInit(rootReducer, document.getElementById('content'), getRTAppRoot);
-  routerInit(() => createAppRoute('Hallo world x', createChildRoute('Child 1'), createChildRoute('Child 2')));
+  routerInit(() => createAppRoute('Hallo world x', createChildRoute(10), createChildRoute(20)));
 }
 
