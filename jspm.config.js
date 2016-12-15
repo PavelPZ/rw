@@ -33,7 +33,7 @@ SystemJS.config({
     "domain": "npm:jspm-nodelibs-domain@0.2.0",
     "events": "npm:jspm-nodelibs-events@0.2.0",
     "fs": "npm:jspm-nodelibs-fs@0.2.0",
-    "globalize": "npm:globalize@1.1.2",
+    "globalize": "npm:globalize@1.2.1",
     "http": "npm:jspm-nodelibs-http@0.2.0",
     "https": "npm:jspm-nodelibs-https@0.2.1",
     "immutability-helper": "npm:immutability-helper@2.0.0",
@@ -77,11 +77,6 @@ SystemJS.config({
     "npm:redux-logger@2.7.4": {
       "map": {
         "deep-diff": "npm:deep-diff@0.3.4"
-      }
-    },
-    "npm:globalize@1.1.2": {
-      "map": {
-        "cldrjs": "npm:cldrjs@0.4.8"
       }
     },
     "npm:immutability-helper@2.0.0": {
@@ -397,6 +392,11 @@ SystemJS.config({
       "map": {
         "punycode": "npm:punycode@1.3.2",
         "querystring": "npm:querystring@0.2.0"
+      }
+    },
+    "npm:globalize@1.2.1": {
+      "map": {
+        "cldrjs": "npm:cldrjs@0.4.8"
       }
     }
   }

@@ -1,8 +1,42 @@
+.Bd {
+  border-width: 1px;
+}
+.Bd, .BdX {
+  border-style: solid;
+}
+.Bdc\(black\) {
+  border-color: black;
+}
 .Bg\(t\) {
   background: transparent;
 }
+.Bgc\(white\) {
+  background-color: white;
+}
+.Bgc\(gray\) {
+  background-color: gray;
+}
 .H\(0\) {
   height: 0;
+}
+.H\(100px\) {
+  height: 100px;
+}
+.H\(65px\) {
+  height: 65px;
+}
+.Mx\(3px\) {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.T\(0px\) {
+  top: 0px;
+}
+.B\(0px\) {
+  bottom: 0px;
+}
+.Start\(0px\) {
+  left: 0px;
 }
 .Op\(0\) {
   opacity: 0;
@@ -17,12 +51,26 @@
 .Pos\(r\) {
   position: relative;
 }
+.Pos\(f\) {
+  position: fixed;
+}
+.Pos\(a\), .StretchedBox {
+  position: absolute;
+}
+.W\(500px\) {
+  width: 500px;
+}
+.W\(600px\) {
+  width: 600px;
+}
+.Z\(999\) {
+  z-index: 999;
+}
 .BdX {
   border-top-width: 0;
   border-right-width: 1px;
   border-bottom-width: 0;
   border-left-width: 1px;
-  border-style: solid;
 }
 .Cf:before, .Cf:after {
   content: " ";
@@ -31,36 +79,12 @@
 .Cf:after {
   clear: both;
 }
-.Cf, a[class*=LineClamp], .Row {
+.Cf, .Row {
   zoom: 1;
-}
-[class*=LineClamp] {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-a[class*=LineClamp], .Row {
-  display: inline-block;
-}
-a[class*=LineClamp] {
-  display : -webkit-box;
-  *display: inline;
-}
-a[class*=LineClamp]:after {
-  content: ".";
-  font-size: 0;
-  visibility: hidden;
-  display: inline-block;
-  overflow: hidden;
-  height: 0;
-  width: 0;
-}
-.LineClamp\(3\,20px\) {
-  -webkit-line-clamp: 3;
-  max-height: 20px;
 }
 .Row {
   clear: both;
+  display: inline-block;
   vertical-align: top;
   width: 100%;
   box-sizing: border-box;
@@ -68,14 +92,8 @@ a[class*=LineClamp]:after {
   *width: auto;
 }
 .StretchedBox {
-  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-}
-@supports (display:-moz-box) {
-  [class*=LineClamp] {
-    display: block;
-  }
 }

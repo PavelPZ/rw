@@ -8,7 +8,7 @@ import theme from "./theme";
 export function init() {
   ReactDOM.render(<div>
     <ThemeProvider theme={theme}>
-      <div className='Op(0) foo:h>Op(1) BdX Px(10px) Cf Row StretchedBox Pos(r) H(0) LineClamp(3,20px)'>
+      <div>
         <Button primary raised>Hallo world</Button><br />
       </div>
     </ThemeProvider>

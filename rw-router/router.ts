@@ -19,7 +19,7 @@ export function init(initTree: () => IRouteData) {
   changeRoute(routeFromUrl ? routeFromUrl : config.route.initRoute(), false);
 }
 
-export function navigate(tree: IRouteData, ev?: any, subPath?: string) { if (ev) ev.preventDefault(); changeRoute(routeTreeToDir(tree, subPath), true, subPath); }
+export function navigate(tree: IRouteData, ev?: React.SyntheticEvent, subPath?: string) { if (ev) ev.preventDefault(); changeRoute(routeTreeToDir(tree, subPath), true, subPath); }
 
 export const routeReducerFnc = (state: IRootState, action: any): IRootState => {
   return {

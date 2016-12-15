@@ -71,7 +71,7 @@ class ChildHandler extends RouteHandler<IAppChildRoute> {
   }
   unPrepare(route: IAppChildRoute): Promise<never> { return new Promise<never>(resolve => setTimeout(() => resolve(), 500)); }
   normalizeStringProps(route: IAppChildRoute) { if (typeof route.numId === 'string') route.numId = parseInt(route.numId as any); }
-  loginNeeded(route: IAppChildRoute, api: TMiddlewareAPI): boolean { return route.numId >= 22; }
+  loginNeeded(route: IAppChildRoute, api: TMiddlewareAPI): boolean { return route.numId >= 25; }
 }
 new ChildHandler(APP_CHILD);
 

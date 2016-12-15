@@ -1,4 +1,6 @@
-﻿width,height: W(20px) H(20px)
+﻿//http://acss.io/reference
+
+width,height: W(20px) H(20px)
 line-height: Lh(1.5)
 padding: P(5px), Px (left-right), Py (top-bottom), Pstart Pend (left right),  Pt Pb (top bottom)
 margin: M(5px)
@@ -8,10 +10,15 @@ text-align: Ta(c|start|end) center, left, right
 display: D(n|b|f|i|ib|...) none, block, flex, inline, inline-block
 float: Fl(start|end|n) left, right, none
 
-position: Pos(a|r|f,s) absolute, relative, fixed, static
-color: c(gray)
+color: C(gray)
+bg color: Bgc(gray)
+z-index: Z(999)
+full screen: StretchedBox
 
 border
 - width: Bd, BdX, ... Bd(n)-none
 - color: Bdc(#fff), Bdc(grey)
 
+position: 
+- Pos(a|r|f,s) absolute, relative, fixed, static
+- left, right, top bottom: Start(0px) End(0px) T(0px) B(0px)

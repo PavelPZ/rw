@@ -4,7 +4,7 @@ const autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('css', () => {
   console.log('start');
-  return gulp.src('./rw-gui-rt/**/*.tsx')
+  return gulp.src(['./rw-gui-rt/**/*.tsx', './rw-gui-rt/**/*.ts'])
     .pipe(acss({
       // the filename of your output file.
       outfile: 'test.css'

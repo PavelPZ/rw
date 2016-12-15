@@ -29,9 +29,12 @@
     <Content Include="rw-gui-rt\HelpAtomizer.txt" />
     <Content Include="rw-gui-rt\test.css" />
     <Content Include="rw-gui-rt\toolbox.css" />
+    <TypeScriptCompile Include="rw-gui-rt\css-atomizer.tsx" />
+    <TypeScriptCompile Include="rw-gui-rt\recordings\index.tsx" />
     <TypeScriptCompile Include="rw-gui-rt\theme.ts" />
     <TypeScriptCompile Include="rw-gui-rt\get-app-root.tsx" />
     <TypeScriptCompile Include="rw-login\login.ts" />
+    <TypeScriptCompile Include="rw-redux\recordings.ts" />
     <TypeScriptCompile Include="rw-router\route-hook.tsx" />
     <TypeScriptCompile Include="typings\react-css-themr\react-css-themr.d.ts" />
     <Content Include="web.config" />
@@ -62,7 +65,7 @@
     <TypeScriptCompile Include="rw-lib\RJSON.ts" />
     <TypeScriptCompile Include="rw-lib\string2bytes.ts" />
     <TypeScriptCompile Include="rw-lib\unicode.ts" />
-    <TypeScriptCompile Include="rw-redux\action-player.tsx" />
+    <TypeScriptCompile Include="rw-redux\recording.tsx" />
     <TypeScriptCompile Include="rw-redux\app-loader.tsx" />
     <TypeScriptCompile Include="rw-redux\async.ts" />
     <TypeScriptCompile Include="rw-redux\block-gui.ts" />
