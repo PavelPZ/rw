@@ -35,7 +35,7 @@ window.addEventListener("popstate", ev => {
 });
 
 //modify browser URL
-function pushState(route: IRouteDir) {
+export const pushState = (route: IRouteDir) => {
   let urlStr = route2string(route);
   console.log(`> pushState: ${urlStr}`);
   history.pushState(null, null, urlStr);

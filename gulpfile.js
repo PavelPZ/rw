@@ -4,10 +4,11 @@ const autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('css', () => {
   console.log('start');
-  return gulp.src(['./rw-gui-rt/**/*.tsx', './rw-gui-rt/**/*.ts'])
+  return gulp.src(['./rw-gui-rt/**/*.tsx', './rw-gui-rt/**/*.ts', './index.html'])
     .pipe(acss({
       // the filename of your output file.
-      outfile: 'test.css'
+      outfile: 'test.css',
+      acssConfig: require('./atomizer-config.json')
     }))
     .pipe(autoprefixer({
       browsers: ['last 3 versions'],

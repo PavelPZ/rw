@@ -7,7 +7,6 @@ import classNames from "classnames";
 import { onNotify, INotify, cancel, playRecording, startRecording, stopRecording, cancelPlaying, notifyData, RecordingStatus } from "../../rw-redux/recording";
 import { playList } from "../../rw-redux/recordings";
 
-
 interface IHomeState {
   maximized?: boolean; //home size
   modifyState?: (st: IHomeState, ev: React.SyntheticEvent) => void; //modify root state
@@ -31,10 +30,10 @@ export class RecHome extends React.Component<{}, IHomeState> {
   render(): JSX.Element {
     const state = this.state;
     const buttons = btnMetas.map(m => m[3](state.recState) ? <Button onClick={ev => m[2]()} key={m[0]} className='Mx(3px)' icon={m[1]} raised>{m[0]}</Button> : null);
-    return <div className={classNames('Z(999) Pos(f) Start(0px) B(0px) W(500px) Bgc(white) Bd Bdc(black)', state.maximized ? 'T(0px)' : 'H(100px)')}>
+    return <div className={classNames('Z(999) Pos(f) Start(0px) B(0px) Bgc(white) Bd Bdc(black)', state.maximized ? 'T(0px) End(0px)' : 'W(600px) H(100px)')}>
       {buttons}
       <Button icon={state.maximized ? 'expand_more' : 'expand_less'} onClick={ev => state.modifyState({ maximized: !state.maximized }, ev)} key='max'></Button>
-      <br/>
+      <br />
       <span key='st'>{`${state.recState.title}/${RecordingStatus[state.recState.status]}: ${state.recState.actionIdx}/${state.recState.actionCount}, ${state.recState.recordsIdx}/${state.recState.recordsCount}`}</span>
     </div>
     //return this.state.maximized ? <RecMax {...this.state} /> : <RecMin {...this.state} />;

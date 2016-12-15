@@ -16,6 +16,9 @@
 .Bgc\(gray\) {
   background-color: gray;
 }
+.Fz\(66\.6\%\) {
+  font-size: 66.6%;
+}
 .H\(0\) {
   height: 0;
 }
@@ -31,6 +34,9 @@
 }
 .T\(0px\) {
   top: 0px;
+}
+.End\(0px\) {
+  right: 0px;
 }
 .B\(0px\) {
   bottom: 0px;
@@ -56,9 +62,6 @@
 }
 .Pos\(a\), .StretchedBox {
   position: absolute;
-}
-.W\(500px\) {
-  width: 500px;
 }
 .W\(600px\) {
   width: 600px;
@@ -96,4 +99,9 @@
   right: 0;
   bottom: 0;
   left: 0;
+}
+@media(min-width:750px) {
+  .Fz\(100\%\)--sm {
+    font-size: 100%;
+  }
 }

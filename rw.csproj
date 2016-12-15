@@ -23,6 +23,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <None Include="atomizer-config.json" />
     <Content Include="gulpfile.js" />
     <Content Include="index.html" />
     <Content Include="jspm.config.js" />
@@ -65,7 +66,7 @@
     <TypeScriptCompile Include="rw-lib\RJSON.ts" />
     <TypeScriptCompile Include="rw-lib\string2bytes.ts" />
     <TypeScriptCompile Include="rw-lib\unicode.ts" />
-    <TypeScriptCompile Include="rw-redux\recording.tsx" />
+    <TypeScriptCompile Include="rw-redux\recording.ts" />
     <TypeScriptCompile Include="rw-redux\app-loader.tsx" />
     <TypeScriptCompile Include="rw-redux\async.ts" />
     <TypeScriptCompile Include="rw-redux\block-gui.ts" />

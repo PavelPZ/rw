@@ -1,4 +1,5 @@
 ﻿//http://acss.io/reference
+//http://acss.io/guides/syntax.html#-lt-breakpoint_identifier-
 
 width,height: W(20px) H(20px)
 line-height: Lh(1.5)
