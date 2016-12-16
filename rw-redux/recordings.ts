@@ -12,14 +12,14 @@ export const playList = () => {
   const records = list.records; //.filter(r => r.isSelected); if (records.length <= 0) return null;
   return new Promise((resolve, reject) => {
     //init notify record
-    notifyDataInit({ recordsCount: records.length, inPlayList: true });
+    notifyDataInit({ recordsCount: records.length, playList: records });
     records.forEach(r => notifyData.actionCount += r.actions.length);
     notify();
     //play list
     let actIdx = 0;
     let play: () => void;
     play = () => {
-      if (actIdx >= records.length) { notify({ status: RecordingStatus.recorded, inPlayList: false }); return; }
+      if (actIdx >= records.length) { notify({ status: RecordingStatus.recorded, playList: null }); return; }
       setCurrentRecording(records[actIdx]);
       actIdx++;
       playRecording().then(() => setTimeout(() => { notify({ recordsIdx: notifyData.recordsIdx + 1 }); play(); }, 1)).catch(err => reject(err));

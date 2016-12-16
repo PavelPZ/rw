@@ -1,5 +1,6 @@
 ﻿//http://acss.io/reference
 //http://acss.io/guides/syntax.html#-lt-breakpoint_identifier-
+//FLEX: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 
 width,height: W(20px) H(20px)
 line-height: Lh(1.5)
@@ -23,3 +24,22 @@ border
 position: 
 - Pos(a|r|f,s) absolute, relative, fixed, static
 - left, right, top bottom: Start(0px) End(0px) T(0px) B(0px)
+
+flex: 
+- D(f|if) display:flex|inline-flex 
+- Flx(a|n|3) flex:auto|none
+- Flxg(3) flex-grow
+- Flxs(3) flex-shrink
+- Flxb(a|n) flex-basic:auto|none
+- As(fs|fe) align-self:flex-start|flex-end
+- Ai(fs|fe) align-items:flex-start|flex-end
+- Ac(fs|fe) align-content:flex-start|flex-end
+- Jc(fs|fe) justify-content:flex-start|flex-end
+- Flw(nw|w|wr) flex-wrap:nowrap|wrap|wrap-reverse
+- Fld(r|rr|c|cr) flex-direction:row|row-reverse|column|column-reverse
+- Flf(r|rr|c|cr|nw|w|wr) dlex-flow:row|row-reverse|column|column-reverse|nowrap|wrap|wrap-reverse
+
+============== Examples =================
+vertical align Bottom: http://stackoverflow.com/questions/585945/how-to-align-content-of-a-div-to-the-bottom
+  parent: D(f) display: flex
+  child: As(fe) align-self: flex-end;

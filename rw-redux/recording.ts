@@ -20,7 +20,7 @@ export interface IRecording {
 let currentRecording: IRecording = {};
 
 export interface INotify {
-  inPlayList?: boolean;
+  playList?: Array<IRecording>;
   status?: RecordingStatus;
   title?: string;
   actionCount?: number;
@@ -38,7 +38,7 @@ export const setStatus = (status: RecordingStatus) => { if (!currentRecording) r
 //play all actions
 export const playRecording = () => {
   if (!currentRecording || currentRecording.status != RecordingStatus.recorded) return null;
-  if (notifyData.inPlayList)
+  if (notifyData.playList)
     notify({ title: currentRecording.title });
   else {
     notifyDataInit({ title: currentRecording.title, actionCount: currentRecording.actions.length });
@@ -53,7 +53,7 @@ export const playRecording = () => {
     let play: () => void;
     play = () => {
       try {
-        if (!currentRecording || currentRecording.status != RecordingStatus.playing) { setStatus(RecordingStatus.recorded); notify({ inPlayList:false }); return; }
+        if (!currentRecording || currentRecording.status != RecordingStatus.playing) { setStatus(RecordingStatus.recorded); notify({ playList:null }); return; }
         if (actIdx >= currentRecording.actions.length) { setStatus(RecordingStatus.recorded); resolve(); return; }
         playAction(dispatch, currentRecording.actions[actIdx]).then(() => setTimeout(() => { notify({ actionIdx: notifyData.actionIdx + 1 }); play(); }, 500));
         actIdx++;
@@ -66,11 +66,12 @@ export const playRecording = () => {
 export const setCurrentRecording = (rec: IRecording) => currentRecording = rec;
 
 //start recording
-export const startRecording = (title?: string) => {
+export const startRecording = () => {
   cancel();
-  currentRecording = { status: RecordingStatus.recording, appState: store.getState(), actions: [], title: title };
+  currentRecording = { status: RecordingStatus.recording, appState: store.getState(), actions: [], title: notifyData.title = curentRecordingTitle };
   setStatus(RecordingStatus.recording);
 };
+export const curentRecordingTitle = 'Current';
 
 //cancel all
 export const cancel = () => {
@@ -84,7 +85,7 @@ export const stopRecording = (title?: string) => {
   if (!currentRecording || currentRecording.status != RecordingStatus.recording) return;
   setStatus(RecordingStatus.recorded); if (title) currentRecording.title = title;
   //save recordedActions
-  if (!currentRecording.title) currentRecording.title = 'default';
+  if (!currentRecording.title) currentRecording.title = curentRecordingTitle;
   localStorage.setItem(locStoragePrefix + currentRecording.title, JSON.stringify(currentRecording));
 };
 export const locStoragePrefix = 'records/';

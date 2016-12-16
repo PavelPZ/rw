@@ -13,8 +13,30 @@
 .Bgc\(white\) {
   background-color: white;
 }
+.Bgc\(yellow\) {
+  background-color: yellow;
+}
 .Bgc\(gray\) {
   background-color: gray;
+}
+.D\(f\) {
+  display: -ms-flexbox;
+  display: flex;
+}
+.D\(n\) {
+  display: none;
+}
+.Flxg\(1\) {
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+.Flxs\(1\) {
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+}
+.Fld\(c\) {
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 .Fz\(66\.6\%\) {
   font-size: 66.6%;
@@ -22,11 +44,11 @@
 .H\(0\) {
   height: 0;
 }
-.H\(100px\) {
-  height: 100px;
-}
 .H\(65px\) {
   height: 65px;
+}
+.H\(90px\) {
+  height: 90px;
 }
 .Mx\(3px\) {
   margin-left: 3px;
@@ -34,9 +56,6 @@
 }
 .T\(0px\) {
   top: 0px;
-}
-.End\(0px\) {
-  right: 0px;
 }
 .B\(0px\) {
   bottom: 0px;
@@ -62,6 +81,9 @@
 }
 .Pos\(a\), .StretchedBox {
   position: absolute;
+}
+.W\(65px\) {
+  width: 65px;
 }
 .W\(600px\) {
   width: 600px;
@@ -100,7 +122,7 @@
   bottom: 0;
   left: 0;
 }
-@media(min-width:750px) {
+@media(min-width:840px) {
   .Fz\(100\%\)--sm {
     font-size: 100%;
   }
