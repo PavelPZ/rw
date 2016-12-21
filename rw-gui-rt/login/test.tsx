@@ -1,20 +1,23 @@
 ﻿import React from 'react';
-import { IRootState, TMiddlewareAPI } from '../../rw-redux/types';
-import { appInit } from '../../rw-redux/app-loader';
-import { blockGuiReducerFnc } from '../../rw-redux/block-gui';
-import { routeReducerFnc, RouteHandler, init as routerInit, navigate } from '../../rw-router/router';
-import { RouteHook } from '../../rw-router/route-hook';
-import { config } from '../../app-config';
-import { IRouteData, IRouteDir } from '../../rw-router/url-parser';
-import getRTAppRoot from '../get-app-root';
 
-import { routeTreeToDir, route, routeDirToTree, routeModify, parentPath } from '../../rw-router/lib';
+import { IRootState, TMiddlewareAPI } from 'rw-redux/types';
+import { appInit } from 'rw-redux/app-loader';
+import { blockGuiReducerFnc } from 'rw-redux/block-gui';
 
-import { loginReducerFnc, createLoginRoute } from '../../rw-login/index';
+import getRTAppRoot from 'rw-gui-rt/get-app-root';
+
+import { config } from 'config';
+
+import { RouteHook } from 'rw-router/route-hook';
+import { routeReducerFnc, RouteHandler, init as routerInit, navigate } from 'rw-router/router';
+import { IRouteData, IRouteDir } from 'rw-router/url-parser';
+import { routeTreeToDir, route, routeDirToTree, routeModify, parentPath } from 'rw-router/lib';
+
+import { loginReducerFnc, createLoginRoute } from 'rw-login/index';
 
 //GUI import
-import initLogin from './index'; initLogin();
-import initBlockGui from '../block-gui/index'; initBlockGui();
+import initLogin from 'rw-gui-rt/login/index'; initLogin();
+import initBlockGui from 'rw-gui-rt/block-gui/index'; initBlockGui();
 
 /***********************************************
               ROOT

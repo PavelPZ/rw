@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { Action } from 'redux';
 
 //*****
-import { IConfig, config } from '../app-config';
-import { writeObj, readObj } from '../rw-lib/cookie';
-import { TDispatch, Reducer, IMapDispatchToProps, IRootState } from '../rw-redux/types';
+import { IConfig, config } from 'config';
+import { writeObj, readObj } from 'rw-lib/cookie';
+import { TDispatch, Reducer, IMapDispatchToProps, IRootState } from 'rw-redux/types';
 import { IRouteDir, IRouteData } from '../rw-router/url-parser';
-import { loginREDIRECT, ILoginRedirectAction, RouteHandler } from '../rw-router/router';
+import { loginREDIRECT, ILoginRedirectAction, RouteHandler } from 'rw-router/router';
 
-declare module '../app-config' {
+declare module 'config' {
   interface IConfig {
     login: {
       loginRoute: () => IRouteDir;
@@ -17,7 +17,7 @@ declare module '../app-config' {
   }
 }
 
-declare module '../rw-redux/types' {
+declare module 'rw-redux/types' {
   interface IRootState {
     login?: ILoginState;
   }

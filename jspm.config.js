@@ -1,7 +1,13 @@
 SystemJS.config({
   browserConfig: {
     "paths": {
-      "npm:": "/jspm_packages/npm/"
+      "npm:": "/jspm_packages/npm/",
+      "rw-router": "/rw-router",
+      "rw-redux": "/rw-redux",
+      "rw-lib": "/rw-lib",
+      "rw-login": "/rw-login",
+      "rw-gui-rt": "/rw-gui-rt",
+      "config": "app-config.js",
     }
   },
   nodeConfig: {

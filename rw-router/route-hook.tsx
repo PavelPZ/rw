@@ -1,8 +1,9 @@
 ﻿import React from 'react';
+import { connect } from 'react-redux';
+import { IMapDispatchToProps, IRootState } from 'rw-redux/types';
+
 import { RouteHandler } from './router';
 import { IRouteDir } from './url-parser';
-import { IMapDispatchToProps, IRootState } from '../rw-redux/types';
-import { connect } from 'react-redux';
 
 interface IRouteHookMapStateToProps { root: IRouteDir; path: string; }
 interface IRouteHookOwnProps { parentPath: string, hookId: string; }

@@ -2,7 +2,7 @@
 import valuesIn from 'lodash/valuesIn';
 import isEqual from 'lodash/isEqual';
 
-import { IRootState } from '../rw-redux/types';
+import { IRootState } from 'rw-redux/types';
 
 //*****
 import { IRouteData, IRouteDir } from './url-parser';

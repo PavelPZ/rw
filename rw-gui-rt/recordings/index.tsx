@@ -2,10 +2,11 @@
 import FontIcon from 'react-toolbox/lib/font_icon/FontIcon';
 import Button from 'react-toolbox/lib/button/Button';
 import IconButton from 'react-toolbox/lib/button/IconButton';
-import theme from "../theme";
 import classNames from "classnames";
-import { onNotify, INotify, cancel, playRecording, startRecording, stopRecording, cancelPlaying, notifyData, RecordingStatus } from "../../rw-redux/recording";
-import { playList } from "../../rw-redux/recordings";
+
+import theme from "rw-gui-rt/theme";
+import { onNotify, INotify, cancel, playRecording, startRecording, stopRecording, cancelPlaying, notifyData, RecordingStatus } from "rw-redux/recording";
+import { playList } from "rw-redux/recordings";
 
 interface IHomeState {
   size?: number; //home size

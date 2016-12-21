@@ -1,6 +1,6 @@
-import { IConfig, config } from '../app-config';
+import { IConfig, config } from 'config';
 
-declare module '../app-config' {
+declare module 'config' {
   interface IConfig {
     route: {
       isHashRouter: boolean;

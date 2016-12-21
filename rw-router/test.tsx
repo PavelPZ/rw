@@ -1,19 +1,21 @@
 ﻿import React from 'react';
-import { IRootState, TMiddlewareAPI } from '../rw-redux/types';
-import { appInit } from '../rw-redux/app-loader';
-import { blockGuiReducerFnc } from '../rw-redux/block-gui';
+
+//lm libs
+import { IRootState, TMiddlewareAPI } from 'rw-redux/types';
+import { appInit } from 'rw-redux/app-loader';
+import { blockGuiReducerFnc } from 'rw-redux/block-gui';
+import { config } from 'config';
+import { loginReducerFnc } from 'rw-login/index';
+
+//GUI libs
+import getRTAppRoot from 'rw-gui-rt/get-app-root';
+import initBlockGui from 'rw-gui-rt/block-gui/index'; initBlockGui();
+
+//self lib
 import { routeReducerFnc, RouteHandler, init as routerInit, navigate } from './router';
 import { RouteHook } from './route-hook';
-import { config } from '../app-config';
 import { IRouteData, IRouteDir } from './url-parser';
-import getRTAppRoot from '../rw-gui-rt/get-app-root';
-
-import { loginReducerFnc } from '../rw-login/index';
-
 import { routeTreeToDir, route, routeDirToTree, routeModify, parentPath } from './lib';
-
-//GUI import
-import initBlockGui from '../rw-gui-rt/block-gui/index'; initBlockGui();
 
 /***********************************************
               PARENT

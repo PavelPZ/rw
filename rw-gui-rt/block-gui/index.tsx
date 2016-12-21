@@ -1,9 +1,8 @@
 ﻿import React from 'react';
-
 import Overlay from "react-toolbox/lib/overlay/Overlay";
-import theme from "../theme";
 
-import { blockGuiCreator, TBlockGuiPresent, blockGuiProxy } from '../../rw-redux/block-gui';
+import theme from "rw-gui-rt/theme";
+import { blockGuiCreator, TBlockGuiPresent, blockGuiProxy } from 'rw-redux/block-gui';
 
 const BlockGuiPresent: TBlockGuiPresent = props => {
   console.log('render BlockGui');
@@ -12,6 +11,5 @@ const BlockGuiPresent: TBlockGuiPresent = props => {
 };
 
 const BlockGui = blockGuiCreator(BlockGuiPresent);
-
 const init = () => blockGuiProxy.value = () => <BlockGui />;
 export default init;
