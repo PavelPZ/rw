@@ -9,5 +9,8 @@ export const config: IConfig = {
   route: {
     isHashRouter: true,
     initRoute: null,
+  },
+  login: {
+    loginRoute: null
   }
 }

@@ -8,9 +8,12 @@ import { config } from '../app-config';
 import { IRouteData, IRouteDir } from './url-parser';
 import getRTAppRoot from '../rw-gui-rt/get-app-root';
 
-import { loginReducerFnc } from '../rw-login/login';
+import { loginReducerFnc } from '../rw-login/index';
 
 import { routeTreeToDir, route, routeDirToTree, routeModify, parentPath } from './lib';
+
+//GUI import
+import initBlockGui from '../rw-gui-rt/block-gui/index'; initBlockGui();
 
 /***********************************************
               PARENT
@@ -28,6 +31,7 @@ interface IAppRootRoute extends IRouteData {
     ch1: IAppChildRoute
   }
 }
+//create app route
 const createAppRoute = (title: string, child: IAppChildRoute, ch1$child: IAppChildRoute) => ({ handlerId: APP_ROOT, title: title, $childs: { '': child, ch1: ch1$child } } as IAppRootRoute);
 
 //handler
@@ -88,6 +92,9 @@ const rootReducer = (state: IRootState, action: any): IRootState => {
 
 export function init() {
   appInit(rootReducer, document.getElementById('content'), getRTAppRoot);
-  routerInit(() => createAppRoute('Hallo world x', createChildRoute(10), createChildRoute(20)));
+  //Route definition
+  config.route.initRoute = () => routeTreeToDir(createAppRoute('Hallo world x', createChildRoute(10), createChildRoute(20)));
+  //Router init
+  routerInit();
 }
 

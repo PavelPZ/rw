@@ -37,9 +37,15 @@ flex:
 - Jc(fs|fe) justify-content:flex-start|flex-end
 - Flw(nw|w|wr) flex-wrap:nowrap|wrap|wrap-reverse
 - Fld(r|rr|c|cr) flex-direction:row|row-reverse|column|column-reverse
-- Flf(r|rr|c|cr|nw|w|wr) dlex-flow:row|row-reverse|column|column-reverse|nowrap|wrap|wrap-reverse
+- Flf(r|rr|c|cr|nw|w|wr) flex-flow:row|row-reverse|column|column-reverse|nowrap|wrap|wrap-reverse
 
 ============== Examples =================
-vertical align Bottom: http://stackoverflow.com/questions/585945/how-to-align-content-of-a-div-to-the-bottom
+vertical align to bottom: http://stackoverflow.com/questions/585945/how-to-align-content-of-a-div-to-the-bottom
   parent: D(f) display: flex
   child: As(fe) align-self: flex-end;
+
+vertical vill space above bottom DIV
+  parent: D(f) Fld(c) display: flex; flex-direction: column;
+  child-top: Flxg(1) flex-grow: 1;
+  child-bottom: Flxs(1) flex-shrink: 1;
+

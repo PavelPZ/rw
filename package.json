@@ -2,7 +2,6 @@
   "jspm": {
     "main": "app.js",
     "dependencies": {
-      "classnames": "npm:classnames@^2.2.5",
       "globalize": "npm:globalize@^1.1.2",
       "lodash": "npm:lodash@^4.17.2",
       "react-css-themr": "npm:react-css-themr@^1.6.1",
@@ -21,6 +20,7 @@
       "assert": "npm:jspm-nodelibs-assert@^0.2.0",
       "buffer": "npm:jspm-nodelibs-buffer@^0.2.0",
       "child_process": "npm:jspm-nodelibs-child_process@^0.2.0",
+      "classnames": "npm:classnames@^2.2.5",
       "constants": "npm:jspm-nodelibs-constants@^0.2.0",
       "crypto": "npm:jspm-nodelibs-crypto@^0.2.0",
       "domain": "npm:jspm-nodelibs-domain@^0.2.0",
@@ -32,7 +32,7 @@
       "os": "npm:jspm-nodelibs-os@^0.2.0",
       "path": "npm:jspm-nodelibs-path@^0.2.0",
       "process": "npm:jspm-nodelibs-process@^0.2.0",
-      "react": "npm:react@^15.4.1",
+      "react": "npm:react@^15.0.0",
       "react-addons-css-transition-group": "npm:react-addons-css-transition-group@15.4",
       "react-dom": "npm:react-dom@15.4",
       "redux": "npm:redux@^3.0.0",

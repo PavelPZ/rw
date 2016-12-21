@@ -7,7 +7,7 @@ gulp.task('css', () => {
   return gulp.src(['./rw-gui-rt/**/*.tsx', './rw-gui-rt/**/*.ts', './index.html'])
     .pipe(acss({
       // the filename of your output file.
-      outfile: 'test.css',
+      outfile: 'app.css',
       acssConfig: require('./atomizer-config.json')
     }))
     .pipe(autoprefixer({

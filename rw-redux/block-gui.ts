@@ -11,6 +11,7 @@ declare module './types' {
     blockGui?: IBlockGuiState;
   }
 }
+export interface IBlockGuiState { counter: number; }
 
 export const blockGuiReducerFnc = (state: IRootState, action: any): IRootState => {
   return {
@@ -18,10 +19,10 @@ export const blockGuiReducerFnc = (state: IRootState, action: any): IRootState =
   }
 }
 
-export const blockGui = connect<IBlockGuiMapStateToProps, IMapDispatchToProps, never>((state: IRootState) => ({ counterProp: state.blockGui.counter } as IBlockGuiMapStateToProps));
-
-export interface IBlockGuiState { counter: number; }
+export const blockGuiCreator = connect<IBlockGuiMapStateToProps, IMapDispatchToProps, never>((state: IRootState) => ({ counterProp: state.blockGui.counter } as IBlockGuiMapStateToProps));
 export type TBlockGuiPresent = React.StatelessComponent<IBlockGuiMapStateToProps & IMapDispatchToProps>;
+debugger;
+export const blockGuiProxy: { value?: () => JSX.Element } = {};
 
 interface IBlockGuiMapStateToProps { counterProp: number; }
 

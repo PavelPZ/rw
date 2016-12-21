@@ -49,12 +49,7 @@ export class RecHome extends React.Component<{}, IHomeState> {
           <br />,
         ]}
       </div>
-      {/* {buttons}
-      <Button icon={state.size ? 'expand_more' : 'expand_less'} onClick={ev => state.modifyState({ size: (state.size + 1) % 3}, ev)} key='max'></Button>
-      <br />
-      <span key='st'>{`${state.recState.title}/${RecordingStatus[state.recState.status]}: ${state.recState.actionIdx}/${state.recState.actionCount}, ${state.recState.recordsIdx}/${state.recState.recordsCount}`}</span>*/}
     </div>
-    //return this.state.maximized ? <RecMax {...this.state} /> : <RecMin {...this.state} />;
   }
 }
 
@@ -67,27 +62,4 @@ const btnMetas: Array<[string, string, () => void, (nd: INotify) => boolean]> = 
   ['Play list', 'play_circle_outline', playList, nd => true],
 ];
 const inStatus = (st: RecordingStatus, arr: Array<RecordingStatus>) => { if (!st) st = RecordingStatus.no; return arr.indexOf(st) >= 0; };
-
-//const RecMax: React.StatelessComponent<IHomeState> = props => {
-//  return <div className='StretchedBox Bgc(gray)'>
-//    <RecToogle doMax={false} {...props}/>
-//  </div>;
-//}
-
-//const RecMin: React.StatelessComponent<IHomeState> = props => {
-//  return <RecToogle doMax={true} {...props}/>;
-//}
-
-//const RecToogle: React.StatelessComponent<IHomeState & { doMax: boolean; }> = props => {
-//  return <div className='z(999) Pos(a) Start(0px) B(0px) W(600px) H(65px)'>
-//    <span onClick={ev => startRecording()}><FontIcon value='fiber_manual_record' /> Record</span>
-//    <span onClick={ev => stopRecording()}><FontIcon value='stop' /> Stop</span>
-//    <span onClick={ev => playRecording()}><FontIcon value='play_circle_filled' /> Play</span>
-//    <span onClick={ev => cancel()}><FontIcon value='cancel' /> Cancel</span><br />
-//    <span>{`${props.recState.title}/${RecordingStatus[props.recState.status]}: ${props.recState.actionIdx}/${props.recState.actionCount}, ${props.recState.recordsIdx}/${props.recState.recordsCount}`}</span>
-//    <Button floating mini accent icon={props.doMax ? 'zoom_in' : 'zoom_out'} onClick={ev => props.modifyState({ maximized: props.doMax }, ev)} />
-
-//  </div>;
-//}
-
 

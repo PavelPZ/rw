@@ -9,7 +9,7 @@ import { startRecording, playRecording } from './recording.js';
 import { addAsyncProc, doAsyncAction, IAsyncStartAction, IAsyncResultAction, ASYNC_END, ASYNC_START, noRecordFnc, IAsyncProcPar } from './async';  
 import { appInit } from './app-loader';
 import { Reducer, TDispatch, IRootState, IMapDispatchToProps } from './types';
-import { blockGuiReducerFnc, blockGui, TBlockGuiPresent } from './block-gui';
+import { blockGuiReducerFnc, blockGuiCreator, TBlockGuiPresent } from './block-gui';
 
 /***********************************************
               BLOCK GUI
@@ -19,7 +19,7 @@ const BlockGuiPresent: TBlockGuiPresent = props => {
   return props.counterProp > 0 ? <h3 style={{ color: 'red' }}>Loading...</h3> : null;
 };
 
-const BlockGui = blockGui(BlockGuiPresent);
+const BlockGui = blockGuiCreator(BlockGuiPresent);
 
 /***********************************************
               PARENT

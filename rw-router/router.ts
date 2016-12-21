@@ -13,8 +13,8 @@ import { string2route, route2string, IRouteData, IRouteDir } from './url-parser'
 import { routeTreeToDir } from './lib';
 
 
-export function init(initTree: () => IRouteData) {
-  config.route.initRoute = () => routeTreeToDir(initTree());
+export function init() {
+  //if (initTree) config.route.initRoute = () => routeTreeToDir(initTree());
   const routeFromUrl = string2route(window.location.href, RouteHandler.normalizeStringProps);
   changeRoute(routeFromUrl ? routeFromUrl : config.route.initRoute(), false);
 }

@@ -43,7 +43,7 @@ SystemJS.config({
     "process": "npm:jspm-nodelibs-process@0.2.0",
     "react": "npm:react@15.4.1",
     "react-addons-css-transition-group": "npm:react-addons-css-transition-group@15.4.1",
-    "react-css-themr": "npm:react-css-themr@1.6.1",
+    "react-css-themr": "npm:react-css-themr@1.7.0",
     "react-dom": "npm:react-dom@15.4.1",
     "react-redux": "npm:react-redux@4.4.6",
     "react-toolbox": "npm:react-toolbox@1.3.2",
@@ -63,7 +63,7 @@ SystemJS.config({
       "map": {
         "core-js": "npm:core-js@2.4.1",
         "normalize.css": "npm:normalize.css@4.2.0",
-        "react-css-themr": "npm:react-css-themr@1.6.1"
+        "react-css-themr": "npm:react-css-themr@1.7.0"
       }
     },
     "npm:react-redux@4.4.6": {
@@ -88,19 +88,14 @@ SystemJS.config({
       "map": {
         "loose-envify": "npm:loose-envify@1.3.0",
         "object-assign": "npm:object-assign@4.1.0",
-        "fbjs": "npm:fbjs@0.8.6"
+        "fbjs": "npm:fbjs@0.8.7"
       }
     },
     "npm:react@15.4.1": {
       "map": {
         "loose-envify": "npm:loose-envify@1.3.0",
         "object-assign": "npm:object-assign@4.1.0",
-        "fbjs": "npm:fbjs@0.8.6"
-      }
-    },
-    "npm:react-css-themr@1.6.1": {
-      "map": {
-        "invariant": "npm:invariant@2.2.2"
+        "fbjs": "npm:fbjs@0.8.7"
       }
     },
     "npm:invariant@2.2.2": {
@@ -119,16 +114,6 @@ SystemJS.config({
     "npm:loose-envify@1.3.0": {
       "map": {
         "js-tokens": "npm:js-tokens@2.0.0"
-      }
-    },
-    "npm:fbjs@0.8.6": {
-      "map": {
-        "core-js": "npm:core-js@1.2.7",
-        "loose-envify": "npm:loose-envify@1.3.0",
-        "object-assign": "npm:object-assign@4.1.0",
-        "promise": "npm:promise@7.1.1",
-        "isomorphic-fetch": "npm:isomorphic-fetch@2.2.1",
-        "ua-parser-js": "npm:ua-parser-js@0.7.12"
       }
     },
     "npm:isomorphic-fetch@2.2.1": {
@@ -397,6 +382,22 @@ SystemJS.config({
     "npm:globalize@1.2.1": {
       "map": {
         "cldrjs": "npm:cldrjs@0.4.8"
+      }
+    },
+    "npm:react-css-themr@1.7.0": {
+      "map": {
+        "invariant": "npm:invariant@2.2.2"
+      }
+    },
+    "npm:fbjs@0.8.7": {
+      "map": {
+        "loose-envify": "npm:loose-envify@1.3.0",
+        "object-assign": "npm:object-assign@4.1.0",
+        "core-js": "npm:core-js@1.2.7",
+        "setimmediate": "npm:setimmediate@1.0.5",
+        "isomorphic-fetch": "npm:isomorphic-fetch@2.2.1",
+        "promise": "npm:promise@7.1.1",
+        "ua-parser-js": "npm:ua-parser-js@0.7.12"
       }
     }
   }
