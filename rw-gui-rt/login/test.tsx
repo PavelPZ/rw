@@ -84,7 +84,7 @@ export function init() {
   appInit(rootReducer, document.getElementById('content'), getRTAppRoot);
   //Route definition
   config.route.initRoute = () => routeTreeToDir(createAppRoute(createChildRoute()));
-  config.login.loginRoute = () => routeTreeToDir(createAppRoute(createLoginRoute()));
+  config.login.loginRoute = () => createAppRoute(createLoginRoute());
   //Router init
   routerInit();
 }

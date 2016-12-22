@@ -25,6 +25,7 @@
     <Content Include=".gitignore" />
     <None Include="atomizer-config.json" />
     <Content Include="gulpfile.js" />
+    <Content Include="login.html" />
     <Content Include="index.html" />
     <Content Include="jspm.config.js" />
     <Content Include="rw-gui-rt\HelpAtomizer.txt" />
@@ -38,10 +39,12 @@
     <TypeScriptCompile Include="rw-gui-rt\get-app-root.tsx" />
     <TypeScriptCompile Include="rw-login\common.ts" />
     <TypeScriptCompile Include="rw-login\index.ts" />
+    <TypeScriptCompile Include="rw-login\login.ts" />
     <TypeScriptCompile Include="rw-redux\recordings.ts" />
     <TypeScriptCompile Include="rw-router\route-hook.tsx" />
     <TypeScriptCompile Include="typings\react-css-themr\react-css-themr.d.ts" />
     <Content Include="web.config" />
+    <TypeScriptCompile Include="typings\semantic-ui\semantic-ui.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="tsconfig.json" />

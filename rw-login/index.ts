@@ -7,12 +7,12 @@ import { IConfig, config } from 'config';
 import { writeObj, readObj } from 'rw-lib/cookie';
 import { TDispatch, Reducer, IMapDispatchToProps, IRootState } from 'rw-redux/types';
 import { IRouteDir, IRouteData } from '../rw-router/url-parser';
-import { loginREDIRECT, ILoginRedirectAction, RouteHandler } from 'rw-router/router';
+import { gotoHome, navigate, homeUrl, loginREDIRECT, ILoginRedirectAction, RouteHandler } from 'rw-router/router';
 
 declare module 'config' {
   interface IConfig {
     login: {
-      loginRoute: () => IRouteDir;
+      loginRoute: () => IRouteData;
     }
   }
 }
@@ -51,26 +51,27 @@ const dispatchLoginSelectProvider = (dispatch: TDispatch, providerId: string) =>
 export const loginLOGOFF = 'login.LOGOFF'; export interface ILoginLogoffAction extends Action { type: 'login.LOGOFF'; }
 const dispatchLoginLogoff = (dispatch: TDispatch) => dispatch({ type: loginLOGOFF } as ILoginLogoffAction);
 
-const loginCookieName = 'login';
+const loginCookieName = 'ck-login';
 
 const loginReducer: Reducer<ILoginState, ILoginRedirectAction | ILoginSelectProviderAction | ILoginLogoffAction> = (state, action) => {
-  if (!state) return readObj<ILoginState>(loginCookieName) || {};
+  if (!state) return readObj<ILoginState>(loginCookieName) || {}; //start app: get login from cookie
+  const nextTick = (proc: () => void) => setTimeout(proc, 1);
   switch (action.type) {
     case loginREDIRECT:
       if (state.isLogged) {
-        //TODO: goto Home page
-        return;
+        nextTick(gotoHome);
+        return state;
       }
       writeObj(loginCookieName, { returnUrl: action.returnUrl } as ILoginState);
-      //TODO: goto Login Page
-      alert(action.returnUrl);
-      return;
+      nextTick(() => navigate(config.login.loginRoute()));
+      return state;
     case loginSELECT_PROVIDER:
-      writeObj(loginCookieName, { returnUrl: 'todo: home URL', ...readObj<ILoginState>(loginCookieName), providerId: action.providerId } as ILoginState);
-      window.location.href = 'login.html';
-      return;
+      writeObj(loginCookieName, { returnUrl: homeUrl(), ...readObj<ILoginState>(loginCookieName), providerId: action.providerId } as ILoginState);
+      nextTick(() =>window.location.href = 'login.html');
+      return state;
     case loginLOGOFF:
       writeObj(loginCookieName, {} as ILoginState);
+      nextTick(gotoHome);
       return {};
     default: return state;
   }

@@ -1,4 +1,5 @@
 ﻿//*** Redux
+//http://stackoverflow.com/questions/36730793/dispatch-action-in-reducer
 //https://github.com/evgenyrodionov/redux-logger
 //https://github.com/tappleby/redux-batched-subscribe
 //https://github.com/reactjs/redux/issues/1171#issuecomment-205888533

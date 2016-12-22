@@ -7,7 +7,7 @@ SystemJS.config({
       "rw-lib": "/rw-lib",
       "rw-login": "/rw-login",
       "rw-gui-rt": "/rw-gui-rt",
-      "config": "app-config.js",
+      "config": "app-config.js"
     }
   },
   nodeConfig: {
@@ -94,14 +94,14 @@ SystemJS.config({
       "map": {
         "loose-envify": "npm:loose-envify@1.3.0",
         "object-assign": "npm:object-assign@4.1.0",
-        "fbjs": "npm:fbjs@0.8.7"
+        "fbjs": "npm:fbjs@0.8.8"
       }
     },
     "npm:react@15.4.1": {
       "map": {
         "loose-envify": "npm:loose-envify@1.3.0",
         "object-assign": "npm:object-assign@4.1.0",
-        "fbjs": "npm:fbjs@0.8.7"
+        "fbjs": "npm:fbjs@0.8.8"
       }
     },
     "npm:invariant@2.2.2": {
@@ -395,15 +395,15 @@ SystemJS.config({
         "invariant": "npm:invariant@2.2.2"
       }
     },
-    "npm:fbjs@0.8.7": {
+    "npm:fbjs@0.8.8": {
       "map": {
+        "core-js": "npm:core-js@1.2.7",
         "loose-envify": "npm:loose-envify@1.3.0",
         "object-assign": "npm:object-assign@4.1.0",
-        "core-js": "npm:core-js@1.2.7",
-        "setimmediate": "npm:setimmediate@1.0.5",
+        "ua-parser-js": "npm:ua-parser-js@0.7.12",
         "isomorphic-fetch": "npm:isomorphic-fetch@2.2.1",
         "promise": "npm:promise@7.1.1",
-        "ua-parser-js": "npm:ua-parser-js@0.7.12"
+        "setimmediate": "npm:setimmediate@1.0.5"
       }
     }
   }

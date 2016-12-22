@@ -20,6 +20,9 @@ export function init() {
 }
 
 export function navigate(tree: IRouteData, ev?: React.SyntheticEvent, subPath?: string) { if (ev) ev.preventDefault(); changeRoute(routeTreeToDir(tree, subPath), true, subPath); }
+export function navigateDir(dir: IRouteDir, ev?: React.SyntheticEvent, subPath?: string) { if (ev) ev.preventDefault(); changeRoute(dir, true, subPath); }
+export const gotoHome = () => navigateDir(config.route.initRoute());
+export const homeUrl = () => route2string(config.route.initRoute());
 
 export const routeReducerFnc = (state: IRootState, action: any): IRootState => {
   return {

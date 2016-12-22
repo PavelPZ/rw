@@ -15,7 +15,7 @@ export function readObj<T>(id: string): T {
 }
 
 export function writeObj(id: string, obj: Object, persist: boolean = false) {
-  if (!obj) remove(id); else write(id, JSON.stringify(id), persist);
+  if (!obj) remove(id); else write(id, JSON.stringify(obj), persist);
 }
 
 const wrongSecLev = /^(com|net|mil|org|gov|edu|int)$/;

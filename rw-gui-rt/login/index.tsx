@@ -5,7 +5,7 @@ import { loginCreator, TLoginPresent, loginProxy } from 'rw-login/index';
 
 const LoginPresent: TLoginPresent = props => {
   console.log('render Login');
-  return null;
+  return <h2>Select Login ID</h2>;
 };
 
 const Login = loginCreator(LoginPresent);
