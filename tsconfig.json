@@ -11,8 +11,6 @@
     //"importHelpers": true,
     "baseUrl": ".",
     "paths": {
-      "react-toolbox/*": [ "jspm_packages/npm/react-toolbox@1.3.2/*" ],
-      //"react-toolbox/lib/*": [ "typings/react-toolbox/*" ],
       "rw-router/*": [ "rw-router/*" ],
       "rw-redux/*": [ "rw-redux/*" ],
       "rw-lib/*": [ "rw-lib/*" ],
