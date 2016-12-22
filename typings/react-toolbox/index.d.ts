@@ -1,7 +1,4 @@
-///<reference path='../react/react.d.ts' />
-
 declare namespace __RT {
-  import React = __React;
 
   export interface Props {
     /**

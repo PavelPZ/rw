@@ -47,7 +47,7 @@ const parentReducer: Reducer<IParentState, IParentAction | IDoChild> = (state = 
 };
 
 interface IParentMapStateToProps { textProp: string; childIds: Array<string> }
-interface IParentMapDispatchToProps { onClickProp: (ev?: React.SyntheticEvent) => any; }
+interface IParentMapDispatchToProps { onClickProp: (ev?: React.SyntheticEvent<any>) => any; }
 
 //************* aktualizace View na zaklade zmeny state, by means of Presenter, Container and Selector
 //Presenter:
@@ -78,7 +78,7 @@ const parentSelector = createSelector<IRootState, IParentMapStateToProps, Array<
 //Container
 const Parent = connect<IParentMapStateToProps, IParentMapDispatchToProps, never>(
   (state: IRootState) => parentSelector(state),
-  (dispatch: TDispatch) => ({ onClickProp: (ev?: React.SyntheticEvent) => { if (ev) ev.preventDefault(); return doParentAction(dispatch); } })
+  (dispatch: TDispatch) => ({ onClickProp: (ev?: React.SyntheticEvent<any>) => { if (ev) ev.preventDefault(); return doParentAction(dispatch); } })
 )(ParentPresent);
 
 
@@ -99,7 +99,7 @@ const childReducer = (state: IChildState, action: IDoChild): IChildState => {
 };
 
 interface IChildMapStateToProps { textProp: string; }
-interface IChildMapDispatchToProps { onClickProp: (ev?: React.SyntheticEvent) => IAsyncStartAction; }
+interface IChildMapDispatchToProps { onClickProp: (ev?: React.SyntheticEvent<any>) => IAsyncStartAction; }
 interface IChildOwnProps { id: string; initState: IChildState }
 
 const ChildPresent: React.StatelessComponent<IChildMapStateToProps & IChildMapDispatchToProps> = props => {
@@ -135,7 +135,7 @@ const Child = connect<IChildMapStateToProps, IChildMapDispatchToProps, IChildOwn
     }
     return { textProp: st.childs[props.id].text }
   },
-  (dispatch: TDispatch, props: IChildOwnProps) => ({ onClickProp: (ev?: React.SyntheticEvent) => { if (ev) ev.preventDefault(); return dispatchChildActionStart(dispatch, props.id); } })
+  (dispatch: TDispatch, props: IChildOwnProps) => ({ onClickProp: (ev?: React.SyntheticEvent<any>) => { if (ev) ev.preventDefault(); return dispatchChildActionStart(dispatch, props.id); } })
 )(ChildPresent);
 
 /***********************************************

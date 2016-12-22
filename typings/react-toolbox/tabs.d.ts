@@ -1,5 +1,5 @@
 declare namespace __RT {
-  import React = __React;
+  
 
   export interface TabsThemeAll {
     tabs?: string;

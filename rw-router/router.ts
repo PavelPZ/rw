@@ -19,8 +19,8 @@ export function init() {
   changeRoute(routeFromUrl ? routeFromUrl : config.route.initRoute(), false);
 }
 
-export function navigate(tree: IRouteData, ev?: React.SyntheticEvent, subPath?: string) { if (ev) ev.preventDefault(); changeRoute(routeTreeToDir(tree, subPath), true, subPath); }
-export function navigateDir(dir: IRouteDir, ev?: React.SyntheticEvent, subPath?: string) { if (ev) ev.preventDefault(); changeRoute(dir, true, subPath); }
+export function navigate(tree: IRouteData, ev?: React.SyntheticEvent<any>, subPath?: string) { if (ev) ev.preventDefault(); changeRoute(routeTreeToDir(tree, subPath), true, subPath); }
+export function navigateDir(dir: IRouteDir, ev?: React.SyntheticEvent<any>, subPath?: string) { if (ev) ev.preventDefault(); changeRoute(dir, true, subPath); }
 export const gotoHome = () => navigateDir(config.route.initRoute());
 export const homeUrl = () => route2string(config.route.initRoute());
 
@@ -66,7 +66,8 @@ addAsyncProc<IRouterAsyncPar>(routerCHANGE_START, async (par, completed, api) =>
   }
 
   //Login redirect chance
-  if (!api.getState().login.isLogged) {
+  const {login} = api.getState();
+  if (login && !login.isLogged) {
     const loginNeeded = diffs.newAll.find(path => {
       const rt = par.newRoute[path];
       return RouteHandler.find(rt.handlerId).loginNeeded(rt, api);

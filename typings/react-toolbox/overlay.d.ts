@@ -1,5 +1,5 @@
 declare namespace __RT {
-  import React = __React;
+  
   export interface OverlayTheme {
     active?: string;
     backdrop?: string;

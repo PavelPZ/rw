@@ -44,6 +44,7 @@
     <TypeScriptCompile Include="rw-router\route-hook.tsx" />
     <TypeScriptCompile Include="typings\react-css-themr\react-css-themr.d.ts" />
     <Content Include="web.config" />
+    <None Include="typings\react-redux\react-redux.d - Copy.ts_" />
     <TypeScriptCompile Include="typings\semantic-ui\semantic-ui.d.ts" />
   </ItemGroup>
   <ItemGroup>

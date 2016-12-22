@@ -43,7 +43,7 @@ interface ILoginMapStateToProps {
   firstName: string;
   lastName: string;
 }
-interface ILoginMapDispatchToProps { onSelectProvider: (providerId: string, ev?: React.SyntheticEvent) => any; }
+interface ILoginMapDispatchToProps { onSelectProvider: (providerId: string, ev?: React.SyntheticEvent<any>) => any; }
 
 export const loginSELECT_PROVIDER = 'login.SELECT_PROVIDER'; export interface ILoginSelectProviderAction extends Action { type: 'login.SELECT_PROVIDER'; providerId: string; }
 const dispatchLoginSelectProvider = (dispatch: TDispatch, providerId: string) => dispatch({ type: loginSELECT_PROVIDER, providerId: providerId } as ILoginSelectProviderAction);

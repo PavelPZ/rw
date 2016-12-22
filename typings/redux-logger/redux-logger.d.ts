@@ -1,6 +1,7 @@
-/// <reference path="../redux/redux.d.ts" />
+import Redux from 'redux';
 
-declare module "redux-logger" {
-  const createLogger: () => Redux.Middleware;
-  export = createLogger;
+export = ReduxLogger.createLogger;
+
+declare module ReduxLogger {
+  export const createLogger: () => Redux.Middleware;
 }

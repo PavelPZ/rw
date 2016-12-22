@@ -10,7 +10,7 @@ import { playList } from "rw-redux/recordings";
 
 interface IHomeState {
   size?: number; //home size
-  modifyState?: (st: IHomeState, ev: React.SyntheticEvent) => void; //modify root state
+  modifyState?: (st: IHomeState, ev: React.SyntheticEvent<any>) => void; //modify root state
   recState?: INotify; //rec x play notifications
 }
 let globSize = 0;
@@ -19,7 +19,7 @@ export class RecHome extends React.Component<{}, IHomeState> {
     super(p, c);
     const self = this;
     self.state = {
-      modifyState: (st: IHomeState, ev: React.SyntheticEvent) => {
+      modifyState: (st: IHomeState, ev: React.SyntheticEvent<any>) => {
         if (ev) ev.preventDefault();
         Object.assign(self.state, st);
         self.forceUpdate();

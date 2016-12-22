@@ -1,5 +1,5 @@
 declare namespace __RT {
-  import React = __React;
+  
 
   interface RadioGroupProps extends Props {
     /**
