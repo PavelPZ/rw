@@ -1,14 +1,14 @@
 declare namespace __RT {
   
 
-  export interface AppBarTheme {
+  interface AppBarTheme {
     /**
      * Used for the component root element.
      */
     appBar?: string;
     /**
      * Added to the root element when the app bar is fixed.
-     */
+     */ 
     fixed?: string;
     /**
      * Added to the root element when the app bar is flat.

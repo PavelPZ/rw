@@ -16,11 +16,12 @@
       "rw-lib/*": [ "rw-lib/*" ],
       "rw-login/*": [ "rw-login/*" ],
       "rw-gui-rt/*": [ "rw-gui-rt/*" ],
-      "react": [ "typings/react/react.d.ts" ],
-      "react-dom": [ "typings/react/react-dom.d.ts" ],
-      "react-redux": [ "typings/react-redux/react-redux.d.ts" ],
-      "redux": [ "typings/redux/redux.d.ts" ],
-      "redux-logger": [ "typings/redux-logger/redux-logger.d.ts" ]
+      //get from d:\rw\rw\jspm_packages\npm\redux@3.6.0\index.d.ts
+      "redux": [ "typings/redux/index.d.ts" ],
+      //get from d:\rw\rw\jspm_packages\npm\@types\
+      "react": [ "typings/react/index.d.ts" ],
+      "react-dom": [ "typings/react-dom/index.d.ts" ],
+      "react-redux": [ "typings/react-redux/index.d.ts" ]
     },
     "lib": [
       "dom",

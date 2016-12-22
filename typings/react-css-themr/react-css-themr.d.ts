@@ -1,8 +1,5 @@
-declare namespace __TH {
-  class ThemeProvider extends React.Component<{ theme: {}}, any> { }
-}
-
 declare module 'react-css-themr' {
-  const ThemeProvider: typeof __TH.ThemeProvider ;
+  class ThemeProviderClass extends React.Component<{ theme: {} }, any> { }
+  const ThemeProvider: typeof ThemeProviderClass;
   export { ThemeProvider };
 }

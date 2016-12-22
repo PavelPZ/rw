@@ -2,7 +2,9 @@
   "jspm": {
     "main": "app.js",
     "dependencies": {
-      "globalize": "npm:globalize@^1.1.2",
+      "@types/react": "npm:@types/react@^0.14.55",
+      "@types/react-dom": "npm:@types/react-dom@^0.14.19",
+      "@types/react-redux": "npm:@types/react-redux@^4.4.35",
       "lodash": "npm:lodash@^4.17.2",
       "react-css-themr": "npm:react-css-themr@^1.6.1",
       "react-redux": "npm:react-redux@^4.4.6",
@@ -11,16 +13,12 @@
       "reselect": "npm:reselect@^2.5.4",
       "whatwg-fetch": "npm:whatwg-fetch@^2.0.1"
     },
-    "devDependencies": {
-      "babel": "npm:babel-core@^5.8.24",
-      "babel-runtime": "npm:babel-runtime@^5.8.24",
-      "core-js": "npm:core-js@^1.1.4"
-    },
+    "devDependencies": {},
     "peerDependencies": {
       "assert": "npm:jspm-nodelibs-assert@^0.2.0",
       "buffer": "npm:jspm-nodelibs-buffer@^0.2.0",
       "child_process": "npm:jspm-nodelibs-child_process@^0.2.0",
-      "classnames": "npm:classnames@^2.2.5",
+      "classnames": "npm:classnames@^2.2.0",
       "constants": "npm:jspm-nodelibs-constants@^0.2.0",
       "crypto": "npm:jspm-nodelibs-crypto@^0.2.0",
       "domain": "npm:jspm-nodelibs-domain@^0.2.0",
@@ -32,7 +30,7 @@
       "os": "npm:jspm-nodelibs-os@^0.2.0",
       "path": "npm:jspm-nodelibs-path@^0.2.0",
       "process": "npm:jspm-nodelibs-process@^0.2.0",
-      "react": "npm:react@^15.0.0",
+      "react": "npm:react@^15.4.0",
       "react-addons-css-transition-group": "npm:react-addons-css-transition-group@15.4",
       "react-dom": "npm:react-dom@15.4",
       "redux": "npm:redux@^3.0.0",
@@ -44,27 +42,6 @@
       "zlib": "npm:jspm-nodelibs-zlib@^0.2.0"
     },
     "overrides": {
-      "npm:babel-core@5.8.38": {
-        "main": "browser.js",
-        "dependencies": {},
-        "jspmNodeConversion": false,
-        "map": {
-          "regenerator/runtime": "babel-runtime/regenerator/runtime"
-        },
-        "meta": {
-          "browser.js": {
-            "exports": "babel",
-            "format": "global"
-          }
-        }
-      },
-      "npm:babel-runtime@5.8.38": {
-        "main": false,
-        "dependencies": {},
-        "optionalDependencies": {
-          "core-js": "^1.2.0"
-        }
-      },
       "npm:browserify-zlib@0.1.4": {
         "dependencies": {
           "readable-stream": "^2.0.2",

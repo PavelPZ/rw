@@ -1,4 +1,4 @@
-//  Type definitions fo r  react-redu x  4.4.0
+// Type definitions for react-redux 4.4.0
 // Project: https://github.com/rackt/react-redux
 // Definitions by: Qubo <https://github.com/tkqubo>, Sean Kelley <https://github.com/seansfkelley>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -80,8 +80,8 @@ interface MergeProps<TStateProps, TDispatchProps, TOwnProps> {
 interface Options {
     /**
      * If true, implements shouldComponentUpdate and shallowly compares the result of mergeProps,
-     * preventing unnecessary updates, assuming that the component is a ìpureî component
-     * and does not rely on any input or state other than its props and the selected Redux storeís state.
+     * preventing unnecessary updates, assuming that the component is a ‚Äúpure‚Äù component
+     * and does not rely on any input or state other than its props and the selected Redux store‚Äôs state.
      * Defaults to true.
      * @default true
      */

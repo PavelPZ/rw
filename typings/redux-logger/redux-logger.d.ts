@@ -1,7 +1,5 @@
-import Redux from 'redux';
-
-export = ReduxLogger.createLogger;
-
-declare module ReduxLogger {
-  export const createLogger: () => Redux.Middleware;
+declare module 'redux-logger' {
+  import Redux from 'redux';
+  const createLogger: () => Redux.Middleware;
+  export = createLogger;
 }

@@ -16,9 +16,6 @@
 .Bgc\(yellow\) {
   background-color: yellow;
 }
-.Bgc\(gray\) {
-  background-color: gray;
-}
 .D\(f\) {
   display: -ms-flexbox;
   display: flex;
@@ -73,20 +70,17 @@
   padding-left: 10px;
   padding-right: 10px;
 }
-.Pos\(r\) {
-  position: relative;
-}
 .Pos\(f\) {
   position: fixed;
 }
-.Pos\(a\), .StretchedBox {
-  position: absolute;
-}
-.W\(65px\) {
-  width: 65px;
+.Pos\(r\) {
+  position: relative;
 }
 .W\(600px\) {
   width: 600px;
+}
+.W\(65px\) {
+  width: 65px;
 }
 .Z\(999\) {
   z-index: 999;
@@ -117,6 +111,7 @@
   *width: auto;
 }
 .StretchedBox {
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;

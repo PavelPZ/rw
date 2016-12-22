@@ -1,6 +1,6 @@
 declare namespace __RT {
   
-  export interface OverlayTheme {
+  interface OverlayTheme {
     active?: string;
     backdrop?: string;
     invisible?: string;
@@ -15,6 +15,6 @@ declare namespace __RT {
     onEscKeyDown?: Function;
   }
 
-  export class Overlay extends React.Component<OverlayProps, {}> { }
+  class Overlay extends React.Component<OverlayProps, {}> { }
 
 }

@@ -44,8 +44,6 @@
     <TypeScriptCompile Include="rw-router\route-hook.tsx" />
     <TypeScriptCompile Include="typings\react-css-themr\react-css-themr.d.ts" />
     <Content Include="web.config" />
-    <None Include="typings\react-redux\react-redux.d - Copy.ts_" />
-    <TypeScriptCompile Include="typings\semantic-ui\semantic-ui.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="tsconfig.json" />
@@ -88,7 +86,7 @@
     <TypeScriptCompile Include="typings\lib.fetch.d.ts" />
     <TypeScriptCompile Include="typings\lib.streams.d.ts" />
     <TypeScriptCompile Include="typings\lodash\lodash.d.ts" />
-    <TypeScriptCompile Include="typings\react-redux\react-redux.d.ts" />
+    <TypeScriptCompile Include="typings\react-redux\index.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\app_bar.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\autocomplete.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\avatar.d.ts" />
@@ -120,10 +118,10 @@
     <TypeScriptCompile Include="typings\react-toolbox\time_picker.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\overlay.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\tooltip.d.ts" />
-    <TypeScriptCompile Include="typings\react\react-dom.d.ts" />
-    <TypeScriptCompile Include="typings\react\react.d.ts" />
+    <TypeScriptCompile Include="typings\react-dom\index.d.ts" />
+    <TypeScriptCompile Include="typings\react\index.d.ts" />
     <TypeScriptCompile Include="typings\redux-logger\redux-logger.d.ts" />
-    <TypeScriptCompile Include="typings\redux\redux.d.ts" />
+    <TypeScriptCompile Include="typings\redux\index.d.ts" />
     <TypeScriptCompile Include="typings\reselect.d.ts" />
   </ItemGroup>
   <ItemGroup>
