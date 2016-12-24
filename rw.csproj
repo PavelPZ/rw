@@ -39,11 +39,12 @@
     <TypeScriptCompile Include="rw-login\common.ts" />
     <TypeScriptCompile Include="rw-login\index.ts" />
     <TypeScriptCompile Include="rw-login\login.ts" />
+    <TypeScriptCompile Include="rw-redux\status-gui.ts" />
     <TypeScriptCompile Include="rw-redux\recordings.ts" />
     <TypeScriptCompile Include="rw-router\route-hook.tsx" />
     <TypeScriptCompile Include="typings\react-css-themr\index.d.ts" />
     <Content Include="web.config" />
-    <TypeScriptCompile Include="typings\semantic-ui\index.d.ts" />
+    <TypeScriptCompile Include="typings\semantic-ui-react\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="tsconfig.json" />

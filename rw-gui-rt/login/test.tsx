@@ -3,6 +3,7 @@
 import { IRootState, TMiddlewareAPI } from 'rw-redux/types';
 import { appInit } from 'rw-redux/app-loader';
 import { blockGuiReducerFnc } from 'rw-redux/block-gui';
+import { guiStateReducerFnc } from 'rw-redux/status-gui';
 
 import getRTAppRoot from 'rw-gui-rt/get-app-root';
 
@@ -77,6 +78,7 @@ const rootReducer = (state: IRootState, action: any): IRootState => {
     ...blockGuiReducerFnc(state, action),
     ...routeReducerFnc(state, action),
     ...loginReducerFnc(state, action),
+    ...guiStateReducerFnc(state, action),
   };
 }
 

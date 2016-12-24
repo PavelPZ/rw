@@ -12,6 +12,8 @@
       initRoute: null,
     },
     login: {
+      availableLogins: null,
+      guiBreakpoint: 'xxs',
       loginRoute: null
     }
   }

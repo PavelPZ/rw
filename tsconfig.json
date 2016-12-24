@@ -18,13 +18,13 @@
       "rw-gui-rt/*": [ "rw-gui-rt/*" ],
 
       //get from d:\rw\rw\jspm_packages\npm\redux@3.6.0\index.d.ts
-      "redux": [ "typings/redux/index.d.ts" ],
+      "redux": [ "typings/redux/index" ],
       //get from d:\rw\rw\jspm_packages\npm\@types\
-      "react": [ "typings/react/index.d.ts" ],
-      "react-dom": [ "typings/react-dom/index.d.ts" ],
-      "react-redux": [ "typings/react-redux/index.d.ts" ],
+      "react": [ "typings/react/index" ],
+      "react-dom": [ "typings/react-dom/index" ],
+      "react-redux": [ "typings/react-redux/index" ],
       //get from https://raw.githubusercontent.com/Semantic-Org/Semantic-UI-React/master/typings/index.d.ts
-      "semantic-ui": [ "typings/semantic-ui/index.d.ts" ]
+      "semantic-ui": [ "typings/semantic-ui-react/index" ]
     },
     "lib": [
       "dom",

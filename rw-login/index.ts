@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import { connect } from 'react-redux';
 import { Action } from 'redux';
+import { createSelector } from 'reselect';
 
 //*****
 import { IConfig, config } from 'config';
@@ -9,10 +10,14 @@ import { TDispatch, Reducer, IMapDispatchToProps, IRootState } from 'rw-redux/ty
 import { IRouteDir, IRouteData } from '../rw-router/url-parser';
 import { gotoHome, navigate, homeUrl, loginREDIRECT, ILoginRedirectAction, RouteHandler } from 'rw-router/router';
 
+import { IGuiState } from 'rw-redux/status-gui';
+
 declare module 'config' {
   interface IConfig {
     login: {
       loginRoute: () => IRouteData;
+      availableLogins: Array<string>;
+      guiBreakpoint: keyof IGuiState;
     }
   }
 }
@@ -42,6 +47,8 @@ interface ILoginMapStateToProps {
   email: string;
   firstName: string;
   lastName: string;
+  guiLarge: boolean;
+  availableLogins: Array<string>
 }
 interface ILoginMapDispatchToProps { onSelectProvider: (providerId: string, ev?: React.SyntheticEvent<any>) => any; }
 
@@ -78,9 +85,15 @@ const loginReducer: Reducer<ILoginState, ILoginRedirectAction | ILoginSelectProv
 };
 
 //interface na Login GUI
+const loginSelector = createSelector<IRootState, ILoginMapStateToProps, ILoginState, boolean>(
+  state => state.login,
+  state => config.login.guiBreakpoint ? state.gui[config.login.guiBreakpoint] : undefined,
+  (login, gui) => ({ email: login.email, firstName: login.firstName, lastName: login.lastName, guiLarge: gui, availableLogins: config.login.availableLogins })
+);
+
 interface ILoginProps { availableLogins: Array<string>; }
 export const loginCreator = connect<ILoginMapStateToProps, ILoginMapDispatchToProps, ILoginProps>(
-  (state: IRootState) => ({ email: state.login.email, firstName: state.login.firstName, lastName: state.login.lastName }),
+  (state: IRootState) => loginSelector(state), //({ email: state.login.email, firstName: state.login.firstName, lastName: state.login.lastName }),
   (dispatch: TDispatch, props) => ({ onSelectProvider: (providerId, ev) => { if (ev) ev.preventDefault(); return dispatchLoginSelectProvider(dispatch, providerId); } })
 );
 export type TLoginPresent = React.StatelessComponent<ILoginMapStateToProps & ILoginMapDispatchToProps>;

@@ -5,10 +5,11 @@ import { loginCreator, TLoginPresent, loginProxy } from 'rw-login/index';
 
 const LoginPresent: TLoginPresent = props => {
   console.log('render Login');
-  return <h2>Select Login ID</h2>;
+  return <div>
+    <h1>{props.guiLarge === true ? 'large' : (props.guiLarge === false ? 'small' : 'undefined')}</h1>
+  </div>
 };
 
 const Login = loginCreator(LoginPresent);
 const init = () => loginProxy.value = props => <Login {...props} />;
 export default init;
-
