@@ -10,14 +10,14 @@ import { TDispatch, Reducer, IMapDispatchToProps, IRootState } from 'rw-redux/ty
 import { IRouteDir, IRouteData } from '../rw-router/url-parser';
 import { gotoHome, navigate, homeUrl, loginREDIRECT, ILoginRedirectAction, RouteHandler } from 'rw-router/router';
 
-import { IGuiState } from 'rw-redux/status-gui';
+import { IMatchMediaState } from 'rw-redux/match-media-gui';
 
 declare module 'config' {
   interface IConfig {
     login: {
       loginRoute: () => IRouteData;
       availableLogins: Array<string>;
-      guiBreakpoint: keyof IGuiState;
+      guiBreakpoint: keyof IMatchMediaState;
     }
   }
 }
@@ -93,7 +93,7 @@ const loginSelector = createSelector<IRootState, ILoginMapStateToProps, ILoginSt
 
 interface ILoginProps { availableLogins: Array<string>; }
 export const loginCreator = connect<ILoginMapStateToProps, ILoginMapDispatchToProps, ILoginProps>(
-  (state: IRootState) => loginSelector(state), //({ email: state.login.email, firstName: state.login.firstName, lastName: state.login.lastName }),
+  (state: IRootState) => loginSelector(state), 
   (dispatch: TDispatch, props) => ({ onSelectProvider: (providerId, ev) => { if (ev) ev.preventDefault(); return dispatchLoginSelectProvider(dispatch, providerId); } })
 );
 export type TLoginPresent = React.StatelessComponent<ILoginMapStateToProps & ILoginMapDispatchToProps>;

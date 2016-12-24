@@ -5,11 +5,11 @@ import { store } from 'rw-redux/app-loader';
 
 declare module 'rw-redux/types' {
   interface IRootState {
-    gui?: IGuiState;
+    gui?: IMatchMediaState;
   }
 }
 
-export interface IGuiState {
+export interface IMatchMediaState {
   xxs: boolean;
   xs: boolean;
   smTablet: boolean;
@@ -22,9 +22,10 @@ export interface IGuiState {
   xxxl: boolean;
 }
 
-export const guiMATCHMEDIA = 'gui.MATCHMEDIA'; export interface IGuiMatchMediaAction extends Action { type: 'gui.MATCHMEDIA'; width: number; }
-const dispatchGuiMatchMedia = (dispatch: TDispatch, width: number) => dispatch({ type: guiMATCHMEDIA, width: width } as IGuiMatchMediaAction);
+export const guiMATCHMEDIA = 'gui.MATCHMEDIA'; export interface IMatchMediaAction extends Action { type: 'gui.MATCHMEDIA'; width: number; }
+const dispatchMatchMedia = (dispatch: TDispatch, width: number) => dispatch({ type: guiMATCHMEDIA, width: width } as IMatchMediaAction);
 
+// breakpoint metadata
 interface IBreakpoint { width: number; propName: string; mql?: MediaQueryList }
 const breakpoints: Array<IBreakpoint> = [
   { propName: 'xxs', width: 480 },
@@ -39,25 +40,24 @@ const breakpoints: Array<IBreakpoint> = [
   { propName: 'xxxl', width: 1920 }
 ];
 
-const init = (brk: IBreakpoint) => {
+breakpoints.forEach(brk => {
   brk.mql = window.matchMedia(`(min-width:${brk.width}px)`);
-  brk.mql.addListener(() => dispatchGuiMatchMedia(store.dispatch, brk.width));
-}
+  brk.mql.addListener(() => dispatchMatchMedia(store.dispatch, brk.width));
+});
 
-breakpoints.forEach(b => init(b));
-
-export const guiStateReducerFnc = (state: IRootState, action: any): IRootState => {
+// reducers
+export const matchMediaReducerFnc = (state: IRootState, action: any): IRootState => {
   return {
-    gui: guiStateReducer(state.gui, action),
+    gui: maatchMediaReducer(state.gui, action),
   }
 }
 
-const guiStateReducer: Reducer<IGuiState, IGuiMatchMediaAction> = (state, action) => {
+const maatchMediaReducer: Reducer<IMatchMediaState, IMatchMediaAction> = (state, action) => {
   if (!state || action.type == guiMATCHMEDIA) {
-    const res: IGuiState = {} as any; let changed = !state;
+    const res: IMatchMediaState = {} as any; let changed = !state;
     breakpoints.forEach(brk => {
-      res[brk.propName] = !!brk.mql.matches;
-      if (!changed) changed = res[brk.propName] !== state[brk.propName];
+      const newVal = res[brk.propName] = !!brk.mql.matches;
+      if (!changed) changed = newVal !== state[brk.propName];
     });
     return changed ? res : state;
   } else

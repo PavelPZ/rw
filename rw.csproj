@@ -39,7 +39,7 @@
     <TypeScriptCompile Include="rw-login\common.ts" />
     <TypeScriptCompile Include="rw-login\index.ts" />
     <TypeScriptCompile Include="rw-login\login.ts" />
-    <TypeScriptCompile Include="rw-redux\status-gui.ts" />
+    <TypeScriptCompile Include="rw-redux\match-media-gui.ts" />
     <TypeScriptCompile Include="rw-redux\recordings.ts" />
     <TypeScriptCompile Include="rw-router\route-hook.tsx" />
     <TypeScriptCompile Include="typings\react-css-themr\index.d.ts" />
