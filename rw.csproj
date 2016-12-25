@@ -36,6 +36,10 @@
     <TypeScriptCompile Include="rw-gui-rt\recordings\index.tsx" />
     <TypeScriptCompile Include="rw-gui-rt\theme.ts" />
     <TypeScriptCompile Include="rw-gui-rt\get-app-root.tsx" />
+    <TypeScriptCompile Include="rw-lib\render-markup.ts" />
+    <TypeScriptCompile Include="rw-lib\services\common.ts" />
+    <TypeScriptCompile Include="rw-lib\services\emailer-test.tsx" />
+    <TypeScriptCompile Include="rw-lib\services\emailer.tsx" />
     <TypeScriptCompile Include="rw-login\common.ts" />
     <TypeScriptCompile Include="rw-login\index.ts" />
     <TypeScriptCompile Include="rw-login\login.ts" />
@@ -51,6 +55,7 @@
     <Content Include="package.json" />
     <Content Include="packages.config" />
     <Content Include="refreshCSS.cmd" />
+    <Content Include="rw-lib\services\emailer.ashx" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -129,6 +134,11 @@
     <Compile Include="rw-lib\base64.cs" />
     <Compile Include="rw-lib\common.cs" />
     <Compile Include="rw-lib\crypt.cs" />
+    <Compile Include="rw-lib\services\common.cs" />
+    <Compile Include="rw-lib\services\emailerObj.cs" />
+    <Compile Include="rw-lib\services\emailer.ashx.cs">
+      <DependentUpon>emailer.ashx</DependentUpon>
+    </Compile>
     <Compile Include="rw-lib\string2bytes.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +146,11 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

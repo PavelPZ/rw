@@ -15,7 +15,8 @@
       availableLogins: null,
       guiBreakpoint: 'xxs',
       loginRoute: null
-    }
+    },
+    serviceEmailerUrl:'rw-lib/services/emailer.ashx'
   }
 
 }

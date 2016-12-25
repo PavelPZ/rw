@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.IO;
 
 public static class JSON {
   /// <summary>
@@ -10,6 +11,11 @@ public static class JSON {
   /// JSON Deserialization
   /// </summary>
   public static T parse<T>(string jsonString) where T : class { return jsonString == null ? (T)null : JsonConvert.DeserializeObject<T>(jsonString); }
+  public static T parse<T>(Stream str) where T : class {
+    if (str == null) return null;
+    using (StreamReader rdr = new StreamReader(str))
+      return JsonConvert.DeserializeObject<T>(rdr.ReadToEnd());
+  }
 
   static JsonSerializerSettings jsonSet = new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore };
 }
