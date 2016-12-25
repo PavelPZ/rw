@@ -2,8 +2,6 @@
 /// The fetch API standard can be found at https://fetch.spec.whatwg.org/
 /// Definitions by: Ryan Graham <https://github.com/ryan-codingintrigue>, Kagami Sascha Rosylight <https://github.com/saschanaz>, Robin Van den Broeck <https://github.com/gamesmaxed>
 
-/// <reference path="lib.streams.d.ts" />
-
 interface Window {
   fetch(url: RequestInfo, init?: RequestInit): Promise<Response>;
 }

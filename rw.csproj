@@ -31,6 +31,10 @@
     <Content Include="rw-gui-rt\HelpAtomizer.txt" />
     <Content Include="rw-gui-rt\app.css" />
     <Content Include="rw-gui-rt\toolbox.css" />
+    <TypeScriptCompile Include="rw-course\preprocess.ts" />
+    <TypeScriptCompile Include="rw-course\test-lazy.tsx" />
+    <TypeScriptCompile Include="rw-lib\lazy-loader.ts" />
+    <TypeScriptCompile Include="rw-course\test.tsx" />
     <TypeScriptCompile Include="rw-gui-rt\block-gui\index.tsx" />
     <TypeScriptCompile Include="rw-gui-rt\login\test.tsx" />
     <TypeScriptCompile Include="rw-gui-rt\recordings\index.tsx" />
@@ -49,6 +53,7 @@
     <TypeScriptCompile Include="typings\react-css-themr\index.d.ts" />
     <Content Include="web.config" />
     <TypeScriptCompile Include="typings\semantic-ui-react\index.d.ts" />
+    <TypeScriptCompile Include="typings\systemjs.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="tsconfig.json" />

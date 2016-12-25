@@ -1,12 +1,12 @@
 ﻿namespace config {
   export interface IConfig {
     basicUrl: string;
+    rootPath: string;
   }
 
-  const indexHtml = 'index.html'; const getBasicUrl = (startUrl: string) => { let idx = startUrl.toLowerCase().indexOf(indexHtml); return idx >= 0 ? startUrl.substr(0, idx + indexHtml.length) : startUrl + indexHtml; }
-
   export const config: IConfig = {
-    basicUrl: getBasicUrl(window.location.href),
+    basicUrl: null,
+    rootPath: null,
     route: {
       isHashRouter: true,
       initRoute: null,
@@ -16,11 +16,18 @@
       guiBreakpoint: 'xxs',
       loginRoute: null
     },
-    serviceEmailerUrl:'rw-lib/services/emailer.ashx'
-  }
+    serviceEmailerUrl: 'rw-lib/services/emailer.ashx'
+  };
+
+  (() => {
+    const indexHtml = 'index.html';
+    const startUrl = window.location.href;
+    let idx = startUrl.toLowerCase().indexOf(indexHtml);
+    config.basicUrl = idx >= 0 ? startUrl.substr(0, idx + indexHtml.length) : startUrl + indexHtml;
+    config.rootPath = startUrl.substr(0, idx);
+  })();
 
 }
 declare module "config" {
-  import _config = config;
-  export = _config;
+  export = config;
 }
