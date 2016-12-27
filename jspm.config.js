@@ -33,7 +33,7 @@ SystemJS.config({
     "http": "npm:jspm-nodelibs-http@0.2.0",
     "https": "npm:jspm-nodelibs-https@0.2.1",
     "immutability-helper": "npm:immutability-helper@2.0.0",
-    "lodash": "npm:lodash@4.17.2",
+    "lodash": "npm:lodash@4.17.3",
     "os": "npm:jspm-nodelibs-os@0.2.0",
     "path": "npm:jspm-nodelibs-path@0.2.1",
     "process": "npm:jspm-nodelibs-process@0.2.0",
@@ -75,7 +75,7 @@ SystemJS.config({
     },
     "npm:react-redux@4.4.6": {
       "map": {
-        "lodash": "npm:lodash@4.17.2",
+        "lodash": "npm:lodash@4.17.3",
         "invariant": "npm:invariant@2.2.2",
         "loose-envify": "npm:loose-envify@1.3.0",
         "hoist-non-react-statics": "npm:hoist-non-react-statics@1.2.0"
@@ -110,10 +110,10 @@ SystemJS.config({
     },
     "npm:redux@3.6.0": {
       "map": {
-        "lodash": "npm:lodash@4.17.2",
+        "lodash": "npm:lodash@4.17.3",
         "loose-envify": "npm:loose-envify@1.3.0",
         "symbol-observable": "npm:symbol-observable@1.0.4",
-        "lodash-es": "npm:lodash-es@4.17.2"
+        "lodash-es": "npm:lodash-es@4.17.3"
       }
     },
     "npm:react@15.4.1": {

@@ -2,7 +2,7 @@
 import ReactDOM from 'react-dom';
 import { config } from 'config';
 import { lazyModuleHandler, load, unload } from 'rw-lib/lazy-loader';
-import { handler } from './preprocess';
+import { compileHandler } from './compiler';
 
 
 
@@ -12,7 +12,7 @@ export function init() {
     <a href='#' onClick={ev => {
       ev.preventDefault();
       if (actMod) { unload(actMod); actMod = null; }
-      load(new handler('rw-course/test-lazy.js')).then(m => actMod = m);
+      load(new compileHandler('rw-course/test-lazy.js')).then(m => actMod = m /*TODO: render actMod.exercise as JSX.Element*/);
     } }>Load module</a>
   </div>, document.getElementById('content'));
 }

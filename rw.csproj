@@ -31,7 +31,7 @@
     <Content Include="rw-gui-rt\HelpAtomizer.txt" />
     <Content Include="rw-gui-rt\app.css" />
     <Content Include="rw-gui-rt\toolbox.css" />
-    <TypeScriptCompile Include="rw-course\preprocess.ts" />
+    <TypeScriptCompile Include="rw-course\compiler.ts" />
     <TypeScriptCompile Include="rw-course\test-lazy.tsx" />
     <TypeScriptCompile Include="rw-lib\lazy-loader.ts" />
     <TypeScriptCompile Include="rw-course\test.tsx" />
@@ -43,7 +43,7 @@
     <TypeScriptCompile Include="rw-lib\render-markup.ts" />
     <TypeScriptCompile Include="rw-lib\services\common.ts" />
     <TypeScriptCompile Include="rw-lib\services\emailer-test.tsx" />
-    <TypeScriptCompile Include="rw-lib\services\emailer.tsx" />
+    <TypeScriptCompile Include="rw-lib\services\emailer.ts" />
     <TypeScriptCompile Include="rw-login\common.ts" />
     <TypeScriptCompile Include="rw-login\index.ts" />
     <TypeScriptCompile Include="rw-login\login.ts" />

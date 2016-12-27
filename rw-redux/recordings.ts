@@ -1,4 +1,4 @@
-﻿import { IRecording, cancel, INotify, playRecording, setCurrentRecording, locStoragePrefix, notifyData, RecordingStatus, notifyDataInit, notify } from './recording';
+﻿import { IRecording, cancel, INotify, playRecording, setCurrentRecording, locStoragePrefix, actNotifyData, RecordingStatus, notifyDataInit, notify } from './recording';
 
 interface IPlayList {
   records: Array<IRecording>;
@@ -13,7 +13,7 @@ export const playList = () => {
   return new Promise((resolve, reject) => {
     //init notify record
     notifyDataInit({ recordsCount: records.length, playList: records });
-    records.forEach(r => notifyData.actionCount += r.actions.length);
+    records.forEach(r => actNotifyData.actionCount += r.actions.length);
     notify();
     //play list
     let actIdx = 0;
@@ -22,7 +22,7 @@ export const playList = () => {
       if (actIdx >= records.length) { notify({ status: RecordingStatus.recorded, playList: null }); return; }
       setCurrentRecording(records[actIdx]);
       actIdx++;
-      playRecording().then(() => setTimeout(() => { notify({ recordsIdx: notifyData.recordsIdx + 1 }); play(); }, 1)).catch(err => reject(err));
+      playRecording().then(() => setTimeout(() => { notify({ recordsIdx: actNotifyData.recordsIdx + 1 }); play(); }, 1)).catch(err => reject(err));
     };
     play();
   });

@@ -5,7 +5,7 @@ import { loginCreator, TLoginPresent, loginProxy } from 'rw-login/index';
 
 const LoginPresent: TLoginPresent = props => {
   console.log('render Login');
-  return <script type='text/plain' ref={el => alert(el.innerHTML)} style={{ visibility: 'hidden' }}>
+  return <script type='text/plain' ref={el => alert(el.innerHTML)}>
     <h1>{props.guiLarge === true ? 'large' : (props.guiLarge === false ? 'small' : 'undefined')}</h1>
   </script>
 };

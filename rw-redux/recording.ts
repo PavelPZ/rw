@@ -28,9 +28,9 @@ export interface INotify {
   recordsCount?: number;
   recordsIdx?: number;
 }
-export const notifyDataInit = (data?: INotify) => notifyData = { title: '', actionCount: 0, actionIdx: 0, recordsCount: 0, recordsIdx: 0, ...data };
-export let notifyData: INotify = notifyDataInit({});
-export const notify = (data?: INotify) => onNotify.value(Object.assign(notifyData, data));
+export const notifyDataInit = (data?: INotify) => actNotifyData = { title: '', actionCount: 0, actionIdx: 0, recordsCount: 0, recordsIdx: 0, ...data };
+export let actNotifyData: INotify = notifyDataInit({});
+export const notify = (data?: INotify) => onNotify.value(Object.assign(actNotifyData, data));
 export const onNotify = { value: (data: INotify) => { } };
 export const setStatus = (status: RecordingStatus) => { if (!currentRecording) return; currentRecording.status = status; notify({ status: status }); }
 
@@ -38,7 +38,7 @@ export const setStatus = (status: RecordingStatus) => { if (!currentRecording) r
 //play all actions
 export const playRecording = () => {
   if (!currentRecording || currentRecording.status != RecordingStatus.recorded) return null;
-  if (notifyData.playList)
+  if (actNotifyData.playList)
     notify({ title: currentRecording.title });
   else {
     notifyDataInit({ title: currentRecording.title, actionCount: currentRecording.actions.length });
@@ -55,7 +55,7 @@ export const playRecording = () => {
       try {
         if (!currentRecording || currentRecording.status != RecordingStatus.playing) { setStatus(RecordingStatus.recorded); notify({ playList:null }); return; }
         if (actIdx >= currentRecording.actions.length) { setStatus(RecordingStatus.recorded); resolve(); return; }
-        playAction(dispatch, currentRecording.actions[actIdx]).then(() => setTimeout(() => { notify({ actionIdx: notifyData.actionIdx + 1 }); play(); }, 500));
+        playAction(dispatch, currentRecording.actions[actIdx]).then(() => setTimeout(() => { notify({ actionIdx: actNotifyData.actionIdx + 1 }); play(); }, 500));
         actIdx++;
       } catch (error) { reject(error); }
     };
@@ -68,7 +68,7 @@ export const setCurrentRecording = (rec: IRecording) => currentRecording = rec;
 //start recording
 export const startRecording = () => {
   cancel();
-  currentRecording = { status: RecordingStatus.recording, appState: store.getState(), actions: [], title: notifyData.title = curentRecordingTitle };
+  currentRecording = { status: RecordingStatus.recording, appState: store.getState(), actions: [], title: actNotifyData.title = curentRecordingTitle };
   setStatus(RecordingStatus.recording);
 };
 export const curentRecordingTitle = 'Current';
