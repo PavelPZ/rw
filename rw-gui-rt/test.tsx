@@ -17,7 +17,7 @@ export function init() {
   //debugger;
   ReactDOM.render(<div>
     <ThemeProvider theme={theme}>
-      <div>
+      <div className='Bgz(300px) Bgc(green)'>
         <Button primary raised>Hallo world</Button><br />
         {b}  
       </div>

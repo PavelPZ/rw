@@ -1,3 +1,3 @@
 d:
 cd D:\rw\rw
-gulp css
+gulp atomizer

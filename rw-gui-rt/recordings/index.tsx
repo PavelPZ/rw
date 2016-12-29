@@ -9,9 +9,7 @@ import { onNotify, INotify, cancel, playRecording, startRecording, stopRecording
 import { playList } from "rw-redux/recordings";
 
 interface IHomeState {
-  size?: number; //home size
-  modifyState?: (st: IHomeState, ev: React.SyntheticEvent<any>) => void; //modify root state
-  actNotifyData?: INotify; //rec x play notifications
+  size: number; //home size
 }
 let globSize = 0;
 export class RecHome extends React.Component<{}, IHomeState> {
@@ -19,34 +17,32 @@ export class RecHome extends React.Component<{}, IHomeState> {
     super(p, c);
     const self = this;
     self.state = {
-      modifyState: (st: IHomeState, ev: React.SyntheticEvent<any>) => {
-        if (ev) ev.preventDefault();
-        Object.assign(self.state, st);
-        self.forceUpdate();
-        globSize = st.size ? st.size : 0;
-      },
-      actNotifyData: actNotifyData,
       size: globSize,
     };
-    //subscribe to recording notificaton
-    onNotify.value = recNotifyData => self.state.modifyState({ ...self.state, actNotifyData: recNotifyData }, null);
+    //subscribe to recording notificaton. actNotifyData contains actual data.
+    onNotify.value = () => self.modifyState();
+  }
+  modifyState(st?: IHomeState) {
+    Object.assign(this.state, st);
+    this.forceUpdate();
+    globSize = this.state.size ? this.state.size : 0;
   }
   render(): JSX.Element {
-    const state = this.state;
-    const buttons = btnMetas.map(m => m[3](state.actNotifyData) ? <Button onClick={ev => m[2]()} key={m[0]} className='Mx(3px)' icon={m[1]} raised>{m[0]}</Button> : null);
-    const sizeCls = this.state.size == 0 ? 'W(65px) H(65px)' : (this.state.size == 1 ? 'W(600px) H(90px)' : 'T(0px) End(0px');
-    return <div className={classNames('Z(999) Pos(f) Start(0px) B(0px) D(f) Fld(c)', sizeCls, { 'Bgc(white) Bd Bdc(black)': this.state.size != 0 })}>
-      {this.state.size != 2 ? <div className='Flxg(1)'></div> : <div className='Flxg(1) Bgc(yellow)'>
+    const self = this;
+    const buttons = btnMetas.map(m => m[3](actNotifyData) ? <Button onClick={ev => m[2]()} key={m[0]} className='Mx(3px)' icon={m[1]} raised>{m[0]}</Button> : null);
+    const sizeCls = self.state.size == 0 ? 'W(65px) H(65px)' : (self.state.size == 1 ? 'W(600px) H(90px)' : 'T(0px) End(0px');
+    return <div className={classNames('Z(999) Pos(f) Start(0px) B(0px) D(f) Fld(c)', sizeCls, { 'Bgc(white) Bd Bdc(black)': self.state.size != 0 })}>
+      {self.state.size != 2 ? <div className='Flxg(1)'></div> : <div className='Flxg(1) Bgc(yellow)'>
         xx
       </div>}
       <div className='Flxs(1)'>
-        <div key='st' className={classNames({ 'D(n)': this.state.size == 0 || !state.actNotifyData.status })}>
-          <b>{`${state.actNotifyData.title}:`}</b>
-          {` ${RecordingStatus[state.actNotifyData.status]} `}
-          {`${state.actNotifyData.actionIdx}/${state.actNotifyData.actionCount}-${state.actNotifyData.recordsIdx}/${state.actNotifyData.recordsCount}`}
+        <div key='st' className={classNames({ 'D(n)': self.state.size == 0 || !actNotifyData.status })}>
+          <b>{`${actNotifyData.title}:`}</b>
+          {` ${RecordingStatus[actNotifyData.status]} `}
+          {`${actNotifyData.actionIdx}/${actNotifyData.actionCount}-${actNotifyData.recordsIdx}/${actNotifyData.recordsCount}`}
         </div>
-        <Button icon='open_with' floating accent mini onClick={ev => state.modifyState({ size: (state.size + 1) % 3 }, ev)} key='max' />
-        {this.state.size == 0 ? null : [
+        <Button icon='open_with' floating accent mini onClick={ev => { ev.preventDefault(); self.modifyState({ size: (self.state.size + 1) % 3 }) }} key='max' />
+        {self.state.size == 0 ? null : [
           buttons,
           <br />,
         ]}

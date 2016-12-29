@@ -1,7 +1,5 @@
 .Bd {
   border-width: 1px;
-}
-.Bd, .BdX {
   border-style: solid;
 }
 .Bdc\(black\) {
@@ -10,11 +8,17 @@
 .Bg\(t\) {
   background: transparent;
 }
+.Bgc\(green\) {
+  background-color: green;
+}
 .Bgc\(white\) {
   background-color: white;
 }
 .Bgc\(yellow\) {
   background-color: yellow;
+}
+.Bgz\(300px\) {
+  background-size: 300px;
 }
 .D\(f\) {
   display: -ms-flexbox;
@@ -38,9 +42,6 @@
 .Fz\(66\.6\%\) {
   font-size: 66.6%;
 }
-.H\(0\) {
-  height: 0;
-}
 .H\(65px\) {
   height: 65px;
 }
@@ -60,21 +61,8 @@
 .Start\(0px\) {
   left: 0px;
 }
-.Op\(0\) {
-  opacity: 0;
-}
-.foo:hover > .foo\:h\>Op\(1\) {
-  opacity: 1;
-}
-.Px\(10px\) {
-  padding-left: 10px;
-  padding-right: 10px;
-}
 .Pos\(f\) {
   position: fixed;
-}
-.Pos\(r\) {
-  position: relative;
 }
 .W\(600px\) {
   width: 600px;
@@ -84,38 +72,6 @@
 }
 .Z\(999\) {
   z-index: 999;
-}
-.BdX {
-  border-top-width: 0;
-  border-right-width: 1px;
-  border-bottom-width: 0;
-  border-left-width: 1px;
-}
-.Cf:before, .Cf:after {
-  content: " ";
-  display: table;
-}
-.Cf:after {
-  clear: both;
-}
-.Cf, .Row {
-  zoom: 1;
-}
-.Row {
-  clear: both;
-  display: inline-block;
-  vertical-align: top;
-  width: 100%;
-  box-sizing: border-box;
-  *display: block;
-  *width: auto;
-}
-.StretchedBox {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
 }
 @media(min-width:840px) {
   .Fz\(100\%\)--sm {
