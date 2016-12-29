@@ -34,7 +34,7 @@
     <Content Include="rw-gui-rt\toolbox.css" />
     <TypeScriptCompile Include="rw-course\compiler.ts" />
     <TypeScriptCompile Include="rw-course\test-lazy.tsx" />
-    <TypeScriptCompile Include="rw-gui-rt\login\img\login-providers.css.ts" />
+    <TypeScriptCompile Include="rw-gui-rt\login\img\login-providers.png.ts" />
     <TypeScriptCompile Include="rw-lib\lazy-loader.ts" />
     <TypeScriptCompile Include="rw-course\test.tsx" />
     <TypeScriptCompile Include="rw-gui-rt\block-gui\index.tsx" />
