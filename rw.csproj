@@ -24,7 +24,6 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <None Include="atomizer-config.json" />
-    <Content Include="gulpfile.js" />
     <Content Include="login.html" />
     <Content Include="index.html" />
     <Content Include="jspm.config.js" />
@@ -61,10 +60,9 @@
     <Content Include="tsconfig.json" />
     <Content Include="package.json" />
     <Content Include="packages.config" />
-    <Content Include="refreshCSS.cmd" />
+    <Content Include="cmd-atomic-css.cmd" />
     <Content Include="rw-lib\services\emailer.ashx" />
-    <Content Include="refreshConvertImages.cmd" />
-    <Content Include="image-url-template.templ" />
+    <Content Include="cmd-img2js.cmd" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

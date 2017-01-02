@@ -64,11 +64,11 @@
 .Pos\(f\) {
   position: fixed;
 }
-.W\(600px\) {
-  width: 600px;
-}
 .W\(65px\) {
   width: 65px;
+}
+.W\(600px\) {
+  width: 600px;
 }
 .Z\(999\) {
   z-index: 999;
