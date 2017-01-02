@@ -2,8 +2,9 @@
   "jspm": {
     "main": "app.js",
     "dependencies": {
+      "@types/lodash": "npm:@types/lodash@^4.14.45",
       "@types/react": "npm:@types/react@^0.14.55",
-      "@types/react-dom": "npm:@types/react-dom@^0.14.19",
+      "@types/react-dom": "npm:@types/react-dom@^0.14.20",
       "@types/react-redux": "npm:@types/react-redux@^4.4.35",
       "lodash": "npm:lodash@^4.17.2",
       "react-css-themr": "npm:react-css-themr@^1.6.1",
@@ -56,7 +57,7 @@
           "test.js"
         ]
       },
-      "npm:lodash@4.17.3": {
+      "npm:lodash@4.17.4": {
         "map": {
           "buffer": "@empty",
           "process": "@empty"
@@ -66,18 +67,5 @@
   },
   "dependencies": {
     "tslib": "^1.2.0"
-  },
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-atomizer": "^3.0.6",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-clean": "^0.3.2",
-    "gulp-debug": "^3.0.0",
-    "gulp-ignore": "^2.0.2",
-    "gulp-image-data-uri": "^1.2.2",
-    "gulp-rename": "^1.2.2",
-    "image-size": "^0.5.1",
-    "run-sequence": "^1.2.2",
-    "yargs": "^6.5.0"
   }
 }

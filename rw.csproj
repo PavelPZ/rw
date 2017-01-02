@@ -100,8 +100,6 @@
     <TypeScriptCompile Include="typings\classnames\index.d.ts" />
     <TypeScriptCompile Include="typings\lib.fetch.d.ts" />
     <TypeScriptCompile Include="typings\lib.streams.d.ts" />
-    <TypeScriptCompile Include="typings\lodash\index.d.ts" />
-    <TypeScriptCompile Include="typings\react-redux\index.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\app_bar.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\autocomplete.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\avatar.d.ts" />
@@ -133,10 +131,7 @@
     <TypeScriptCompile Include="typings\react-toolbox\time_picker.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\overlay.d.ts" />
     <TypeScriptCompile Include="typings\react-toolbox\tooltip.d.ts" />
-    <TypeScriptCompile Include="typings\react-dom\index.d.ts" />
-    <TypeScriptCompile Include="typings\react\index.d.ts" />
     <TypeScriptCompile Include="typings\redux-logger\index.d.ts" />
-    <TypeScriptCompile Include="typings\redux\index.d.ts" />
     <TypeScriptCompile Include="typings\reselect.d.ts" />
   </ItemGroup>
   <ItemGroup>

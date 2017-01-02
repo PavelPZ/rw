@@ -7,7 +7,7 @@ const rename = require("gulp-rename");
 const imageSize = require('image-size');
 const gulpIgnore = require('gulp-ignore');
 const clean = require('gulp-clean');
-const runSequence = require('run-sequence'); //incoming GULP 4.0 can run in series!!!!
+const runSequence = require('run-sequence'); //incoming GULP 4.0 can run in series!!!! 
 
 //************** atomizer
 gulp.task('atomizer', () => {
@@ -31,7 +31,7 @@ gulp.task('image-url', cb =>  runSequence('delete-image-url', 'create-image-url'
 gulp.task('create-image-url', cb => {
   console.log('START create-image-url');
   const path = argv.basicPath + argv.path;
-  let size = { width: -1, height: -1, type: '', origPath: '', id:'' };
+  let size = { width: -1, height: -1, type: '', origPath: '', id: '' };
   return gulp.src([path + '**/*.png', path + '**/*.jpg', path + '**/*.gif', path + '**/*.bmp'])
     .pipe(gulpIgnore.include(fn => { console.log('CREATE: ' + fn.path + '.ts'), Object.assign(size, imageSize(fn.path)); size.origPath = fn.path.replace(/\\/g, '/'); size.id = size.origPath.substr(argv.basicPath.length - 1); return true; })) //side efect: assign size to global variable
     .pipe(imageDataURI({ template: { file: './image-url-template.templ', variables: size } })) //generate .TS file by means of template and size
@@ -43,6 +43,11 @@ gulp.task('delete-image-url', cb => {
   console.log('START delete-image-url');
   const path = argv.basicPath + argv.path;
   return gulp.src([path + '**/*.png.ts', path + '**/*.jpg.ts', path + '**/*.gif.ts', path + '**/*.bmp.ts'])
-    .pipe(gulpIgnore.include(fn => console.log('DELETE: ' + fn.path)))
+    .pipe(gulpIgnore.include(fn => {
+      const bpm = fn.path.substr(0, fn.path.length - 3);
+      
+      console.log(bpm);
+      console.log('DELETE: ' + fn.path);
+    }))
     .pipe(clean());
 });

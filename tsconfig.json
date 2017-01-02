@@ -17,12 +17,11 @@
       "rw-login/*": [ "rw-login/*" ],
       "rw-gui-rt/*": [ "rw-gui-rt/*" ],
 
-      //get from d:\rw\rw\jspm_packages\npm\redux@3.6.0\index.d.ts
-      "redux": [ "typings/redux/index" ],
-      //get from d:\rw\rw\jspm_packages\npm\@types\
-      "react": [ "typings/react/index" ],
-      "react-dom": [ "typings/react-dom/index" ],
-      "react-redux": [ "typings/react-redux/index" ],
+      "redux": [ "jspm_packages/npm/redux@3.6.0/index" ],
+      "react": [ "jspm_packages/npm/@types/react@0.14.55/index" ],
+      "react-dom": [ "jspm_packages/npm/@types/react-dom@0.14.20/index" ],
+      "react-redux": [ "jspm_packages/npm/@types/react-redux@4.4.35/index" ],
+      "lodash/*": [ "jspm_packages/npm/@types/lodash@4.14.45/*/index" ],
       //get from https://raw.githubusercontent.com/Semantic-Org/Semantic-UI-React/master/typings/index.d.ts
       "semantic-ui": [ "typings/semantic-ui-react/index" ]
     },

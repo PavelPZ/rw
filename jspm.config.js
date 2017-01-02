@@ -18,8 +18,9 @@ SystemJS.config({
     "npm:*.json"
   ],
   map: {
+    "@types/lodash": "npm:@types/lodash@4.14.45",
     "@types/react": "npm:@types/react@0.14.55",
-    "@types/react-dom": "npm:@types/react-dom@0.14.19",
+    "@types/react-dom": "npm:@types/react-dom@0.14.20",
     "@types/react-redux": "npm:@types/react-redux@4.4.35",
     "assert": "npm:jspm-nodelibs-assert@0.2.0",
     "buffer": "npm:jspm-nodelibs-buffer@0.2.1",
@@ -32,8 +33,8 @@ SystemJS.config({
     "fs": "npm:jspm-nodelibs-fs@0.2.0",
     "http": "npm:jspm-nodelibs-http@0.2.0",
     "https": "npm:jspm-nodelibs-https@0.2.1",
-    "immutability-helper": "npm:immutability-helper@2.0.0",
-    "lodash": "npm:lodash@4.17.3",
+    "immutability-helper": "npm:immutability-helper@2.1.0",
+    "lodash": "npm:lodash@4.17.4",
     "os": "npm:jspm-nodelibs-os@0.2.0",
     "path": "npm:jspm-nodelibs-path@0.2.1",
     "process": "npm:jspm-nodelibs-process@0.2.0",
@@ -62,11 +63,6 @@ SystemJS.config({
         "normalize.css": "npm:normalize.css@4.2.0"
       }
     },
-    "npm:@types/react-dom@0.14.19": {
-      "map": {
-        "@types/react": "npm:@types/react@0.14.55"
-      }
-    },
     "npm:@types/react-redux@4.4.35": {
       "map": {
         "@types/react": "npm:@types/react@0.14.55",
@@ -75,7 +71,7 @@ SystemJS.config({
     },
     "npm:react-redux@4.4.6": {
       "map": {
-        "lodash": "npm:lodash@4.17.3",
+        "lodash": "npm:lodash@4.17.4",
         "invariant": "npm:invariant@2.2.2",
         "loose-envify": "npm:loose-envify@1.3.0",
         "hoist-non-react-statics": "npm:hoist-non-react-statics@1.2.0"
@@ -96,11 +92,6 @@ SystemJS.config({
         "loose-envify": "npm:loose-envify@1.3.0"
       }
     },
-    "npm:immutability-helper@2.0.0": {
-      "map": {
-        "invariant": "npm:invariant@2.2.2"
-      }
-    },
     "npm:react-dom@15.4.1": {
       "map": {
         "loose-envify": "npm:loose-envify@1.3.0",
@@ -110,10 +101,10 @@ SystemJS.config({
     },
     "npm:redux@3.6.0": {
       "map": {
-        "lodash": "npm:lodash@4.17.3",
+        "lodash": "npm:lodash@4.17.4",
         "loose-envify": "npm:loose-envify@1.3.0",
         "symbol-observable": "npm:symbol-observable@1.0.4",
-        "lodash-es": "npm:lodash-es@4.17.3"
+        "lodash-es": "npm:lodash-es@4.17.4"
       }
     },
     "npm:react@15.4.1": {
@@ -357,7 +348,7 @@ SystemJS.config({
         "create-hash": "npm:create-hash@1.1.2",
         "evp_bytestokey": "npm:evp_bytestokey@1.0.0",
         "pbkdf2": "npm:pbkdf2@3.0.9",
-        "asn1.js": "npm:asn1.js@4.9.0"
+        "asn1.js": "npm:asn1.js@4.9.1"
       }
     },
     "npm:cipher-base@1.0.3": {
@@ -395,7 +386,17 @@ SystemJS.config({
         "inherits": "npm:inherits@2.0.3"
       }
     },
-    "npm:asn1.js@4.9.0": {
+    "npm:@types/react-dom@0.14.20": {
+      "map": {
+        "@types/react": "npm:@types/react@0.14.55"
+      }
+    },
+    "npm:immutability-helper@2.1.0": {
+      "map": {
+        "invariant": "npm:invariant@2.2.2"
+      }
+    },
+    "npm:asn1.js@4.9.1": {
       "map": {
         "bn.js": "npm:bn.js@4.11.6",
         "inherits": "npm:inherits@2.0.3",
