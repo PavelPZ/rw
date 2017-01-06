@@ -7,6 +7,7 @@ SystemJS.config({
       "rw-lib": "/rw-lib",
       "rw-login": "/rw-login",
       "rw-gui-rt": "/rw-gui-rt",
+      "rw-course": "/rw-course/index",
       "config": "app-config.js"
     }
   }
@@ -40,7 +41,7 @@ SystemJS.config({
     "process": "npm:jspm-nodelibs-process@0.2.0",
     "react": "npm:react@15.4.1",
     "react-addons-css-transition-group": "npm:react-addons-css-transition-group@15.4.1",
-    "react-css-themr": "npm:react-css-themr@1.7.0",
+    "react-css-themr": "npm:react-css-themr@1.7.1",
     "react-dom": "npm:react-dom@15.4.1",
     "react-redux": "npm:react-redux@4.4.6",
     "react-toolbox": "npm:react-toolbox@1.3.2",
@@ -58,7 +59,7 @@ SystemJS.config({
   packages: {
     "npm:react-toolbox@1.3.2": {
       "map": {
-        "react-css-themr": "npm:react-css-themr@1.7.0",
+        "react-css-themr": "npm:react-css-themr@1.7.1",
         "core-js": "npm:core-js@2.4.1",
         "normalize.css": "npm:normalize.css@4.2.0"
       }
@@ -75,11 +76,6 @@ SystemJS.config({
         "invariant": "npm:invariant@2.2.2",
         "loose-envify": "npm:loose-envify@1.3.0",
         "hoist-non-react-statics": "npm:hoist-non-react-statics@1.2.0"
-      }
-    },
-    "npm:react-css-themr@1.7.0": {
-      "map": {
-        "invariant": "npm:invariant@2.2.2"
       }
     },
     "npm:redux-logger@2.7.4": {
@@ -401,6 +397,11 @@ SystemJS.config({
         "bn.js": "npm:bn.js@4.11.6",
         "inherits": "npm:inherits@2.0.3",
         "minimalistic-assert": "npm:minimalistic-assert@1.0.0"
+      }
+    },
+    "npm:react-css-themr@1.7.1": {
+      "map": {
+        "invariant": "npm:invariant@2.2.2"
       }
     }
   }

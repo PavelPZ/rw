@@ -1,0 +1,234 @@
+﻿<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.langmaster.com/new/author/coursemodelschema.xsd">
+  <head>
+    <title></title>
+  </head>
+  <body class="app-doc">
+    <doc-example id="basic-example">
+      <header-prop>
+        <h3>Basic example</h3>
+      </header-prop>
+      <doc-descr>xxx</doc-descr>
+      <gap-fill correct-value="correct"/>
+    </doc-example>
+    <doc-example id="with-init">
+      <header-prop>
+        <h3>With init-value</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <gap-fill correct-value="correct" init-value="init value"/>
+    </doc-example>
+    <doc-example id="with-place-holder">
+      <header-prop>
+        <h3>With place-holder</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <gap-fill correct-value="correct" hint="Fill answer to question"/>
+    </doc-example>
+    <doc-example id="case-sensitive">
+      <header-prop>
+        <h3>Case sensitive evaluation</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <gap-fill correct-value="CorRecT"/>
+      <gap-fill correct-value="CorRecT" case-sensitive="true"/>
+    </doc-example>
+    <doc-example id="smart-evaluation">
+      <header-prop>
+        <h3>Evaluation details</h3>
+      </header-prop>
+      <doc-descr>TODO: urcit a popsat pravidla difotniho chytreho vyhodnoceni</doc-descr>
+      <gap-fill correct-value="That's!"/>
+    </doc-example>
+    <doc-example id="with-width">
+      <header-prop>
+        <h3>Setting width</h3>
+      </header-prop>
+      <doc-descr>Bez nastaveni sirky: nastavi se sirka, aby se vesly vsechny spravne odpovedi, init-value i placeholder.</doc-descr>
+      <gap-fill correct-value="c"/>
+      <gap-fill correct-value="c1"/>
+      <gap-fill correct-value="c12"/>
+      <gap-fill correct-value="c123"/>
+      <gap-fill correct-value="c1234"/>
+      <gap-fill correct-value="c1"/>
+      <gap-fill correct-value="c1|c1-c1-c1"/>
+      <gap-fill correct-value="c1" hint="pl pl pl pl"/>
+      <gap-fill correct-value="c1-c1-c1-c1-c1-c1|c1"/>
+      <gap-fill correct-value="correct" style-sheet="self {width:150px;}"/>
+      <gap-fill correct-value="correct" style-sheet="self {width:20em;}"/>
+    </doc-example>
+    <doc-example id="with-css">
+      <header-prop>
+        <h3>Use CSS</h3>
+      </header-prop>
+      <doc-descr>Details about using CSS see TODO</doc-descr>
+      <div style-sheet="gap-fill {width:150px}">
+        <gap-fill correct-value="correct"/>
+      </div>
+      <gap-fill correct-value="correct" style-sheet="self, self input {background-color:yellow;}"/>
+    </doc-example>
+    <doc-example id="more-same-width">
+      <header-prop>
+        <h3>More gap-fills witr fixed width</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <div style-sheet="gap-fill {width:150px;}">
+        <gap-fill correct-value="c1"/>
+        <gap-fill correct-value="correct"/>
+      </div>
+      <div style-sheet="gap-fill {width:20em;}">
+        <gap-fill correct-value="correct"/>
+        <gap-fill correct-value="c1"/>
+      </div>
+    </doc-example>
+    <doc-example id="more-smart-width">
+      <header-prop>
+        <h3>More gap-fills with smart width</h3>
+      </header-prop>
+      <doc-descr>sirka skupiny gap-fill se stejnou hodnotou smart-width atributu je rovna nejsirsimu gap-fill teto skupiny</doc-descr>
+      <gap-fill correct-value="c1" width-group="g1"/>
+      <gap-fill correct-value="c1-c1-c1" width-group="g1"/>
+      <gap-fill correct-value="c1" width-group="g2"/>
+      <gap-fill correct-value="c1-c1-c1-c1-c1-c1-c1-c1" width-group="g2"/>
+    </doc-example>
+    <doc-example id="more-smart-width-css">
+      <header-prop>
+        <h3>... by means with CSS</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <div style-sheet="gap-fill {smart-width:g1}">
+        <gap-fill correct-value="c1" />
+        <gap-fill correct-value="c1-c1-c1" />
+      </div>
+      <div style-sheet="gap-fill {smart-width:g2}">
+        <gap-fill correct-value="c1" />
+        <gap-fill correct-value="c1-c1-c1-c1-c1-c1-c1-c1"/>
+      </div>
+    </doc-example>
+    <doc-example id="more-smart-width-css2">
+      <header-prop>
+        <h3>... other CSS usage</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <div style-sheet="gap-fill.cls1 {smart-width:g1} gap-fill.cls2 {smart-width:g2}">
+        <gap-fill correct-value="c1" class="cls1" />
+        <gap-fill correct-value="c1-c1-c1" class="cls1" />
+        <gap-fill correct-value="c1" class="cls2" />
+        <gap-fill correct-value="c1-c1-c1-c1-c1-c1-c1-c1" class="cls2" />
+      </div>
+    </doc-example>
+    <doc-example id="exchangeable">
+      <header-prop>
+        <h3>Exchangeable gap-fill values</h3>
+      </header-prop>
+      <doc-descr>TODO: jak se chova pri vice correct values?</doc-descr>
+      <div style-sheet="gap-fill {eval-group:g1-exchangeable}">
+        <gap-fill correct-value="c1"/>
+        <gap-fill correct-value="c2"/>
+        <gap-fill correct-value="c3"/>
+      </div>
+      <div style-sheet="gap-fill {eval-group:g2-exchangeable}">
+        <gap-fill correct-value="c4"/>
+        <gap-fill correct-value="c5"/>
+        <gap-fill correct-value="c6"/>
+      </div>
+    </doc-example>
+    <doc-example id="and-eval">
+      <header-prop>
+        <h3>AND evaluation predicate</h3>
+      </header-prop>
+      <doc-descr>Je-li jediny element ze skupiny elementu se stejnou hodnotou atributu 'eval-and' vyplnen spatne, je cela skupina povazovana za spatne vyplnenou.</doc-descr>
+      <div style-sheet="gap-fill {eval-group:and-g3}">
+        <gap-fill correct-value="c1"/>
+        <gap-fill correct-value="c2" />
+      </div>
+    </doc-example>
+    <doc-example id="and-exchangeable">
+      <header-prop>
+        <h3>Both AND evaluation predicate and Exchangeable gap-fill value</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <div style-sheet="gap-fill {eval-group:and-g3-exchangeable}">
+        <gap-fill correct-value="c1"/>
+        <gap-fill correct-value="c2" />
+      </div>
+    </doc-example>
+
+    <doc-example id="inline-tag">
+      <header-prop>
+        <h3>Inline gap-fill</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <div>
+        Lorem <inline-tag>gapFill:c1|c2</inline-tag> Lorem
+      </div>
+    </doc-example>
+
+    <doc-example id="force-inline-tag">
+      <header-prop>
+        <h3>Inline gap-fill (with inline-type)</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <div>
+        Lorem <inline-tag inline-type="gapFill">c1|c2</inline-tag> Lorem
+      </div>
+    </doc-example>
+
+    <doc-example id="inline-force">
+      <header-prop>
+        <h3>Inline gap-fill in smart-element</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <smart-element>
+        <![CDATA[
+Lorem {+gap-fill c1|c2} Lorem {+gap-fill c3}
+]]>
+      </smart-element>
+    </doc-example>
+
+    <doc-example id="inline-css" todo="true">
+      <header-prop>
+        <h3>Inline gap-fill in smart-element and CSS</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <smart-element inline-type="gap-fill" style-sheet="gap-fill {smart-width: g5; eval-group: and-g5-exchangeable;}">
+        <![CDATA[
+First Header  | Second Header
+------------- | -------------
+Lorem {+ c1 c1 c1 c1 c1 c1|c2} | Lorem {+ c3}
+Content Cell  | Content Cell        
+]]>
+      </smart-element>
+    </doc-example>
+
+    <doc-example id="empty-correct-value" todo="true">
+      <header-prop>
+        <h3>gap-fill empty correct value</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <div>
+        <gap-fill correct-value="ok1|"/>, <gap-fill correct-value="" />
+      </div>
+    </doc-example>
+
+    <doc-example id="with-offering" todo="true">
+      <header-prop>
+        <h3>gap-fill with offering</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <offering id="offering-1" words="wrong 1|wrong 2"/>
+      <br/>
+      <gap-fill correct-value="ok1" offering-id="offering-1"/>
+      <br/>
+      <gap-fill correct-value="ok2" offering-id="offering-1"/>
+    </doc-example>
+
+    <doc-example id="macro" todo="true">
+      <header-prop>
+        <h3>Inline gap-fill in macros</h3>
+      </header-prop>
+      <doc-descr>Details about using inline smart-elements see TODO</doc-descr>
+      <smart-element inline-type="gap-fill">
+      </smart-element>
+    </doc-example>
+  </body>
+</html>
