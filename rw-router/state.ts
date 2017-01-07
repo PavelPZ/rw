@@ -2,12 +2,12 @@
 import valuesIn from 'lodash/valuesIn';
 import isEqual from 'lodash/isEqual';
 
-import { IRootState } from 'rw-redux/types';
+import { IRootState } from 'rw-redux';
 
 //*****
 import { IRouteData, IRouteDir } from './url-parser';
 
-declare module '../rw-redux/types' {
+declare module 'rw-redux/types' {
   interface IRootState {
     router?: IRouteDir;
   }

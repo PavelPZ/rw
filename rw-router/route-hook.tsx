@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { connect } from 'react-redux';
-import { IMapDispatchToProps, IRootState } from 'rw-redux/types';
 
+import { IMapDispatchToProps, IRootState } from 'rw-redux';
 import { RouteHandler } from './router';
 import { IRouteDir } from './url-parser';
 

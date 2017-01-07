@@ -4,14 +4,14 @@ import { registerTag } from '../compiler';
 import { Tag } from './tag';
 
 export class DocExample extends Tag<objects.IDocExampleProps, objects.ITagState> { }
-registerTag(DocExample);
+registerTag('DocExample', DocExample);
 export class DocDescr extends Tag<objects.ITagProps, objects.ITagState> { }
-registerTag(DocDescr);
+registerTag('DocDescr', DocDescr);
 export class Macro<P extends objects.IMacroProps, S extends objects.IMacroState> extends Tag<P, S> {
 }
 export class HeaderProp extends Tag<objects.IHeaderPropProps, objects.IHeaderPropState> {
 }
-registerTag(HeaderProp);
+registerTag('HeaderProp', HeaderProp);
 export class PairingItem extends Tag<objects.IPairingItemProps, objects.IPairingItemState> {
 }
 export class SingleChoice extends Tag<objects.ISingleChoiceProps, objects.ISingleChoiceState> {

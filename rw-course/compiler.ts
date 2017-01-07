@@ -42,9 +42,9 @@ function compile(root: IElement): IElement {
   return root;
 }
 
-export const registerTag = (type: typeof React.Component) => {
-  const nm = type.name; if (types[nm]) throw new Error(`Tag ${name} already registered`);
-  types[nm] = type;
+export const registerTag = (name: string, type: typeof React.Component) => {
+  if (types[name]) throw new Error(`Tag ${name} already registered`);
+  types[name] = type;
 }
 export const fingTag = (name: string) => {
   const res = types[name]; if (!res) return name; //throw new Error(`Cannot find tag ${name}`);

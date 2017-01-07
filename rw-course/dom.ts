@@ -141,7 +141,7 @@ export interface Result extends Score {
 export interface orderingResult extends Result {
   indexes: Array<number>;
 }
-export interface bodyResult extends Result {
+export interface pageResult extends Result {
   i: number;
   st: ExerciseStatus;
   bt: number;
@@ -582,12 +582,15 @@ export interface IDocExampleProps extends ISmartElementLowProps {
   todo?: boolean;
 }
 
-export interface IBodyProps extends ITagProps {
+export interface IPageProps extends ITagProps {
+  //persistent data identification
   user?: string; //user email
   variant?: string; //variant of exercise user data - every exercise could have more records in user DB (eg. could be used in more products etc.)
-  title?: string;
   url?: string; //data ID
-  order?: number; //default order of page in parent folder
+  //
+
+  //page data
+  title?: string;
   instrTitle?: string;
   instrBody?: string;
   seeAlsoStr?: string;

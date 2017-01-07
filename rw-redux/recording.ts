@@ -1,9 +1,8 @@
 ﻿import { Store, MiddlewareAPI, Action } from 'redux';
 
 //*****
-import { pushState } from '../rw-router/router';
-import { IRootState } from './types';
-import { TDispatch } from './types';
+//import { pushState } from '../rw-router/router';
+import { TDispatch, IRootState } from './types';
 import { recordingHook, ASYNC_START, IAsyncStartAction } from './async';
 import { changeAppInitState, store } from './app-loader';
 
@@ -48,7 +47,7 @@ export const playRecording = () => {
     setStatus(RecordingStatus.playing);
     if (!currentRecording || !currentRecording.appState || !currentRecording.actions || currentRecording.actions.length <= 0) resolve();
     const store = changeAppInitState(currentRecording.appState);
-    pushState((store.getState() as IRootState).router);
+    //pushState((store.getState() as IRootState).router);
     let actIdx = 0; const dispatch = store.dispatch;
     let play: () => void;
     play = () => {

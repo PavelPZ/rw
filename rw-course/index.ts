@@ -5,5 +5,5 @@ export * from './components/others';
 export * from './components/eval-control';
 export * from './components/gap-fill';
 export * from './components/edit';
-export * from './components/body';
+export * from './components/page';
 

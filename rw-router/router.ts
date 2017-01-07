@@ -2,9 +2,7 @@
 import { connect } from 'react-redux';
 import { Action } from 'redux';
 
-import { store } from 'rw-redux/app-loader';
-import { IMapDispatchToProps, TDispatch, IRootState, Reducer, TMiddlewareAPI } from 'rw-redux/types';
-import { addAsyncProc, IAsyncProcPar, doAsyncAction, IAsyncResultAction } from 'rw-redux/async';
+import { addAsyncProc, IAsyncProcPar, doAsyncAction, IAsyncResultAction, store, IMapDispatchToProps, TDispatch, IRootState, Reducer, TMiddlewareAPI } from 'rw-redux';
 import { config } from 'config';
 
 //*******

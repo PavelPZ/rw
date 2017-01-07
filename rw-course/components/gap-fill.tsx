@@ -8,4 +8,4 @@ export interface IGapFillState extends objects.IEditState {
 
 export class GapFill extends Edit<objects.IGapFillProps, IGapFillState> {
 }
-registerTag(GapFill);
+registerTag('GapFill', GapFill);

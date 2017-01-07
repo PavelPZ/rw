@@ -1,18 +1,12 @@
 ﻿import React from 'react';
 
-import { IRootState, TMiddlewareAPI } from 'rw-redux/types';
-import { appInit } from 'rw-redux/app-loader';
-import { blockGuiReducerFnc } from 'rw-redux/block-gui';
-import { matchMediaReducerFnc } from 'rw-redux/match-media';
+import { matchMediaReducerFnc, blockGuiReducerFnc, appInit, IRootState, TMiddlewareAPI } from 'rw-redux';
 
 import getRTAppRoot from 'rw-gui-rt/get-app-root';
 
 import { config } from 'config';
 
-import { RouteHook } from 'rw-router/route-hook';
-import { routeReducerFnc, RouteHandler, init as routerInit, navigate } from 'rw-router/router';
-import { IRouteData, IRouteDir } from 'rw-router/url-parser';
-import { routeTreeToDir, route, routeDirToTree, routeModify, parentPath } from 'rw-router/lib';
+import { RouteHook, routeReducerFnc, RouteHandler, init as routerInit, navigate, IRouteData, IRouteDir, routeTreeToDir, route, routeDirToTree, routeModify, parentPath } from 'rw-router';
 
 import { loginReducerFnc, createLoginRoute } from 'rw-login/index';
 

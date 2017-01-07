@@ -1,9 +1,9 @@
 ﻿import { Action } from 'redux';
 
-import { IRootState, TDispatch, Reducer } from 'rw-redux/types';
-import { store } from 'rw-redux/app-loader';
+import { IRootState, TDispatch, Reducer } from './types';
+import { store } from './app-loader';
 
-declare module 'rw-redux/types' {
+declare module './types' {
   interface IRootState {
     gui?: IMatchMediaState;
   }

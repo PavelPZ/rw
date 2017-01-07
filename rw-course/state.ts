@@ -1,5 +1,5 @@
 ﻿import { IConfig, config } from 'config';
-import { IRootState } from 'rw-redux/types';
+import { IRootState } from 'rw-redux';
 import * as objects from './dom';
 
 declare module 'rw-redux/types' {
@@ -12,7 +12,7 @@ declare module 'rw-redux/types' {
 
 export interface ICourseState {
   actPage: { pageUrl: string; [tagId: string]: {} };
-  proxies: { [pageUrl: string]: objects.bodyResult | 'removed' };
+  proxies: { [pageUrl: string]: objects.pageResult | 'removed' };
 }
 
 declare module 'config' {

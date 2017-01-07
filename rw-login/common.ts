@@ -1,5 +1,4 @@
-﻿
-//export type TProviderIds = 'google' | 'facebook' | 'msoft';
+﻿export type TProviderIds = 'google' | 'facebook' | 'msoft';
 
 //export interface IProviderConfig {
 //  client_id?: string; //klic pro kumunikaci se serverem providera

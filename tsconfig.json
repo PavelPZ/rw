@@ -13,12 +13,12 @@
     //"importHelpers": true,
     "baseUrl": ".",
     "paths": {
-      "rw-router/*": [ "rw-router/*" ],
-      "rw-redux/*": [ "rw-redux/*" ],
+      "rw-router": [ "rw-router/index" ],
+      "rw-redux": [ "rw-redux/index" ],
       "rw-lib/*": [ "rw-lib/*" ],
-      "rw-login/*": [ "rw-login/*" ],
+      "rw-login": [ "rw-login/index" ],
       "rw-gui-rt/*": [ "rw-gui-rt/*" ],
-      "rw-course": [ "rw-course/index.ts" ],
+      "rw-course": [ "rw-course/index" ],
 
       "redux": [ "jspm_packages/npm/redux@3.6.0/index" ],
       "react": [ "jspm_packages/npm/@types/react@0.14.57/index" ],

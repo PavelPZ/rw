@@ -5,8 +5,7 @@ import IconButton from 'react-toolbox/lib/button/IconButton';
 import classNames from "classnames";
 
 import theme from "rw-gui-rt/theme";
-import { onNotify, INotify, cancel, playRecording, startRecording, stopRecording, cancelPlaying, actNotifyData, RecordingStatus } from "rw-redux/recording";
-import { playList } from "rw-redux/recordings";
+import { playList, onNotify, INotify, cancel, playRecording, startRecording, stopRecording, cancelPlaying, actNotifyData, RecordingStatus } from "rw-redux";
 
 export interface IHomeState {
   size: number; //home size

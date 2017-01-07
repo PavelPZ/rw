@@ -1,6 +1,6 @@
-import React from 'react'; import { $rc, $loc, Body, DocExample, HeaderProp, DocDescr, GapFill, InlineTag, SmartElement, Offering, DropDown } from 'rw-course'; export default () => /*
+import React from 'react'; import { $rc, $loc, Page, DocExample, HeaderProp, DocDescr, GapFill, InlineTag, SmartElement, Offering, DropDown } from 'rw-course'; export default () => /*
 *********** START MARKUP HERE: */
-  <Body title="" className="app-doc">
+  <Page title="" className="app-doc">
     <DocExample id="basic-example">
       <HeaderProp>
         <h3>Basic example</h3>
@@ -211,4 +211,4 @@ Content Cell  | Content Cell
       <DocDescr>Details about using inline smart-elements see TODO</DocDescr>
       <SmartElement inlineType='GapFill'></SmartElement>
     </DocExample>
-  </Body >
+  </Page >
