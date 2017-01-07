@@ -31,7 +31,7 @@ export function preCompile(getJSXTree: () => IElement | JSX.Element): JSX.Elemen
   return elToJsx(jsxTree);
 }
 
-interface IElement {
+export interface IElement {
   type:string;
   props;
   childs: Array<IElement>;

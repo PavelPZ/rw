@@ -5,8 +5,8 @@ import { IMapDispatchToProps, IRootState } from 'rw-redux/types';
 import { RouteHandler } from './router';
 import { IRouteDir } from './url-parser';
 
-interface IRouteHookMapStateToProps { root: IRouteDir; path: string; }
-interface IRouteHookOwnProps { parentPath: string, hookId: string; }
+export interface IRouteHookMapStateToProps { root: IRouteDir; path: string; }
+export interface IRouteHookOwnProps { parentPath: string, hookId: string; }
 
 const RouteHookPresent: React.StatelessComponent<IRouteHookMapStateToProps & IMapDispatchToProps> = props => {
   const rt = props.root[props.path];

@@ -4,8 +4,15 @@ import * as objects from './dom';
 
 declare module 'rw-redux/types' {
   interface IRootState {
-    course?: { [contextId: string]: { [tagId: string]: objects.Result }; };
+    courses?: {
+      [contextId: string]: ICourseState;
+    }
   }
+}
+
+export interface ICourseState {
+  actPage: { pageUrl: string; [tagId: string]: {} };
+  proxies: { [pageUrl: string]: objects.bodyResult | 'removed' };
 }
 
 declare module 'config' {

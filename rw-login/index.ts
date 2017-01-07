@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { connect } from 'react-redux';
+import { connect, ComponentDecorator } from 'react-redux';
 import { Action } from 'redux';
 import { createSelector } from 'reselect';
 
@@ -28,7 +28,7 @@ declare module 'rw-redux/types' {
   }
 }
 
-interface ILoginState {
+export interface ILoginState {
   isLogged?: boolean;
   email?: string;
   firstName?: string;
@@ -43,14 +43,14 @@ export const loginReducerFnc = (state: IRootState, action: any): IRootState => {
   }
 }
 
-interface ILoginMapStateToProps {
+export interface ILoginMapStateToProps {
   email: string;
   firstName: string;
   lastName: string;
   guiLarge: boolean;
   availableLogins: Array<string>
 }
-interface ILoginMapDispatchToProps { onSelectProvider: (providerId: string, ev?: React.SyntheticEvent<any>) => any; }
+export interface ILoginMapDispatchToProps { onSelectProvider: (providerId: string, ev?: React.SyntheticEvent<any>) => any; }
 
 export const loginSELECT_PROVIDER = 'login.SELECT_PROVIDER'; export interface ILoginSelectProviderAction extends Action { type: 'login.SELECT_PROVIDER'; providerId: string; }
 const dispatchLoginSelectProvider = (dispatch: TDispatch, providerId: string) => dispatch({ type: loginSELECT_PROVIDER, providerId: providerId } as ILoginSelectProviderAction);
@@ -91,8 +91,8 @@ const loginSelector = createSelector<IRootState, ILoginMapStateToProps, ILoginSt
   (login, gui) => ({ email: login.email, firstName: login.firstName, lastName: login.lastName, guiLarge: gui, availableLogins: config.login.availableLogins })
 );
 
-interface ILoginProps { availableLogins: Array<string>; }
-export const loginCreator = connect<ILoginMapStateToProps, ILoginMapDispatchToProps, ILoginProps>(
+export interface ILoginProps { availableLogins: Array<string>; }
+export const loginCreator: ComponentDecorator<ILoginMapStateToProps & ILoginMapDispatchToProps, ILoginProps> = connect<ILoginMapStateToProps, ILoginMapDispatchToProps, ILoginProps>(
   (state: IRootState) => loginSelector(state), 
   (dispatch: TDispatch, props) => ({ onSelectProvider: (providerId, ev) => { if (ev) ev.preventDefault(); return dispatchLoginSelectProvider(dispatch, providerId); } })
 );
@@ -101,7 +101,7 @@ export const loginProxy: { value?: (props?: ILoginProps) => JSX.Element } = { };
 
 //Route Handler
 const LOGIN = 'login.LOGIN';
-interface ILogindRoute extends IRouteData { handlerId: 'login.LOGIN'; }
+export interface ILogindRoute extends IRouteData { handlerId: 'login.LOGIN'; }
 export const createLoginRoute = () => ({ handlerId: LOGIN } as ILogindRoute)
 class LoginHandler extends RouteHandler<ILogindRoute> {
   createComponent(routeData: ILogindRoute, state: IRouteDir): JSX.Element { return loginProxy.value(); }

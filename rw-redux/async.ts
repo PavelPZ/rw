@@ -26,9 +26,9 @@ export interface IAsyncStartAction extends Action {
 export function doAsyncAction<TAsync extends IAsyncProcPar>(procPar: TAsync): IAsyncStartAction {
   return { type: ASYNC_START, asyncProcName: procPar.type, asyncProcPar: procPar/*, innerAction: innerAction*/ };
 }
-interface IAsyncEndAction extends Action { type: ASYNC_END }
+export interface IAsyncEndAction extends Action { type: ASYNC_END }
 export const doAsyncEndAction = () => ({ type: ASYNC_END } as IAsyncEndAction);
-interface IAsyncErrorAction extends Action { type: ASYNC_ERROR; msg: any; }
+export interface IAsyncErrorAction extends Action { type: ASYNC_ERROR; msg: any; }
 export const doAsyncErrorAction = (msg: any) => ({ type: ASYNC_ERROR, msg: msg } as IAsyncErrorAction);
 
 export const asyncMiddleware: Middleware<IAsyncStartAction> = middlAPI => next => act => {

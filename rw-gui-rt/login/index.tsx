@@ -11,5 +11,6 @@ const LoginPresent: TLoginPresent = props => {
 };
 
 const Login = loginCreator(LoginPresent);
-const init = () => loginProxy.value = props => <Login {...props} />;
+//const init = () => loginProxy.value = props => <Login {...props} />;
+function init():void { loginProxy.value = props => <Login {...props} />; }
 export default init;

@@ -1,4 +1,4 @@
-import React from 'react'; import { $rc, $loc, Body, DocExample, HeaderProp, DocDescr, GapFill, InlineTag, SmartElement, Offering } from 'rw-course'; export default () => /*
+import React from 'react'; import { $rc, $loc, Body, DocExample, HeaderProp, DocDescr, GapFill, InlineTag, SmartElement, Offering, DropDown } from 'rw-course'; export default () => /*
 *********** START MARKUP HERE: */
   <Body title="" className="app-doc">
     <DocExample id="basic-example">

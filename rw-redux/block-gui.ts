@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { connect } from 'react-redux';
+import { connect, ComponentDecorator } from 'react-redux';
 import { Action } from 'redux';
 
 //*****
@@ -19,11 +19,11 @@ export const blockGuiReducerFnc = (state: IRootState, action: any): IRootState =
   }
 }
 
-export const blockGuiCreator = connect<IBlockGuiMapStateToProps, IMapDispatchToProps, never>((state: IRootState) => ({ counterProp: state.blockGui.counter } as IBlockGuiMapStateToProps));
+export const blockGuiCreator: ComponentDecorator<IBlockGuiMapStateToProps & IMapDispatchToProps, never> = connect<IBlockGuiMapStateToProps, IMapDispatchToProps, never>((state: IRootState) => ({ counterProp: state.blockGui.counter } as IBlockGuiMapStateToProps));
 export type TBlockGuiPresent = React.StatelessComponent<IBlockGuiMapStateToProps & IMapDispatchToProps>;
 export const blockGuiProxy: { value?: () => JSX.Element } = {};
 
-interface IBlockGuiMapStateToProps { counterProp: number; }
+export interface IBlockGuiMapStateToProps { counterProp: number; }
 
 const blockGuiReducer: Reducer<IBlockGuiState, Action> = (state, action) => {
   if (!state) return { counter: 0 };

@@ -44,7 +44,7 @@ import { TabTheme } from 'react-toolbox/lib/tabs/Tab';
 import { TimePickerTheme } from 'react-toolbox/lib/time_picker/TimePicker';
 import { TooltipTheme } from 'react-toolbox/lib/tooltip/Tooltip';
 
-type TTheme = {
+export type TTheme = {
   RTAppBar: AppBarTheme,
   RTAutocomplete: AutocompleteTheme,
   RTAvatar: AvatarTheme,

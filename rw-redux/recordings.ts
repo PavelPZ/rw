@@ -1,6 +1,6 @@
 ﻿import { IRecording, cancel, INotify, playRecording, setCurrentRecording, locStoragePrefix, actNotifyData, RecordingStatus, notifyDataInit, notify } from './recording';
 
-interface IPlayList {
+export interface IPlayList {
   records: Array<IRecording>;
 }
 

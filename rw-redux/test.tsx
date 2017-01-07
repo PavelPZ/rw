@@ -26,15 +26,15 @@ const BlockGui = blockGuiCreator(BlockGuiPresent);
 ***********************************************/
 
 //************* parent state modifier by means of Action's and Reducer's
-interface IParentSubState { text: string; }
-interface IParentState { root: IParentSubState; childs: IChildSubState; childIds: Array<string> }
-interface IChildSubState { [id: string]: IChildState; }
+export interface IParentSubState { text: string; }
+export interface IParentState { root: IParentSubState; childs: IChildSubState; childIds: Array<string> }
+export interface IChildSubState { [id: string]: IChildState; }
 
 interface IParentAction extends Action { type: 'PARENT_ACT'; } const PARENT_ACT = 'PARENT_ACT';
 
 //https://gist.github.com/markerikson/ea4d0a6ce56ee479fe8b356e099f857e
 //http://stackoverflow.com/questions/34427851/reducing-an-entire-subtree-with-redux-combinereducers
-export const doParentAction = (dispatch: TDispatch) => dispatch({ type: PARENT_ACT });
+export function doParentAction(dispatch: TDispatch): Action { return dispatch({ type: PARENT_ACT }); }
 
 const parentReducer: Reducer<IParentState, IParentAction | IDoChild> = (state = { root: { text: 'parent' }, childIds: [], childs: {} }, action) => {
   switch (action.type) {
@@ -87,7 +87,7 @@ const Parent = connect<IParentMapStateToProps, IParentMapDispatchToProps, never>
 ***********************************************/
 
 //************* DO_CHILD
-interface IChildState { text: string; }
+export interface IChildState { text: string; }
 
 const childReducer = (state: IChildState, action: IDoChild): IChildState => {
   if (!state) return { text: `child ${action.id}` };
@@ -146,7 +146,7 @@ export type COUNTER = 'COUNTER'; export const COUNTER: COUNTER = 'COUNTER';
 export interface ICounterAction extends Action { type: COUNTER; }
 const dispatchCounterAction = (dispatch: TDispatch) => dispatch({ type: COUNTER } as ICounterAction);
 
-interface ICounterState { count: number; }
+export interface ICounterState { count: number; }
 
 interface ICounterMapStateToProps { counterProp: number; }
 

@@ -8,7 +8,7 @@ import theme from "rw-gui-rt/theme";
 import { onNotify, INotify, cancel, playRecording, startRecording, stopRecording, cancelPlaying, actNotifyData, RecordingStatus } from "rw-redux/recording";
 import { playList } from "rw-redux/recordings";
 
-interface IHomeState {
+export interface IHomeState {
   size: number; //home size
 }
 let globSize = 0;
