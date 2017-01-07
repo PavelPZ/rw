@@ -1,19 +1,8 @@
 ﻿import React from 'react';
 import ReactDOM from 'react-dom';
-import { config } from 'config';
-import { lazyModuleHandler, load, unload } from 'rw-lib/lazy-loader';
-import { compileHandler } from './compiler';
+import page from './examples/gap-fill';
+import * as compiler from './compiler';
 
-
-
-export function init() {
-  let actMod: lazyModuleHandler = null;
-  ReactDOM.render(<div>
-    <a href='#' onClick={ev => {
-      ev.preventDefault();
-      if (actMod) { unload(actMod); actMod = null; }
-      load(new compileHandler('rw-course/test-lazy.js')).then(m => actMod = m /*TODO: render actMod.exercise as JSX.Element*/);
-    } }>Load module</a>
-  </div>, document.getElementById('content'));
+export const init = () => {
+  ReactDOM.render(compiler.preCompile(page), document.getElementById('content'));
 }
-

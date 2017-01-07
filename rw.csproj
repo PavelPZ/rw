@@ -23,19 +23,29 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
-    <None Include="atomizer-config.json" />
     <Content Include="login.html" />
     <Content Include="index.html" />
     <Content Include="jspm.config.js" />
+    <None Include="rw-course\examples\gap-fill.xml-src" />
     <Content Include="rw-gui-rt\HelpAtomizer.txt" />
     <Content Include="rw-gui-rt\app.css" />
     <Content Include="rw-gui-rt\login\img\login-providers.png" />
     <Content Include="rw-gui-rt\toolbox.css" />
     <TypeScriptCompile Include="rw-course\compiler.ts" />
-    <TypeScriptCompile Include="rw-course\test-lazy.tsx" />
+    <TypeScriptCompile Include="rw-course\components\page.tsx" />
+    <TypeScriptCompile Include="rw-course\components\edit.tsx" />
+    <TypeScriptCompile Include="rw-course\components\eval-control.tsx" />
+    <TypeScriptCompile Include="rw-course\components\gap-fill.tsx" />
+    <TypeScriptCompile Include="rw-course\components\others.tsx" />
+    <TypeScriptCompile Include="rw-course\components\tag.tsx" />
+    <TypeScriptCompile Include="rw-course\examples\gap-fill.tsx" />
+    <TypeScriptCompile Include="rw-course\index.ts" />
+    <TypeScriptCompile Include="rw-course\lib.ts" />
+    <TypeScriptCompile Include="rw-course\dom.ts" />
+    <TypeScriptCompile Include="rw-course\context.ts" />
+    <TypeScriptCompile Include="rw-course\state.ts" />
     <TypeScriptCompile Include="rw-gui-rt\login\img\login-providers.png.ts" />
     <TypeScriptCompile Include="rw-lib\lazy-loader.ts" />
-    <TypeScriptCompile Include="rw-course\test.tsx" />
     <TypeScriptCompile Include="rw-gui-rt\block-gui\index.tsx" />
     <TypeScriptCompile Include="rw-gui-rt\login\test.tsx" />
     <TypeScriptCompile Include="rw-gui-rt\recordings\index.tsx" />
@@ -47,9 +57,13 @@
     <TypeScriptCompile Include="rw-lib\services\emailer.ts" />
     <TypeScriptCompile Include="rw-login\common.ts" />
     <TypeScriptCompile Include="rw-login\index.ts" />
-    <TypeScriptCompile Include="rw-login\login.ts" />
-    <TypeScriptCompile Include="rw-redux\match-media-gui.ts" />
+    <TypeScriptCompile Include="rw-login\lib.ts" />
+    <TypeScriptCompile Include="rw-login\login-page.ts" />
+    <TypeScriptCompile Include="rw-redux\index.ts" />
+    <TypeScriptCompile Include="rw-redux\match-media.ts" />
     <TypeScriptCompile Include="rw-redux\recordings.ts" />
+    <TypeScriptCompile Include="rw-redux\test.tsx" />
+    <TypeScriptCompile Include="rw-router\index.ts" />
     <TypeScriptCompile Include="rw-router\route-hook.tsx" />
     <TypeScriptCompile Include="typings\react-css-themr\index.d.ts" />
     <Content Include="web.config" />
@@ -88,7 +102,7 @@
     <TypeScriptCompile Include="rw-redux\app-loader.tsx" />
     <TypeScriptCompile Include="rw-redux\async.ts" />
     <TypeScriptCompile Include="rw-redux\block-gui.ts" />
-    <TypeScriptCompile Include="rw-redux\test.tsx" />
+    <TypeScriptCompile Include="rw-course\test.tsx" />
     <TypeScriptCompile Include="rw-redux\types.ts" />
     <TypeScriptCompile Include="rw-router\lib.ts" />
     <TypeScriptCompile Include="rw-router\router.ts" />
