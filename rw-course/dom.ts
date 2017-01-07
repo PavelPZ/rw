@@ -141,7 +141,7 @@ export interface Result extends Score {
 export interface orderingResult extends Result {
   indexes: Array<number>;
 }
-export interface PageUser extends Result {
+export interface bodyResult extends Result {
   i: number;
   st: ExerciseStatus;
   bt: number;
@@ -185,7 +185,7 @@ export interface CheckItemResult extends Result {
   Value?: boolean;
 }
 export interface evalBtnResult extends Result {
-  Value: boolean;
+  isEval: boolean;
 }
 export interface wordMultiSelectionResult extends Result {
   Values: Array<number>;
@@ -250,18 +250,8 @@ export interface IEvalControlState extends ITagState {
 }
 export interface IEvalControlProps extends ITagProps {
   evalGroup?: string | [string, '' | 'exchangeable', '' | 'and'];
-  //evalGroup?: string;
   scoreWeight?: number;
   evalButtonId?: string;
-}
-export interface IBodyState extends ITagState {
-}
-export interface IBodyProps extends ITagProps {
-  title?: string;
-  url?: string;
-  instrTitle?: string;
-  instrBody?: string;
-  seeAlsoStr?: string;
 }
 export interface IHeaderPropState extends ITagState {
 }
@@ -295,14 +285,7 @@ export interface IEditProps extends IEvalControlProps {
   offeringId?: string;
   caseSensitive?: boolean;
 }
-export interface IGapFillState extends IEditState {
-}
-export interface IGapFillProps extends IEditProps {
-  hint?: string;
-  initValue?: string;
-  readOnly?: boolean;
-  skipEvaluation?: boolean;
-}
+
 export interface IRadioButtonState extends IEvalControlState {
 }
 export interface IRadioButtonProps extends IEvalControlProps {
@@ -599,20 +582,25 @@ export interface IDocExampleProps extends ISmartElementLowProps {
   todo?: boolean;
 }
 
+export interface IBodyProps extends ITagProps {
+  user?: string; //user email
+  variant?: string; //variant of exercise user data - every exercise could have more records in user DB (eg. could be used in more products etc.)
+  title?: string;
+  url?: string; //data ID
+  order?: number; //default order of page in parent folder
+  instrTitle?: string;
+  instrBody?: string;
+  seeAlsoStr?: string;
+}
+
+export interface IGapFillProps extends IEditProps {
+  hint?: string;
+  initValue?: string;
+  readOnly?: boolean;
+  skipEvaluation?: boolean;
+}
+
 export interface IChildProps {
   GapFill?: IGapFillProps;
   whenClass?: { [className: string]: IChildProps; }
 }
-
-export const registerTag = (type: typeof React.Component) => {
-  const nm = type.name; if (types[nm]) throw new Error(`Tag ${name} already registered`);
-  types[nm] = type;
-}
-export const fingTag = (name: string) => {
-  const res = types[name]; if (!res) return name; //throw new Error(`Cannot find tag ${name}`);
-  return res;
-};
-
-const types: { [name: string]: typeof React.Component; } = {};
-
-React.createElement(types[''], {});

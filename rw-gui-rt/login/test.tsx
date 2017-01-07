@@ -3,7 +3,7 @@
 import { IRootState, TMiddlewareAPI } from 'rw-redux/types';
 import { appInit } from 'rw-redux/app-loader';
 import { blockGuiReducerFnc } from 'rw-redux/block-gui';
-import { matchMediaReducerFnc } from 'rw-redux/match-media-gui';
+import { matchMediaReducerFnc } from 'rw-redux/match-media';
 
 import getRTAppRoot from 'rw-gui-rt/get-app-root';
 

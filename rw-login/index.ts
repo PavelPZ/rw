@@ -10,7 +10,7 @@ import { TDispatch, Reducer, IMapDispatchToProps, IRootState } from 'rw-redux/ty
 import { IRouteDir, IRouteData } from '../rw-router/url-parser';
 import { gotoHome, navigate, homeUrl, loginREDIRECT, ILoginRedirectAction, RouteHandler } from 'rw-router/router';
 
-import { IMatchMediaState } from 'rw-redux/match-media-gui';
+import { IMatchMediaState } from 'rw-redux/match-media';
 
 declare module 'config' {
   interface IConfig {

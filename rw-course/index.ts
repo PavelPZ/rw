@@ -1,4 +1,8 @@
-export * from './interfaces';
-export * from './course';
-export * from './components/gap-fill';
 export * from './lib';
+export * from './dom';
+export * from './context';
+export * from './components/others';
+export * from './components/eval-control';
+export * from './components/gap-fill';
+export * from './components/body';
+

@@ -1,7 +1,6 @@
 ﻿import React from 'react';
 import isArray from 'lodash/isArray';
 
-import { fingTag } from './interfaces';
 import { lazyModuleHandler } from 'rw-lib/lazy-loader';
 
 export class compileHandler extends lazyModuleHandler {
@@ -42,3 +41,14 @@ interface IElement {
 function compile(root: IElement): IElement {
   return root;
 }
+
+export const registerTag = (type: typeof React.Component) => {
+  const nm = type.name; if (types[nm]) throw new Error(`Tag ${name} already registered`);
+  types[nm] = type;
+}
+export const fingTag = (name: string) => {
+  const res = types[name]; if (!res) return name; //throw new Error(`Cannot find tag ${name}`);
+  return res;
+};
+
+const types: { [name: string]: typeof React.Component; } = {};

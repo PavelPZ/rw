@@ -16,7 +16,8 @@
       guiBreakpoint: 'xxs',
       loginRoute: null
     },
-    serviceEmailerUrl: 'rw-lib/services/emailer.ashx'
+    serviceEmailerUrl: 'rw-lib/services/emailer.ashx',
+    course: {}
   };
 
   (() => {

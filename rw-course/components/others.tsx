@@ -1,69 +1,22 @@
 import * as React from 'react';
-import * as objects from './interfaces';
+import * as objects from '../dom';
+import { registerTag } from '../compiler';
+import { Tag } from './tag';
 
-export class Tag<P extends objects.ITagProps, S extends objects.ITagState> extends React.Component<P, S> {
-  render(): JSX.Element {
-    switch (React.Children.count(this.props.children)) {
-      case 0: return null;
-      //case 1: return React.Children.toArray(this.props.children)[0] as React.ReactElement<any>;
-      default: return <span>{this.props.children}</span>;
-    }
-  }
-}
 export class DocExample extends Tag<objects.IDocExampleProps, objects.ITagState> { }
-objects.registerTag(DocExample);
+registerTag(DocExample);
 export class DocDescr extends Tag<objects.ITagProps, objects.ITagState> { }
-objects.registerTag(DocDescr);
-export class EvalControl<P extends objects.IEvalControlProps, S extends objects.IEvalControlState> extends Tag<P, S> {
-}
+registerTag(DocDescr);
 export class Macro<P extends objects.IMacroProps, S extends objects.IMacroState> extends Tag<P, S> {
 }
-export class HumanEval<P extends objects.IHumanEvalProps, S extends objects.IHumanEvalState> extends EvalControl<P, S> {
-}
-export class Edit<P extends objects.IEditProps, S extends objects.IEditState> extends EvalControl<P, S> {
-}
-export class Body extends Tag<objects.IBodyProps, objects.IBodyState> {
-  constructor(props: objects.IBodyProps, context: any) { super(props, context); }
-}
-objects.registerTag(Body);
-
 export class HeaderProp extends Tag<objects.IHeaderPropProps, objects.IHeaderPropState> {
 }
-objects.registerTag(HeaderProp);
-export class EvalButton extends EvalControl<objects.IEvalButtonProps, objects.IEvalButtonState> {
-}
-export class DropDown extends Edit<objects.IDropDownProps, objects.IDropDownState> {
-}
-
-export class RadioButton extends EvalControl<objects.IRadioButtonProps, objects.IRadioButtonState> {
-}
-export class CheckLow<P extends objects.ICheckLowProps, S extends objects.ICheckLowState> extends EvalControl<P, S> {
-}
-export class CheckItem extends CheckLow<objects.ICheckItemProps, objects.ICheckItemState> {
-}
-export class CheckBox extends CheckLow<objects.ICheckBoxProps, objects.ICheckBoxState> {
-}
+registerTag(HeaderProp);
 export class PairingItem extends Tag<objects.IPairingItemProps, objects.IPairingItemState> {
-}
-export class Pairing extends EvalControl<objects.IPairingProps, objects.IPairingState> {
 }
 export class SingleChoice extends Tag<objects.ISingleChoiceProps, objects.ISingleChoiceState> {
 }
-export class WordSelection extends EvalControl<objects.IWordSelectionProps, objects.IWordSelectionState> {
-}
-export class WordMultiSelection extends EvalControl<objects.IWordMultiSelectionProps, objects.IWordMultiSelectionState> {
-}
-export class WordOrdering extends EvalControl<objects.IWordOrderingProps, objects.IWordOrderingState> {
-}
-export class SentenceOrdering extends EvalControl<objects.ISentenceOrderingProps, objects.ISentenceOrderingState> {
-}
 export class SentenceOrderingItem extends Tag<objects.ISentenceOrderingItemProps, objects.ISentenceOrderingItemState> {
-}
-export class Extension extends EvalControl<objects.IExtensionProps, objects.IExtensionState> {
-}
-export class Writing extends HumanEval<objects.IWritingProps, objects.IWritingState> {
-}
-export class Recording extends HumanEval<objects.IRecordingProps, objects.IRecordingState> {
 }
 export class List extends Macro<objects.IListProps, objects.IListState> {
 }
