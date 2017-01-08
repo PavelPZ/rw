@@ -1,14 +1,19 @@
 ﻿import React from 'react';
 import isArray from 'lodash/isArray';
+import * as dom from './dom';
 
 import { lazyModuleHandler } from 'rw-lib/lazy-loader';
 
 export class compileHandler extends lazyModuleHandler {
+  constructor(id: string, public ctx?: dom.ICourseContext) { super(id); }
   exercise: JSX.Element;
-  onLoaded() { this.exercise = preCompile(this.module.default); }
+  onLoaded() {
+    //const json = this.module.default ? preCompile(this.module.default)
+    this.exercise = afterCompile(preCompile(this.module.default), this.ctx);
+  }
 }
 
-export function preCompile(getJSXTree: () => IElement | JSX.Element): JSX.Element {
+export function preCompile(getJSXTree: () => IElement | JSX.Element): IElement {
   //replace JSX.Elements tree by IElement tree
   let oldCreate = React.createElement;
   let jsxTree: IElement;
@@ -21,14 +26,18 @@ export function preCompile(getJSXTree: () => IElement | JSX.Element): JSX.Elemen
     React.createElement = oldCreate;
   }
   //modify IElement tree
-  jsxTree = compile(jsxTree);
+  return compile(jsxTree);
+}
+
+export function afterCompile(comp: IElement, ctx?: dom.ICourseContext): JSX.Element {
+  Object.assign(comp, ctx); //extend root (IPageProps) by context
   //replace IElement tree by JSX.Elements tree
   const elToJsx = (el: IElement | string) => {
     if (typeof el === 'string') return el;
-    return React.createElement(fingTag(el.type) as any, el.props, el.childs && el.childs.length>0 ? el.childs.map(e => elToJsx(e)) : null);
+    return React.createElement(fingTag(el.type) as any, el.props, el.childs && el.childs.length > 0 ? el.childs.map(e => elToJsx(e)) : null);
   };
   //return <pre><code>{JSON.stringify(jsxTree, null, 2)}</code></pre>;
-  return elToJsx(jsxTree);
+  return elToJsx(comp);
 }
 
 export interface IElement {

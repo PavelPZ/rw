@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?><html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.langmaster.com/new/author/coursemodelschema.xsd">
+  <head>
+    <title>Simple media</title>
+  </head>
+  <body class="app-doc">
+    <doc-example>
+      <header-prop>
+        <h3>Play sound</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <media-player media-url="media/media3.mp3"></media-player>
+    </doc-example>
+    <doc-example>
+      <header-prop>
+        <h3>Play video</h3>
+      </header-prop>
+      <doc-descr>
+        <p>
+          Poznamka k video-format: <b>@std-4</b> znamena ze jsou k dispozici 2 formaty videa (.mp4 a .webm) ve dvou rozlisenich (pro malý a velký display). Detaily viz TODO
+        </p>
+      </doc-descr>
+      <media-video share-media-id="player-1"></media-video>
+      <media-player id="player-1" media-url="media/video@std-4"></media-player>
+    </doc-example>
+    <doc-example>
+      <header-prop>
+        <h3>Sound in exercises</h3>
+      </header-prop>
+      <doc-descr>
+        <p>TODO: 3 kratke zvuky, lepsi cviceni</p>
+      </doc-descr>
+      <h4>... in pairing</h4>
+      <pairing>
+        <pairing-item right="text 1">
+          <media-big-mark media-url="media/media3.mp3"></media-big-mark>
+        </pairing-item>
+        <pairing-item right="text 2">
+          <media-big-mark media-url="media/media3.mp3"></media-big-mark>
+        </pairing-item>
+      </pairing>
+      <h4>... in single-choice</h4>
+      <panel>
+        <header-prop>
+          <media-player media-url="media/media3.mp3"></media-player>
+        </header-prop>
+        <single-choice id="sch1">
+          <radio-button>possibility 1</radio-button>
+          <radio-button correct-value="true">possibility 2</radio-button>
+          <radio-button>possibility 3</radio-button>
+        </single-choice>
+      </panel>
+    </doc-example>
+    <doc-example>
+      <header-prop>
+        <h3>Sound with text</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <media-text>
+        <cut-text media-url="media/media3.mp3">
+          <phrase beg-pos="6050" end-pos="6761">
+            Hello, Thomas.
+          </phrase>
+          <phrase beg-pos="6761" end-pos="7829">
+            How are you?
+          </phrase>
+        </cut-text>
+      </media-text>
+    </doc-example>
+    <doc-example>
+      <header-prop>
+        <h3>Sound with dialog</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <media-text>
+        <cut-dialog media-url="media/media3.mp3">
+          <replica actor-name="Fiona">
+            <phrase beg-pos="6050" end-pos="6761">
+              Hello, Thomas.
+            </phrase>
+            <phrase beg-pos="6761" end-pos="7829">
+              How are you?
+            </phrase>
+          </replica>
+          <replica actor-name="Thomas">
+            <phrase beg-pos="7855" end-pos="9252">
+              Fine, thanks.
+            </phrase>
+            <phrase beg-pos="9252" end-pos="10697">
+              And you Fiona?
+            </phrase>
+          </replica>
+        </cut-dialog>
+      </media-text>
+    </doc-example>
+    <doc-example>
+      <header-prop>
+        <h3>Sound text and player</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <media-player share-media-id="play-text-id"></media-player>
+      <media-text id="play-text-id">
+        <cut-text media-url="media/media3.mp3">
+          <phrase beg-pos="6050" end-pos="6761">
+            Hello, Thomas.
+          </phrase>
+          <phrase beg-pos="6761" end-pos="7829">
+            How are you?
+          </phrase>
+          <phrase beg-pos="7855" end-pos="9252">
+            Fine, thanks.
+          </phrase>
+          <phrase beg-pos="9252" end-pos="10697">
+            And you Fiona?
+          </phrase>
+        </cut-text>
+      </media-text>
+    </doc-example>--&gt;
+    <doc-example>
+      <header-prop>
+        <h3>Activity inside sound text</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <media-text>
+        <cut-text media-url="media/media3.mp3">
+          <phrase beg-pos="6050" end-pos="6761">
+            <gap-fill correct-value="Hello"></gap-fill>, Thomas.
+          </phrase>
+          <phrase beg-pos="6761" end-pos="7829">
+            <word-selection words="#How|What|Who" /> are you?
+          </phrase>
+          <phrase beg-pos="7855" end-pos="9252">
+            Fine, thanks.
+          </phrase>
+          <phrase beg-pos="9252" end-pos="10697">
+            And you Fiona?
+          </phrase>
+        </cut-text>
+      </media-text>
+    </doc-example>
+    <doc-example>
+      <header-prop>
+        <h3>Video dialog with activities</h3>
+      </header-prop>
+      <doc-descr>
+        <p>
+        </p>
+      </doc-descr>
+      <div class="row">
+        <div class="col-sm-7">
+          <media-video share-media-id="video-dialog"></media-video>
+          <media-player share-media-id="video-dialog"></media-player>
+        </div>
+        <div class="col-sm-5">
+          <media-text id="video-dialog">
+            <cut-dialog media-url="media/video@std-4">
+              <replica actor-name="Herr Haschek">
+                <phrase beg-pos="1870" end-pos="4350">
+                  Sportgeräte, Haschek. <word-selection words="#Was|Was|Wir" /> kann ich für Sie tun?
+                </phrase>
+              </replica>
+              <replica actor-name="Herr Schmid">
+                <phrase beg-pos="4350" end-pos="7260">
+                  Hier Eishockey-Großhandel, Schmidt am Apparat.
+                </phrase>
+                <phrase beg-pos="7260" end-pos="11140">
+                  Ich <gap-fill correct-value="habe"></gap-fill> habe mir Ihre Internetseite angesehen und festgestellt, dass Sie Eishockeyartikel herstellen.
+                </phrase>
+                <phrase beg-pos="11140" end-pos="14980">
+                  Wir suchen einen Lieferanten für Eishockeyschläger und da dachte ich …
+                </phrase>
+              </replica>
+            </cut-dialog>
+          </media-text>
+        </div>
+      </div>
+    </doc-example>
+  </body>
+</html>

@@ -26,7 +26,18 @@
     <Content Include="login.html" />
     <Content Include="index.html" />
     <Content Include="jspm.config.js" />
-    <None Include="rw-course\examples\gap-fill.xml-src" />
+    <Content Include="rw-course\examples\media\04.png" />
+    <Content Include="rw-course\examples\media\media1.js" />
+    <Content Include="rw-course\examples\media\media1.mp3" />
+    <Content Include="rw-course\examples\media\media1.xml" />
+    <Content Include="rw-course\examples\media\media3.js" />
+    <Content Include="rw-course\examples\media\media3.mp3" />
+    <Content Include="rw-course\examples\media\media3.xml" />
+    <Content Include="rw-course\examples\media\meta.xml" />
+    <Content Include="rw-course\examples\media\video.js" />
+    <Content Include="rw-course\examples\media\video.mp4" />
+    <Content Include="rw-course\examples\media\video.small.mp4" />
+    <Content Include="rw-course\examples\media\video.xml" />
     <Content Include="rw-gui-rt\HelpAtomizer.txt" />
     <Content Include="rw-gui-rt\app.css" />
     <Content Include="rw-gui-rt\login\img\login-providers.png" />
@@ -38,7 +49,23 @@
     <TypeScriptCompile Include="rw-course\components\gap-fill.tsx" />
     <TypeScriptCompile Include="rw-course\components\others.tsx" />
     <TypeScriptCompile Include="rw-course\components\tag.tsx" />
+    <TypeScriptCompile Include="rw-course\examples\chinhspeaking.tsx" />
+    <TypeScriptCompile Include="rw-course\examples\evals.tsx" />
     <TypeScriptCompile Include="rw-course\examples\gap-fill.tsx" />
+    <TypeScriptCompile Include="rw-course\examples\media\media1.tsx" />
+    <TypeScriptCompile Include="rw-course\examples\media\media3.tsx" />
+    <TypeScriptCompile Include="rw-course\examples\media\video.tsx" />
+    <TypeScriptCompile Include="rw-course\examples\newattributes.tsx" />
+    <TypeScriptCompile Include="rw-course\examples\offering.tsx" />
+    <TypeScriptCompile Include="rw-course\examples\offeringandevalgroup.tsx" />
+    <TypeScriptCompile Include="rw-course\examples\offeringcasesensitive.tsx" />
+    <TypeScriptCompile Include="rw-course\examples\pjnewattributes.tsx" />
+    <TypeScriptCompile Include="rw-course\examples\radiobutton.tsx" />
+    <TypeScriptCompile Include="rw-course\examples\single-choice.tsx" />
+    <TypeScriptCompile Include="rw-course\examples\smarts.tsx" />
+    <TypeScriptCompile Include="rw-course\examples\sound-simple.tsx" />
+    <TypeScriptCompile Include="rw-course\examples\sound.tsx" />
+    <TypeScriptCompile Include="rw-course\examples\widthattribute.tsx" />
     <TypeScriptCompile Include="rw-course\index.ts" />
     <TypeScriptCompile Include="rw-course\lib.ts" />
     <TypeScriptCompile Include="rw-course\dom.ts" />
@@ -77,6 +104,8 @@
     <Content Include="cmd-atomic-css.cmd" />
     <Content Include="rw-lib\services\emailer.ashx" />
     <Content Include="cmd-img2js.cmd" />
+    <Content Include="rw-course\examples\media\video.small.webm" />
+    <Content Include="rw-course\examples\media\video.webm" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?><html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.langmaster.com/new/author/coursemodelschema.xsd">
+  <head>
+    <title>Vocabulary</title>
+    <style />
+  </head>
+  <body>
+    <offering id="of1" />
+    <br />
+    <gap-fill correct-value="ok4" offering-id="of1" eval-group="g1-exchangeable" />
+    <gap-fill correct-value="ok3" offering-id="of1" eval-group="g1-exchangeable" />
+    <gap-fill correct-value="ok2" offering-id="of1" eval-group="g2-exchangeable" />
+    <gap-fill correct-value="ok1" offering-id="of1" eval-group="g2-exchangeable" />
+    <br />
+    <gap-fill correct-value="ok5" eval-group="g1-exchangeable" />
+    <br />
+    <br />
+    <offering id="of2" mode="drop-down-discard" />
+    <br />
+    <drop-down correct-value="ok1" offering-id="of2" eval-group="g3-exchangeable" />
+    <drop-down correct-value="ok2" offering-id="of2" eval-group="g3-exchangeable" />
+    <drop-down correct-value="ok3" offering-id="of2" eval-group="g4-exchangeable" />
+    <drop-down correct-value="ok4" offering-id="of2" eval-group="g4-exchangeable" />
+    <br />
+    <br />
+    <!--<offering id="of3"/>
+    <drop-down correct-value="ok1" offering-id="of3" eval-group="g6-exchangeable" />
+    <br/>
+    <offering id="of4"/>
+    <drop-down correct-value="ok2" offering-id="of4" eval-group="g6-exchangeable" />-->
+    <br />
+    <br />
+  </body>
+</html>

@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?><cut-dialog media-url="@std-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.langmaster.com/new/author/coursemodelschema.xsd">
+  <replica actor-name="Herr Haschek">
+    <phrase beg-pos="1870" end-pos="4350">
+        Sportgeräte, Haschek. Was kann ich für Sie tun?
+      </phrase>
+  </replica>
+  <replica actor-name="Herr Schmid">
+    <phrase beg-pos="4350" end-pos="7260">
+        Hier Eishockey-Großhandel, Schmidt am Apparat.
+      </phrase>
+    <phrase beg-pos="7260" end-pos="11140">
+        Ich habe mir Ihre Internetseite angesehen und festgestellt, dass Sie Eishockeyartikel herstellen.
+      </phrase>
+    <phrase beg-pos="11140" end-pos="14980">
+        Wir suchen einen Lieferanten für Eishockeyschläger und da dachte ich …
+      </phrase>
+  </replica>
+  <replica actor-name="Herr Haschek">
+    <phrase beg-pos="14980" end-pos="18880">
+        Da sind Sie bei uns an der richtigen Adresse. Wir sind gerne bereit, Ihnen zu helfen.
+      </phrase>
+    <phrase beg-pos="18880" end-pos="21340">
+        Haben Sie konkrete Vorstellungen von den Eishockeyschlägern?
+      </phrase>
+  </replica>
+  <replica actor-name="Herr Schmid">
+    <phrase beg-pos="21340" end-pos="26440">
+        Ja. Wir brauchen Schläger für Jugendliche und Kinder in Längen von 100 bis 150 cm.
+      </phrase>
+    <phrase beg-pos="26440" end-pos="31820">
+        Bei den kürzeren brauchen wir Schläger ohne Schaufel und bei den längeren gleiche Mengen für Rechts- und Linkshänder.
+      </phrase>
+  </replica>
+  <replica actor-name="Herr Haschek">
+    <phrase beg-pos="31880" end-pos="34260">
+        Gut. Und an welche Mengen haben Sie gedacht?
+      </phrase>
+  </replica>
+  <replica actor-name="Herr Schmid">
+    <phrase beg-pos="34260" end-pos="39600">
+        Cirka 3 bis 4 Tausend Stück pro Saison. Wie sehen bei diesen Mengen Ihre Lieferfristen aus?
+      </phrase>
+  </replica>
+  <replica actor-name="Herr Haschek">
+    <phrase beg-pos="39600" end-pos="42960">
+        Ich schätze drei Monate nach Auftragseingang. Wäre es Ihnen recht?
+      </phrase>
+  </replica>
+  <replica actor-name="Herr Schmid">
+    <phrase beg-pos="43300" end-pos="46640">
+        Ja, das ginge. Könnten Sie uns Ihr Angebot zukommen lassen?
+      </phrase>
+  </replica>
+  <replica actor-name="Herr Haschek">
+    <phrase beg-pos="46640" end-pos="50500">
+        Selbstverständlich. Sie bekommen es morgen zusammen mit unseren AGBs.
+      </phrase>
+    <phrase beg-pos="50500" end-pos="53000">
+        Könnten Sie mir bitte Ihre E-Mail-Adresse sagen?
+      </phrase>
+  </replica>
+  <replica actor-name="Herr Schmid">
+    <phrase beg-pos="53000" end-pos="64380">
+        Gern. Also: frank.schmid@t-online.de.
+      </phrase>
+    <phrase beg-pos="64380" end-pos="69660">
+        Vielen Dank im Voraus. Wenn wir Angebot erhalten haben, melden wir uns sofort.
+      </phrase>
+  </replica>
+  <replica actor-name="Herr Haschek">
+    <phrase beg-pos="70180" end-pos="73040">
+        Wir freuen uns auf Ihren Auftrag. Auf Wiederhören!
+      </phrase>
+  </replica>
+</cut-dialog>

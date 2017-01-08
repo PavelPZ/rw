@@ -6,8 +6,8 @@
     "inlineSourceMap": true,
     "inlineSources": true,
     //Export definitions file to DATA
-    //"declaration": true,
-    //"declarationDir": "../data/typings/rw/",
+    "declaration": true,
+    "declarationDir": "../data/typings/rw/",
 
     //"noEmitHelpers": true,
     //"importHelpers": true,
@@ -15,10 +15,11 @@
     "paths": {
       "rw-router": [ "rw-router/index" ],
       "rw-redux": [ "rw-redux/index" ],
-      "rw-lib/*": [ "rw-lib/*" ],
       "rw-login": [ "rw-login/index" ],
-      "rw-gui-rt/*": [ "rw-gui-rt/*" ],
       "rw-course": [ "rw-course/index" ],
+
+      "rw-lib/*": [ "rw-lib/*" ],
+      "rw-gui-rt/*": [ "rw-gui-rt/*" ],
 
       "redux": [ "jspm_packages/npm/redux@3.6.0/index" ],
       "react": [ "jspm_packages/npm/@types/react@0.14.57/index" ],

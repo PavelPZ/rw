@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?><html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.langmaster.com/new/author/coursemodelschema.xsd">
+  <head>
+    <title></title>
+  </head>
+  <body class="app-doc">
+    <doc-example id="basic-example">
+      <header-prop>
+        <h3>Basic example</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <radio-button eval-group="and-g1" correct-value="true">radio 1</radio-button>
+      <radio-button eval-group="and-g1">radio 2</radio-button>
+    </doc-example>
+  </body>
+</html>

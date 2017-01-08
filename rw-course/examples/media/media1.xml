@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?><cut-text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.langmaster.com/new/author/coursemodelschema.xsd">
+  <phrase beg-pos="18113" end-pos="18499">
+      Hello,
+    </phrase>
+  <phrase beg-pos="18499" end-pos="19805">
+      my name is Fiona.
+    </phrase>
+  <phrase beg-pos="19805" end-pos="20798">
+      Hello,
+    </phrase>
+  <phrase beg-pos="20798" end-pos="22046">
+      my name is Thomas.
+    </phrase>
+  <phrase beg-pos="22046" end-pos="23294">
+      Nice to meet you.
+    </phrase>
+  <phrase beg-pos="23294" end-pos="24809">
+      Nice to meet you, too.
+    </phrase>
+</cut-text>

@@ -10,7 +10,7 @@ export class Tag<P extends objects.ITagProps, S extends objects.ITagState> exten
       default: return <span>{this.props.children}</span>;
     }
   }
-  static contextTypes = { course: React.PropTypes.any };
-  context: context.ICourseContext;
+  //static contextTypes = { course: React.PropTypes.any };
+  //context: context.ICourseContext;
 }
 

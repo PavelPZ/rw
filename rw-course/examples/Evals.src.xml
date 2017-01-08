@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?><html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.langmaster.com/new/author/coursemodelschema.xsd">
+  <head>
+    <title>Evals groups and btns</title>
+  </head>
+  <body class="app-doc">
+    <doc-example>
+      <header-prop>
+        <h3>Normal evaluation</h3>
+      </header-prop>
+      <doc-descr>Example descr</doc-descr>
+      <gap-fill correct-value="ok1" />
+      <br />
+      <check-item correct-value="false"></check-item>
+    </doc-example>
+    <doc-example>
+      <header-prop>
+        <h3>AND evaluation (group)</h3>
+      </header-prop>
+      <doc-descr>Example descr</doc-descr>
+      <gap-fill eval-group="and-group1" correct-value="ok1" />
+      <br />
+      <check-item eval-group="and-group1" correct-value="false"></check-item>
+    </doc-example>
+    <doc-example>
+      <header-prop>
+        <h3>evaluation per partes (second part use AND evaluation)</h3>
+      </header-prop>
+      <doc-descr>Example descr</doc-descr>
+      <p>
+        <eval-button id="g0"></eval-button>
+        <gap-fill correct-value="ok1" eval-button-id="g0" />
+        <check-item correct-value="false" eval-button-id="g0"></check-item>
+      </p>
+      <p>
+        <eval-button id="g1"></eval-button>
+        <gap-fill eval-group="and-group2" correct-value="ok2" eval-button-id="g1" />
+        <check-item eval-group="and-group2" correct-value="true" eval-button-id="g1">Question 1</check-item>
+      </p>
+    </doc-example>
+    <doc-example>
+      <header-prop>
+        <h3>gap-fill normal</h3>
+      </header-prop>
+      <doc-descr>Example descr</doc-descr>
+      <div>
+        <gap-fill correct-value="ok3" />
+      </div>
+      <div style-sheet="gap-fill, radio-button, word-selection, pairing, drop-down, check-item, offering { eval-btn-id:g0; } gap-fill {eval-group:and-g3-exchangeable; } drop-down {eval-group:and-g4-exchangeable; } radio-button {eval-group:and-g4; }">
+        <div>
+          <offering id="off1" hidden="true" />
+        </div>
+        <div>
+          <check-item correct-value="true" text-type="true-false" />
+        </div>
+        <div>
+          <gap-fill correct-value="c1" />
+          <gap-fill correct-value="c2" />
+        </div>
+        <div>
+          <drop-down correct-value="c1" offering-id="off1" />
+          <drop-down correct-value="c2" offering-id="off1" />
+        </div>
+        <div>
+          <radio-button>possibility 1</radio-button>
+          <radio-button correct-value="true">possibility 2</radio-button>
+          <radio-button>possibility 3</radio-button>
+        </div>
+        <div>
+          <word-selection words="word1|word 2|#word 3" />
+        </div>
+        <div>
+          <pairing>
+            <pairing-item right="Right 1">
+              Left 1
+            </pairing-item>
+            <pairing-item right="Right 2">
+              Left 2
+            </pairing-item>
+          </pairing>
+        </div>
+      </div>
+    </doc-example>
+  </body>
+</html>

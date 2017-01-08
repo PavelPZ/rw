@@ -253,5 +253,9 @@ paket-files/
 
 jspm_packages/
 *.js
+*.mp3
+*.mp4
+*.webm
+*.png
 !jspm.config.js
 !gulpfile.js

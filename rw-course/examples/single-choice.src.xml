@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?><html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.langmaster.com/new/author/coursemodelschema.xsd">
+  <head>
+    <title>Single Choice</title>
+  </head>
+  <body class="app-doc">
+    <doc-example>
+      <header-prop>
+        <h3>Simple</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <single-choice>
+        <radio-button>possibility 1</radio-button>
+        <radio-button correct-value="true">possibility 2</radio-button>
+        <radio-button>possibility 3</radio-button>
+      </single-choice>
+    </doc-example>
+    <doc-example>
+      <header-prop>
+        <h3>With panel</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <panel>
+        <header-prop>
+          <h4>Question</h4>
+        </header-prop>
+      <single-choice>
+        <radio-button eval-group="and-g1">possibility 1</radio-button>
+        <radio-button eval-group="and-g1" correct-value="true">possibility 2</radio-button>
+        <radio-button eval-group="and-g1">possibility 3</radio-button>
+      </single-choice>
+      </panel>
+    </doc-example>
+    <doc-example>
+      <header-prop>
+        <h3>With sound</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <single-choice>
+        <radio-button eval-group="and-g2">
+          <media-text subset="-2" cut-url="media/media1"></media-text>
+        </radio-button>
+        <radio-button correct-value="true" eval-group="and-g2">
+          <media-text subset="3" cut-url="media/media1"></media-text>
+        </radio-button>
+        <radio-button eval-group="and-g2">
+          <media-text subset="4-" cut-url="media/media1"></media-text>
+        </radio-button>
+      </single-choice>
+    </doc-example>
+  </body>
+</html>

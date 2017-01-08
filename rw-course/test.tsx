@@ -4,5 +4,5 @@ import page from './examples/gap-fill';
 import * as compiler from './compiler';
 
 export const init = () => {
-  ReactDOM.render(compiler.preCompile(page), document.getElementById('content'));
+  ReactDOM.render(compiler.afterCompile(compiler.preCompile(page)), document.getElementById('content'));
 }

@@ -2,7 +2,7 @@
 
 declare module 'react' {
   interface HTMLAttributes<T> {
-    styleSheet?: IChildProps;
+    childProps?: IChildProps;
   }
 }
 
@@ -39,12 +39,7 @@ export const enum offeringDropDownMode {
   dropDownKeep = 1,
   gapFillIgnore = 2,
 }
-export const enum smartOfferingMode {
-  gapFill = 0,
-  dropDownDiscard = 1,
-  dropDownKeep = 2,
-  gapFillPassive = 3,
-}
+export type smartOfferingMode = 'GapFill' | 'DropDownDiscard' | 'DropDownKeep' | 'GapFillPassive';
 export type inlineElementTypes = 'GapFill' | 'GapFillCorrection' | 'DropDown' | 'Img' | 'WordSelection';
 export type smartElementTypes = 'GapFill' | 'DropDown' | 'Offering' | 'Img' | 'WordSelection';
 
@@ -130,24 +125,29 @@ export const enum CourseDataFlag {
   blProductHome = 262144,
   blPretestEx = 524288,
 }
+
+export interface IFlagResult {
+  flag?: CourseDataFlag;
+}
 export interface Score {
-  s: number;
-  ms: number;
-  flag: CourseDataFlag;
+  s?: number; //actual score
+  ms?: number; //max score
 }
 export interface Result extends Score {
-  tg: string;
+  id: string; //ITagProps.id
 }
 export interface orderingResult extends Result {
   indexes: Array<number>;
 }
-export interface pageResult extends Result {
-  i: number;
-  st: ExerciseStatus;
-  bt: number;
-  et: number;
-  t: number;
-  Results: any;
+export interface pageResult extends Result, IFlagResult {
+  //i: number;
+  //st: ExerciseStatus;
+  eval: boolean; //= true iff page is evaluated
+  //bt: number;
+  //et: number;
+  d: number; //for !eval: last worked date-time. eval: evaluated date-time
+  t: number; //elapsed timespan in seconds
+  //Results: any;
 }
 export interface PairingResult extends Result {
   Value: Array<number>;
@@ -241,17 +241,19 @@ export interface urlTag extends tag {
 export interface ITagState {
 }
 export interface ITagProps extends React.Props<any> {
-  id?: string;
+  id?: string; //unique component Id
   className?: string;
-  styleSheet?: IChildProps;
-  srcpos?: string;
+  childProps?: IChildProps;
+  //srcpos?: string;
 }
 export interface IEvalControlState extends ITagState {
 }
 export interface IEvalControlProps extends ITagProps {
-  evalGroup?: string | [string, '' | 'exchangeable', '' | 'and'];
+  evalGroup?: string; // | [string, '' | 'exchangeable', '' | 'and'];
+  evalExchangeable?: boolean;
+  evalAnd?: boolean;
   scoreWeight?: number;
-  evalButtonId?: string;
+  evalButtonId?: string; //ID of EvalButton. EvalButton group must superset evalGroup (compile error)
 }
 export interface IHeaderPropState extends ITagState {
 }
@@ -268,8 +270,9 @@ export interface IHumanEvalProps extends IEvalControlProps {
 }
 export interface IEvalButtonState extends IEvalControlState {
 }
-export interface IEvalButtonProps extends IEvalControlProps {
-  scoreAsRatio?: boolean;
+export interface IEvalButtonProps extends ITagProps { //IEvalControlProps {
+  //evalGroup: string; 
+  //scoreAsRatio?: boolean; //for what is it?
 }
 export interface IDropDownState extends IEditState {
 }
@@ -582,14 +585,17 @@ export interface IDocExampleProps extends ISmartElementLowProps {
   todo?: boolean;
 }
 
-export interface IPageProps extends ITagProps {
-  //persistent data identification
-  user?: string; //user email
-  variant?: string; //variant of exercise user data - every exercise could have more records in user DB (eg. could be used in more products etc.)
-  url?: string; //data ID
-  //
+//contextId - <user>#<courseUrl>#<variant>
+export interface ICourseContext {
+  user?: string; //unique user email
+  courseUrl?: string; //unique course ID
+  variant?: string; //more attempts for single course
+}
 
+//ICourseContext infos filled before React.createElement
+export interface IPageProps extends ITagProps, ICourseContext {
   //page data
+  url?: string; //unique page ID
   title?: string;
   instrTitle?: string;
   instrBody?: string;

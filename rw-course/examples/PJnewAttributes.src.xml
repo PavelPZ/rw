@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?><html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.langmaster.com/new/author/coursemodelschema.xsd">
+  <head>
+    <title>writing</title>
+  </head>
+  <body>
+    <p>
+      <radio-button init-value="true" eval-group="and-rb1">rb1</radio-button>
+      </p>
+      <p>
+      <radio-button correct-value="true" eval-group="and-rb1">rb2</radio-button>
+    </p>
+    <p>
+      <radio-button read-only="true" eval-group="and-rb2">rb1</radio-button>
+      <radio-button init-value="true" eval-group="and-rb2">rb2</radio-button>
+    </p>
+    <p>
+      <radio-button read-only="true" eval-group="and-rb3">rb1</radio-button>
+      <radio-button eval-group="and-rb3">rb2</radio-button>
+    </p>
+    <p>
+      <radio-button skip-evaluation="true" eval-group="and-rb4">rb1</radio-button>
+      <radio-button eval-group="and-rb4">rb2</radio-button>
+    </p>
+    <p>
+      <radio-button skip-evaluation="true" eval-group="and-rb5">rb1</radio-button>
+      <radio-button init-value="true" eval-group="and-rb5">rb2</radio-button>
+    </p>
+
+
+    <p>
+      <check-item init-value="true" correct-value="false" text-type="true-false">cb1</check-item>
+    </p>
+    <p>
+      <check-item skip-evaluation="true">cb1</check-item>
+    </p>
+    <p>
+      <check-item skip-evaluation="true" init-value="true"></check-item>
+    </p>
+    <p>
+      <check-item skip-evaluation="true" init-value="false">cb1</check-item>
+    </p>
+    <p>
+      <check-item read-only="true">cb1</check-item>
+    </p>
+    <p>
+      <check-item read-only="true" init-value="true">cb1</check-item>
+    </p>
+    <p>
+      <check-item read-only="true" init-value="false">cb1</check-item>
+    </p>
+
+
+  </body>
+</html>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.langmaster.com/new/author/coursemodelschema.xsd">
+  <head>
+    <title>Smarts</title>
+  </head>
+  <body>
+    <h2>Smarts</h2>
+    <smart-element inline-type="gap-fill">
+      <![CDATA[
+She {+ eats} a cake.
+        
+He {+ drinks|is drinking} coffee.
+]]>
+    </smart-element>
+    <hr/>
+    <smart-element style-sheet="gap-fill {smart-width:s1}">
+      <![CDATA[
+{#table 
+@col1: She {+gap-fill eats} a cake.
+@col2: {+word-selection w1|w2|#w3}
+-------------
+@col1: Passive **cell**
+@col2: He {+gap-fill +drinks|is drinking} coffee.
+table#}
+]]>
+    </smart-element>
+    <h2>Pairing</h2>
+    <smart-pairing>
+      <![CDATA[
+left 1||right 1
+left 2||right 2
+{+img media/04.png}||right3
+]]>
+    </smart-pairing>
+    <h2>Offering</h2>
+    <div>
+      <smart-offering mode="gap-fill" words="eat|dring">
+        <![CDATA[
+She {+ eats} a cake.
+        
+He {+ drinks|is drinking} coffee.
+]]>
+      </smart-offering>
+    </div>
+    <hr/>
+    <div>
+      <smart-offering mode="gap-fill-passive" words="eat|dring">
+        <![CDATA[
+She {+ eats} a cake.
+        
+He {+ drinks|is drinking} coffee.
+]]>
+      </smart-offering>
+    </div>
+    <hr/>
+    <div>
+      <smart-offering mode="drop-down-discard">
+        <![CDATA[
+She {+ eats} a cake.
+        
+He {+ drinks} coffee.
+]]>
+      </smart-offering>
+    </div>
+    <hr/>
+    <div>
+      <smart-offering mode="drop-down-keep" words="eat|dring">
+        <![CDATA[
+She {+ eats} a cake.
+        
+He {+ drinks} coffee.
+]]>
+      </smart-offering>
+    </div>
+    <hr/>
+    <div>
+      <smart-offering mode="drop-down-keep" words="eat|dring">
+        <![CDATA[
+]]>
+      </smart-offering>
+    </div>
+  </body>
+</html>

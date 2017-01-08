@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?><html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.langmaster.com/new/author/coursemodelschema.xsd">
+  <head>
+    <title></title>
+  </head>
+  <body class="app-doc">
+    <doc-example id="basic-example">
+      <header-prop><h3>Basic example</h3></header-prop>
+      <doc-descr></doc-descr>
+      <offering words="offer 1|offer 2|offer 3" />
+    </doc-example>
+    <doc-example id="basic-gap-fill">
+      <header-prop><h3>Offers from gap-fill</h3></header-prop>
+      <doc-descr>Opakujici se hodnoty jsou vzdy ignorovany</doc-descr>
+      <offering id="from-gap-fill" />
+      <gap-fill offering-id="from-gap-fill" correct-value="value1|value2" />
+      <gap-fill offering-id="from-gap-fill" correct-value="value3|value1" />
+    </doc-example>
+    <doc-example id="basic-gap-fill-css">
+      <header-prop><h3>Offers from gap-fill pomoci CSS</h3></header-prop>
+      <doc-descr>Atribut offering-id se nastavi vsem gap-fill elementum pomoci CSS. Details about using CSS see TODO.</doc-descr>
+      <offering id="from-gap-fill-css" />
+      <div style-sheet="gap-fill {offering-id: from-gap-fill-css;}">
+        <gap-fill correct-value="value1|value2" />
+        <gap-fill correct-value="value3|value1" />
+      </div>
+    </doc-example>
+    <doc-example id="basic-gap-fill-fake">
+      <header-prop><h3>Offers from gap-fill with fake offers</h3></header-prop>
+      <doc-descr></doc-descr>
+      <offering id="from-gap-fill-fake" words="fake1|fake2" />
+      <gap-fill offering-id="from-gap-fill-fake" correct-value="value1" />
+      <gap-fill offering-id="from-gap-fill-fake" correct-value="value2" />
+    </doc-example>
+    <doc-example id="basic-drop-down">
+      <header-prop><h3>Offers from drop-down, kazda nabidka muze byt pouzita pouze jednou</h3></header-prop>
+      <doc-descr></doc-descr>
+      <offering id="from-drop-down" />
+      <div style-sheet="drop-down {offering-id: from-drop-down;}">
+        <drop-down correct-value="value1" />
+        <drop-down correct-value="value2" />
+        <drop-down correct-value="value3" />
+      </div>
+    </doc-example>
+    <doc-example id="basic-drop-down-keep">
+      <header-prop><h3>Offers from drop-down, nabidky mohou byt pouzity vicekrat</h3></header-prop>
+      <doc-descr></doc-descr>
+      <offering id="from-drop-down-keep" mode="drop-down-keep" />
+      <div style-sheet="drop-down {offering-id: from-drop-down-keep;}">
+        <drop-down correct-value="value1" />
+        <drop-down correct-value="value2" />
+        <drop-down correct-value="value1" />
+      </div>
+    </doc-example>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?><cut-dialog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.langmaster.com/new/author/coursemodelschema.xsd">
+  <replica actor-name="A">
+    <phrase beg-pos="6050" end-pos="6761">
+      Hello, Thomas.
+    </phrase>
+    <phrase beg-pos="6761" end-pos="7829">
+      How are you?
+    </phrase>
+  </replica>
+  <replica actor-name="B">
+    <phrase beg-pos="7855" end-pos="9252">
+      Fine, thanks.
+    </phrase>
+    <phrase beg-pos="9252" end-pos="10697">
+      And you Fiona?
+    </phrase>
+  </replica>
+  <replica actor-name="A">
+    <phrase beg-pos="10697" end-pos="12148">
+      Fine, thanks.
+    </phrase>
+  </replica>
+  <replica actor-name="B">
+    <phrase beg-pos="12296" end-pos="14406">
+      Fiona, this is Nicole.
+    </phrase>
+    <phrase beg-pos="14406" end-pos="16653">
+      Nicole, this is Fiona.
+    </phrase>
+  </replica>
+  <replica actor-name="A">
+    <phrase beg-pos="16653" end-pos="18928">
+      Nice to meet you, Nicole.
+    </phrase>
+  </replica>
+  <replica actor-name="C">
+    <phrase beg-pos="18928" end-pos="20670">
+      Nice to meet you, too.
+    </phrase>
+  </replica>
+</cut-dialog>

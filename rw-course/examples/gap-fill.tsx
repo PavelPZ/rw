@@ -1,4 +1,4 @@
-import React from 'react'; import { $rc, $loc, Page, DocExample, HeaderProp, DocDescr, GapFill, InlineTag, SmartElement, Offering, DropDown } from 'rw-course'; export default () => /*
+import React from 'react'; import { $loc, Page, DocExample, HeaderProp, DocDescr, GapFill, InlineTag, SmartElement, Offering, DropDown } from 'rw-course'; export default () => /*
 *********** START MARKUP HERE: */
   <Page title="" className="app-doc">
     <DocExample id="basic-example">
@@ -59,7 +59,7 @@ import React from 'react'; import { $rc, $loc, Page, DocExample, HeaderProp, Doc
         <h3>Use CSS</h3>
       </HeaderProp>
       <DocDescr>Details about using CSS see TODO</DocDescr>
-      <div styleSheet={{ GapFill: { width: 150 } }}>
+      <div childProps={{ GapFill: { width: 150 } }}>
         <GapFill correctValue="correct" />
       </div>
       <GapFill correctValue="correct" />
@@ -69,11 +69,11 @@ import React from 'react'; import { $rc, $loc, Page, DocExample, HeaderProp, Doc
         <h3>More gap-fills witr fixed width</h3>
       </HeaderProp>
       <DocDescr></DocDescr>
-      <div styleSheet={{ GapFill: { width: 150 } }}>
+      <div childProps={{ GapFill: { width: 150 } }}>
         <GapFill correctValue="c1" />
         <GapFill correctValue="correct" />
       </div>
-      <div styleSheet={{ GapFill: { width: "20em" } }}>
+      <div childProps={{ GapFill: { width: "20em" } }}>
         <GapFill correctValue="correct" />
         <GapFill correctValue="c1" />
       </div>
@@ -93,11 +93,11 @@ import React from 'react'; import { $rc, $loc, Page, DocExample, HeaderProp, Doc
         <h3>... by means with CSS</h3>
       </HeaderProp>
       <DocDescr></DocDescr>
-      <div styleSheet={{ GapFill: { widthGroup: 'g1' } }}>
+      <div childProps={{ GapFill: { widthGroup: 'g1' } }}>
         <GapFill correctValue="c1" />
         <GapFill correctValue="c1-c1-c1" />
       </div>
-      <div styleSheet={{ GapFill: { widthGroup: 'g1' } }}>
+      <div childProps={{ GapFill: { widthGroup: 'g1' } }}>
         <GapFill correctValue="c1" />
         <GapFill correctValue="c1-c1-c1-c1-c1-c1-c1-c1" />
       </div>
@@ -107,7 +107,7 @@ import React from 'react'; import { $rc, $loc, Page, DocExample, HeaderProp, Doc
         <h3>... other CSS usage</h3>
       </HeaderProp>
       <DocDescr></DocDescr>
-      <div styleSheet={{ whenClass: { cls1: { GapFill: { widthGroup: 'g1' } }, cls2: { GapFill: { widthGroup: 'g2' } } } }}>
+      <div childProps={{ whenClass: { cls1: { GapFill: { widthGroup: 'g1' } }, cls2: { GapFill: { widthGroup: 'g2' } } } }}>
         <GapFill correctValue="c1" className="cls1" />
         <GapFill correctValue="c1-c1-c1" className="cls1" />
         <GapFill correctValue="c1" className="cls2" />
@@ -119,15 +119,19 @@ import React from 'react'; import { $rc, $loc, Page, DocExample, HeaderProp, Doc
         <h3>Exchangeable gap-fill values</h3>
       </HeaderProp>
       <DocDescr>TODO: jak se chova pri vice correct values?</DocDescr>
-      <div styleSheet={{ GapFill: { evalGroup: ['g1', 'exchangeable', '' ] } }}>
+      <div childProps={{ GapFill: { evalGroup: 'g1', evalExchangeable: true } }}>
         <GapFill correctValue="c1" />
         <GapFill correctValue="c2" />
         <GapFill correctValue="c3" />
       </div>
-      <div styleSheet={{ GapFill: { evalGroup: ['g2', 'exchangeable', ''] } }}>
+      <div childProps={{ GapFill: { evalGroup: 'g2', evalExchangeable: true } }}>
         <GapFill correctValue="c4" />
         <GapFill correctValue="c5" />
         <GapFill correctValue="c6" />
+      </div>
+      <div>
+        <GapFill correctValue="c7" evalGroup='g2' />
+        <GapFill correctValue="c8" evalGroup='g2'/>
       </div>
     </DocExample>
     <DocExample id="and-eval">
@@ -135,7 +139,7 @@ import React from 'react'; import { $rc, $loc, Page, DocExample, HeaderProp, Doc
         <h3>AND evaluation predicate</h3>
       </HeaderProp>
       <DocDescr>Je-li jediny element ze skupiny elementu se stejnou hodnotou atributu 'eval-and' vyplnen spatne, je cela skupina povazovana za spatne vyplnenou.</DocDescr>
-      <div styleSheet={{ GapFill: { evalGroup: ['g3', '', 'and'] } }}>
+      <div childProps={{ GapFill: { evalGroup: 'g3', evalAnd: true } }}>
         <GapFill correctValue="c1" />
         <GapFill correctValue="c2" />
       </div>
@@ -145,7 +149,7 @@ import React from 'react'; import { $rc, $loc, Page, DocExample, HeaderProp, Doc
         <h3>Both AND evaluation predicate and Exchangeable gap-fill value</h3>
       </HeaderProp>
       <DocDescr></DocDescr>
-      <div styleSheet={{ GapFill: { evalGroup: ['g3', 'exchangeable', 'and'] } }}>
+      <div childProps={{ GapFill: { evalGroup: 'g3', evalExchangeable: true, evalAnd: true } }}>
         <GapFill correctValue="c1" />
         <GapFill correctValue="c2" />
       </div>
@@ -178,7 +182,7 @@ Lorem {+gap-fill c1|c2} Lorem {+gap-fill c3}
         <h3>Inline gap-fill in smart-element and CSS</h3>
       </HeaderProp>
       <DocDescr></DocDescr>
-      <SmartElement inlineType='GapFill' styleSheet={{ GapFill: { widthGroup: 'g5', evalGroup: ['g5', 'exchangeable', 'and'] } }} cdata={`
+      <SmartElement inlineType='GapFill' childProps={{ GapFill: { widthGroup: 'g5', evalGroup: 'g5', evalExchangeable: true, evalAnd: true } }} cdata={`
 First Header  | Second Header
 ------------- | -------------
 Lorem {+ c1 c1 c1 c1 c1 c1|c2} | Lorem {+ c3}

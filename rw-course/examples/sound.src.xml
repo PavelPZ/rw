@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?><html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.langmaster.com/new/author/coursemodelschema.xsd">
+  <head>
+    <title>Single Choice</title>
+  </head>
+  <body class="app-doc">
+
+    <doc-example>
+      <header-prop>
+        <h3>Nenastrihany zvuk - odkaz na MP3 soubor</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <media-player media-url="media/media1.mp3"></media-player>
+    </doc-example>
+    <doc-example>
+      <header-prop>
+        <h3>Nenastrihane video</h3>
+      </header-prop>
+      <doc-descr>Misto extenze je definice formatu (@std-4 znamena 2 ruzna rozliseni pro 2 extenze (webm a mp4))</doc-descr>
+      <div class="row">
+        <div class="col-sm-6">
+          <media-video id="vid0" media-url="media/video@std-4"></media-video>
+        </div>
+        <div class="col-sm-6">
+          <media-player share-media-id="vid0"></media-player>
+        </div>
+      </div>
+    </doc-example>
+    <doc-example>
+      <header-prop>
+        <h3>Nastrihany zvuk - odkaz na nastrihani zvuku</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <media-text id="text1" cut-url="media/media1" subset="0-3"></media-text>
+      <media-player share-media-id="text1"></media-player>
+    </doc-example>
+    <doc-example>
+      <header-prop>
+        <h3>Nastrihane video. Navic s nahradou jedne vety</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <div class="row">
+        <div class="col-sm-6">
+          <media-video share-media-id="vid1"></media-video>
+        </div>
+        <div class="col-sm-6">
+          <media-text id="vid1" subset="1-2">
+            <include-dialog cut-url="media/video">
+              <phrase-replace replica-phrase-idx="0.0">
+                Text <gap-fill correct-value="ok" /> text.
+              </phrase-replace>
+            </include-dialog>
+          </media-text>
+        </div>
+      </div>
+    </doc-example>
+    <doc-example>
+      <header-prop>
+        <h3>Definice dialogu primo ve cviceni.</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <div class="row">
+        <div class="col-sm-6">
+          <media-video share-media-id="video-dialog"></media-video>
+        </div>
+        <div class="col-sm-6">
+          <media-text id="video-dialog">
+            <cut-dialog media-url="media/video@std-4">
+              <replica actor-name="Herr Haschek">
+                <phrase beg-pos="1870" end-pos="4350">
+                  Sportgeräte, Haschek. <word-selection words="#Was|Was|Wir" /> kann ich für Sie tun?
+                </phrase>
+              </replica>
+              <replica actor-name="Herr Schmid">
+                <phrase beg-pos="4350" end-pos="7260">
+                  Hier Eishockey-Großhandel, Schmidt am Apparat.
+                </phrase>
+                <phrase beg-pos="7260" end-pos="11140">
+                  Ich <gap-fill correct-value="habe"></gap-fill> habe mir Ihre Internetseite angesehen und festgestellt, dass Sie Eishockeyartikel herstellen.
+                </phrase>
+                <phrase beg-pos="11140" end-pos="14980">
+                  Wir suchen einen Lieferanten für Eishockeyschläger und da dachte ich …
+                </phrase>
+              </replica>
+            </cut-dialog>
+          </media-text>
+        </div>
+      </div>
+    </doc-example>
+    <doc-example>
+      <header-prop>
+        <h3>Z nastrihaneho dialogu udelej text a navic v nem nahrad jednu vetu</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <media-text subset="0-3">
+        <cut-text>
+          <include-dialog cut-url="media/media3">
+            <phrase-replace replica-phrase-idx="0.0">
+              Text <word-selection words="wrong|#ok|wrong2" /> text.
+            </phrase-replace>
+          </include-dialog>
+        </cut-text>
+      </media-text>
+    </doc-example>
+    <doc-example>
+      <header-prop>
+        <h3>Z nastrihaneho textu udelej dialog a navic v nem nahrad jednu vetu</h3>
+      </header-prop>
+      <doc-descr></doc-descr>
+      <media-text subset="0">
+        <cut-dialog>
+          <include-text cut-url="media/media1">
+            <phrase-replace phrase-idx="1">
+              Text <word-selection words="wrong|#ok|wrong2" /> text.
+            </phrase-replace>
+          </include-text>
+          <replica actor-name="actor 1" number-of-phrases="2"></replica>
+        </cut-dialog>
+      </media-text>
+    </doc-example>
+  </body>
+</html>

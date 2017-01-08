@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?><html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.langmaster.com/new/author/coursemodelschema.xsd">
+  <head>
+    <title>Vocabulary</title>
+    <style />
+  </head>
+  <body id="hueex1_l21_a02" order="1" instr-title="{{ahtmltitle|Fill in the sentences.}}" instr-body="filling_in_from_a_list">
+    
+    <gap-fill case-sensitive="true" correct-value="ok" />
+    <br />
+    <gap-fill case-sensitive="false" correct-value="ok" />
+    <br />
+    <br />
+    <offering id="of1" words="OK" mode="drop-down-keep" />
+    <br />
+    <drop-down case-sensitive="true" correct-value="ok" offering-id="of1" />
+    <br />
+    <br />
+    <offering id="of2" words="OK" mode="drop-down-keep" />
+    <br />
+    <drop-down id="dd1" case-sensitive="false" correct-value="ok" offering-id="of2" />
+  </body>
+</html>

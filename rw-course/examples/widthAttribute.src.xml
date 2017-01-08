@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?><html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.langmaster.com/new/author/coursemodelschema.xsd">
+  <head>
+    <title></title>
+  </head>
+  <body class="app-doc">
+    <gap-fill correct-value="c" width="150" width-group="s1" />
+    <gap-fill correct-value="c1" width-group="s1" />
+    <gap-fill correct-value="c12a c12a c12a c12a " width-group="s1" />
+    <br />
+    <br />
+    <gap-fill correct-value="c" width="150" width-group="s2" />
+    <gap-fill correct-value="c1" width-group="s2" />
+    <gap-fill correct-value="c12a" width-group="s2" />
+
+  </body>
+</html>
