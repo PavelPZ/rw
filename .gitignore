@@ -256,6 +256,6 @@ jspm_packages/
 *.mp3
 *.mp4
 *.webm
-*.png
+rw-course/examples/**/*.png
 !jspm.config.js
 !gulpfile.js

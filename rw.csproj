@@ -27,14 +27,11 @@
     <Content Include="index.html" />
     <Content Include="jspm.config.js" />
     <Content Include="rw-course\examples\media\04.png" />
-    <Content Include="rw-course\examples\media\media1.js" />
     <Content Include="rw-course\examples\media\media1.mp3" />
     <Content Include="rw-course\examples\media\media1.xml" />
-    <Content Include="rw-course\examples\media\media3.js" />
     <Content Include="rw-course\examples\media\media3.mp3" />
     <Content Include="rw-course\examples\media\media3.xml" />
     <Content Include="rw-course\examples\media\meta.xml" />
-    <Content Include="rw-course\examples\media\video.js" />
     <Content Include="rw-course\examples\media\video.mp4" />
     <Content Include="rw-course\examples\media\video.small.mp4" />
     <Content Include="rw-course\examples\media\video.xml" />

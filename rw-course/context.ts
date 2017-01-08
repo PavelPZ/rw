@@ -15,3 +15,4 @@
 
 //export class BodyContext {
 //}
+export const fake = null;

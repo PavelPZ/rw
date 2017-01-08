@@ -2,7 +2,7 @@ import React from 'react'; import course, { $rc, $loc, Page, SmartElement, Smart
 *********** START MARKUP HERE: */
   <Page title="Smarts">
     <h2>Smarts</h2>
-    <SmartElement inlineType='GapFill' cdata={`
+    <SmartElement inlineType="GapFill" cdata={`
 She {+ eats} a cake.
         
 He {+ drinks|is drinking} coffee.
@@ -25,7 +25,7 @@ left 2||right 2
 `} />
     <h2>Offering</h2>
     <div>
-      <SmartOffering mode='GapFill' words="eat|dring" cdata={`
+      <SmartOffering mode="GapFill" words="eat|dring" cdata={`
 She {+ eats} a cake.
         
 He {+ drinks|is drinking} coffee.
@@ -33,7 +33,7 @@ He {+ drinks|is drinking} coffee.
     </div>
     <hr />
     <div>
-      <SmartOffering mode='GapFillPassive' words="eat|dring" cdata={`
+      <SmartOffering mode="GapFillPassive" words="eat|dring" cdata={`
 She {+ eats} a cake.
         
 He {+ drinks|is drinking} coffee.
@@ -41,7 +41,7 @@ He {+ drinks|is drinking} coffee.
     </div>
     <hr />
     <div>
-      <SmartOffering mode='DropDownDiscard' cdata={`
+      <SmartOffering mode="DropDownDiscard" cdata={`
 She {+ eats} a cake.
         
 He {+ drinks} coffee.
@@ -49,7 +49,7 @@ He {+ drinks} coffee.
     </div>
     <hr />
     <div>
-      <SmartOffering mode='DropDownKeep' words="eat|dring" cdata={`
+      <SmartOffering mode="DropDownKeep" words="eat|dring" cdata={`
 She {+ eats} a cake.
         
 He {+ drinks} coffee.
@@ -57,7 +57,7 @@ He {+ drinks} coffee.
     </div>
     <hr />
     <div>
-      <SmartOffering mode='DropDownKeep' words="eat|dring" cdata={`
+      <SmartOffering mode="DropDownKeep" words="eat|dring" cdata={`
 `} />
     </div>
   </Page>

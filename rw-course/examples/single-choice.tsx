@@ -22,9 +22,9 @@ import React from 'react'; import course, {$rc, $loc, Page, DocExample, HeaderPr
         <h4>Question</h4>
       </HeaderProp>
       <SingleChoice>
-        <RadioButton evalGroup="and-g1">possibility 1</RadioButton>
-        <RadioButton evalGroup="and-g1" correctValue={true}>possibility 2</RadioButton>
-        <RadioButton evalGroup="and-g1">possibility 3</RadioButton>
+        <RadioButton evalGroup="g1" evalAnd={true}>possibility 1</RadioButton>
+        <RadioButton evalGroup="g1" evalAnd={true} correctValue={true}>possibility 2</RadioButton>
+        <RadioButton evalGroup="g1" evalAnd={true}>possibility 3</RadioButton>
       </SingleChoice>
     </Panel>
   </DocExample>
@@ -34,13 +34,13 @@ import React from 'react'; import course, {$rc, $loc, Page, DocExample, HeaderPr
     </HeaderProp>
     <DocDescr></DocDescr>
     <SingleChoice>
-      <RadioButton evalGroup="and-g2">
+      <RadioButton evalGroup="g2" evalAnd={true}>
         <MediaText subset="-2" cutUrl="media/media1"></MediaText>
       </RadioButton>
-      <RadioButton correctValue={true} evalGroup="and-g2">
+      <RadioButton correctValue={true} evalGroup="g2" evalAnd={true}>
         <MediaText subset="3" cutUrl="media/media1"></MediaText>
       </RadioButton>
-      <RadioButton evalGroup="and-g2">
+      <RadioButton evalGroup="g2" evalAnd={true}>
         <MediaText subset="4-" cutUrl="media/media1"></MediaText>
       </RadioButton>
     </SingleChoice>

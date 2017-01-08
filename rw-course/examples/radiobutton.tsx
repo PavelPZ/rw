@@ -6,7 +6,7 @@ import React from 'react'; import course, {$rc, $loc, Page, DocExample, HeaderPr
       <h3>Basic example</h3>
     </HeaderProp>
     <DocDescr></DocDescr>
-    <RadioButton evalGroup="and-g1" correctValue={true}>radio 1</RadioButton>
-    <RadioButton evalGroup="and-g1">radio 2</RadioButton>
+    <RadioButton evalGroup="g1" evalAnd={true} correctValue={true}>radio 1</RadioButton>
+    <RadioButton evalGroup="g1" evalAnd={true}>radio 2</RadioButton>
   </DocExample>
 </Page>

@@ -15,9 +15,9 @@ import React from 'react'; import course, {$rc, $loc, Page, DocExample, HeaderPr
       <h3>AND evaluation (group)</h3>
     </HeaderProp>
     <DocDescr>Example descr</DocDescr>
-    <GapFill evalGroup="and-group1" correctValue="ok1" />
+    <GapFill evalGroup="group1" evalAnd={true} correctValue="ok1" />
     <br />
-    <CheckItem evalGroup="and-group1" correctValue={false}></CheckItem>
+    <CheckItem evalGroup="group1" evalAnd={true} correctValue={false}></CheckItem>
   </DocExample>
   <DocExample>
     <HeaderProp>
@@ -31,8 +31,8 @@ import React from 'react'; import course, {$rc, $loc, Page, DocExample, HeaderPr
     </p>
     <p>
       <EvalButton id="g1"></EvalButton>
-      <GapFill evalGroup="and-group2" correctValue="ok2" evalButtonId="g1" />
-      <CheckItem evalGroup="and-group2" correctValue={true} evalButtonId="g1">Question 1</CheckItem>
+      <GapFill evalGroup="group2" evalAnd={true} correctValue="ok2" evalButtonId="g1" />
+      <CheckItem evalGroup="group2" evalAnd={true} correctValue={true} evalButtonId="g1">Question 1</CheckItem>
     </p>
   </DocExample>
   <DocExample>

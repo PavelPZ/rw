@@ -2,26 +2,26 @@ import React from 'react'; import course, {$rc, $loc, Page, RadioButton, CheckIt
 *********** START MARKUP HERE: */
 <Page title="writing">
   <p>
-    <RadioButton initValue={true} evalGroup="and-rb1">rb1</RadioButton>
+    <RadioButton initValue={true} evalGroup="rb1" evalAnd={true}>rb1</RadioButton>
   </p>
   <p>
-    <RadioButton correctValue={true} evalGroup="and-rb1">rb2</RadioButton>
+    <RadioButton correctValue={true} evalGroup="rb1" evalAnd={true}>rb2</RadioButton>
   </p>
   <p>
-    <RadioButton readOnly={true} evalGroup="and-rb2">rb1</RadioButton>
-    <RadioButton initValue={true} evalGroup="and-rb2">rb2</RadioButton>
+    <RadioButton readOnly={true} evalGroup="rb2" evalAnd={true}>rb1</RadioButton>
+    <RadioButton initValue={true} evalGroup="rb2" evalAnd={true}>rb2</RadioButton>
   </p>
   <p>
-    <RadioButton readOnly={true} evalGroup="and-rb3">rb1</RadioButton>
-    <RadioButton evalGroup="and-rb3">rb2</RadioButton>
+    <RadioButton readOnly={true} evalGroup="rb3" evalAnd={true}>rb1</RadioButton>
+    <RadioButton evalGroup="rb3" evalAnd={true}>rb2</RadioButton>
   </p>
   <p>
-    <RadioButton skipEvaluation={true} evalGroup="and-rb4">rb1</RadioButton>
-    <RadioButton evalGroup="and-rb4">rb2</RadioButton>
+    <RadioButton skipEvaluation={true} evalGroup="rb4" evalAnd={true}>rb1</RadioButton>
+    <RadioButton evalGroup="rb4" evalAnd={true}>rb2</RadioButton>
   </p>
   <p>
-    <RadioButton skipEvaluation={true} evalGroup="and-rb5">rb1</RadioButton>
-    <RadioButton initValue={true} evalGroup="and-rb5">rb2</RadioButton>
+    <RadioButton skipEvaluation={true} evalGroup="rb5" evalAnd={true}>rb1</RadioButton>
+    <RadioButton initValue={true} evalGroup="rb5" evalAnd={true}>rb2</RadioButton>
   </p>
   <p>
     <CheckItem initValue={course.threeStateBool.true} correctValue={false} textType={course.CheckItemTexts.trueFalse}>cb1</CheckItem>

@@ -7,7 +7,7 @@
     "inlineSources": true,
     //Export definitions file to DATA
     "declaration": true,
-    "declarationDir": "../data/typings/rw/",
+    "declarationDir": "../data/typings/",
 
     //"noEmitHelpers": true,
     //"importHelpers": true,
