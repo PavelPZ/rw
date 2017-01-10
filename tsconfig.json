@@ -19,6 +19,7 @@
       "rw-course": [ "rw-course/index" ],
 
       "rw-lib/*": [ "rw-lib/*" ],
+      "rw-instr/*": [ "rw-instr/*" ],
       "rw-gui-rt/*": [ "rw-gui-rt/*" ],
 
       "redux": [ "jspm_packages/npm/redux@3.6.0/index" ],

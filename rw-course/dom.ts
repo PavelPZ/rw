@@ -598,9 +598,10 @@ export interface IPageProps extends ITagProps, ICourseContext {
   url?: string; //unique page ID
   title?: string;
   instrTitle?: string;
-  instrBody?: string;
+  instrBody?: TInstrCreator | Array<TInstrCreator>;
   seeAlsoStr?: string;
 }
+export type TInstrCreator = () => JSX.Element;
 
 export interface IGapFillProps extends IEditProps {
   hint?: string;
@@ -612,4 +613,8 @@ export interface IGapFillProps extends IEditProps {
 export interface IChildProps {
   GapFill?: IGapFillProps;
   whenClass?: { [className: string]: IChildProps; }
+}
+
+export interface ILoc {
+  [lang: string]: { [id: string]: string; };
 }
