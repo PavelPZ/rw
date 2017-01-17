@@ -1,4 +1,4 @@
-﻿import { IRouteData, IRouteDir } from './url-parser';
+﻿import { IRouteData, IRouteDir } from 'rw-router';
 
 export function route<T extends IRouteData>(data: T, childs?: { [hookId: string]: IRouteData; }): IRouteData { data.$childs = childs; return data; }
 

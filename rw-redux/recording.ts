@@ -2,9 +2,7 @@
 
 //*****
 //import { pushState } from '../rw-router/router';
-import { TDispatch, IRootState } from './types';
-import { recordingHook, ASYNC_START, IAsyncStartAction } from './async';
-import { changeAppInitState, store } from './app-loader';
+import { changeAppInitState, store, recordingHook, ASYNC_START, IAsyncStartAction , TDispatch, IRootState } from 'rw-redux';
 
 export enum RecordingStatus { no, recording, recorded, playing, cancelPlaying }
 

@@ -21,7 +21,7 @@
   };
 
   (() => {
-    const indexHtml = 'index.html';
+    const indexHtml = '.html';
     const startUrl = window.location.href;
     let idx = startUrl.toLowerCase().indexOf(indexHtml);
     config.basicUrl = idx >= 0 ? startUrl.substr(0, idx + indexHtml.length) : startUrl + indexHtml;

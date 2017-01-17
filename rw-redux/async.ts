@@ -1,7 +1,7 @@
 ﻿import { Action } from 'redux';
 
 //*****
-import { TMiddlewareAPI, Middleware } from './types';
+import { TMiddlewareAPI, Middleware } from 'rw-redux';
 
 export let recordingHook = {
   pushActions: (act: Action) => { }

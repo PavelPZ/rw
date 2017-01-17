@@ -1,14 +1,30 @@
 SystemJS.config({
-  browserConfig: {
-    "paths": {
-      "npm:": "/jspm_packages/npm/",
-      "rw-router": "/rw-router",
-      "rw-redux": "/rw-redux",
-      "rw-lib": "/rw-lib",
-      "rw-login": "/rw-login",
-      "rw-gui-rt": "/rw-gui-rt",
-      "rw-course": "/rw-course/index",
-      "config": "app-config.js"
+  production: true,
+  baseURL: "/",
+  paths: {
+    "npm:": "jspm_packages/npm/",
+    "config": "./app-config.js",
+    "react-cdn": "https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js",
+    "react-dom-cdn": "https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"
+  },
+  packages: {
+    "rw-lib": {
+      "defaultExtension": "js"
+    },
+    "rw-gui-rt": {
+      "defaultExtension": "js"
+    },
+    "rw-router": {
+      "main": "index.js",
+      "defaultExtension": "js"
+    },
+    "rw-redux": {
+      "main": "index.js",
+      "defaultExtension": "js"
+    },
+    "rw-course": {
+      "main": "index.js",
+      "defaultExtension": "js"
     }
   }
 });
@@ -19,7 +35,11 @@ SystemJS.config({
     "npm:*.json"
   ],
   map: {
-    "@types/lodash": "npm:@types/lodash@4.14.47",
+    //"react": "npm:react@15.4.2",
+    //"react-dom": "npm:react-dom@15.4.2",
+    "react": "react-cdn",
+    "react-dom": "react-dom-cdn",
+    "@types/lodash": "npm:@types/lodash@4.14.50",
     "@types/react": "npm:@types/react@0.14.57",
     "@types/react-dom": "npm:@types/react-dom@0.14.20",
     "@types/react-redux": "npm:@types/react-redux@4.4.35",
@@ -34,17 +54,15 @@ SystemJS.config({
     "fs": "npm:jspm-nodelibs-fs@0.2.0",
     "http": "npm:jspm-nodelibs-http@0.2.0",
     "https": "npm:jspm-nodelibs-https@0.2.1",
-    "immutability-helper": "npm:immutability-helper@2.1.0",
+    "immutability-helper": "npm:immutability-helper@2.1.1",
     "lodash": "npm:lodash@4.17.4",
     "os": "npm:jspm-nodelibs-os@0.2.0",
     "path": "npm:jspm-nodelibs-path@0.2.1",
     "process": "npm:jspm-nodelibs-process@0.2.0",
-    "react": "npm:react@15.4.2",
     "react-addons-css-transition-group": "npm:react-addons-css-transition-group@15.4.2",
     "react-css-themr": "npm:react-css-themr@1.7.1",
-    "react-dom": "npm:react-dom@15.4.2",
-    "react-redux": "npm:react-redux@4.4.6",
     "react-toolbox": "npm:react-toolbox@1.3.2",
+    "react-redux": "npm:react-redux@4.4.6",
     "redux": "npm:redux@3.6.0",
     "redux-logger": "npm:redux-logger@2.7.4",
     "reselect": "npm:reselect@2.5.4",
@@ -74,7 +92,7 @@ SystemJS.config({
       "map": {
         "lodash": "npm:lodash@4.17.4",
         "invariant": "npm:invariant@2.2.2",
-        "loose-envify": "npm:loose-envify@1.3.0",
+        "loose-envify": "npm:loose-envify@1.3.1",
         "hoist-non-react-statics": "npm:hoist-non-react-statics@1.2.0"
       }
     },
@@ -85,27 +103,22 @@ SystemJS.config({
     },
     "npm:invariant@2.2.2": {
       "map": {
-        "loose-envify": "npm:loose-envify@1.3.0"
+        "loose-envify": "npm:loose-envify@1.3.1"
       }
     },
     "npm:redux@3.6.0": {
       "map": {
         "lodash": "npm:lodash@4.17.4",
-        "loose-envify": "npm:loose-envify@1.3.0",
+        "loose-envify": "npm:loose-envify@1.3.1",
         "symbol-observable": "npm:symbol-observable@1.0.4",
         "lodash-es": "npm:lodash-es@4.17.4"
-      }
-    },
-    "npm:loose-envify@1.3.0": {
-      "map": {
-        "js-tokens": "npm:js-tokens@2.0.0"
       }
     },
     "npm:fbjs@0.8.8": {
       "map": {
         "core-js": "npm:core-js@1.2.7",
-        "loose-envify": "npm:loose-envify@1.3.0",
-        "object-assign": "npm:object-assign@4.1.0",
+        "loose-envify": "npm:loose-envify@1.3.1",
+        "object-assign": "npm:object-assign@4.1.1",
         "setimmediate": "npm:setimmediate@1.0.5",
         "isomorphic-fetch": "npm:isomorphic-fetch@2.2.1",
         "promise": "npm:promise@7.1.1",
@@ -165,7 +178,7 @@ SystemJS.config({
     },
     "npm:jspm-nodelibs-http@0.2.0": {
       "map": {
-        "http-browserify": "npm:stream-http@2.6.0"
+        "http-browserify": "npm:stream-http@2.6.2"
       }
     },
     "npm:jspm-nodelibs-zlib@0.2.2": {
@@ -364,11 +377,6 @@ SystemJS.config({
         "@types/react": "npm:@types/react@0.14.57"
       }
     },
-    "npm:immutability-helper@2.1.0": {
-      "map": {
-        "invariant": "npm:invariant@2.2.2"
-      }
-    },
     "npm:asn1.js@4.9.1": {
       "map": {
         "bn.js": "npm:bn.js@4.11.6",
@@ -383,31 +391,41 @@ SystemJS.config({
     },
     "npm:react@15.4.2": {
       "map": {
-        "loose-envify": "npm:loose-envify@1.3.0",
+        "loose-envify": "npm:loose-envify@1.3.1",
         "fbjs": "npm:fbjs@0.8.8",
-        "object-assign": "npm:object-assign@4.1.0"
+        "object-assign": "npm:object-assign@4.1.1"
       }
     },
     "npm:react-dom@15.4.2": {
       "map": {
-        "loose-envify": "npm:loose-envify@1.3.0",
+        "loose-envify": "npm:loose-envify@1.3.1",
         "fbjs": "npm:fbjs@0.8.8",
-        "object-assign": "npm:object-assign@4.1.0"
+        "object-assign": "npm:object-assign@4.1.1"
       }
     },
     "npm:react-addons-css-transition-group@15.4.2": {
       "map": {
         "fbjs": "npm:fbjs@0.8.8",
-        "object-assign": "npm:object-assign@4.1.0"
+        "object-assign": "npm:object-assign@4.1.1"
       }
     },
-    "npm:stream-http@2.6.0": {
+    "npm:immutability-helper@2.1.1": {
       "map": {
-        "builtin-status-codes": "npm:builtin-status-codes@3.0.0",
+        "invariant": "npm:invariant@2.2.2"
+      }
+    },
+    "npm:stream-http@2.6.2": {
+      "map": {
         "inherits": "npm:inherits@2.0.3",
-        "to-arraybuffer": "npm:to-arraybuffer@1.0.1",
+        "builtin-status-codes": "npm:builtin-status-codes@3.0.0",
         "readable-stream": "npm:readable-stream@2.2.2",
-        "xtend": "npm:xtend@4.0.1"
+        "xtend": "npm:xtend@4.0.1",
+        "to-arraybuffer": "npm:to-arraybuffer@1.0.1"
+      }
+    },
+    "npm:loose-envify@1.3.1": {
+      "map": {
+        "js-tokens": "npm:js-tokens@3.0.0"
       }
     }
   }

@@ -14,8 +14,7 @@ import { Provider } from 'react-redux';
 import { Action, Store, createStore, GenericStoreEnhancer, applyMiddleware } from 'redux';
 
 //*****
-import { TReducer, TMiddleware, Middleware, IRootState } from './types';
-import { asyncMiddleware } from './async';
+import { asyncMiddleware, TReducer, TMiddleware, Middleware, IRootState } from 'rw-redux';
 
 //recording data
 export let isRecording = { value: false };

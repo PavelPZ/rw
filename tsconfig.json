@@ -26,7 +26,7 @@
       "react": [ "jspm_packages/npm/@types/react@0.14.57/index" ],
       "react-dom": [ "jspm_packages/npm/@types/react-dom@0.14.20/index" ],
       "react-redux": [ "jspm_packages/npm/@types/react-redux@4.4.35/index" ],
-      "lodash/*": [ "jspm_packages/npm/@types/lodash@4.14.47/*/index" ],
+      "lodash/*": [ "jspm_packages/npm/@types/lodash@4.14.50/*/index" ],
       //get from https://raw.githubusercontent.com/Semantic-Org/Semantic-UI-React/master/typings/index.d.ts
       "semantic-ui": [ "typings/semantic-ui-react/index" ]
     },

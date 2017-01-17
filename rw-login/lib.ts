@@ -19,7 +19,7 @@ declare module 'config' {
   }
 }
 
-declare module 'rw-redux/types' {
+declare module 'rw-redux' {
   interface IRootState {
     login?: ILoginState;
   }

@@ -6,9 +6,7 @@ import { addAsyncProc, IAsyncProcPar, doAsyncAction, IAsyncResultAction, store, 
 import { config } from 'config';
 
 //*******
-import { diff, IDiffStateResult } from './state';
-import { string2route, route2string, IRouteData, IRouteDir } from './url-parser';
-import { routeTreeToDir } from './lib';
+import { routeTreeToDir, diff, IDiffStateResult, string2route, route2string, IRouteData, IRouteDir } from 'rw-router';
 
 
 export function init() {
@@ -54,7 +52,7 @@ const routerCHANGE_END = 'router.CHANGE_END'; interface IDoRouteChangeEnd extend
 const dispatchRouteActionEnd = (dispatch: TDispatch, newRoute: IRouteDir, withPustState: boolean) => dispatch({ type: routerCHANGE_END, newRoute: newRoute, withPustState: withPustState } as IDoRouteChangeEnd);
 
 addAsyncProc<IRouterAsyncPar>(routerCHANGE_START, async (par, completed, api) => {
-  const routerOld = api.getState().router;
+  const routerOld = (api.getState() as IRootState).router;
   const diffs = diff(routerOld, par.newRoute, par.subPath);
   const modifyRouteState = () => { //merge: old routes, delete modified routes, add new routes
     const routerNew = { ...routerOld } as IRouteDir;
@@ -64,7 +62,7 @@ addAsyncProc<IRouterAsyncPar>(routerCHANGE_START, async (par, completed, api) =>
   }
 
   //Login redirect chance
-  const {login} = api.getState();
+  const {login} = (api.getState() as IRootState);
   if (login && !login.isLogged) {
     const loginNeeded = diffs.newAll.find(path => {
       const rt = par.newRoute[path];

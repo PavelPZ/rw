@@ -10,10 +10,14 @@ import getRTAppRoot from 'rw-gui-rt/get-app-root';
 import initBlockGui from 'rw-gui-rt/block-gui/index'; initBlockGui();
 
 //self lib
-import { routeReducerFnc, RouteHandler, init as routerInit, navigate } from './router';
-import { RouteHook } from './route-hook';
-import { IRouteData, IRouteDir } from './url-parser';
-import { routeTreeToDir, route, routeDirToTree, routeModify, parentPath } from './lib';
+import { routeTreeToDir, route, routeDirToTree, routeModify, parentPath, IRouteData, IRouteDir, RouteHook, routeReducerFnc, RouteHandler, init as routerInit, navigate } from 'rw-router';
+
+//declare const __moduleName: string;
+//const id = __moduleName.substring(config.rootPath.length - 1);
+//const name = System.normalize(id).then(s => {
+//  const idl = id; const mn = __moduleName;
+//  debugger;
+//});
 
 /***********************************************
               PARENT
@@ -97,4 +101,3 @@ export function init() {
   //Router init
   routerInit();
 }
-

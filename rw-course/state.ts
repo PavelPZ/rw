@@ -2,7 +2,7 @@
 import { IRootState } from 'rw-redux';
 import * as dom from './dom';
 
-declare module 'rw-redux/types' {
+declare module 'rw-redux' {
   interface IRootState {
     courses?: {
       [contextId: string]: ICourseState;

@@ -5,11 +5,7 @@ import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 
 //******
-import { startRecording, playRecording } from './recording.js';
-import { addAsyncProc, doAsyncAction, IAsyncStartAction, IAsyncResultAction, ASYNC_END, ASYNC_START, noRecordFnc, IAsyncProcPar } from './async';
-import { appInit } from './app-loader';
-import { Reducer, TDispatch, IRootState, IMapDispatchToProps } from './types';
-import { blockGuiReducerFnc, blockGuiCreator, TBlockGuiPresent } from './block-gui';
+import { blockGuiReducerFnc, blockGuiCreator, TBlockGuiPresent, startRecording, playRecording, Reducer, TDispatch, IRootState, IMapDispatchToProps, appInit, addAsyncProc, doAsyncAction, IAsyncStartAction, IAsyncResultAction, ASYNC_END, ASYNC_START, noRecordFnc, IAsyncProcPar } from 'rw-redux';
 
 /***********************************************
               BLOCK GUI
@@ -172,7 +168,7 @@ const Counter = connect<ICounterMapStateToProps, IMapDispatchToProps, never>(
               APP
 ***********************************************/
 
-declare module './types' {
+declare module 'rw-redux' {
   interface IRootState {
     parent?: IParentState;
     counter?: ICounterState;

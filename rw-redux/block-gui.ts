@@ -3,10 +3,9 @@ import { connect, ComponentDecorator } from 'react-redux';
 import { Action } from 'redux';
 
 //*****
-import { Reducer, IMapDispatchToProps, IRootState } from './types';
-import { ASYNC_END, ASYNC_START } from './async';
+import { ASYNC_END, ASYNC_START, Reducer, IMapDispatchToProps, IRootState } from 'rw-redux';
 
-declare module './types' {
+declare module 'rw-redux' {
   interface IRootState {
     blockGui?: IBlockGuiState;
   }

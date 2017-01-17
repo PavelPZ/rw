@@ -5,9 +5,9 @@ import isEqual from 'lodash/isEqual';
 import { IRootState } from 'rw-redux';
 
 //*****
-import { IRouteData, IRouteDir } from './url-parser';
+import { IRouteData, IRouteDir } from 'rw-router';
 
-declare module 'rw-redux/types' {
+declare module 'rw-redux' {
   interface IRootState {
     router?: IRouteDir;
   }
