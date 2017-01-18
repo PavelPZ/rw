@@ -19,7 +19,7 @@ export interface IImgProps extends React.HTMLProps<{}> {
   imgData: IImgData;
 }
 
-const Img: React.StatelessComponent<IImgProps> = props => {
+export const Img: React.StatelessComponent<IImgProps> = props => {
   const { imgData, ...other } = props;
   other.width = other.width ? other.width : imgData.width + 'px';
   other.height = other.height ? other.height : imgData.height + 'px';

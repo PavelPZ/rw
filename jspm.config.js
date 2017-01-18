@@ -1,5 +1,5 @@
 SystemJS.config({
-  production: true,
+  production: false,
   baseURL: "/",
   paths: {
     "npm:": "jspm_packages/npm/",

@@ -1,4 +1,4 @@
-import React from 'react'; import course, {Page} from 'rw-course'; import { $l } from 'rw-lib/loc'; import l from './sorting_into_groups_drag_and_drop-loc';  export default () => /*
+import React from 'react'; import course, {Page} from 'rw-course'; import { $l } from 'rw-lib/loc'; import l from './sorting_into_groups_drag_and_drop-loc';   export default () => /*
 *********** START MARKUP HERE: */
 <Page title="">
   <h1 className="techInstr  ">{$l(l.th111)}</h1>

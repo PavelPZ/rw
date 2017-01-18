@@ -14,6 +14,7 @@ import { routeTreeToDir, route, routeDirToTree, routeModify, parentPath, IRouteD
 
 //declare const __moduleName: string;
 //const id = __moduleName.substring(config.rootPath.length - 1);
+//debugger;
 //const name = System.normalize(id).then(s => {
 //  const idl = id; const mn = __moduleName;
 //  debugger;
