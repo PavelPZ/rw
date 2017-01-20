@@ -24,7 +24,7 @@ export interface IAsyncStartAction extends Action {
   $playbackDone?: () => void;
 }
 export function doAsyncAction<TAsync extends IAsyncProcPar>(procPar: TAsync): IAsyncStartAction {
-  return { type: ASYNC_START, asyncProcName: procPar.type, asyncProcPar: procPar/*, innerAction: innerAction*/ };
+  return { type: ASYNC_START, asyncProcName: procPar.type, asyncProcPar: procPar };
 }
 export interface IAsyncEndAction extends Action { type: ASYNC_END }
 export const doAsyncEndAction = () => ({ type: ASYNC_END } as IAsyncEndAction);

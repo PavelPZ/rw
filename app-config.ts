@@ -2,9 +2,11 @@
   export interface IConfig {
     basicUrl: string;
     rootPath: string;
+    loc: string;
   }
 
   export const config: IConfig = {
+    loc: 'en-gb',
     basicUrl: null,
     rootPath: null,
     route: {

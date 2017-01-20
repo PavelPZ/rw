@@ -6,13 +6,15 @@
     "inlineSourceMap": true,
     "inlineSources": true,
     //Export definitions file to DATA
-    "declaration": true,
-    "declarationDir": "../data/typings/",
+    //"declaration": true,
+    //"declarationDir": "../data/typings/",
 
     //"noEmitHelpers": true,
     //"importHelpers": true,
+    //"importHelpers": true,
     "baseUrl": ".",
     "paths": {
+      //"tslib": [ "jspm_packages/npm/tslib@1.5.0/tslib.d.ts" ],
       "rw-router": [ "rw-router/index" ],
       "rw-redux": [ "rw-redux/index" ],
       "rw-login": [ "rw-login/index" ],
@@ -22,9 +24,9 @@
       "rw-instr/*": [ "rw-instr/*" ],
       "rw-gui-rt/*": [ "rw-gui-rt/*" ],
 
-      "redux": [ "jspm_packages/npm/redux@3.6.0/index" ],
       "react": [ "jspm_packages/npm/@types/react@0.14.57/index" ],
       "react-dom": [ "jspm_packages/npm/@types/react-dom@0.14.20/index" ],
+      "redux": [ "jspm_packages/npm/redux@3.6.0/index" ],
       "react-redux": [ "jspm_packages/npm/@types/react-redux@4.4.35/index" ],
       "lodash/*": [ "jspm_packages/npm/@types/lodash@4.14.50/*/index" ],
       //get from https://raw.githubusercontent.com/Semantic-Org/Semantic-UI-React/master/typings/index.d.ts
@@ -34,14 +36,11 @@
       "dom",
       "es6"
     ],
-    //"baseUrl": ".",
-    //"paths": {
-    //  "tslib": [ "jspm_packages/npm/tslib@1.2.0/tslib.d.ts" ]
-    //},
     "jsx": "react"
   },
 
   "exclude": [
-    "jspm_packages/"
+    "jspm_packages/",
+    "rw-course/examples"
   ]
 }

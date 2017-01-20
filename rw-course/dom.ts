@@ -2,7 +2,7 @@
 
 declare module 'react' {
   interface HTMLAttributes<T> {
-    childProps?: IChildProps;
+    childProps?: IChildProps; //possibility to define properties in child components in parent
   }
 }
 
@@ -93,15 +93,15 @@ export const enum threeStateBool {
   true = 1,
   false = 2,
 }
-export const enum ExerciseStatus {
-  Unknown = 0,
-  Normal = 1,
-  Preview = 2,
-  Evaluated = 3,
-  notAttempted = 4,
-  removed = 5,
-  PreviewLector = 6,
-}
+export type TExerciseStatus = 'entered' | 'lectorEval' | 'eval-ed' | 'removed';
+//Unknown = 0,
+//Normal = 1,
+//Preview = 2,
+//Evaluated = 3,
+//notAttempted = 4,
+//removed = 5,
+//PreviewLector = 6,
+
 export const enum CourseDataFlag {
   needsEval = 1,
   pcCannotEvaluate = 2,
@@ -129,30 +129,32 @@ export const enum CourseDataFlag {
 export interface IFlagResult {
   flag?: CourseDataFlag;
 }
-export interface Score {
+export interface IScore {
   s?: number; //actual score
   ms?: number; //max score
 }
-export interface Result extends Score {
+export interface IResult extends IScore {
   id: string; //ITagProps.id
 }
-export interface orderingResult extends Result {
+export interface orderingResult extends IResult {
   indexes: Array<number>;
 }
-export interface pageResult extends Result, IFlagResult {
+export type TPageStatus = //undefined - to work or working
+  'eval-ed' | //evaluated x passed
+  'toLector'; //wait for lector evaluation
+export interface IPageResult extends IFlagResult, IScore {
   //i: number;
-  //st: ExerciseStatus;
-  eval: boolean; //= true iff page is evaluated
-  //bt: number;
+  st: TPageStatus;
+  b: number; //start time
   //et: number;
   d: number; //for !eval: last worked date-time. eval: evaluated date-time
   t: number; //elapsed timespan in seconds
   //Results: any;
 }
-export interface PairingResult extends Result {
+export interface PairingResult extends IResult {
   Value: Array<number>;
 }
-export interface SingleChoiceResult extends Result {
+export interface SingleChoiceResult extends IResult {
   Value?: number;
 }
 export interface WordSelectionResult extends SingleChoiceResult {
@@ -171,26 +173,26 @@ export interface WritingResult extends HumanEvalResult {
   hMax: number;
   hRecommendMin: number;
 }
-export interface GapFillResult extends Result {
+export interface GapFillResult extends IResult {
   Value: string;
 }
-export interface HumanEvalResult extends Result {
+export interface HumanEvalResult extends IResult {
   hPercent: number;
   hEmail: string;
   hLmcomId: number;
   hLevel: string;
   hDate: number;
 }
-export interface CheckItemResult extends Result {
+export interface CheckItemResult extends IResult {
   Value?: boolean;
 }
-export interface evalBtnResult extends Result {
+export interface evalBtnResult extends IResult {
   isEval: boolean;
 }
-export interface wordMultiSelectionResult extends Result {
+export interface wordMultiSelectionResult extends IResult {
   Values: Array<number>;
 }
-export interface extensionResult extends Result {
+export interface extensionResult extends IResult {
   Value: boolean;
 }
 export interface _mediaReplica extends tag {
@@ -586,14 +588,14 @@ export interface IDocExampleProps extends ISmartElementLowProps {
 }
 
 //contextId - <user>#<courseUrl>#<variant>
-export interface ICourseContext {
-  user?: string; //unique user email
-  courseUrl?: string; //unique course ID
-  variant?: string; //more attempts for single course
-}
+//export interface ICourseContext {
+//  user?: string; //unique user email
+//  courseUrl?: string; //unique course ID
+//  variant?: string; //more attempts for single course
+//}
 
 //ICourseContext infos filled before React.createElement
-export interface IPageProps extends ITagProps, ICourseContext {
+export interface IPageProps extends ITagProps { //, ICourseContext {
   //page data
   url?: string; //unique page ID
   title?: string;
@@ -611,10 +613,9 @@ export interface IGapFillProps extends IEditProps {
 }
 
 export interface IChildProps {
+  //default child props
   GapFill?: IGapFillProps;
-  whenClass?: { [className: string]: IChildProps; }
+  //TODO ....
+  whenClass?: { [className: string]: IChildProps; } //child props, filtered bu className
 }
 
-export interface ILoc {
-  [lang: string]: { [id: string]: string; };
-}

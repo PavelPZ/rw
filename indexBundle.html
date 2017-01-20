@@ -11,9 +11,16 @@
   <script src="jspm_packages/system.src.js"></script>
   <script src="jspm.config.js"></script>
   <script src="bundle.js"></script>
+  <!--
+  <script src="hooks.js"></script>
+  -->
 
   <script>
-    System.config({ "defaultJSExtensions": true });
+    //System.import('rw-lib/jsbundle-loader.js').then(function (loader) {
+    //  loader.loadBundle('bundle.js', 'rw-router/test.js').then(function (m) { m.init(); });
+    //});
+
+    //System.config({ "defaultJSExtensions": true });
     System.import('rw-router/test.js').then(function (m) { m.init(); });
     //System.import('rw-redux/test.js').then(function (m) { m.init(); });
     //System.import('rw-gui-rt/test.js').then(function (m) { m.init(); });
@@ -24,7 +31,8 @@
 </head>
 <body>
   <div id="content"></div>
-  <script type="text/plain" id="render-markup"></script>
+  <script type="text/plain" id="render-markup">
+  </script>
 </body>
 
 </html>

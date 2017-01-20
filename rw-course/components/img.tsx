@@ -1,4 +1,5 @@
 ﻿import * as React from 'react';
+import { registerTag } from '../compiler';
 
 export interface IImgData {
   id: string;
@@ -26,3 +27,4 @@ export const Img: React.StatelessComponent<IImgProps> = props => {
   other.src = imgData.url;
   return <img {...other} />;
 };
+registerTag('Img', Img);

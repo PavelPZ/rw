@@ -1,4 +1,4 @@
-import { byteArrayToString, stringToByteArray } from 'string2bytes';
+import { byteArrayToString, stringToByteArray } from './string2bytes';
 
 /**
 * Base64-encode a string.
