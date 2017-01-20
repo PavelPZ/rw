@@ -1,4 +1,5 @@
 ﻿import { Action } from 'redux';
+import { config } from 'config';
 
 import { store, IRootState, TDispatch, Reducer } from 'rw-redux';
 
@@ -39,7 +40,7 @@ const breakpoints: Array<IBreakpoint> = [
   { propName: 'xxxl', width: 1920 }
 ];
 
-breakpoints.forEach(brk => {
+if (!config.serverRun) breakpoints.forEach(brk => {
   brk.mql = window.matchMedia(`(min-width:${brk.width}px)`);
   brk.mql.addListener(() => dispatchMatchMedia(store.dispatch, brk.width));
 });

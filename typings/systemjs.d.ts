@@ -4,7 +4,7 @@
   source: string;
   metadata: { deps: Array<string>; format: string; };
 }
-interface ISystem {
+export interface ISystem {
   import(id: string): Promise<any>;
   get(name: string): any;
   delete(name: string); //remove module from SystemJS

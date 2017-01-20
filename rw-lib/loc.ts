@@ -10,7 +10,7 @@
 export const toGlobId = (__moduleName: string) => {
   if (!__moduleName.startsWith(config.rootPath)) throw new Error(__moduleName);
   __moduleName = __moduleName.substr(config.rootPath.length);
-  const idx = __moduleName.lastIndexOf('.');
+  const idx = __moduleName.indexOf('.');
   return __moduleName.substr(0, idx);
 };
 

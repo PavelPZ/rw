@@ -1,4 +1,5 @@
-﻿if (System) {
+﻿declare const System;
+if (System) {
   const oldNormalize = System.normalize;
   System.normalize = function (name, parentName) {
     const res: Promise<any> = oldNormalize.apply(this, arguments); if (!(res instanceof Promise)) return res;

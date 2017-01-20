@@ -22,7 +22,6 @@ export function preCompile(getJSXTree: () => IElement | JSX.Element): IElement {
   let oldCreate = React.createElement;
   let jsxTree: IElement;
   try {
-    debugger;
     React.createElement = (type, props, ...childs: Array<IElement>) => {
       return ({ type: typeof type === 'string' ? type : type[typeId], props: props, childs: childs } as any)
     };

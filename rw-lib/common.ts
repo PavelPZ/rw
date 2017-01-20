@@ -12,9 +12,9 @@ export interface IRouteNodeCommon {
 export let loginHook = { doLogin: (rootHook: IRouteNodeCommon) => alert('common.ts, loginHook.doLogin: Missing code here'), isLogged: () => false }; 
 export let blockGuiHook = { block: (isStart: boolean) => { } };
 export let exceptionHook = { onError: (err) => { } };
-export let basicUrl: { url: string; }
-function getBasicUrl(startUrl: string): string { let idx = startUrl.toLowerCase().indexOf('.html'); return idx >= 0 ? startUrl.substr(0, idx + 5) : startUrl; }
-basicUrl = { url: getBasicUrl(window.location.href) };
+//export let basicUrl: { url: string; }
+//function getBasicUrl(startUrl: string): string { let idx = startUrl.toLowerCase().indexOf('.html'); return idx >= 0 ? startUrl.substr(0, idx + 5) : startUrl; }
+//basicUrl = { url: getBasicUrl(window.location.href) };
 
 
 //http://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript-jquery

@@ -3,9 +3,7 @@ SystemJS.config({
   baseURL: "/",
   paths: {
     "npm:": "jspm_packages/npm/",
-    "config": "./app-config.js",
-    "react-cdn": "https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js",
-    "react-dom-cdn": "https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"
+    "config": "./app-config.js"
   },
   browserConfig: {
     "bundles": {
@@ -200,6 +198,12 @@ SystemJS.config({
       "main": "index.js",
       "defaultExtension": "js"
     },
+    "rw-instr": {
+      "defaultExtension": "js"
+    },
+    "design": {
+      "defaultExtension": "js"
+    },
     "rw-course": {
       "main": "index.js",
       "defaultExtension": "js"
@@ -214,8 +218,6 @@ SystemJS.config({
   ],
   map: {
     "load-script": "npm:load-script@1.0.0",
-    "react": "react-cdn",
-    "react-dom": "react-dom-cdn",
     "@types/lodash": "npm:@types/lodash@4.14.50",
     "@types/react": "npm:@types/react@0.14.57",
     "@types/react-dom": "npm:@types/react-dom@0.14.20",
@@ -236,8 +238,10 @@ SystemJS.config({
     "os": "npm:jspm-nodelibs-os@0.2.0",
     "path": "npm:jspm-nodelibs-path@0.2.1",
     "process": "npm:jspm-nodelibs-process@0.2.0",
+    "react": "npm:react@15.4.2",
     "react-addons-css-transition-group": "npm:react-addons-css-transition-group@15.4.2",
     "react-css-themr": "npm:react-css-themr@1.7.1",
+    "react-dom": "npm:react-dom@15.4.2",
     "react-toolbox": "npm:react-toolbox@1.3.2",
     "react-redux": "npm:react-redux@4.4.6",
     "redux": "npm:redux@3.6.0",
@@ -249,7 +253,7 @@ SystemJS.config({
     "url": "npm:jspm-nodelibs-url@0.2.0",
     "util": "npm:jspm-nodelibs-util@0.2.1",
     "vm": "npm:jspm-nodelibs-vm@0.2.0",
-    "whatwg-fetch": "npm:whatwg-fetch@2.0.1",
+    "whatwg-fetch": "npm:whatwg-fetch@2.0.2",
     "zlib": "npm:jspm-nodelibs-zlib@0.2.2"
   },
   packages: {
@@ -310,7 +314,7 @@ SystemJS.config({
     },
     "npm:isomorphic-fetch@2.2.1": {
       "map": {
-        "whatwg-fetch": "npm:whatwg-fetch@2.0.1",
+        "whatwg-fetch": "npm:whatwg-fetch@2.0.2",
         "node-fetch": "npm:node-fetch@1.6.3"
       }
     },
@@ -356,7 +360,7 @@ SystemJS.config({
     },
     "npm:jspm-nodelibs-http@0.2.0": {
       "map": {
-        "http-browserify": "npm:stream-http@2.6.2"
+        "http-browserify": "npm:stream-http@2.6.3"
       }
     },
     "npm:jspm-nodelibs-zlib@0.2.2": {
@@ -578,18 +582,32 @@ SystemJS.config({
         "invariant": "npm:invariant@2.2.2"
       }
     },
-    "npm:stream-http@2.6.2": {
-      "map": {
-        "inherits": "npm:inherits@2.0.3",
-        "builtin-status-codes": "npm:builtin-status-codes@3.0.0",
-        "readable-stream": "npm:readable-stream@2.2.2",
-        "xtend": "npm:xtend@4.0.1",
-        "to-arraybuffer": "npm:to-arraybuffer@1.0.1"
-      }
-    },
     "npm:loose-envify@1.3.1": {
       "map": {
         "js-tokens": "npm:js-tokens@3.0.0"
+      }
+    },
+    "npm:react@15.4.2": {
+      "map": {
+        "fbjs": "npm:fbjs@0.8.8",
+        "loose-envify": "npm:loose-envify@1.3.1",
+        "object-assign": "npm:object-assign@4.1.1"
+      }
+    },
+    "npm:react-dom@15.4.2": {
+      "map": {
+        "fbjs": "npm:fbjs@0.8.8",
+        "loose-envify": "npm:loose-envify@1.3.1",
+        "object-assign": "npm:object-assign@4.1.1"
+      }
+    },
+    "npm:stream-http@2.6.3": {
+      "map": {
+        "inherits": "npm:inherits@2.0.3",
+        "readable-stream": "npm:readable-stream@2.2.2",
+        "xtend": "npm:xtend@4.0.1",
+        "to-arraybuffer": "npm:to-arraybuffer@1.0.1",
+        "builtin-status-codes": "npm:builtin-status-codes@3.0.0"
       }
     }
   }

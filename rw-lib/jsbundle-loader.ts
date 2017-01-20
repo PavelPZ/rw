@@ -2,6 +2,8 @@
 
 import load from 'load-script';
 
+declare const System;
+
 export const loadBundle = (relBundle: string, relModule: string) => {
   return new Promise((resolve, reject) => {
     System.normalize(relBundle).then(modUrl => { //get full bundle URL

@@ -40,7 +40,8 @@
   },
 
   "exclude": [
-    "jspm_packages/",
-    "rw-course/examples"
+    "jspm_packages/"
+    //"rw-course/examples/",
+    //"design/"
   ]
 }

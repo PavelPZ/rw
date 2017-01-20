@@ -4,7 +4,15 @@ import filling_in from "rw-instr/filling_in";
 import img04 from "./media/04.png";
 
 //**** CONST START
-import React from 'react'; import { $l, toGlobId } from "rw-lib/loc"; declare const __moduleName: string; const l = ll[toGlobId(__moduleName)]; export default () => /*
+import React from 'react'; import { $l, toGlobId } from "rw-lib/loc";
+declare const __moduleName: string;
+
+const globId = toGlobId(__moduleName);
+const dump = JSON.stringify(ll,null,2);
+const l = ll[toGlobId(__moduleName)];
+const title = $l(l.title); const ex = $l(l.basicExample); const filIn = filling_in;
+
+export default () => /*
 //**** CONST END, START MARKUP HERE: */
 
   <Page title={$l(l.title)} className="app-doc" instrTitle='Instruction title' instrBody={filling_in}>{$l(l.basicExample)}</Page>

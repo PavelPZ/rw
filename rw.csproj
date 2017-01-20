@@ -41,6 +41,7 @@
     <Content Include="rw-gui-rt\app.css" />
     <Content Include="rw-gui-rt\login\img\login-providers.png" />
     <Content Include="rw-gui-rt\toolbox.css" />
+    <TypeScriptCompile Include="design\test.ts" />
     <TypeScriptCompile Include="hooks.ts" />
     <TypeScriptCompile Include="rw-course\compiler.ts" />
     <TypeScriptCompile Include="rw-course\components\img.tsx" />

@@ -35,7 +35,7 @@
       "process": "npm:jspm-nodelibs-process@^0.2.0",
       "react": "npm:react@^15.4.2",
       "react-addons-css-transition-group": "npm:react-addons-css-transition-group@15.4",
-      "react-dom": "npm:react-dom@15.4",
+      "react-dom": "npm:react-dom@^15.4.2",
       "redux": "npm:redux@^3.0.0",
       "stream": "npm:jspm-nodelibs-stream@^0.2.0",
       "string_decoder": "npm:jspm-nodelibs-string_decoder@^0.2.0",
