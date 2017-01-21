@@ -48,7 +48,7 @@ import React from 'react'; import course, {$rc, $loc, Page, DocExample, HeaderPr
         <Offering id="off1" hidden={true} />
       </div>
       <div>
-        <CheckItem correctValue={true} textType={course.CheckItemTexts.trueFalse} />
+        <CheckItem correctValue={true} textType={course.TCheckItemTexts.trueFalse} />
       </div>
       <div>
         <GapFill correctValue="c1" />

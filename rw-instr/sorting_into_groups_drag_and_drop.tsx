@@ -1,5 +1,7 @@
-import React from 'react'; import course, {Page} from 'rw-course'; import { $l } from 'rw-lib/loc'; import l from './sorting_into_groups_drag_and_drop-loc';   export default () => /*
-*********** START MARKUP HERE: */
+import { Page } from 'rw-course';
+import ll from './sorting_into_groups_drag_and_drop.loc';
+import React from 'react'; import { $l, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const l = ll[toGlobId(__moduleName)]; export default () => 
+
 <Page title="">
   <h1 className="techInstr  ">{$l(l.th111)}</h1>
   <p>{$l(l.tp15)}</p>

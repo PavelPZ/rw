@@ -54,7 +54,7 @@ import React from 'react'; import course, {$rc, $loc, Page, DocExample, HeaderPr
       <h3>Offers from drop-down, nabidky mohou byt pouzity vicekrat</h3>
     </HeaderProp>
     <DocDescr></DocDescr>
-    <Offering id="from-drop-down-keep" mode={course.offeringDropDownMode.dropDownKeep} />
+    <Offering id="from-drop-down-keep" mode={course.TOfferingDropDownMode.dropDownKeep} />
     <div style-sheet="drop-down {offering-id: from-drop-down-keep;}">
       <DropDown correctValue="value1" />
       <DropDown correctValue="value2" />

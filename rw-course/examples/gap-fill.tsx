@@ -1,21 +1,14 @@
 import { Page, DocExample, HeaderProp, DocDescr, GapFill, InlineTag, SmartElement, Offering, DropDown, Img } from 'rw-course';
-import ll from "./gap-fill.loc";
-import filling_in from "rw-instr/filling_in";
-import img04 from "./media/04.png";
+import ll from './gap-fill.loc';
+import meta from './gap-fill.meta';
+import filling_in from 'rw-instr/filling_in';
+import img04 from './media/04.png';
 
 //**** CONST START
-import React from 'react'; import { $l, toGlobId } from "rw-lib/loc";
-declare const __moduleName: string;
-
-const globId = toGlobId(__moduleName);
-const dump = JSON.stringify(ll,null,2);
-const l = ll[toGlobId(__moduleName)];
-const title = $l(l.title); const ex = $l(l.basicExample); const filIn = filling_in;
-
-export default () => /*
+import React from 'react'; import { $l } from 'rw-lib/loc'; const l = ll[meta.url]; export default () => /*
 //**** CONST END, START MARKUP HERE: */
 
-  <Page title={$l(l.title)} className="app-doc" instrTitle='Instruction title' instrBody={filling_in}>{$l(l.basicExample)}</Page>
+  <Page title={meta.title} className="app-doc" instrTitle='Instruction title' instrBody={filling_in}>{$l(l.basicExample)}</Page>
 {/*
   <Page title={$l(l.title, 'Read and write text')} className="app-doc" instrTitle='Instruction title' instrBody={filling_in}>
     <Img imgData={img04} />

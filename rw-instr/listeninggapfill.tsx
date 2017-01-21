@@ -1,5 +1,7 @@
-import React from 'react'; import course, {Page} from 'rw-course'; import { $l } from 'rw-lib/loc'; import l from './listeninggapfill-loc';   export default () => /*
-*********** START MARKUP HERE: */
+import { Page } from 'rw-course';
+import ll from './listeninggapfill.loc';
+import React from 'react'; import { $l, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const l = ll[toGlobId(__moduleName)]; export default () => 
+
 <Page title="">
   <h1 className="techInstr  ">{$l(l.th351)}</h1>
   <p>{$l(l.tp351)}</p>

@@ -6,12 +6,12 @@ import React from 'react'; import course, { $rc, $loc, Page, GapFill, Offering, 
   <GapFill caseSensitive={false} correctValue="ok" />
   <br />
   <br />
-  <Offering id="of1" words="OK" mode={course.offeringDropDownMode.dropDownKeep} />
+  <Offering id="of1" words="OK" mode={course.TOfferingDropDownMode.dropDownKeep} />
   <br />
   <DropDown caseSensitive={true} correctValue="ok" offeringId="of1" />
   <br />
   <br />
-  <Offering id="of2" words="OK" mode={course.offeringDropDownMode.dropDownKeep} />
+  <Offering id="of2" words="OK" mode={course.TOfferingDropDownMode.dropDownKeep} />
   <br />
   <DropDown id="dd1" caseSensitive={false} correctValue="ok" offeringId="of2" />
 </Page>

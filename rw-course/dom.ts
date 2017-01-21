@@ -6,20 +6,10 @@ declare module 'react' {
   }
 }
 
-export const enum IconIds {
-  no = 0,
-  a = 1,
-  b = 2,
-  c = 3,
-  d = 4,
-  e = 5,
-  f = 6,
-}
-export const enum CheckItemTexts {
-  yesNo = 0,
-  trueFalse = 1,
-  no = 2,
-}
+export type TIconIds = 'a' | 'b' | 'c' | 'd' | 'e' | 'f';
+
+export type TCheckItemTexts = 'yesNo' | 'trueFalse' | 'no';
+
 export const enum inlineControlTypes {
   no = 0,
   GapFill = 1,
@@ -34,11 +24,8 @@ export const enum modalSize {
   small = 1,
   large = 2,
 }
-export const enum offeringDropDownMode {
-  dropDownDiscard = 0,
-  dropDownKeep = 1,
-  gapFillIgnore = 2,
-}
+export type TOfferingDropDownMode = 'dropDownDiscard' | 'dropDownKeep' | 'gapFillIgnore';
+
 export type smartOfferingMode = 'GapFill' | 'DropDownDiscard' | 'DropDownKeep' | 'GapFillPassive';
 export type inlineElementTypes = 'GapFill' | 'GapFillCorrection' | 'DropDown' | 'Img' | 'WordSelection';
 export type smartElementTypes = 'GapFill' | 'DropDown' | 'Offering' | 'Img' | 'WordSelection';
@@ -82,17 +69,10 @@ export const enum listIcon {
   circleThin = 26,
   dotCircleO = 27,
 }
-export const enum pairingLeftWidth {
-  normal = 0,
-  small = 1,
-  xsmall = 2,
-  large = 3,
-}
-export const enum threeStateBool {
-  no = 0,
-  true = 1,
-  false = 2,
-}
+export type TPairingLeftWidth = 'normal' | 'small' | 'xsmall' | 'large';
+
+export type TThreeStateBool = 'no' | 'true' | 'false';
+
 export type TExerciseStatus = 'entered' | 'lectorEval' | 'eval-ed' | 'removed';
 //Unknown = 0,
 //Normal = 1,
@@ -196,7 +176,7 @@ export interface extensionResult extends IResult {
   Value: boolean;
 }
 export interface _mediaReplica extends tag {
-  iconId: IconIds;
+  iconId: TIconIds;
   dlgLeft: boolean;
   actor: string;
 }
@@ -303,8 +283,8 @@ export interface ICheckLowState extends IEvalControlState {
 }
 export interface ICheckLowProps extends IEvalControlProps {
   correctValue?: boolean;
-  textType?: CheckItemTexts;
-  initValue?: threeStateBool;
+  textType?: TCheckItemTexts;
+  initValue?: TThreeStateBool;
   readOnly?: boolean;
   skipEvaluation?: boolean;
 }
@@ -325,7 +305,7 @@ export interface IPairingState extends IEvalControlState {
 }
 export interface IPairingProps extends IEvalControlProps {
   leftRandom?: boolean;
-  leftWidth?: pairingLeftWidth;
+  leftWidth?: TPairingLeftWidth;
 }
 export interface ISingleChoiceState extends ITagState {
 }
@@ -412,7 +392,7 @@ export interface IOfferingState extends ITagState {
 }
 export interface IOfferingProps extends ITagProps {
   words?: string;
-  mode?: offeringDropDownMode;
+  mode?: TOfferingDropDownMode;
   hidden?: boolean;
 }
 export interface IUrlTagState extends ITagState {
@@ -471,7 +451,7 @@ export interface IPhraseProps extends ITagProps {
 export interface IReplicaState extends ITagState {
 }
 export interface IReplicaProps extends ITagProps {
-  actorId?: IconIds;
+  actorId?: TIconIds;
   actorName?: string;
   numberOfPhrases?: number;
 }
@@ -503,7 +483,7 @@ export interface IMacroTemplateProps extends IMacroProps {
 export interface IMacroTrueFalseState extends IMacroTemplateState {
 }
 export interface IMacroTrueFalseProps extends IMacroTemplateProps {
-  textId?: CheckItemTexts;
+  textId?: TCheckItemTexts;
 }
 export interface IMacroSingleChoicesState extends IMacroTemplateState {
 }
@@ -580,7 +560,7 @@ export interface ISmartPairingState extends ISmartElementLowState {
 }
 export interface ISmartPairingProps extends ISmartElementLowProps {
   random?: boolean;
-  leftWidth?: pairingLeftWidth;
+  leftWidth?: TPairingLeftWidth;
 }
 
 export interface IDocExampleProps extends ISmartElementLowProps {

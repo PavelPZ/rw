@@ -10,11 +10,11 @@ declare module 'rw-redux' {
   }
 }
 
-interface ICoursesState { [contextId: string]: ICourseState; } //contextId - <userEmail>#<courseUrl>#<attemptId>
+export interface ICoursesState { [contextId: string]: ICourseState; } //contextId - <userEmail>#<courseUrl>#<attemptId>
 const toContextId = (ctx: ICourseContext) => `${ctx.userEmail ? ctx.userEmail : ''}#${ctx.courseUrl ? ctx.courseUrl : ''}#${ctx.attemptId ? ctx.attemptId : ''}`;
 const fromContextId = (str: string) => { const parts = str.split('#'); const n = (v: string) => v ? v : null; return { userEmail: n(parts[0]), courseUrl: n(parts[1]), attemptId: n(parts[2])} as ICourseContext};
 
-interface ICourseState extends ICourseNavigData, IPagesState {
+export interface ICourseState extends ICourseNavigData, IPagesState {
   //userEmail: string; //unique user email
   //courseUrl: string; //unique course ID
   //attemptId: string; //more attempts for single course
@@ -37,14 +37,14 @@ export interface ICourseContext {
 }
 
 //short results for all course (act page could have long result in userCourse included)
-interface IPagesState {
+export interface IPagesState {
   userCourse?: { [pageUrl: string]: dom.IFlagResult; }
 }
 
 //const getPageState = (state: IRootState, props: dom.IPageProps) => state.courses[props.courseUrl].pageResult;
 
 const COURSE_NAVIG_ASYNC = 'COURSE_NAVIG_ASYNC'; interface ICourseNavigAsyncPar extends IAsyncProcPar { type: 'COURSE_NAVIG_ASYNC'; data: ICourseNavigData }
-export const courseNavigAction = (dispatch: TDispatch, data: ICourseNavigData, ev?: React.SyntheticEvent<any>) => { if (ev) ev.preventDefault(); dispatch(doAsyncAction({ type: COURSE_NAVIG_ASYNC, data: data } as ICourseNavigAsyncPar)); };
+export const courseNavigAction = (dispatch: any, data: ICourseNavigData, ev?: React.SyntheticEvent<any>) => { if (ev) ev.preventDefault(); dispatch(doAsyncAction({ type: COURSE_NAVIG_ASYNC, data: data } as ICourseNavigAsyncPar)); };
 export type TCourseNavigClick = (data: ICourseNavigData, ev?: React.SyntheticEvent<any>) => void;
 
 const COURSE_NAVIG_END = 'COURSE_NAVIG_END'; interface ICourseNavigActionEnd extends IAsyncResultAction<ICourseNavigAsyncResult> { type: 'COURSE_NAVIG_END'; data: ICourseNavigData }
