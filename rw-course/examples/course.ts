@@ -1,14 +1,13 @@
-﻿import module1 from './index';
-import ll from './course.loc';
+﻿import { IMetaNode } from 'rw-course/dom-meta';
+import meta from './course.meta';
 
-import { IMetaNode } from 'rw-course/dom-meta'; import { $l, toGlobId } from "rw-lib/loc"; declare const __moduleName: string; const globId = toGlobId(__moduleName); const l = ll[globId];
+import module1 from './index';
 
-const meta: IMetaNode = {
-  title: $l(l.title),
-  url: globId,
+const crs: IMetaNode = {
+  ...meta, 
   childs: [
     module1
   ]
 };
 
-export default meta;
+export default crs;

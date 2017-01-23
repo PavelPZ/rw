@@ -54,6 +54,9 @@
     <TypeScriptCompile Include="rw-course\components\tag.tsx" />
     <TypeScriptCompile Include="rw-course\dom-meta.ts" />
     <TypeScriptCompile Include="rw-course\examples\chinhspeaking.tsx" />
+    <TypeScriptCompile Include="rw-course\examples\courses.loc.ts" />
+    <TypeScriptCompile Include="rw-course\examples\courses.ts" />
+    <TypeScriptCompile Include="rw-course\examples\course.meta.ts" />
     <TypeScriptCompile Include="rw-course\examples\course.loc.ts" />
     <TypeScriptCompile Include="rw-course\examples\course.ts" />
     <TypeScriptCompile Include="rw-course\examples\evals.tsx" />

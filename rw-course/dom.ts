@@ -6,6 +6,11 @@ declare module 'react' {
   }
 }
 
+export interface IPtr {
+  title: string;
+  url: string;
+}
+
 export type TIconIds = 'a' | 'b' | 'c' | 'd' | 'e' | 'f';
 
 export type TCheckItemTexts = 'yesNo' | 'trueFalse' | 'no';
@@ -581,7 +586,7 @@ export interface IPageProps extends ITagProps { //, ICourseContext {
   title?: string;
   instrTitle?: string;
   instrBody?: TInstrCreator | Array<TInstrCreator>;
-  seeAlsoStr?: string;
+  seeAlsoStr?: IPtr | Array<IPtr>;
 }
 export type TInstrCreator = () => JSX.Element;
 

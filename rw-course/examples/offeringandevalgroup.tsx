@@ -11,7 +11,7 @@ import React from 'react'; import course, {$rc, $loc, Page, Offering, GapFill, D
   <GapFill correctValue="ok5" evalGroup="g1" evalExchangeable={true} />
   <br />
   <br />
-  <Offering id="of2" mode={course.TOfferingDropDownMode.dropDownDiscard} />
+  <Offering id="of2" mode='dropDownDiscard' />
   <br />
   <DropDown correctValue="ok1" offeringId="of2" evalGroup="g3" evalExchangeable={true} />
   <DropDown correctValue="ok2" offeringId="of2" evalGroup="g3" evalExchangeable={true} />

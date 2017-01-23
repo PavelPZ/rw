@@ -24,24 +24,24 @@ import React from 'react'; import course, {$rc, $loc, Page, RadioButton, CheckIt
     <RadioButton initValue={true} evalGroup="rb5" evalAnd={true}>rb2</RadioButton>
   </p>
   <p>
-    <CheckItem initValue={course.TThreeStateBool.true} correctValue={false} textType={course.TCheckItemTexts.trueFalse}>cb1</CheckItem>
+    <CheckItem initValue='true' correctValue={false} textType='trueFalse'>cb1</CheckItem>
   </p>
   <p>
     <CheckItem skipEvaluation={true}>cb1</CheckItem>
   </p>
   <p>
-    <CheckItem skipEvaluation={true} initValue={course.TThreeStateBool.true}></CheckItem>
+    <CheckItem skipEvaluation={true} initValue='true' ></CheckItem>
   </p>
   <p>
-    <CheckItem skipEvaluation={true} initValue={course.TThreeStateBool.false}>cb1</CheckItem>
+    <CheckItem skipEvaluation={true} initValue='false'>cb1</CheckItem>
   </p>
   <p>
     <CheckItem readOnly={true}>cb1</CheckItem>
   </p>
   <p>
-    <CheckItem readOnly={true} initValue={course.TThreeStateBool.true}>cb1</CheckItem>
+    <CheckItem readOnly={true} initValue='true'>cb1</CheckItem>
   </p>
   <p>
-    <CheckItem readOnly={true} initValue={course.TThreeStateBool.false}>cb1</CheckItem>
+    <CheckItem readOnly={true} initValue='false'>cb1</CheckItem>
   </p>
 </Page>
