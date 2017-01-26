@@ -42,7 +42,7 @@ const createAppRoute = (title: string, child: IAppChildRoute, ch1$child: IAppChi
 //handler
 class RootHandler extends RouteHandler<IAppRootRoute> {
   createComponent(route: IAppRootRoute, state: IRouteDir): JSX.Element { return <RootPresenter {...route} instanceTitle='instance 1' />; }
-  prepare(route: IRouteData): Promise<string> { return new Promise<string>(resolve => setTimeout(() => resolve('parent async data x'), 500)); }
+  prepare(route: IAppRootRoute): Promise<string> { return new Promise<string>(resolve => setTimeout(() => resolve('parent async data x'), 500)); }
   //prepare(route: IRouteData): Promise<any> { return new Promise<any>(resolve => resolve('parent async data')); }
   //prepare(route: IRouteData): Promise<any> { return 'parent async data' as any; }
 }

@@ -1,5 +1,5 @@
 ﻿import * as React from 'react';
-import { TGetPage, afterCompile, preCompile } from 'rw-course';
+import { afterCompile, preCompile } from 'rw-course';
 
 //https://www.codeschool.com/blog/2015/12/11/es2015-a-systemjs-odyssey/
 //https://github.com/systemjs/systemjs/issues/982

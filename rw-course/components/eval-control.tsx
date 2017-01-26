@@ -7,8 +7,7 @@ export class EvalControl<P extends objects.IEvalControlProps, S extends objects.
 
 export class HumanEval<P extends objects.IHumanEvalProps, S extends objects.IHumanEvalState> extends EvalControl<P, S> {
 }
-export class EvalButton extends EvalControl<objects.IEvalButtonProps, objects.IEvalButtonState> {
-}
+export class EvalButton extends EvalControl<objects.IEvalButtonProps, objects.IEvalButtonState> { }
 
 export class RadioButton extends EvalControl<objects.IRadioButtonProps, objects.IRadioButtonState> {
 }

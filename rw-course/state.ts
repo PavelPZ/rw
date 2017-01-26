@@ -1,7 +1,8 @@
 ﻿import { Action } from 'redux';
 
 import { IConfig, config } from 'config';
-import { IRootState, TDispatch, IAsyncProcPar, doAsyncAction, addAsyncProc, IAsyncResultAction } from 'rw-redux';
+import { IRootState, TDispatch, IAsyncProcPar, doAsyncAction, addAsyncProc, IAsyncResultAction, Reducer } from 'rw-redux';
+import { routerCHANGE_END, IDoRouteChangeEnd, RouteHandler, IRouteData } from 'rw-router';
 import * as dom from './dom';
 
 declare module 'rw-redux' {
@@ -118,9 +119,42 @@ export interface ICourseState_ {
   crsResult: Array<dom.IPageResult>;  //crsResult[x] is result proxy for node with ICourseNode.id===x
 }
 
-declare module 'config' {
-  interface IConfig {
-    course: {
-    }
+export const courseReducerFnc = (state: IRootState, action: IDoRouteChangeEnd): IRootState => {
+  return {
+    courses: courseReducer(state.courses, action)
   }
 }
+
+const courseReducer: Reducer<ICoursesState, IDoRouteChangeEnd> = (state, action) => {
+  if (!state) return {};
+  switch (action.type) {
+    case routerCHANGE_END:
+      const reducData = action.forHandlerReducers['']; if (!reducData) return state;
+      //course route modified
+      if (reducData.length > 1) throw new Error('reducData.length > 1'); //only single course route 
+      const route = action.newRoute[reducData[0]] as ICourseRoute;
+      //TODO: modify course state from async route data 
+      delete route.$asyncData;
+      return state;
+    default: return state;
+  }
+};
+
+//course route
+const COURSE_ROOT = 'course';
+interface ICourseRoute extends IRouteData {
+  handlerId: 'course';
+  $asyncData?: ICourseRouteAsync;
+}
+//course route async data 
+interface ICourseRouteAsync {
+}
+
+
+class RootHandler extends RouteHandler<ICourseRoute> {
+  //TODO: async load course data
+  prepare(route: ICourseRoute): Promise<ICourseRouteAsync> { return null; }
+  //TODO: async save course data
+  unPrepare(route: ICourseRoute): Promise<never> { return null; }
+}
+new RootHandler(COURSE_ROOT);

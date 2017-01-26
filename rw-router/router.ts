@@ -48,14 +48,21 @@ const dispatchLoginRedirect = (dispatch: TDispatch, returnUrl: string) => dispat
 const routerCHANGE_START = 'router.CHANGE_START'; interface IRouterAsyncPar extends IAsyncProcPar { newRoute: IRouteDir; withPustState: boolean; subPath: string; }
 const dispatchRouterActionStart = (dispatch: TDispatch, newRoute: IRouteDir, withPustState: boolean, subPath: string) => dispatch(doAsyncAction<IRouterAsyncPar>({ type: routerCHANGE_START, newRoute: newRoute, withPustState: withPustState, subPath: subPath }));
 
-const routerCHANGE_END = 'router.CHANGE_END'; interface IDoRouteChangeEnd extends IAsyncResultAction<string> { type: 'router.CHANGE_END'; newRoute: IRouteDir; withPustState: boolean; }
-const dispatchRouteActionEnd = (dispatch: TDispatch, newRoute: IRouteDir, withPustState: boolean) => dispatch({ type: routerCHANGE_END, newRoute: newRoute, withPustState: withPustState } as IDoRouteChangeEnd);
+export const routerCHANGE_END = 'router.CHANGE_END';
+export interface IDoRouteChangeEnd extends IAsyncResultAction<string> {
+  type: 'router.CHANGE_END';
+  newRoute: IRouteDir;
+  withPustState: boolean;
+  forHandlerReducers: IForHandlerReducers; //changed handlers data. Iti is possible to create reducer, which modified state when handler route changed
+}
+export interface IForHandlerReducers { [handlerId: string]: Array<string>; }
+const dispatchRouteActionEnd = (dispatch: TDispatch, newRoute: IRouteDir, withPustState: boolean, forHandlerReducers: IForHandlerReducers) => dispatch({ type: routerCHANGE_END, newRoute: newRoute, withPustState: withPustState, forHandlerReducers: forHandlerReducers } as IDoRouteChangeEnd);
 
 addAsyncProc<IRouterAsyncPar>(routerCHANGE_START, async (par, completed, api) => {
-  const routerOld = (api.getState() as IRootState).router;
-  const diffs = diff(routerOld, par.newRoute, par.subPath);
+  const oldRoute = (api.getState() as IRootState).router;
+  const diffs = diff(oldRoute, par.newRoute, par.subPath);
   const modifyRouteState = () => { //merge: old routes, delete modified routes, add new routes
-    const routerNew = { ...routerOld } as IRouteDir;
+    const routerNew = { ...oldRoute } as IRouteDir; //plain cony
     diffs.changedAll.forEach(path => delete routerNew[path]);
     diffs.newAll.forEach(path => routerNew[path] = par.newRoute[path]);
     return routerNew;
@@ -72,17 +79,24 @@ addAsyncProc<IRouterAsyncPar>(routerCHANGE_START, async (par, completed, api) =>
   }
 
   //Unprepare old routes
-  await Promise.all(diffs.changedAll.map(path => routerOld[path]).map(rt => RouteHandler.find(rt.handlerId).unPrepare(rt)));
+  await Promise.all(diffs.changedAll.map(path => oldRoute[path]).map(rt => RouteHandler.find(rt.handlerId).unPrepare(rt)));
 
-  //Modify route state
-  const routerNew = modifyRouteState();
+  //Get route state - change pointer to modified nodes
+  const newRouteState = modifyRouteState();
 
   //Prepare new routes, async data to route
-  const asyncData = await Promise.all(diffs.newAll.map(path => routerNew[path]).map(rt => RouteHandler.find(rt.handlerId).prepare(rt)));
-  for (let i = 0; i < diffs.newAll.length; i++) if (asyncData[i]) routerNew[diffs.newAll[i]].$asyncData = asyncData[i];
+  const asyncData = await Promise.all(diffs.newAll.map(path => newRouteState[path]).map(rt => RouteHandler.find(rt.handlerId).prepare(rt))); //array of async data
+  const forHandlerReducers: IForHandlerReducers = {};
+  for (let i = 0; i < diffs.newAll.length; i++) {
+    const path = diffs.newAll[i];
+    const rt = newRouteState[path]; rt.$asyncData = asyncData[i];
+    let reds = forHandlerReducers[rt.handlerId];
+    if (!reds) reds = forHandlerReducers[rt.handlerId] = [];
+    reds.push(path);
+  }
 
-  //Route end: modify app state etc.
-  completed(() => dispatchRouteActionEnd(api.dispatch, routerNew, par.withPustState));
+  //Call route end action. Chance for handler reducers
+  completed(() => dispatchRouteActionEnd(api.dispatch, newRouteState, par.withPustState, forHandlerReducers));
 });
 
 const routerReducer: Reducer<IRouteDir, IDoRouteChangeEnd> = (state, action) => {
@@ -97,16 +111,16 @@ const routerReducer: Reducer<IRouteDir, IDoRouteChangeEnd> = (state, action) => 
 }
 
 //***** HANDLER
-export abstract class RouteHandler<T> {
+export abstract class RouteHandler<T extends IRouteData> {
   constructor(public id: string) {
     RouteHandler.register(this);
   }
   //virtuals
-  abstract createComponent(route: IRouteData, state: IRouteDir): JSX.Element;
-  prepare(route: IRouteData): Promise<any> { return null; }
-  unPrepare(route: IRouteData): Promise<never> { return null; }
-  normalizeStringProps(props: IRouteData) { }
-  loginNeeded(props: IRouteData, api: TMiddlewareAPI): boolean { return false; }
+  createComponent(route: T, state: IRouteDir): JSX.Element { return null; }
+  prepare(route: T): Promise<any> { return null; } //chance to fetch async data
+  unPrepare(route: T): Promise<never> { return null; }
+  normalizeStringProps(props: T) { }
+  loginNeeded(props: T, api: TMiddlewareAPI): boolean { return false; }
   //statics
   static register(handler: TRouteHandler) { if (RouteHandler.handlers[handler.id]) throw new Error(handler.id); RouteHandler.handlers[handler.id] = handler; }
   static find(id: string): TRouteHandler { var res = RouteHandler.handlers[id]; if (!res) throw new Error(`TRouteHandler.find: cannot find ${id} handler`); return res; }

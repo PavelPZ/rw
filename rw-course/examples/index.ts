@@ -3,7 +3,7 @@ import gapFill from './gap-fill.meta';
 
 import { IMetaNode } from 'rw-course/dom-meta'; import { $l, toGlobId } from "rw-lib/loc"; declare const __moduleName: string; const globId = toGlobId(__moduleName); const l = ll[globId];
 
-const meta: IMetaNode = {
+const sitemap: IMetaNode = {
   title: $l(l.title),
   url: globId,
   childs: [
@@ -11,4 +11,4 @@ const meta: IMetaNode = {
   ]
 };
 
-export default meta;
+export default sitemap;

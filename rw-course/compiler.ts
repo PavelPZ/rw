@@ -13,8 +13,6 @@ import * as dom from './dom';
 //  }
 //}
 
-export type TGetPage = () => JSX.Element;
-
 const typeId = '$tid';
 
 export function preCompile(getJSXTree: () => IElement | JSX.Element): IElement {

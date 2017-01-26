@@ -604,3 +604,15 @@ export interface IChildProps {
   whenClass?: { [className: string]: IChildProps; } //child props, filtered bu className
 }
 
+export interface IImgData {
+  id: string;
+  url: string;
+  width: number;
+  height: number;
+  type: string;
+  origPath: string;
+}
+
+export interface IImgProps extends React.HTMLProps<{}> {
+  imgData: IImgData;
+}

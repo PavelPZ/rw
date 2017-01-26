@@ -38,7 +38,7 @@
     <Content Include="rw-course\examples\media\video.small.mp4" />
     <Content Include="rw-course\examples\media\video.xml" />
     <Content Include="rw-gui-rt\HelpAtomizer.txt" />
-    <Content Include="rw-gui-rt\app.css" />
+    <Content Include="rw-gui-rt\recordings\app.css" />
     <Content Include="rw-gui-rt\login\img\login-providers.png" />
     <Content Include="rw-gui-rt\toolbox.css" />
     <TypeScriptCompile Include="design\test-build.ts" />
@@ -53,6 +53,7 @@
     <TypeScriptCompile Include="rw-course\components\others.tsx" />
     <TypeScriptCompile Include="rw-course\components\tag.tsx" />
     <TypeScriptCompile Include="rw-course\dom-meta.ts" />
+    <TypeScriptCompile Include="rw-course\examples\app\index.tsx" />
     <TypeScriptCompile Include="rw-course\examples\chinhspeaking.tsx" />
     <TypeScriptCompile Include="rw-course\examples\courses.loc.ts" />
     <TypeScriptCompile Include="rw-course\examples\courses.ts" />
@@ -83,6 +84,7 @@
     <TypeScriptCompile Include="rw-course\index.ts" />
     <TypeScriptCompile Include="rw-course\lib.ts" />
     <TypeScriptCompile Include="rw-course\dom.ts" />
+    <TypeScriptCompile Include="rw-course\loader.ts" />
     <TypeScriptCompile Include="rw-course\loaders\page.ts" />
     <TypeScriptCompile Include="rw-course\state.ts" />
     <TypeScriptCompile Include="rw-gui-rt\login\img\login-providers.png.ts" />
@@ -275,6 +277,7 @@
     <TypeScriptCompile Include="typings\reselect.d.ts" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="design\DataHandler.cs" />
     <Compile Include="rw-lib\base64.cs" />
     <Compile Include="rw-lib\common.cs" />
     <Compile Include="rw-lib\crypt.cs" />
@@ -292,6 +295,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
