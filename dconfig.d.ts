@@ -1,4 +1,4 @@
-﻿declare namespace config {
+﻿declare namespace DConfig {
   export interface IConfig {
     basicUrl: string;
     rootPath: string;

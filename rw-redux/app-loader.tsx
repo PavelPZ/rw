@@ -14,14 +14,14 @@ import { Provider } from 'react-redux';
 import { Action, Store, createStore, GenericStoreEnhancer, applyMiddleware } from 'redux';
 
 //*****
-import { asyncMiddleware, TReducer, TMiddleware, Middleware, IRootState } from 'rw-redux';
+import { asyncMiddleware, TReducer, TMiddleware, Middleware } from 'rw-redux';
 
 //recording data
 export let isRecording = { value: false };
 export const recordedActions: { startStatus: {}; actions: Array<Action> } = { startStatus: {}, actions: [] }
 
 //init app - called once
-export function appInit(reducer: TReducer, element: Element, getComponent: () => JSX.Element, initState: IRootState = {}): Store<any> {
+export function appInit(reducer: TReducer, element: Element, getComponent: () => JSX.Element, initState: DRedux.IRootState = {}): Store<any> {
   initData = {
     reducer: reducer,
     getComponent: getComponent,

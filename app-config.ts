@@ -1,4 +1,4 @@
-﻿namespace config {
+﻿namespace DConfig {
 
   export const config: IConfig = {
     loc: 'en-gb',
@@ -36,5 +36,5 @@
 
 }
 declare module "config" {
-  export = config;
+  export = DConfig;
 }

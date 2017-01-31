@@ -2,16 +2,16 @@
 import valuesIn from 'lodash/valuesIn';
 import isEqual from 'lodash/isEqual';
 
-import { IRootState } from 'rw-redux';
+//import { DRedux.IRootState } from 'rw-redux';
 
 //*****
-import { IRouteData, IRouteDir } from 'rw-router';
+//import { DRouter.IRouteData, DRouter.IRouteDir } from 'rw-router';
 
-declare module 'rw-redux' {
-  interface IRootState {
-    router?: IRouteDir;
-  }
-}
+//declare module 'rw-redux' {
+//  interface DRedux.IRootState {
+//    router?: DRouter.IRouteDir;
+//  }
+//}
 
 export interface IDiffStateResult {
   changedRoots: Array<string>; //root of changed node
@@ -20,7 +20,7 @@ export interface IDiffStateResult {
   newAll: Array<string>; //new or modified nodes
 }
 
-export function diff(oldRoute: IRouteDir /*all old nodes*/, newRoute: IRouteDir /*new nodes, already filtered by subRootPath*/, subRootPath: string): IDiffStateResult {
+export function diff(oldRoute: DRouter.IRouteDir /*all old nodes*/, newRoute: DRouter.IRouteDir /*new nodes, already filtered by subRootPath*/, subRootPath: string): IDiffStateResult {
   if (!newRoute) newRoute = {};
   //filter oldRoute by subRootPath
   if (subRootPath) {
@@ -28,9 +28,9 @@ export function diff(oldRoute: IRouteDir /*all old nodes*/, newRoute: IRouteDir 
     for (let p in oldRoute) if (p.startsWith(subRootPath)) filteredOld[p] = oldRoute[p];
     oldRoute = filteredOld;
   }
-  const sortOldByDeep = (oldRoot: IRouteDir) => { let nodes: Array<IRouteData> = valuesIn(oldRoot); nodes.forEach((n: IRouteDataEx) => n.$deep = n.path.split('/').length); return nodes.sort((n1: IRouteDataEx, n2: IRouteDataEx) => n1.$deep - n2.$deep); };
+  const sortOldByDeep = (oldRoot: DRouter.IRouteDir) => { let nodes: Array<DRouter.IRouteData> = valuesIn(oldRoot); nodes.forEach((n: IRouteDataEx) => n.$deep = n.path.split('/').length); return nodes.sort((n1: IRouteDataEx, n2: IRouteDataEx) => n1.$deep - n2.$deep); };
   const oldNodes = sortOldByDeep(oldRoute);
-  const newNodes = valuesIn(newRoute) as Array<IRouteData>;
+  const newNodes = valuesIn(newRoute) as Array<DRouter.IRouteData>;
 
   const res: IDiffStateResult = {
     changedRoots: [], // as Array<string>,
@@ -64,7 +64,7 @@ export function diff(oldRoute: IRouteDir /*all old nodes*/, newRoute: IRouteDir 
   oldNodes.forEach((n: IRouteDataEx) => delete n.$deep);
   return res;
 }
-interface IRouteDataEx extends IRouteData { //fake interface for accessing $deep working field
+interface IRouteDataEx extends DRouter.IRouteData { //fake interface for accessing $deep working field
   //working fields
   $deep?: number; //hloubka zanoreni
 }

@@ -1,26 +1,7 @@
 ﻿import { Action } from 'redux';
 import { config } from 'config';
 
-import { store, IRootState, TDispatch, Reducer } from 'rw-redux';
-
-declare module 'rw-redux' {
-  interface IRootState {
-    gui?: IMatchMediaState;
-  }
-}
-
-export interface IMatchMediaState {
-  xxs: boolean;
-  xs: boolean;
-  smTablet: boolean;
-  sm: boolean;
-  md: boolean;
-  lgTablet: boolean;
-  lg: boolean;
-  xl: boolean;
-  xxl: boolean;
-  xxxl: boolean;
-}
+import { store, TDispatch, Reducer } from 'rw-redux';
 
 export const guiMATCHMEDIA = 'gui.MATCHMEDIA'; export interface IMatchMediaAction extends Action { type: 'gui.MATCHMEDIA'; width: number; }
 const dispatchMatchMedia = (dispatch: TDispatch, width: number) => dispatch({ type: guiMATCHMEDIA, width: width } as IMatchMediaAction);
@@ -40,21 +21,23 @@ const breakpoints: Array<IBreakpoint> = [
   { propName: 'xxxl', width: 1920 }
 ];
 
+interface IBreakpoint { width: number; propName: string; mql?: MediaQueryList }
+
 if (!config.serverRun) breakpoints.forEach(brk => {
   brk.mql = window.matchMedia(`(min-width:${brk.width}px)`);
   brk.mql.addListener(() => dispatchMatchMedia(store.dispatch, brk.width));
 });
 
 // reducers
-export const matchMediaReducerFnc = (state: IRootState, action: any): IRootState => {
+export const matchMediaReducerFnc = (state: DRedux.IRootState, action: any): DRedux.IRootState => {
   return {
     gui: maatchMediaReducer(state.gui, action),
   }
 }
 
-const maatchMediaReducer: Reducer<IMatchMediaState, IMatchMediaAction> = (state, action) => {
+const maatchMediaReducer: Reducer<DRedux.IMatchMediaState, IMatchMediaAction> = (state, action) => {
   if (!state || action.type == guiMATCHMEDIA) {
-    const res: IMatchMediaState = {} as any; let changed = !state;
+    const res: DRedux.IMatchMediaState = {} as any; let changed = !state;
     breakpoints.forEach(brk => {
       const newVal = res[brk.propName] = !!brk.mql.matches;
       if (!changed) changed = newVal !== state[brk.propName];

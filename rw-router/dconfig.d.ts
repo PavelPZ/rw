@@ -1,8 +1,8 @@
-﻿declare namespace config {
+﻿declare namespace DConfig {
   interface IConfig {
     route: {
       isHashRouter: boolean;
-      initRoute: () => IRouteDir;
+      initRoute: () => DRouter.IRouteDir;
     }
   }
 }

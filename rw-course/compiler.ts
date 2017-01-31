@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import isArray from 'lodash/isArray';
-import * as dom from './dom';
+//import * as DCourse from './dom';
 
 //import { lazyModuleHandler } from 'rw-lib/lazy-loader';
 

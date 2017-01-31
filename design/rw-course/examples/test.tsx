@@ -2,7 +2,7 @@
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import page from './gap-fill';
-import { PageLoader, courseNavigAction, TCourseNavigClick, IMetaNode, scanSitemap } from 'rw-course';
+import { PageLoader, courseNavigAction, TCourseNavigClick, scanSitemap } from 'rw-course';
 import { Loader } from 'rw-lib/jsbundle-loader';
 import { TClickEvent, TDispatch } from 'rw-redux';
 import valuesIn from 'lodash/valuesIn';
@@ -13,7 +13,7 @@ export const init = async () => {
   //await System.import('rw-course/index.js');
   ReactDOM.render(<Root />, document.getElementById('content'));
 }
-const exs: Array<IMetaNode> = [];
+const exs: Array<DCourse.IMetaNode> = [];
 
 class Root extends React.Component<never, { title: string; }> {
   render(): JSX.Element {

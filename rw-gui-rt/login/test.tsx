@@ -1,12 +1,12 @@
 ﻿import React from 'react';
 
-import { matchMediaReducerFnc, blockGuiReducerFnc, appInit, IRootState, TMiddlewareAPI } from 'rw-redux';
+import { matchMediaReducerFnc, blockGuiReducerFnc, appInit, TMiddlewareAPI } from 'rw-redux';
 
 import getRTAppRoot from 'rw-gui-rt/get-app-root';
 
 import { config } from 'config';
 
-import { RouteHook, routeReducerFnc, RouteHandler, init as routerInit, navigate, IRouteData, IRouteDir, routeTreeToDir, route, routeDirToTree, routeModify, parentPath } from 'rw-router';
+import { RouteHook, routeReducerFnc, RouteHandler, init as routerInit, navigate, routeTreeToDir, route, routeDirToTree, routeModify, parentPath } from 'rw-router';
 
 import { loginReducerFnc, createLoginRoute } from 'rw-login/index';
 
@@ -19,18 +19,18 @@ import initBlockGui from 'rw-gui-rt/block-gui/index'; initBlockGui();
 ***********************************************/
 //route
 const APP_ROOT = 'test.Login';
-interface IAppRootRoute extends IRouteData {
+interface IAppRootRoute extends DRouter.IRouteData {
   handlerId: 'test.Login';
   $childs: {
-    '': IRouteData,
+    '': DRouter.IRouteData,
   }
 }
 //create app route
-const createAppRoute = (child: IRouteData) => ({ handlerId: APP_ROOT, $childs: { '': child } } as IAppRootRoute);
+const createAppRoute = (child: DRouter.IRouteData) => ({ handlerId: APP_ROOT, $childs: { '': child } } as IAppRootRoute);
 
 //handler
 class RootHandler extends RouteHandler<IAppRootRoute> {
-  createComponent(route: IAppRootRoute, state: IRouteDir): JSX.Element { return <RootPresenter {...route} />; }
+  createComponent(route: IAppRootRoute, state: DRouter.IRouteDir): JSX.Element { return <RootPresenter {...route} />; }
 }
 new RootHandler(APP_ROOT);
 
@@ -47,13 +47,13 @@ const RootPresenter: React.StatelessComponent<IAppRootRoute> = props => {
               CHILD
 ***********************************************/
 const APP_CHILD = 'test.AppChild';
-interface IAppChildRoute extends IRouteData {
+interface IAppChildRoute extends DRouter.IRouteData {
   handlerId: 'test.AppChild';
 }
 const createChildRoute = () => ({ handlerId: APP_CHILD } as IAppChildRoute)
 
 class ChildHandler extends RouteHandler<IAppChildRoute> {
-  createComponent(routeData: IAppChildRoute, state: IRouteDir): JSX.Element {
+  createComponent(routeData: IAppChildRoute, state: DRouter.IRouteDir): JSX.Element {
     console.log('render ChildHandler');
     const parPath = parentPath(state, routeData.path);
     return <div>
@@ -67,7 +67,7 @@ new ChildHandler(APP_CHILD);
 /***********************************************
               APP
 ***********************************************/
-const rootReducer = (state: IRootState, action: any): IRootState => {
+const rootReducer = (state: DRedux.IRootState, action: any): DRedux.IRootState => {
   return {
     ...blockGuiReducerFnc(state, action),
     ...routeReducerFnc(state, action),

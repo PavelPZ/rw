@@ -1,6 +1,6 @@
 export * from './lib';
-export * from './dom';
-export * from './dom-meta';
+//export * from './dom';
+//export * from './dom-meta';
 export * from './sitemap';
 export * from './compiler';
 export * from './state';
@@ -13,7 +13,7 @@ export * from './components/tag';
 export * from './components/img';
 export * from './loaders/page';
 
-var x: ITest;
+//var x: ITest;
 
-x.a = x.b;
+//x.a = x.b;
 

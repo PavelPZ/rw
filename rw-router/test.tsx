@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 
 //lm libs
-import { blockGuiReducerFnc, appInit, IRootState, TMiddlewareAPI } from 'rw-redux';
+import { blockGuiReducerFnc, appInit, TMiddlewareAPI } from 'rw-redux';
 import { config } from 'config';
 //import { loginReducerFnc } from 'rw-login/index';
 
@@ -10,7 +10,7 @@ import getRTAppRoot from 'rw-gui-rt/get-app-root';
 import initBlockGui from 'rw-gui-rt/block-gui/index'; initBlockGui();
 
 //self lib
-import { routeTreeToDir, route, routeDirToTree, routeModify, parentPath, IRouteData, IRouteDir, RouteHook, routeReducerFnc, RouteHandler, init as routerInit, navigate } from 'rw-router';
+import { routeTreeToDir, route, routeDirToTree, routeModify, parentPath, RouteHook, routeReducerFnc, RouteHandler, init as routerInit, navigate } from 'rw-router';
 
 //declare const __moduleName: string;
 //const id = __moduleName.substring(config.rootPath.length - 1);
@@ -27,7 +27,7 @@ let cnt = 1;
 
 //route
 const APP_ROOT = 'test.AppRoot';
-interface IAppRootRoute extends IRouteData {
+interface IAppRootRoute extends DRouter.IRouteData {
   handlerId: 'test.AppRoot';
   title: string;
   $asyncData?: string;
@@ -41,7 +41,7 @@ const createAppRoute = (title: string, child: IAppChildRoute, ch1$child: IAppChi
 
 //handler
 class RootHandler extends RouteHandler<IAppRootRoute> {
-  createComponent(route: IAppRootRoute, state: IRouteDir): JSX.Element { return <RootPresenter {...route} instanceTitle='instance 1' />; }
+  createComponent(route: IAppRootRoute, state: DRouter.IRouteDir): JSX.Element { return <RootPresenter {...route} instanceTitle='instance 1' />; }
   prepare(route: IAppRootRoute): Promise<string> { return new Promise<string>(resolve => setTimeout(() => resolve('parent async data x'), 500)); }
   //prepare(route: IRouteData): Promise<any> { return new Promise<any>(resolve => resolve('parent async data')); }
   //prepare(route: IRouteData): Promise<any> { return 'parent async data' as any; }
@@ -63,14 +63,14 @@ const RootPresenter: React.StatelessComponent<IRootPresenterProps & IAppRootRout
               CHILD
 ***********************************************/
 const APP_CHILD = 'test.AppChild';
-interface IAppChildRoute extends IRouteData {
+interface IAppChildRoute extends DRouter.IRouteData {
   handlerId: 'test.AppChild';
   numId: number;
 }
 const createChildRoute = (numId: number) => ({ handlerId: APP_CHILD, numId: numId } as IAppChildRoute)
 
 class ChildHandler extends RouteHandler<IAppChildRoute> {
-  createComponent(routeData: IAppChildRoute, state: IRouteDir): JSX.Element {
+  createComponent(routeData: IAppChildRoute, state: DRouter.IRouteDir): JSX.Element {
     console.log('render ChildHandler');
     const parPath = parentPath(state, routeData.path);
     return <div>
@@ -87,7 +87,7 @@ new ChildHandler(APP_CHILD);
 /***********************************************
               APP
 ***********************************************/
-const rootReducer = (state: IRootState, action: any): IRootState => {
+const rootReducer = (state: DRedux.IRootState, action: any): DRedux.IRootState => {
   return {
     ...blockGuiReducerFnc(state, action),
     ...routeReducerFnc(state, action),

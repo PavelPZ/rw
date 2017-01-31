@@ -4,7 +4,7 @@ import { config } from 'config';
 //  interface IConfig {
 //    route: {
 //      isHashRouter: boolean;
-//      initRoute: () => IRouteDir;
+//      initRoute: () => DRouter.IRouteDir;
 //    }
 //  }
 //}
@@ -15,16 +15,16 @@ import { config } from 'config';
 //v prikladu:
 // - hand1 je RouteHandler.id, nasledovan je parametry route, tj.a = 1; b = 2. 
 // - ch1-hand3: hand3 je identifikace handleru (RouteHandler.id), ch1 je hookId
-// - zanoruje se pomoci IRouteData.path, ve ktere je <hookId>/<hookId>/...
+// - zanoruje se pomoci DRouter.IRouteData.path, ve ktere je <hookId>/<hookId>/...
 
 
-export const route2string = (route: IRouteDir) => {
+export const route2string = (route: DRouter.IRouteDir) => {
   if (!route) route = config.route.initRoute();
   let urlStr = encodeUrlLow(route);
   return config.basicUrl + (urlStr ? (config.route.isHashRouter ? '#' : '?') + urlStr : '');
 }
 
-export const string2route = (url: string, normalizeStringProps: (props: IRouteData) => void) => {
+export const string2route = (url: string, normalizeStringProps: (props: DRouter.IRouteData) => void) => {
   if (!url.toLowerCase().startsWith(config.basicUrl)) return null; //throw new Error(`location.href does not start with ${config.basicUrl}`);
   url = clearSlashes(url.substr(config.basicUrl.length)); if (!url) return null;
   if (!config.route.isHashRouter) url = url.split('#')[0]; //odrizni # pro not hash route
@@ -34,8 +34,8 @@ export const string2route = (url: string, normalizeStringProps: (props: IRouteDa
 const clearSlashes = (path: string) => { return path.replace(/\/$/, '').replace(/^[\#\/\?]?/, ''); }
 
 // ENCODE
-const encodeUrlLow = (state: IRouteDir) => {
-  interface IRouteDataEx extends IRouteData { $chlds: Array<IRouteDataEx>; $hookId: string; }
+const encodeUrlLow = (state: DRouter.IRouteDir) => {
+  interface IRouteDataEx extends DRouter.IRouteData { $chlds: Array<IRouteDataEx>; $hookId: string; }
 
   //denormalize route state to tree
   const route: { [path: string]: IRouteDataEx; } = state as any; let root: IRouteDataEx;
@@ -80,13 +80,13 @@ const encodeUrlLow = (state: IRouteDir) => {
 }
 
 // DECODE
-const decodeUrlLow = (url: string, normalizeStringProps: (props: IRouteData) => void) => {
+const decodeUrlLow = (url: string, normalizeStringProps: (props: DRouter.IRouteData) => void) => {
 
-  const resRoutes: Array<IRouteData> = [];
+  const resRoutes: Array<DRouter.IRouteData> = [];
 
   interface IDecodeStack {
     openIdx: number; //pozice zacatku parametru IRouteNode
-    route?: IRouteData; //
+    route?: DRouter.IRouteData; //
     hookId?: string;
     parent: IDecodeStack;
   }
@@ -144,7 +144,7 @@ const decodeUrlLow = (url: string, normalizeStringProps: (props: IRouteData) => 
     }
   }
 
-  const res: IRouteDir = {};
+  const res: DRouter.IRouteDir = {};
   resRoutes.forEach(n => res[n.path] = n);
   return res;
 };

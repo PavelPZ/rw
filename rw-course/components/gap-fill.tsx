@@ -1,11 +1,11 @@
 ﻿import * as React from 'react';
-import * as objects from '../dom';
+//import * as DCourse from '../dom';
 import { Edit } from './edit';
 import { registerTag } from '../compiler';
 
-export interface IGapFillState extends objects.IEditState {
+export interface IGapFillState extends DCourse.IEditState {
 }
 
-export class GapFill extends Edit<objects.IGapFillProps, IGapFillState> {
+export class GapFill extends Edit<DCourse.IGapFillProps, IGapFillState> {
 }
 registerTag('GapFill', GapFill);

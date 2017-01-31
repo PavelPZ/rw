@@ -1,4 +1,5 @@
-import React from 'react'; import course, {$rc, $loc, Page, Extension, MediaBigMark, Recording} from 'rw-course'; export default () => /*
+import React from 'react';
+import course, { $rc, $loc, Page, Extension, MediaBigMark, Recording } from 'rw-course'; export default () => /*
 *********** START MARKUP HERE: */
 <Page title="Speaking part">
   <Extension data="chinh-speaking" cdata={`

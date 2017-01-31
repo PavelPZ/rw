@@ -1,6 +1,6 @@
 ﻿import * as React from 'react';
 import { registerTag } from '../compiler';
-import * as dom from '../dom';
+//import * as DCourse from '../dom';
 
 //http://stackoverflow.com/questions/19508468/how-to-duplicate-img-tag-with-src-that-should-not-be-cached-without-an-http-requ
 //http://jsfiddle.net/Jan_Miksovsky/yy7Zs/
@@ -8,7 +8,7 @@ import * as dom from '../dom';
 //http://stackoverflow.com/questions/16245767/creating-a-blob-from-a-base64-string-in-javascript
 //https://developer.mozilla.org/en-US/docs/Using_files_from_web_applications#Example_Using_object_URLs_to_display_images
 
-export const Img: React.StatelessComponent<dom.IImgProps> = props => {
+export const Img: React.StatelessComponent<DCourse.IImgProps> = props => {
   const { imgData, ...other } = props;
   other.width = other.width ? other.width : imgData.width + 'px';
   other.height = other.height ? other.height : imgData.height + 'px';

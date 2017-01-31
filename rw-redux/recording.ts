@@ -2,7 +2,7 @@
 
 //*****
 //import { pushState } from '../rw-router/router';
-import { changeAppInitState, store, recordingHook, ASYNC_START, IAsyncStartAction , TDispatch, IRootState } from 'rw-redux';
+import { changeAppInitState, store, recordingHook, ASYNC_START, IAsyncStartAction , TDispatch } from 'rw-redux';
 
 export enum RecordingStatus { no, recording, recorded, playing, cancelPlaying }
 
@@ -45,7 +45,7 @@ export const playRecording = () => {
     setStatus(RecordingStatus.playing);
     if (!currentRecording || !currentRecording.appState || !currentRecording.actions || currentRecording.actions.length <= 0) resolve();
     const store = changeAppInitState(currentRecording.appState);
-    //pushState((store.getState() as IRootState).router);
+    //pushState((store.getState() as DRedux.IRootState).router);
     let actIdx = 0; const dispatch = store.dispatch;
     let play: () => void;
     play = () => {
