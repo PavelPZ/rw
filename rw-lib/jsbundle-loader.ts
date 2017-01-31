@@ -32,7 +32,6 @@ export class Loader {
 
     return new Promise((res, rej) => {
       start();
-      debugger;
       System.import(this.name).then(m => {
         if (!this.subId) { finish(true); res(m); return; }
         const subName = System.normalizeSync(this.subId);
@@ -44,8 +43,8 @@ export class Loader {
   unload() {
     if (!this.lazyLoaded) return;
     this.lazyLoaded.forEach(name => {
-      const m = System.get(name); if (!m) return;
-      
+      //const m = System.get(name); if (!m) return;
+      System.delete(name);
     });
     delete this.lazyLoaded; delete this.name;
   }

@@ -7,11 +7,12 @@ SystemJS.config({
     //"lm/*": "./getData.ashx?/lm/*"
   },
   packages: {
-    "rw-lib": {
+    "rw-config": {
       "main": "index.js",
       "defaultExtension": "js"
     },
-    "rw-gui-rt": {
+    "rw-lib": {
+      "main": "index.js",
       "defaultExtension": "js"
     },
     "rw-router": {
@@ -22,14 +23,18 @@ SystemJS.config({
       "main": "index.js",
       "defaultExtension": "js"
     },
+    "rw-course": {
+      "main": "index.js",
+      "defaultExtension": "js"
+    },
+
+    "rw-gui-rt": {
+      "defaultExtension": "js"
+    },
     "rw-instr": {
       "defaultExtension": "js"
     },
     "design": {
-      "defaultExtension": "js"
-    },
-    "rw-course": {
-      "main": "index.js",
       "defaultExtension": "js"
     },
     "lm": {

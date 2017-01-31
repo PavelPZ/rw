@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Action } from 'redux';
 
 import { addAsyncProc, IAsyncProcPar, doAsyncAction, IAsyncResultAction, store, IMapDispatchToProps, TDispatch, Reducer, TMiddlewareAPI } from 'rw-redux';
-import config from 'config';
+import config from 'rw-config';
 
 //*******
 import { routeTreeToDir, diff, IDiffStateResult, string2route, route2string } from 'rw-router';

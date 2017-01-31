@@ -1,6 +1,6 @@
 ﻿import { callRequest } from './common';
 import render from 'rw-lib/render-markup';
-import config from 'config';
+import config from 'rw-config';
 
 //declare module 'config' {
 //  interface IConfig {

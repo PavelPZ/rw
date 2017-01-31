@@ -32,7 +32,8 @@
   config.rootPath = config.rootPath.substr(0, idx + 1);
 })();
 
+export default config;
 
-declare module "config" {
-  export = config;
-}
+//declare module "config" {
+//  export = config;
+//}

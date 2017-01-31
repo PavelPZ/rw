@@ -1,5 +1,5 @@
 ﻿import { Action } from 'redux';
-import config from 'config';
+import config from 'rw-config';
 
 import { store, TDispatch, Reducer } from 'rw-redux';
 

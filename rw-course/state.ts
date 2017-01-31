@@ -1,6 +1,6 @@
 ﻿import { Action } from 'redux';
 
-import config from 'config';
+import config from 'rw-config';
 import { TDispatch, IAsyncProcPar, doAsyncAction, addAsyncProc, IAsyncResultAction, Reducer } from 'rw-redux';
 import { routerCHANGE_END, IDoRouteChangeEnd, RouteHandler } from 'rw-router';
 //import * as DCourse from './dom';

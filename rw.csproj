@@ -223,7 +223,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app-config.ts" />
+    <TypeScriptCompile Include="rw-config\index.ts" />
     <TypeScriptCompile Include="rw-gui-rt\test.tsx" />
     <TypeScriptCompile Include="rw-gui-rt\login\index.tsx" />
     <TypeScriptCompile Include="rw-lib\base64.ts" />

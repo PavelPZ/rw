@@ -18,13 +18,24 @@
       "rw-router": [ "rw-router/index" ],
       "rw-redux": [ "rw-redux/index" ],
       "rw-login": [ "rw-login/index" ],
+      "rw-config": [ "rw-config/index" ],
+      "rw-course": [ "rw-course/index" ],
 
-      "rw-course/*": [ "rw-course/*" ],
-      "rw-lib/*": [ "rw-lib/*" ],
+      "lm/*": [ "lm/*" ],
       "rw-instr/*": [ "rw-instr/*" ],
+      "rw-lib/*": [ "rw-lib/*" ],
+
+      //"rw-router": [ "rw-router/index" ],
+      //"rw-redux": [ "rw-redux/index" ],
+      //"rw-login": [ "rw-login/index" ],
+      //"rw-config": [ "rw-config/index" ],
+
+      ////"rw-course/*": [ "rw-course/*" ],
+      //"rw-lib/*": [ "rw-lib/*" ],
+      //"rw-instr/*": [ "rw-instr/*" ],
       "rw-gui-rt/*": [ "rw-gui-rt/*" ],
 
-      "rw-course": [ "rw-course/index" ],
+      //"rw-course": [ "rw-course/index" ],
 
       "react": [ "jspm_packages/npm/@types/react@0.14.57/index" ],
       "react-dom": [ "jspm_packages/npm/@types/react-dom@0.14.20/index" ],
