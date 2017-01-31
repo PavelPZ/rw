@@ -9,4 +9,4 @@ export type TDispatch = Dispatch<any>;
 export type Reducer<S, A extends Action> = (state: S, action: A) => S;
 export type TReducer = Reducer<any, Action>;
 export interface IMapDispatchToProps { dispatch: TDispatch; }
-export type TClickEvent = (ev?: React.SyntheticEvent<any>) => any;
+export type TClickEvent = (ev?: React.SyntheticEvent<any>) => any; 

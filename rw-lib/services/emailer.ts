@@ -1,12 +1,12 @@
 ﻿import { callRequest } from './common';
 import render from 'rw-lib/render-markup';
-import { IConfig, config } from 'config';
+import { config } from 'config';
 
-declare module 'config' {
-  interface IConfig {
-    serviceEmailerUrl: string
-  }
-}
+//declare module 'config' {
+//  interface IConfig {
+//    serviceEmailerUrl: string
+//  }
+//}
 
 export interface ISendEmailIN {
   from: string;

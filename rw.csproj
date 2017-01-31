@@ -53,6 +53,7 @@
     <TypeScriptCompile Include="rw-course\components\gap-fill.tsx" />
     <TypeScriptCompile Include="rw-course\components\others.tsx" />
     <TypeScriptCompile Include="rw-course\components\tag.tsx" />
+    <TypeScriptCompile Include="rw-course\dconfig.d.ts" />
     <TypeScriptCompile Include="rw-course\dom-meta.d.ts" />
     <TypeScriptCompile Include="design\rw-course\examples\app\index.tsx" />
     <TypeScriptCompile Include="design\rw-course\examples\chinhspeaking.tsx" />
@@ -182,6 +183,7 @@
     <TypeScriptCompile Include="rw-lib\loc.ts" />
     <TypeScriptCompile Include="rw-lib\render-markup.ts" />
     <TypeScriptCompile Include="rw-lib\services\common.ts" />
+    <TypeScriptCompile Include="rw-lib\services\dconfig.d.ts" />
     <TypeScriptCompile Include="rw-lib\services\emailer-test.tsx" />
     <TypeScriptCompile Include="rw-lib\services\emailer.ts" />
     <TypeScriptCompile Include="rw-lib\test2.d.ts" />

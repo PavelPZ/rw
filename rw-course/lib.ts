@@ -1,12 +1,12 @@
-﻿import { IConfig, config } from 'config';
+﻿import { config } from 'config';
 
-declare module 'config' {
-  interface IConfig {
-    course: {
-      coursesUrl: string;
-    }
-  }
-}
+//declare module 'config' {
+//  interface IConfig {
+//    course: {
+//      coursesUrl: string;
+//    }
+//  }
+//}
 
 
 //import { ILocItem, Langs } from "rw-lib/loc";
