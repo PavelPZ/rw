@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th125: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th125: DLoc.ILocItem = {
   'en-gb': 'LISTEN \u0026amp; TALK',
   'de-de': 'LISTEN \u0026amp; TALK',
   'sp-sp': 'LISTEN \u0026amp; TALK',
@@ -17,7 +17,7 @@ const th125: ILocItem = {
   'bs': 'LISTEN \u0026amp; TALK',
   'ar-sa': 'استمع و تكلم',
 };
-const tp34: ILocItem = {
+const tp34: DLoc.ILocItem = {
   'en-gb': 'When practicing your pronunciation, proceed as follows:',
   'de-de': 'Für das Abspielen von Videos können Sie die folgenden Bedienelemente nutzen, welche Sie in der unteren Menüleiste unter dem Video vorfinden.',
   'sp-sp': 'When practicing your pronunciation, proceed as follows:',
@@ -35,7 +35,7 @@ const tp34: ILocItem = {
   'bs': 'When practicing your pronunciation, proceed as follows:',
   'ar-sa': 'لتشغيل الفيديو يمكنك استخدام أزرار التحكم التالية من لوحة التحكم :',
 };
-const tli74: ILocItem = {
+const tli74: DLoc.ILocItem = {
   'en-gb': 'Click the Play icon and listen to the original recording.',
   'de-de': 'Klicken Sie auf das Symbol Abspielen und hören Sie sich die Originalaufnahme an.',
   'sp-sp': 'Click the Play icon and listen to the original recording.',
@@ -53,7 +53,7 @@ const tli74: ILocItem = {
   'bs': 'Click the Play icon and listen to the original recording.',
   'ar-sa': 'أنقر على أيقونة التشغيل لتستمع للتسجيل الصوتي الأصلي',
 };
-const tli75: ILocItem = {
+const tli75: DLoc.ILocItem = {
   'en-gb': 'Click the Record icon and record your own pronunciation. To stop recording, click the icon again.',
   'de-de': 'Klicken Sie auf das Symbol Aufnehmen und nehmen Sie ihre eigene Aussprache auf.',
   'sp-sp': 'Click the Record icon and record your own pronunciation. To stop recording, click the icon again.',
@@ -71,7 +71,7 @@ const tli75: ILocItem = {
   'bs': 'Click the Record icon and record your own pronunciation. To stop recording, click the icon again.',
   'ar-sa': 'أنقر على أيقونة التسجيل لتقوم بتسجيل اللفظ بصوتك و لإيقاف التسجيل أنقر على الأيقونة ذاتها مرة أخرى',
 };
-const tli76: ILocItem = {
+const tli76: DLoc.ILocItem = {
   'en-gb': 'Click the next Play icon, replay your recording and compare it with the original one.',
   'de-de': 'Klicken Sie auf das Symbol Abspielen, hören Sie sich Ihre Aufnahme an und vergleichen diese mit der Originalaufnahme.',
   'sp-sp': 'Click the next Play icon, replay your recording and compare it with the original one.',
@@ -89,7 +89,7 @@ const tli76: ILocItem = {
   'bs': 'Click the next Play icon, replay your recording and compare it with the original one.',
   'ar-sa': 'أنقر على أيقونة التشغيل المجاورة لإعادة تشغيل تسجيلك و قارن تسجيلك مع النسخة الأصلية.',
 };
-const tli77: ILocItem = {
+const tli77: DLoc.ILocItem = {
   'en-gb': 'Repeat the whole process until you are satisfied with the result.',
   'de-de': 'Wiederholen Sie diesen Prozess solange, bis Sie mit ihrer Aufnahme zufrieden sind.',
   'sp-sp': 'Repeat the whole process until you are satisfied with the result.',

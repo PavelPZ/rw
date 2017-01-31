@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th121: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th121: DLoc.ILocItem = {
   'en-gb': 'DISPLAYING THE HIDDEN TEXT',
   'de-de': 'ANZEIGEN DES VERSTECKTEN TEXTES',
   'sp-sp': 'MOSTRAR EL TEXTO OCULTO',
@@ -17,7 +17,7 @@ const th121: ILocItem = {
   'bs': 'DISPLAYING THE HIDDEN TEXT',
   'ar-sa': 'DISPLAYING THE HIDDEN TEXT',
 };
-const tp30: ILocItem = {
+const tp30: DLoc.ILocItem = {
   'en-gb': 'Exercise with hidden text. To unhide it, click on the \"eye\" icon.',
   'de-de': 'Um ein Objekt zu bearbeiten, klicken Sie es an und korrigieren Sie es.',
   'sp-sp': 'Para editar un campo haga clic sobre el mismo y corríjalo.',

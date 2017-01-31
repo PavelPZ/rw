@@ -4,7 +4,7 @@ import { matchMediaReducerFnc, blockGuiReducerFnc, appInit, TMiddlewareAPI } fro
 
 import getRTAppRoot from 'rw-gui-rt/get-app-root';
 
-import { config } from 'config';
+import config from 'config';
 
 import { RouteHook, routeReducerFnc, RouteHandler, init as routerInit, navigate, routeTreeToDir, route, routeDirToTree, routeModify, parentPath } from 'rw-router';
 

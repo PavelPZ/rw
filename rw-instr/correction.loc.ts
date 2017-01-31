@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th119: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th119: DLoc.ILocItem = {
   'en-gb': 'MODIFICATION (CORRECTION) OF THE TEXT',
   'de-de': 'MODIFIKATION (KORREKTUR) DES TEXTES',
   'sp-sp': 'MODIFICACIÓN (CORRECCIÓN) DEL TEXTO',
@@ -17,7 +17,7 @@ const th119: ILocItem = {
   'bs': 'MODIFICATION (CORRECTION) OF THE TEXT',
   'ar-sa': 'تقييد المعنى (تصحيح الخطأ حسب النص)',
 };
-const tp29: ILocItem = {
+const tp29: DLoc.ILocItem = {
   'en-gb': 'Your task is to rewrite the words in the gap into the correct form. Proceed as follows:',
   'de-de': 'Ihre Aufgabe ist es, die leeren Felder mit den Sätzen oder Wörtern, die Sie hören, zu füllen. Gehen Sie folgendermassen vor:',
   'sp-sp': 'Su tarea es rellenar los campos vacíos con las palabras o las oraciones que escuche. Proceda de la siguiente manera:',
@@ -35,7 +35,7 @@ const tp29: ILocItem = {
   'bs': 'Your task is to rewrite the words in the gap into the correct form. Proceed as follows:',
   'ar-sa': 'مهمتك هي ملئ الصناديق الخالية بالكلمات أو الجمل التي تسمعها .قم بما يلي:',
 };
-const tli59: ILocItem = {
+const tli59: DLoc.ILocItem = {
   'en-gb': 'Click on the text you wish to change - a blinking cursor appears.',
   'de-de': 'Klicken Sie auf den Text, den Sie ändern möchten - ein blinkender Cursor wird erscheinen.',
   'sp-sp': 'Haga clic en el texto que desea cambiar - un cursor parpadeante aparecerá',
@@ -53,7 +53,7 @@ const tli59: ILocItem = {
   'bs': 'Click on the text you wish to change - a blinking cursor appears.',
   'ar-sa': 'Click on the text you wish to change - a blinking cursor appears.',
 };
-const tli60: ILocItem = {
+const tli60: DLoc.ILocItem = {
   'en-gb': 'Rewrite the text into the correct form. It is possible, that no changes will be needed.',
   'de-de': 'Schreiben Sie den Text richtig.',
   'sp-sp': 'Rewrite the text into the correct form. It is possible, that no changes will be needed.',

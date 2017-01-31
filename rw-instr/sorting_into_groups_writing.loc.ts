@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th110: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th110: DLoc.ILocItem = {
   'en-gb': 'SORTING INTO GROUPS (WRITING)',
   'de-de': 'IN GRUPPEN SORTIEREN (SCHREIBEN)',
   'sp-sp': 'ORDENE EN GRUPOS (ESCRIBIR)',
@@ -17,7 +17,7 @@ const th110: ILocItem = {
   'bs': 'SORTING INTO GROUPS (WRITING)',
   'ar-sa': 'تصنيف في مجموعات (كتابةً)',
 };
-const tp13: ILocItem = {
+const tp13: DLoc.ILocItem = {
   'en-gb': 'Your task is to write down the items into several groups. Proceed as follows:',
   'de-de': 'Um Ihre Auswahl abzubrechen, klicken Sie noch einmal auf das gewählte Objekt.',
   'sp-sp': 'Para cancelar una selección, haga otro clic en el objeto seleccionado.',
@@ -35,7 +35,7 @@ const tp13: ILocItem = {
   'bs': 'Your task is to write down the items into several groups. Proceed as follows:',
   'ar-sa': 'Your task is to write down the items into several groups. Proceed as follows:',
 };
-const tli32: ILocItem = {
+const tli32: DLoc.ILocItem = {
   'en-gb': 'Click on the empty space in the group - a blinking cursor appears.',
   'de-de': 'Klicken Sie auf die leere Stelle in der Gruppe - ein blinkender Cursor kommt zum Vorschein.',
   'sp-sp': 'Haga clic en el espacio vacío del grupo - un cursor parpadeante aparecerá',
@@ -53,7 +53,7 @@ const tli32: ILocItem = {
   'bs': 'Click on the empty space in the group - a blinking cursor appears.',
   'ar-sa': 'أنقر على المكان الفارغ في المجموعة - سيظهر مؤشر وامض',
 };
-const tli33: ILocItem = {
+const tli33: DLoc.ILocItem = {
   'en-gb': 'Type in the item using your keyboard.',
   'de-de': 'Schreiben Sie den Artikel mit Hilfe der Tastatur ein.',
   'sp-sp': 'Complete el campo con la ayuda del teclado.',
@@ -71,7 +71,7 @@ const tli33: ILocItem = {
   'bs': 'Type in the item using your keyboard.',
   'ar-sa': 'أكتب في العنصر مستخدماً لوح المفاتيح الخاص بك',
 };
-const tp14: ILocItem = {
+const tp14: DLoc.ILocItem = {
   'en-gb': 'To edit the item, select it and make correction.',
   'de-de': 'Ihre Aufgabe ist es, die Objekte in mehrere Gruppen zu schreiben. Gehen Sie folgendermassen vor:',
   'sp-sp': 'Su tarea consiste en transcribir los elementos en diferentes grupos. Proceda de la siguiente manera:',

@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th126: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th126: DLoc.ILocItem = {
   'en-gb': 'FLASH PLAYBACK',
   'de-de': 'FLASH PLAYBACK',
   'sp-sp': 'FLASH PLAYBACK',
@@ -17,7 +17,7 @@ const th126: ILocItem = {
   'bs': 'FLASH PLAYBACK',
   'ar-sa': 'FLASH PLAYBACK',
 };
-const tp35: ILocItem = {
+const tp35: DLoc.ILocItem = {
   'de-de': 'Gehen Sie beim Lernen des Wortschatzes wie folgt vor:',
   'cs-cz': 'Pro spuštění animace klikněte na ikonku pro přehrávání umístěnou v levé části ovládací lišty. Přehraje se tak celá animace. Přehrávání můžete kdykoliv zastavit nebo přerušit klikem na příslušná tlačítka pod přehrávanou animací.',
   'ar-sa': 'عند تعلم مفردات جديدة , قم بما يلي:',

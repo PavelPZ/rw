@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th111: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th111: DLoc.ILocItem = {
   'en-gb': 'SORTING INTO GROUPS (DRAG AND DROP)',
   'de-de': 'IN GRUPPEN SORTIEREN (ZIEHEN UND LOS LASSEN)',
   'sp-sp': 'ORDENE EN GRUPOS (ARRASTRAR Y SOLTAR)',
@@ -17,7 +17,7 @@ const th111: ILocItem = {
   'bs': 'SORTING INTO GROUPS (DRAG AND DROP)',
   'ar-sa': 'تصنيف في مجموعات (عن طريق السحب و الإفلات)',
 };
-const tp15: ILocItem = {
+const tp15: DLoc.ILocItem = {
   'en-gb': 'Your task is to sort the items from the list into several groups. Proceed as follows:',
   'de-de': 'Um ein Objekt zu bearbeiten, klicken Sie es an und korrigieren Sie es.',
   'sp-sp': 'Para editar un campo haga clic sobre el mismo y corríjalo.',
@@ -35,7 +35,7 @@ const tp15: ILocItem = {
   'bs': 'Your task is to sort the items from the list into several groups. Proceed as follows:',
   'ar-sa': 'لتحرير العنصر قم بتحديده أولاً ثم أجري التصحيح.',
 };
-const tli34: ILocItem = {
+const tli34: DLoc.ILocItem = {
   'en-gb': 'Click an item in the list. It will be highlighted.',
   'de-de': 'Klicken Sie einen Artikel in der Liste an. Es wird hervorgehoben.',
   'sp-sp': 'Haga clic en un elemento de la lista. Este aparecerá resaltado.',
@@ -53,7 +53,7 @@ const tli34: ILocItem = {
   'bs': 'Click an item in the list. It will be highlighted.',
   'ar-sa': 'Click an item in the list. It will be highlighted.',
 };
-const tli35: ILocItem = {
+const tli35: DLoc.ILocItem = {
   'en-gb': 'Hold your left mouse button down and drag the item to an empty space in the correct group.',
   'de-de': 'Halten Sie die linke Maustaste gedrückt und ziehen Sie den Artikel auf die leere Lücke in der richtigen Gruppe.',
   'sp-sp': 'Mantenga presionado el botón izquierdo del ratón y arrastre el objeto al espacio vacío en el grupo correcto.',
@@ -71,7 +71,7 @@ const tli35: ILocItem = {
   'bs': 'Hold your left mouse button down and drag the item to an empty space in the correct group.',
   'ar-sa': 'استمر في الضغط على الزر الأيسر للفارة و اسحب العنصر إلى المكان الفارغ في المجموعة الصحيحة',
 };
-const tli36: ILocItem = {
+const tli36: DLoc.ILocItem = {
   'en-gb': 'Release the left mouse button.',
   'de-de': 'Lassen Sie die linke Maustaste los.',
   'sp-sp': 'Libere el botón izquierdo del ratón',
@@ -89,7 +89,7 @@ const tli36: ILocItem = {
   'bs': 'Release the left mouse button.',
   'ar-sa': 'أفلت زر الفارة الأيسر',
 };
-const tli37: ILocItem = {
+const tli37: DLoc.ILocItem = {
   'en-gb': 'The item will be moved into the chosen group and will be deactivated in the list.',
   'de-de': 'Das Objekt wird in die gewählte Gruppe verschoben und von der Liste deaktiviert.',
   'sp-sp': 'El elemento se moverá al grupo seleccionado y se desactivará de la lista.',
@@ -107,7 +107,7 @@ const tli37: ILocItem = {
   'bs': 'The item will be moved into the chosen group and will be deactivated in the list.',
   'ar-sa': 'ستم نقل العنصر إلى المجموعة التي تم إختيارها و بالتالي ستم إلغاؤه من القائمة',
 };
-const tp16: ILocItem = {
+const tp16: DLoc.ILocItem = {
   'en-gb': 'To recall the item from the group back to list, click on it.',
   'de-de': 'Ihre Aufgabe ist es, die Objekte von der Liste in mehrere Gruppen zu sortieren. Gehen Sie folgendermassen vor:',
   'sp-sp': 'Su tarea consiste en ordenar los elementos de la lista en varios grupos. Proceda de la siguiente manera:',

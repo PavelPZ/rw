@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th12: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th12: DLoc.ILocItem = {
   'en-gb': 'WORD SEQUENCING',
   'de-de': 'WORTE SEQUENTIALISIEREN',
   'sp-sp': 'SECUENCIA DE PALABRAS',
@@ -17,7 +17,7 @@ const th12: ILocItem = {
   'bs': 'WORD SEQUENCING',
   'ar-sa': 'ترتيب كلمات',
 };
-const tp2: ILocItem = {
+const tp2: DLoc.ILocItem = {
   'en-gb': 'Your task is to put the words into correct order. Proceed as follows:',
   'de-de': 'Ihre Aufgabe ist es, die Wörter in die richtige Reihenfolge zu setzen. Gehen Sie folgendermassen vor:',
   'sp-sp': 'Su tarea es poner las palabras en el orden correcto para formar las oraciones. Proceda de la siguiente manera:',
@@ -35,7 +35,7 @@ const tp2: ILocItem = {
   'bs': 'Your task is to put the words into correct order. Proceed as follows:',
   'ar-sa': 'مهمتك هي أن تضع الكلمات بترتيب صحيح. قم بما يلي:',
 };
-const tli8: ILocItem = {
+const tli8: DLoc.ILocItem = {
   'en-gb': 'Click on the word you wish to move. The word will be highlighted.',
   'de-de': 'Klicken Sie auf das Wort, das Sie bewegen möchten. Das Wort wird hervorgehoben.',
   'sp-sp': 'Haga clic en la palabra que desea mover. La palabra aparecerá resaltada',
@@ -53,7 +53,7 @@ const tli8: ILocItem = {
   'bs': 'Click on the word you wish to move. The word will be highlighted.',
   'ar-sa': 'إضغط على الكلمة التي تشاء للإنتقال إليها. سيتم تحديد الكلمة.',
 };
-const tli9: ILocItem = {
+const tli9: DLoc.ILocItem = {
   'en-gb': 'Hold the left mouse button down and drag the word to the right place.',
   'de-de': 'Halten Sie die linke Maustaste gedrückt und ziehen Sie das Wort auf die richtige Stelle.',
   'sp-sp': 'Mantenga presionado el botón izquierdo del ratón y arrastre la palabra a su posición correcta.',
@@ -71,7 +71,7 @@ const tli9: ILocItem = {
   'bs': 'Hold the left mouse button down and drag the word to the right place.',
   'ar-sa': 'استمر في الضغط على الزر الأيسر للفارة و اسحب الكلمة إلى المكان الصحيح',
 };
-const tli10: ILocItem = {
+const tli10: DLoc.ILocItem = {
   'en-gb': 'When the mouse arrow points to the right place, release the left mouse button.',
   'de-de': 'Wenn der Pfeil auf die richtige Stelle zeigt, lassen Sie die linke Maustaste los.',
   'sp-sp': 'Cuando el puntero señale el lugar correcto, suelte el botón izquierdo del ratón.',
@@ -89,7 +89,7 @@ const tli10: ILocItem = {
   'bs': 'When the mouse arrow points to the right place, release the left mouse button.',
   'ar-sa': 'عندما يصبح مؤشر الفارة في المكان الصحيح أفلت زر الفارة الأيسر',
 };
-const tli11: ILocItem = {
+const tli11: DLoc.ILocItem = {
   'en-gb': 'The word will be moved.',
   'de-de': 'Das Wort wird verschoben.',
   'sp-sp': 'La palabra se moverá',

@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th112: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th112: DLoc.ILocItem = {
   'en-gb': 'FILLING IN',
   'de-de': 'AUSFÜLLEN',
   'sp-sp': 'COMPLETAR',
@@ -17,7 +17,7 @@ const th112: ILocItem = {
   'bs': 'FILLING IN',
   'ar-sa': 'ملء الفراغات',
 };
-const tp17: ILocItem = {
+const tp17: DLoc.ILocItem = {
   'en-gb': 'Your task is to fill in the empty boxes within the text. Proceed as follows:',
   'de-de': 'Um das Objekt von der Gruppe zurück in die Liste zu geben, klicken Sie es an.',
   'sp-sp': 'Para regresar el objeto del grupo a la lista, haga clic sobre el objeto.',
@@ -35,7 +35,7 @@ const tp17: ILocItem = {
   'bs': 'Your task is to fill in the empty boxes within the text. Proceed as follows:',
   'ar-sa': 'لاستعادة العنصر من مجموعة إلى القائمة قم بالضغط عليه.',
 };
-const tli38: ILocItem = {
+const tli38: DLoc.ILocItem = {
   'en-gb': 'Click on the empty space - a blinking cursor appears.',
   'de-de': 'Klicken Sie auf die leere Lücke - ein blinkender Cursor wird erscheinen.',
   'sp-sp': 'Click on the empty space - a blinking cursor appears.',
@@ -53,7 +53,7 @@ const tli38: ILocItem = {
   'bs': 'Click on the empty space - a blinking cursor appears.',
   'ar-sa': 'Click on the empty space - a blinking cursor appears.',
 };
-const tli39: ILocItem = {
+const tli39: DLoc.ILocItem = {
   'en-gb': 'Type in the text using your keyboard.',
   'de-de': 'Schreiben Sie den Text mit Hilfe der Tastatur ein.',
   'sp-sp': 'Complete el campo con la ayuda del teclado.',

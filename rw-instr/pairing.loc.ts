@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th14: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th14: DLoc.ILocItem = {
   'en-gb': 'PAIRING',
   'de-de': 'PAARUNG',
   'sp-sp': 'Unir los pares',
@@ -17,7 +17,7 @@ const th14: ILocItem = {
   'bs': 'PAIRING',
   'ar-sa': 'توصيل الثنائيات',
 };
-const tp4: ILocItem = {
+const tp4: DLoc.ILocItem = {
   'en-gb': 'It is your task to connect (pair) left column items with items of the right column. Proceed as follows:',
   'de-de': 'Ihre Aufgabe ist es, Artikel von der linken Kolonne, mit den Artikeln von der Rechten Kolone zu verbinden. Gehen Sie folgendermassen vor:',
   'sp-sp': 'Su tarea es formar pares(parejas) con los elementos de las columnas izquierda y derecha. Proceda de la manera siguiente:',
@@ -35,7 +35,7 @@ const tp4: ILocItem = {
   'bs': 'It is your task to connect (pair) left column items with items of the right column. Proceed as follows:',
   'ar-sa': 'مهمتك هي أن تربط العناصر الموجودة في العمود الأيسر مع ما يقابلها في العمود الأيمن. قم بما يلي:',
 };
-const tli16: ILocItem = {
+const tli16: DLoc.ILocItem = {
   'en-gb': 'Click on the item in the right column that you wish to move. The item will be highlighted.',
   'de-de': 'Klicken Sie auf einen Artikel in der rechten Kolonne, den Sie bewegen möchten. Der Artikel wird hervorgehoben.',
   'sp-sp': 'Haga clic en el objeto de la columna derecha que desee mover. El objeto aparecerá resaltado.',
@@ -53,7 +53,7 @@ const tli16: ILocItem = {
   'bs': 'Click on the item in the right column that you wish to move. The item will be highlighted.',
   'ar-sa': 'أنقر على العنصر الذي تشاء في العمود الأيمن للإنتقال إليه. سيتم تحديد العنصر',
 };
-const tli17: ILocItem = {
+const tli17: DLoc.ILocItem = {
   'en-gb': 'Hold the left mouse button down and drag the right column item next to the corresponding left column item.',
   'de-de': 'Halten Sie die linke Maustaste gedrückt und ziehen Sie das Artikel von der rechten Kolonne neben dem korrespondierenden Artikel von der linken Kolonne.',
   'sp-sp': 'Mantenga presionado el botón izquierdo del ratón y arrastre el objeto de la columna izquierda a su correspondiente en la columna derecha.',
@@ -71,7 +71,7 @@ const tli17: ILocItem = {
   'bs': 'Hold the left mouse button down and drag the right column item next to the corresponding left column item.',
   'ar-sa': 'استمر في الضغط على الزر الأيسر للفارة و اسحب العنصر من العمود الأيمن إلى ما يلائمه في العمود الأيسر',
 };
-const tli18: ILocItem = {
+const tli18: DLoc.ILocItem = {
   'en-gb': 'Release the left mouse button.',
   'de-de': 'Lassen Sie die linke Maustaste los.',
   'sp-sp': 'Libere el botón izquierdo del ratón',
@@ -89,7 +89,7 @@ const tli18: ILocItem = {
   'bs': 'Release the left mouse button.',
   'ar-sa': 'أفلت زر الفارة الأيسر',
 };
-const tli19: ILocItem = {
+const tli19: DLoc.ILocItem = {
   'en-gb': 'The items will be linked.',
   'de-de': 'Die Objekte werden verbunden.',
   'sp-sp': 'Los elementos se conectarán.',

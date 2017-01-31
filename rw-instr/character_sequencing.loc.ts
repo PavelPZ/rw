@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th13: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th13: DLoc.ILocItem = {
   'en-gb': 'CHARACTER SEQUENCING',
   'de-de': 'EINORDNUNG DER SCHRIFTZEICHEN',
   'sp-sp': 'SECUENCIA DE LETRAS',
@@ -17,7 +17,7 @@ const th13: ILocItem = {
   'bs': 'CHARACTER SEQUENCING',
   'ar-sa': 'ترتيب حروف',
 };
-const tp3: ILocItem = {
+const tp3: DLoc.ILocItem = {
   'en-gb': 'Your task is to put the characters into correct order. Proceed as follows:',
   'de-de': 'Ihre Aufgabe ist es, die Schriftzeichen in die richtige Reihenfolge zu setzen. Gehen Sie folgendermassen vor:',
   'sp-sp': 'Su tarea es ordenar las letras en el orden correcto y formar la palabra. Proceda de la siguiente manera:',
@@ -35,7 +35,7 @@ const tp3: ILocItem = {
   'bs': 'Your task is to put the characters into correct order. Proceed as follows:',
   'ar-sa': 'مهمتك هي أن تضع الأحرف بالترتيب الصحيح. قم بما يلي:',
 };
-const tli12: ILocItem = {
+const tli12: DLoc.ILocItem = {
   'en-gb': 'Click on the character you wish to move. The character will be highlighted.',
   'de-de': 'Klicken Sie auf das Schriftzeichen, das Sie bewegen möchten. Das Schriftzeichen wird hervorgehoben.',
   'sp-sp': 'Haga clic en la letra que desea mover. Esta aparecerá resaltada',
@@ -53,7 +53,7 @@ const tli12: ILocItem = {
   'bs': 'Click on the character you wish to move. The character will be highlighted.',
   'ar-sa': 'إضغط على الحرف الذي تشاء للإنتقال إليه. سيتم تحديد الحرف.',
 };
-const tli13: ILocItem = {
+const tli13: DLoc.ILocItem = {
   'en-gb': 'Hold the left mouse button down and drag the character to the right place.',
   'de-de': 'Halten Sie die linke Maustaste gedrückt und ziehen Sie den Schriftzeichen auf die richtige Stelle.',
   'sp-sp': 'Mantenga presionado el botón izquierdo del ratón y arrastre la letra a su posición correcta.',
@@ -71,7 +71,7 @@ const tli13: ILocItem = {
   'bs': 'Hold the left mouse button down and drag the character to the right place.',
   'ar-sa': 'استمر في الضغط على الزر الأيسر للفارة و اسحب الحرف إلى المكان الصحيح',
 };
-const tli14: ILocItem = {
+const tli14: DLoc.ILocItem = {
   'en-gb': 'When the mouse arrow points to the right place, release the left mouse button.',
   'de-de': 'Wenn der Pfeil auf die richtige Stelle zeigt, lassen Sie die linke Maustaste los.',
   'sp-sp': 'Cuando el puntero señale el lugar correcto, suelte el botón izquierdo del ratón.',
@@ -89,7 +89,7 @@ const tli14: ILocItem = {
   'bs': 'When the mouse arrow points to the right place, release the left mouse button.',
   'ar-sa': 'عندما يصبح مؤشر الفارة في المكان الصحيح أفلت زر الفارة الأيسر',
 };
-const tli15: ILocItem = {
+const tli15: DLoc.ILocItem = {
   'en-gb': 'The character will be moved.',
   'de-de': 'Das Schriftzeichen wird verschoben.',
   'sp-sp': 'La letra se moverá.',

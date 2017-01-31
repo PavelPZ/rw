@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th124: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th124: DLoc.ILocItem = {
   'en-gb': 'VOCABULARY',
   'de-de': 'WORTSCHATZ',
   'sp-sp': 'VOCABULARY',
@@ -17,7 +17,7 @@ const th124: ILocItem = {
   'bs': 'VOCABULARY',
   'ar-sa': 'مفردات',
 };
-const tp33: ILocItem = {
+const tp33: DLoc.ILocItem = {
   'en-gb': 'When learning new vocabulary, proceed as follows:',
   'de-de': 'Übungen mit Ton können anhand ihrer \"akustische Zeichen\" unterschieden werden. Es gibt zwei Typen von \"akustische Zeichen\":',
   'sp-sp': 'When learning new vocabulary, proceed as follows:',
@@ -35,7 +35,7 @@ const tp33: ILocItem = {
   'bs': 'When learning new vocabulary, proceed as follows:',
   'ar-sa': 'When learning new vocabulary, proceed as follows:',
 };
-const tli71: ILocItem = {
+const tli71: DLoc.ILocItem = {
   'en-gb': 'Read the new word (phrase) and the corresponding translation.',
   'de-de': 'Lesen Sie das deutsche Wort (Phrase) und die entsprechende Übersetzung.',
   'sp-sp': 'Read the new word (phrase) and the corresponding translation.',
@@ -53,7 +53,7 @@ const tli71: ILocItem = {
   'bs': 'Read the new word (phrase) and the corresponding translation.',
   'ar-sa': 'إقرأ الكلمة أو العبارة الجديدة و الترجمة المرسلة',
 };
-const tli72: ILocItem = {
+const tli72: DLoc.ILocItem = {
   'en-gb': 'Click the speaker icon and listen to the correct pronunciation.',
   'de-de': 'Klicken Sie auf das Lautsprecher-Symbol und hören Sie sich die richtige Aussprache an.',
   'sp-sp': 'Click the speaker icon and listen to the correct pronunciation.',
@@ -71,7 +71,7 @@ const tli72: ILocItem = {
   'bs': 'Click the speaker icon and listen to the correct pronunciation.',
   'ar-sa': 'أنقر على أيقونة مكبر الصوت لتستمع إلى اللفظ الحالي',
 };
-const tli73: ILocItem = {
+const tli73: DLoc.ILocItem = {
   'en-gb': 'Click the microphone icon and practice correct pronunciation using Listen\u0026amp;Talk application.',
   'de-de': 'Klicken Sie auf das Mikrofon-Symbol und üben Sie die Aussprache dank der Anwendung Listen\u0026amp;Talk.',
   'sp-sp': 'Click the microphone icon and practice correct pronunciation using Listen\u0026amp;Talk application.',

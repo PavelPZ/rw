@@ -4,7 +4,7 @@ import { Action } from 'redux';
 import { createSelector } from 'reselect';
 
 //*****
-import { config } from 'config';
+import config from 'config';
 import { writeObj, readObj } from 'rw-lib/cookie';
 import { TDispatch, Reducer, IMapDispatchToProps } from 'rw-redux';
 import { gotoHome, navigate, homeUrl, loginREDIRECT, ILoginRedirectAction, RouteHandler } from 'rw-router';

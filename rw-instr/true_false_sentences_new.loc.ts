@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th116: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th116: DLoc.ILocItem = {
   'en-gb': 'TRUE/FALSE SENTENCES',
   'de-de': 'RICHTIGE/FALSCHE SÄTZE',
   'sp-sp': 'VERDADERO O FALSO',
@@ -17,7 +17,7 @@ const th116: ILocItem = {
   'bs': 'TRUE/FALSE SENTENCES',
   'ar-sa': 'جمل صح أو خطأ',
 };
-const tp25: ILocItem = {
+const tp25: DLoc.ILocItem = {
   'en-gb': 'Your task is to decide whether the sentences are true or false. Proceed as follows:',
   'de-de': 'Falls Sie das gewählte Objekt ändern möchten, ersetzen Sie diese durch ein anderes.',
   'sp-sp': 'Your task is to decide whether the sentences are true or false. Proceed as follows:',
@@ -35,7 +35,7 @@ const tp25: ILocItem = {
   'bs': 'Your task is to decide whether the sentences are true or false. Proceed as follows:',
   'ar-sa': 'لتغيير العنصر الذي استخدمته لملأ الفراغ إملأ الفراغ بعنصر آخر في مكانه.',
 };
-const tli52: ILocItem = {
+const tli52: DLoc.ILocItem = {
   'en-gb': 'If the sentence is true, click on True.',
   'de-de': 'Falls der Satz wahr ist, klicken Sie auf Richtig.',
   'sp-sp': 'If the sentence is true, click on True.',
@@ -53,7 +53,7 @@ const tli52: ILocItem = {
   'bs': 'If the sentence is true, click on True.',
   'ar-sa': 'إذا كانت الجملة صحيحة أنقر على الخيار صح',
 };
-const tli53: ILocItem = {
+const tli53: DLoc.ILocItem = {
   'en-gb': 'If the sentence is false, click on False.',
   'de-de': 'Falls der Satz unwahr ist, klicken Sie auf Falsch.',
   'sp-sp': 'If the sentence is false, click on False.',

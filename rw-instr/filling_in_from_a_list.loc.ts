@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th113: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th113: DLoc.ILocItem = {
   'en-gb': 'FILLING IN FROM A LIST (DRAG \u0026amp; DROP)',
   'de-de': 'AUSFÜLLEN VON EINER LISTE (DRAG \u0026amp; DROP)',
   'sp-sp': 'ARRASTRAR DE LA LISTA Y COMPLETAR (DRAG \u0026amp; DROP)',
@@ -17,7 +17,7 @@ const th113: ILocItem = {
   'bs': 'FILLING IN FROM A LIST (DRAG \u0026amp; DROP)',
   'ar-sa': 'ملء الفراغات من قائمة (عن الطريق السحب و الإفلات)',
 };
-const tp18: ILocItem = {
+const tp18: DLoc.ILocItem = {
   'en-gb': 'Your task is to fill in the empty boxes within the text. You are given a list of items with different properties as described below:',
   'de-de': 'Ihre Aufgabe ist es, die leeren Lücken im Text zu füllen. Manchmal ist eine Liste von Objekten gegeben, die Ihnen helfen sollen. Gehen Sie folgendermassen vor:',
   'sp-sp': 'Su tarea es rellenar los espacios vacíos en el texto. En algunos casos dispone de una lista de elementos que le servirán de ayuda. Proceda de la siguiente manera:',
@@ -35,7 +35,7 @@ const tp18: ILocItem = {
   'bs': 'Your task is to fill in the empty boxes within the text. You are given a list of items with different properties as described below:',
   'ar-sa': 'مهمتك هي أن تملأ الفراغات في الصناديق الخالية ضمن النص. أحياناً ستعطى قائمة من الكلمات لتساعدك في إتمام مهمتك . قم بما يلي:',
 };
-const tli40: ILocItem = {
+const tli40: DLoc.ILocItem = {
   'en-gb': 'after dragging, the item in the list will be deactivated',
   'de-de': 'nach dem Ziehen ist das Objekt in der Liste deaktiviert',
   'sp-sp': 'Después de arrastrar el elemento al texto, dicho elemento, aparecerá en la lista desactivado.',
@@ -53,7 +53,7 @@ const tli40: ILocItem = {
   'bs': 'after dragging, the item in the list will be deactivated',
   'ar-sa': 'بعد سحب العنصر سيلغى من القائمة',
 };
-const tli41: ILocItem = {
+const tli41: DLoc.ILocItem = {
   'en-gb': 'after dragging, the item in the list is not deactivated and can be used again',
   'de-de': 'nach dem Ziehen ist das Objekt nicht deaktiviert und kann wieder gebraucht werden',
   'sp-sp': 'Después de arrastrar el elemento al texto, este seguirá activado y podrá ser usado nuevamente.',
@@ -71,7 +71,7 @@ const tli41: ILocItem = {
   'bs': 'after dragging, the item in the list is not deactivated and can be used again',
   'ar-sa': 'لا تلغي العنصر بعد سحبه من القائمة و إنما حافظ على إمكانية استخدامه مرة أخرى',
 };
-const tp19: ILocItem = {
+const tp19: DLoc.ILocItem = {
   'en-gb': 'Proceed as follows:',
   'de-de': 'Um ein Objekt zu bearbeiten, klicken Sie es an und korrigieren Sie es.',
   'sp-sp': 'Para editar un campo haga clic sobre el mismo y corríjalo.',
@@ -89,7 +89,7 @@ const tp19: ILocItem = {
   'bs': 'Proceed as follows:',
   'ar-sa': 'لتحرير العنصر قم بتحديده أولاً ثم أجري التصحيح.',
 };
-const tli42: ILocItem = {
+const tli42: DLoc.ILocItem = {
   'en-gb': 'Click an item in the list. It will be highlighted.',
   'de-de': 'Klicken Sie einen Artikel in der Liste an. Es wird hervorgehoben.',
   'sp-sp': 'Haga clic en un elemento de la lista. Este aparecerá resaltado.',
@@ -107,7 +107,7 @@ const tli42: ILocItem = {
   'bs': 'Click an item in the list. It will be highlighted.',
   'ar-sa': 'Click an item in the list. It will be highlighted.',
 };
-const tli43: ILocItem = {
+const tli43: DLoc.ILocItem = {
   'en-gb': 'Hold the left mouse button down and drag the item to the empty gap.',
   'de-de': 'Halten Sie die linke Maustaste gedrückt und ziehen Sie den Artikel auf die leere Lücke.',
   'sp-sp': 'Mantenga presionado el botón izquierdo del ratón y arrastre el objeto al espacio vacío.',
@@ -125,7 +125,7 @@ const tli43: ILocItem = {
   'bs': 'Hold the left mouse button down and drag the item to the empty gap.',
   'ar-sa': 'استمر في الضغط على زر الفارة الأيسر و اسحب العنصر إلى المكان الفارغ',
 };
-const tli44: ILocItem = {
+const tli44: DLoc.ILocItem = {
   'en-gb': 'Release the left mouse button. The item will be moved.',
   'de-de': 'Lassen Sie die linke Maustaste los. Das Artikel wird bewegt.',
   'sp-sp': 'Libere el botón izquierdo del ratón. El elemento se moverá a la ventana.',
@@ -143,7 +143,7 @@ const tli44: ILocItem = {
   'bs': 'Release the left mouse button. The item will be moved.',
   'ar-sa': 'أفلت زر الفارة الأيسر و سيتم نقل العنصر',
 };
-const tp20: ILocItem = {
+const tp20: DLoc.ILocItem = {
   'en-gb': 'To recall your selection, select and drag a different item from the list into its place.',
   'de-de': 'Ihre Aufgabe ist es, die leeren Lücken im Text zu füllen. Eine Liste mit Objekten mit verschiedenen Verhaltensweisen, wie unten beschrieben, ist gegeben:',
   'sp-sp': 'Su tarea es rellenar los espacios vacíos en el texto. Más abajo dispone de una lista de elementos con diferentes comportamientos:',

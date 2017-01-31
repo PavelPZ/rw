@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th11: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th11: DLoc.ILocItem = {
   'en-gb': 'PICTURE SEQUENCING',
   'de-de': 'BILDER SEQUENTIALISIEREN',
   'sp-sp': 'SECUENCIA DE IMÁGENES',
@@ -17,7 +17,7 @@ const th11: ILocItem = {
   'bs': 'PICTURE SEQUENCING',
   'ar-sa': 'ترتيب صور',
 };
-const tp1: ILocItem = {
+const tp1: DLoc.ILocItem = {
   'en-gb': 'Your task is to put the pictures into correct order. Proceed as follows:',
   'de-de': 'Ihre Aufgabe ist es, die Bilder in die richtige Reihenfolge zu setzen. Gehen Sie folgendermassen vor:',
   'sp-sp': 'Su tarea es poner las imágenes en orden. Proceda de la siguiente manera:',
@@ -35,7 +35,7 @@ const tp1: ILocItem = {
   'bs': 'Your task is to put the pictures into correct order. Proceed as follows:',
   'ar-sa': 'مهمتك هي وضع الصور بالترتيب الصحيح. قم بمايلي:',
 };
-const tli4: ILocItem = {
+const tli4: DLoc.ILocItem = {
   'en-gb': 'Click on the picture you wish to move. The picture will be highlighted.',
   'de-de': 'Klicken Sie auf das Bild, das Sie bewegen möchten. Das Bild wird hervorgehoben.',
   'sp-sp': 'Haga clic en la imagen que desea mover. La imagen aparecerá resaltada',
@@ -53,7 +53,7 @@ const tli4: ILocItem = {
   'bs': 'Click on the picture you wish to move. The picture will be highlighted.',
   'ar-sa': 'أنقر على الصورة التي ترغب في نقلها , سيتم تحديد الصورة',
 };
-const tli5: ILocItem = {
+const tli5: DLoc.ILocItem = {
   'en-gb': 'Hold the left mouse button down and drag the picture to the right place.',
   'de-de': 'Halten Sie die linke Maustaste gedrückt und ziehen Sie das Bild auf die richtige Stelle.',
   'sp-sp': 'Mantenga presionado el botón izquierdo del ratón y arrastre la imagen a su posición correcta.',
@@ -71,7 +71,7 @@ const tli5: ILocItem = {
   'bs': 'Hold the left mouse button down and drag the picture to the right place.',
   'ar-sa': 'استمر في الضغط على زر الفارة الأيسر لتسحب الصورة إلى المكان الصحيح',
 };
-const tli6: ILocItem = {
+const tli6: DLoc.ILocItem = {
   'en-gb': 'When the mouse arrow points to the right place, release the left mouse button.',
   'de-de': 'Wenn der Pfeil auf die richtige Stelle zeigt, lassen Sie die linke Maustaste los.',
   'sp-sp': 'Cuando el puntero señale el lugar correcto, suelte el botón izquierdo del ratón.',
@@ -89,7 +89,7 @@ const tli6: ILocItem = {
   'bs': 'When the mouse arrow points to the right place, release the left mouse button.',
   'ar-sa': 'عندما يصبح مؤشر الفارة في المكان الصحيح أفلت زر الفارة الأيسر',
 };
-const tli7: ILocItem = {
+const tli7: DLoc.ILocItem = {
   'en-gb': 'The picture will be moved.',
   'de-de': 'Das Bild wird verschoben.',
   'sp-sp': 'La imagen será movida.',

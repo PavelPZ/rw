@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th15: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th15: DLoc.ILocItem = {
   'en-gb': 'PAIRING',
   'de-de': 'PAARUNG',
   'sp-sp': 'Unir los pares',
@@ -17,7 +17,7 @@ const th15: ILocItem = {
   'bs': 'PAIRING',
   'ar-sa': 'توصيل الثنائيات',
 };
-const tp5: ILocItem = {
+const tp5: DLoc.ILocItem = {
   'en-gb': 'Your task is to pair the left column items with the items of the right column, so that the created pairs make sense. Proceed as follows:',
   'de-de': 'Ihre Aufgabe ist es, Artikel von der linken Kolonne, mit den Artikeln von der Rechten Kolone zu verbinden. Gehen Sie folgendermassen vor:',
   'sp-sp': 'Su tarea es formar pares(parejas) con los elementos de las columnas izquierda y derecha. Proceda de la manera siguiente:',
@@ -35,7 +35,7 @@ const tp5: ILocItem = {
   'bs': 'Your task is to pair the left column items with the items of the right column, so that the created pairs make sense. Proceed as follows:',
   'ar-sa': 'مهمتك هي أن تربط العناصر الموجودة في العمود الأيسر مع ما يقابلها في العمود الأيمن. قم بما يلي:',
 };
-const tli20: ILocItem = {
+const tli20: DLoc.ILocItem = {
   'en-gb': 'Left click an icon to select a left column item. The item will be highlighted.',
   'de-de': 'Durch Klicken auf das Symbol wählen Sie ein Objekt der linken Spalte. Das Objekt wird hervorgehoben.',
   'sp-sp': 'Left click an icon to select a left column item. The item will be highlighted.',
@@ -53,7 +53,7 @@ const tli20: ILocItem = {
   'bs': 'Left click an icon to select a left column item. The item will be highlighted.',
   'ar-sa': 'اضغط بزر الفارة الأيسر على العمود الأيسر لتحديده وسيتم تحديد العمود',
 };
-const tli21: ILocItem = {
+const tli21: DLoc.ILocItem = {
   'en-gb': 'Click on the corresponding item in the right column.',
   'de-de': 'Klicken Sie auf das entsprechende Objekt der rechten Spalte.',
   'sp-sp': 'Click on the corresponding item in the right column.',
@@ -71,7 +71,7 @@ const tli21: ILocItem = {
   'bs': 'Click on the corresponding item in the right column.',
   'ar-sa': 'أنقر على العنصر الملائم من العمود الأيمن',
 };
-const tli22: ILocItem = {
+const tli22: DLoc.ILocItem = {
   'en-gb': 'The item from the right column will be moved next to the correspoding item from the left column.',
   'de-de': 'Das Objekt aus der rechten Spalte wird sich zum entsprechenden Objekt aus der linken Spalte verschieben.',
   'sp-sp': 'The item from the right column will be moved next to the correspoding item from the left column.',
@@ -89,7 +89,7 @@ const tli22: ILocItem = {
   'bs': 'The item from the right column will be moved next to the correspoding item from the left column.',
   'ar-sa': 'سيتم نقل العنصر من العمود الأيمن إلى ما يلائمه من العمود الأيسر',
 };
-const tli23: ILocItem = {
+const tli23: DLoc.ILocItem = {
   'en-gb': 'The items will be linked.',
   'de-de': 'Die Objekte werden verbunden.',
   'sp-sp': 'Los elementos se conectarán.',

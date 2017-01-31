@@ -2,7 +2,7 @@
 
 //lm libs
 import { blockGuiReducerFnc, appInit, TMiddlewareAPI } from 'rw-redux';
-import { config } from 'config';
+import config from 'config';
 //import { loginReducerFnc } from 'rw-login/index';
 
 //GUI libs

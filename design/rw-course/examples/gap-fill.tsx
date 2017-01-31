@@ -8,8 +8,7 @@ import img04 from './media/04.png';
 import React from 'react'; import { $l } from 'rw-lib/loc'; const l = ll[meta.url]; export default () => /*
 //**** CONST END, START MARKUP HERE: */
 
-  <Page title={meta.title} className="app-doc" instrTitle='Instruction title' instrBody={filling_in}>{$l(l.basicExample)}</Page>
-{/*
+
   <Page title={$l(l.title, 'Read and write text')} className="app-doc" instrTitle='Instruction title' instrBody={filling_in}>
     <Img imgData={img04} />
     <DocExample id="basic-example">
@@ -227,6 +226,4 @@ Content Cell  | Content Cell
       <SmartElement inlineType='GapFill'></SmartElement>
     </DocExample>
   </Page>
-  */};
 
-var x = 1;

@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th123: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th123: DLoc.ILocItem = {
   'en-gb': 'VIDEO PLAYBACK',
   'de-de': 'ABSPIELEN VON VIDEOS',
   'sp-sp': 'VIDEO PLAYBACK',
@@ -17,7 +17,7 @@ const th123: ILocItem = {
   'bs': 'VIDEO PLAYBACK',
   'ar-sa': 'تشغيل الفيديو',
 };
-const tp32: ILocItem = {
+const tp32: DLoc.ILocItem = {
   'en-gb': 'To play the video you can use the following controls from the bottom control bar.',
   'de-de': 'Übung mit verstecktem Text. Zur Aufdeckung des Textes klicken Sie auf das \"Auge\" Symbol.',
   'sp-sp': 'Ejercicio con texto oculto. Para descubrirlo, haga clic en el ícono del \"ojo\"',
@@ -35,7 +35,7 @@ const tp32: ILocItem = {
   'bs': 'To play the video you can use the following controls from the bottom control bar.',
   'ar-sa': 'تمرين النص المخفي . لإظهار النص أنقر فوق أيقونة العين.',
 };
-const tli64: ILocItem = {
+const tli64: DLoc.ILocItem = {
   'en-gb': 'To start playing the video, click Play (\u0026gt;).',
   'de-de': 'Sie spielen das Video durch einen Klick auf das Symbol Abspielen (\u0026gt;) ab.',
   'sp-sp': 'To start playing the video, click Play (\u0026gt;).',
@@ -53,7 +53,7 @@ const tli64: ILocItem = {
   'bs': 'To start playing the video, click Play (\u0026gt;).',
   'ar-sa': 'للبدء بتشغيل الفيديو أنقر على زر التشغيل ( $lt; ).',
 };
-const tli65: ILocItem = {
+const tli65: DLoc.ILocItem = {
   'en-gb': 'To stop playing, click Pause (||).',
   'de-de': 'Sie stoppen das Video durch einen Klick auf das Symbol Pause (||).',
   'sp-sp': 'To stop playing, click Pause (||).',
@@ -71,7 +71,7 @@ const tli65: ILocItem = {
   'bs': 'To stop playing, click Pause (||).',
   'ar-sa': 'لإيقاف تشغيل الفيديو أنقر على زر الإيقاف (||).',
 };
-const tli66: ILocItem = {
+const tli66: DLoc.ILocItem = {
   'en-gb': 'Use the arrows: |\u0026lt;\u0026lt;, \u0026gt;\u0026gt;|, to move one replica back or forward.',
   'de-de': 'Durch Klicken auf das Symbol |\u0026lt;\u0026lt;, \u0026gt;\u0026gt;| verschieben Sie sich um eine Replik vorwärts oder zurück.',
   'sp-sp': 'Use the arrows: |\u0026lt;\u0026lt;, \u0026gt;\u0026gt;|, to move one replica back or forward.',
@@ -89,7 +89,7 @@ const tli66: ILocItem = {
   'bs': 'Use the arrows: |\u0026lt;\u0026lt;, \u0026gt;\u0026gt;|, to move one replica back or forward.',
   'ar-sa': 'استخدم الأسهم |$gt;$gt;, $lt;$lt;| للإنتقال نسخة واحدة إلى الأمام أو إلى الخلف',
 };
-const tli67: ILocItem = {
+const tli67: DLoc.ILocItem = {
   'en-gb': 'Use the arrows: \u0026lt;\u0026lt;, \u0026gt;\u0026gt;, to move one sentence (part of the replica) back or forward.',
   'de-de': 'Durch Klicken auf das Symbol \u0026lt;\u0026lt;, \u0026gt;\u0026gt; verschieben Sie sich um einen Satz (einen Teil der Replik) vorwärts oder zurück.',
   'sp-sp': 'Use the arrows: \u0026lt;\u0026lt;, \u0026gt;\u0026gt;, to move one sentence (part of the replica) back or forward.',
@@ -107,7 +107,7 @@ const tli67: ILocItem = {
   'bs': 'Use the arrows: \u0026lt;\u0026lt;, \u0026gt;\u0026gt;, to move one sentence (part of the replica) back or forward.',
   'ar-sa': 'استخدم الأسهم |$gt;$gt;, $lt;$lt;|للإنتقال جملة واحدة إلى الأمام أو إلى الخلف (أي جزء من النسخة الكاملة)',
 };
-const tli68: ILocItem = {
+const tli68: DLoc.ILocItem = {
   'en-gb': 'Use T (icon) to display or hide the subtitles.',
   'de-de': 'Durch Klicken auf das Symbol können Sie Untertitel ein- oder ausblenden.',
   'sp-sp': 'Use T (icon) to display or hide the subtitles.',
@@ -125,7 +125,7 @@ const tli68: ILocItem = {
   'bs': 'Use T (icon) to display or hide the subtitles.',
   'ar-sa': 'استخدم الأيقونة T لإظهار أو إخفاء الحاشية النصية',
 };
-const tli69: ILocItem = {
+const tli69: DLoc.ILocItem = {
   'en-gb': 'Use the microphone icon, to run the Listen\u0026amp;Talk application for the current sentence.',
   'de-de': 'Durch Klicken auf das Mikrofon-Symbol starten Sie die Anwendung Listen\u0026amp;Talk für den aktuellen Satz.',
   'sp-sp': 'Use the microphone icon, to run the Listen\u0026amp;Talk application for the current sentence.',
@@ -143,7 +143,7 @@ const tli69: ILocItem = {
   'bs': 'Use the microphone icon, to run the Listen\u0026amp;Talk application for the current sentence.',
   'ar-sa': 'استخدم أيقونة الميكروفون لتشغيل -تطبيق استمع و تكلم- للجملة الحالية',
 };
-const tli70: ILocItem = {
+const tli70: DLoc.ILocItem = {
   'en-gb': 'Use the speaker icon to turn the sound on/off.',
   'de-de': 'Durch Klicken auf das Lautsprecher-Symbol können Sie den Ton ein- oder ausschalten.',
   'sp-sp': 'Use the speaker icon to turn the sound on/off.',

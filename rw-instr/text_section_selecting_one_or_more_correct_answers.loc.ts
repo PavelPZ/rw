@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th18: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th18: DLoc.ILocItem = {
   'en-gb': 'TEXT SELECTION (MARKING) - MULTIPLE CORRECT ANSWERS',
   'de-de': 'TEXTAUSWAHL (MARKIERUNG) - MEHR RICHTIGE ANTWORTEN',
   'sp-sp': 'SELECCIÓN DE TEXTOS (MARCANDO) -MÁS DE UNA RESPUESTA PUEDE SER CORRECTA',
@@ -17,7 +17,7 @@ const th18: ILocItem = {
   'bs': 'TEXT SELECTION (MARKING) - MULTIPLE CORRECT ANSWERS',
   'ar-sa': 'الإختيار من النص (وضع علامة) - عدة إجابات صحيحة',
 };
-const tp9: ILocItem = {
+const tp9: DLoc.ILocItem = {
   'en-gb': 'Your task is to select sentence parts, words, word parts, syllables or characters. Proceed as follows:',
   'de-de': 'Um Ihre Auswahl zu ändern, klicken Sie auf ein anderes Objekt.',
   'sp-sp': 'Para cambiar su selección haga clic sobre otro elemento.',
@@ -35,7 +35,7 @@ const tp9: ILocItem = {
   'bs': 'Your task is to select sentence parts, words, word parts, syllables or characters. Proceed as follows:',
   'ar-sa': 'لتغيير خيارك فقط اضغط على عنصر آخر',
 };
-const tli28: ILocItem = {
+const tli28: DLoc.ILocItem = {
   'en-gb': 'Place the mouse cursor over the item (sentence part, word, word part, syllable or character) you wish to select.',
   'de-de': 'Platzieren Sie den Mauscursor über das (Satzteil, Wort, Wortteil, Silbe oder Charakter), was Sie wählen möchten.',
   'sp-sp': 'Coloque el puntero del ratón sobre el objeto (parte de la oración, palabra, parte de la palabra, sílaba o letra ) que desea seleccionar',
@@ -53,7 +53,7 @@ const tli28: ILocItem = {
   'bs': 'Place the mouse cursor over the item (sentence part, word, word part, syllable or character) you wish to select.',
   'ar-sa': 'ضع مؤشر الفارة فوق العنصر الذي ترغب في تحديده (جزء من الجملة , كلمة ,جزء من الكلمة أو مقطع صوتي)',
 };
-const tli29: ILocItem = {
+const tli29: DLoc.ILocItem = {
   'en-gb': 'Left click the item, it will be marked (selected).',
   'de-de': 'Links Click auf den Artikel, es wird markiert (gewählt).',
   'sp-sp': 'Haga clic con el objeto con el botón izquierdo del ratón, el elemento será seleccionado.',
@@ -71,7 +71,7 @@ const tli29: ILocItem = {
   'bs': 'Left click the item, it will be marked (selected).',
   'ar-sa': 'نقرة يسارية على العنصر و سيتم تحديده',
 };
-const tp10: ILocItem = {
+const tp10: DLoc.ILocItem = {
   'en-gb': 'To cancel your selection click on selected item again.',
   'de-de': 'Ihre Aufgabe ist es, Satzteile, Wörter, Wortteile, Silben oder Schriftzeichen auszuwählen. Gehen Sie folgendermassen vor:',
   'sp-sp': 'Es su tarea marcar partes de las oraciones, palabras, parte de las palabras, sílabas o letras. Proceda de la manera siguiente:',

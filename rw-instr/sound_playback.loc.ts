@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th122: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th122: DLoc.ILocItem = {
   'en-gb': 'SOUND PLAYBACK',
   'de-de': 'TON PLAYBACK',
   'sp-sp': 'REPRODUCCIÓN DE SONIDO',
@@ -17,7 +17,7 @@ const th122: ILocItem = {
   'bs': 'SOUND PLAYBACK',
   'ar-sa': 'تشغيل الصوت',
 };
-const tp31: ILocItem = {
+const tp31: DLoc.ILocItem = {
   'en-gb': 'Exercises with a sound-track can be recognized by their “sound mark”. There are two types of sound mark:',
   'de-de': 'Ihre Aufgabe ist es, Wörter oder Texte in den Lücken zu korrigieren oder umzugestallten. Gehen Sie folgendermassen vor:',
   'sp-sp': 'Exercises with a sound-track can be recognized by their “sound mark”. There are two types of sound mark:',
@@ -35,7 +35,7 @@ const tp31: ILocItem = {
   'bs': 'Exercises with a sound-track can be recognized by their “sound mark”. There are two types of sound mark:',
   'ar-sa': 'Exercises with a sound-track can be recognized by their “sound mark”. There are two types of sound mark:',
 };
-const tli61: ILocItem = {
+const tli61: DLoc.ILocItem = {
   'en-gb': 'A big sound mark is used to replay longer recordings (articles, dialogues). In this case you cannot see the text, you can only hear it.',
   'de-de': 'Eine grosse akustische Zeichen wird bei Wiedergabe von längeren Aufnahmen (Artikeln, Dialogen) verwendet. In diesem Fall können Sie den Text nicht sehen, Sie können ihn nur hören.',
   'sp-sp': 'Ícono grande de sonido . Se utiliza para reproducir grabaciones de larga duración (artículos, diálogos). En este caso, usted no puede ver el texto, sólo puede escucharlo.',
@@ -53,7 +53,7 @@ const tli61: ILocItem = {
   'bs': 'A big sound mark is used to replay longer recordings (articles, dialogues). In this case you cannot see the text, you can only hear it.',
   'ar-sa': 'يتم استخدام علامة صوتية كبيرة لإعادة تشغيل التسجيلات الصوتية الطويلة (كالمقالات و المحادثات) في هذه الحالة لا يمكن عرض النص بل يمكنك فقط الاستماع إليه',
 };
-const tli62: ILocItem = {
+const tli62: DLoc.ILocItem = {
   'en-gb': 'A small sound mark is used to replay words or sentences. You can see the text and listen to it at the same time.',
   'de-de': 'Eine kleine akustische Zeichen wird bei Wiedergabe von Wörtern oder Sätzen verwendet. Sie können den Text zur gleichen Zeit sehen und hören.',
   'sp-sp': 'El ícono de sonido pequeño se utiliza para reproducir palabras, oraciones o frases. Puede ver el texto y escucharlo al mismo tiempo.',
@@ -71,7 +71,7 @@ const tli62: ILocItem = {
   'bs': 'A small sound mark is used to replay words or sentences. You can see the text and listen to it at the same time.',
   'ar-sa': 'يتم استخدام علامة صوتية صغيرة لإعادة تشغيل الكلمات و الجمل في هذه الحالة يمكن عرض النص أثناء الاستماع إليه',
 };
-const tli63: ILocItem = {
+const tli63: DLoc.ILocItem = {
   'en-gb': 'To play the sound, click the sound mark. To stop replaying, click elsewhere on the screen.',
   'de-de': 'Um die Wiedergabe zu starten, klicken Sie die Ton Markierung an. Um die Wiedergabe zu beenden, klicken Sie auf eine andere Stelle auf dem Bildschirm.',
   'sp-sp': 'Para reproducir el sonido haga clic sobre el ícono de sonido. Para detener la reproducción, haga clic en cualquier otro sitio de la pantalla.',

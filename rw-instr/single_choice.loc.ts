@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th16: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th16: DLoc.ILocItem = {
   'en-gb': 'SINGLE CHOICE - ONE CORRECT ANSWER',
   'de-de': 'EINZIGE WAHL - EINE KORREKTE ANTWORT',
   'sp-sp': 'MULTIPLE CHOICE - SOLO UNA RESPUESTA ES CORRECTA',
@@ -17,7 +17,7 @@ const th16: ILocItem = {
   'bs': 'SINGLE CHOICE - ONE CORRECT ANSWER',
   'ar-sa': 'خيار وحيد - اجابة واحدة فقط صحيحة',
 };
-const tp6: ILocItem = {
+const tp6: DLoc.ILocItem = {
   'en-gb': 'Your task is to select the correct one out of several offered options. Proceed as follows:',
   'de-de': 'Ihre Aufgabe ist es, eine von mehreren Auswahlen (Antworten) zu markieren. Die Auswahl (Antwort) kann durch Ikonen angezeigt werden. Gehen Sie folgendermassen vor:',
   'sp-sp': 'Su tarea consiste en seleccionar una de las opciones (respuestas). Las opciones (respuestas) pueden representarse por íconos. Proceda de la siguiente manera:',
@@ -35,7 +35,7 @@ const tp6: ILocItem = {
   'bs': 'Your task is to select the correct one out of several offered options. Proceed as follows:',
   'ar-sa': 'مهمتك هي إختيار إجابة واحدة فقط من ضمن الخيارات المتعددة. قد تكون هذه الخيارات محددة بأيقونات. قم بما يلي',
 };
-const tli24: ILocItem = {
+const tli24: DLoc.ILocItem = {
   'en-gb': 'Left click the chosen item.',
   'de-de': 'Links Click auf die Option die Sie wählen möchten.',
   'sp-sp': 'Haga clic con el botón izquierdo del ratón en la opción elegida.',
@@ -53,7 +53,7 @@ const tli24: ILocItem = {
   'bs': 'Left click the chosen item.',
   'ar-sa': 'Left click the chosen item.',
 };
-const tli25: ILocItem = {
+const tli25: DLoc.ILocItem = {
   'en-gb': 'If you wish to change your selection, click another option.',
   'de-de': 'Die Option wird markiert (gewählt).',
   'sp-sp': 'If you wish to change your selection, click another option.',

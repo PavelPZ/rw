@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th118: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th118: DLoc.ILocItem = {
   'en-gb': 'DICTATION',
   'de-de': 'DIKTAT',
   'sp-sp': 'DICTADO',
@@ -17,7 +17,7 @@ const th118: ILocItem = {
   'bs': 'DICTATION',
   'ar-sa': 'DICTATION',
 };
-const tp27: ILocItem = {
+const tp27: DLoc.ILocItem = {
   'en-gb': 'Your task is to fill in the empty boxes with the words or sentences you hear. Proceed as follows:',
   'de-de': 'Ihre Aufgabe ist zu entscheiden, ob die Sätze wahr oder unwahr sind. Gehen Sie wie folgt vor:',
   'sp-sp': 'Your task is to fill in the empty boxes with the words or sentences you hear. Proceed as follows:',
@@ -35,7 +35,7 @@ const tp27: ILocItem = {
   'bs': 'Your task is to fill in the empty boxes with the words or sentences you hear. Proceed as follows:',
   'ar-sa': 'مهمتك أن تقرر فيما إذا كانت الجمل صحيحة أم خاطئة. قم بما يلي :',
 };
-const tli56: ILocItem = {
+const tli56: DLoc.ILocItem = {
   'en-gb': 'Listen to the word or the sentence.',
   'de-de': 'Hören Sie das Wort oder den Satz an.',
   'sp-sp': 'Escuche la palabra u oración.',
@@ -53,7 +53,7 @@ const tli56: ILocItem = {
   'bs': 'Listen to the word or the sentence.',
   'ar-sa': 'استمع إلى الكلمة أو الجملة',
 };
-const tli57: ILocItem = {
+const tli57: DLoc.ILocItem = {
   'en-gb': 'Click on the empty space - a blinking cursor appears.',
   'de-de': 'Klicken Sie auf die leere Lücke - ein blinkender Cursor wird erscheinen.',
   'sp-sp': 'Click on the empty space - a blinking cursor appears.',
@@ -71,7 +71,7 @@ const tli57: ILocItem = {
   'bs': 'Click on the empty space - a blinking cursor appears.',
   'ar-sa': 'Click on the empty space - a blinking cursor appears.',
 };
-const tli58: ILocItem = {
+const tli58: DLoc.ILocItem = {
   'en-gb': 'Type in the text that you hear using your keyboard.',
   'de-de': 'Schreiben Sie den Text, den Sie hören.',
   'sp-sp': 'Type in the text that you hear using your keyboard.',
@@ -89,7 +89,7 @@ const tli58: ILocItem = {
   'bs': 'Type in the text that you hear using your keyboard.',
   'ar-sa': 'Type in the text that you hear using your keyboard.',
 };
-const tp28: ILocItem = {
+const tp28: DLoc.ILocItem = {
   'en-gb': 'To edit the item, select it and make correction.',
   'de-de': 'Ihre Aufgabe ist zu entscheiden, ob die Antwort auf die Frage JA oder NEIN lautet. Gehen Sie wie folgt vor:',
   'sp-sp': 'To edit the item, select it and make correction.',

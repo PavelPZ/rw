@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th115: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th115: DLoc.ILocItem = {
   'en-gb': 'TRUE/FALSE SENTENCES',
   'de-de': 'RICHTIGE/FALSCHE SÄTZE',
   'sp-sp': 'VERDADERO O FALSO',
@@ -17,7 +17,7 @@ const th115: ILocItem = {
   'bs': 'TRUE/FALSE SENTENCES',
   'ar-sa': 'جمل صح أو خطأ',
 };
-const tp24: ILocItem = {
+const tp24: DLoc.ILocItem = {
   'en-gb': 'Your task is to decide whether the sentences are true or false. Every sentence is marked with an icon. Proceed as follows:',
   'de-de': 'Gehen Sie folgendermassen vor:',
   'sp-sp': 'Realizar de la manera siguiente:',
@@ -35,7 +35,7 @@ const tp24: ILocItem = {
   'bs': 'Your task is to decide whether the sentences are true or false. Every sentence is marked with an icon. Proceed as follows:',
   'ar-sa': 'قم بما يلي :',
 };
-const tli49: ILocItem = {
+const tli49: DLoc.ILocItem = {
   'en-gb': 'If the sentence is false, skip it.',
   'de-de': 'Wenn der Satz falsch ist, überspringen.',
   'sp-sp': 'Si la oración es falsa, ignórela.',
@@ -53,7 +53,7 @@ const tli49: ILocItem = {
   'bs': 'If the sentence is false, skip it.',
   'ar-sa': 'تخطي الجملة في حال كانت خاطئة',
 };
-const tli50: ILocItem = {
+const tli50: DLoc.ILocItem = {
   'en-gb': 'If the sentence is true, click on it. It will be selected (marked).',
   'de-de': 'Wenn der Satz richtig ist, anklicken. Es wirt ausgewählt (markiert).',
   'sp-sp': 'Si la oración es verdadera, haga clic en ella. Será seleccionada (marcada).',
@@ -71,7 +71,7 @@ const tli50: ILocItem = {
   'bs': 'If the sentence is true, click on it. It will be selected (marked).',
   'ar-sa': 'أنقر على الجملة إذا كانت صحيحة و سيتم إختيارها',
 };
-const tli51: ILocItem = {
+const tli51: DLoc.ILocItem = {
   'en-gb': 'To cancel your selection click on selected item again.',
   'de-de': 'Um Ihre Auswahl abzubrechen, klicken Sie noch einmal auf das gewählte Objekt.',
   'sp-sp': 'Para cancelar una selección, haga otro clic en el objeto seleccionado.',

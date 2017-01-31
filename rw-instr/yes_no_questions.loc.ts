@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th117: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th117: DLoc.ILocItem = {
   'en-gb': 'YES/NO QUESTIONS',
   'de-de': 'JA/NEIN FRAGEN',
   'sp-sp': 'YES/NO QUESTIONS',
@@ -17,7 +17,7 @@ const th117: ILocItem = {
   'bs': 'YES/NO QUESTIONS',
   'ar-sa': 'أسئلة بنعم أو لا',
 };
-const tp26: ILocItem = {
+const tp26: DLoc.ILocItem = {
   'en-gb': 'Your task is to decide whether the answers to the questions are Yes or No.',
   'de-de': 'Ihre Aufgabe ist es, sich zu entscheiden, ob die Sätze richtig oder falsch sind. Jeder Satz ist mit einer Ikone bezeichnet. Gehen Sie folgendermassen vor:',
   'sp-sp': 'Su tarea es decidir, si las frases son verdaderas o falsas. Cada frase está marcada con un ícono. Proceda de la siguiente manera:',
@@ -35,7 +35,7 @@ const tp26: ILocItem = {
   'bs': 'Your task is to decide whether the answers to the questions are Yes or No.',
   'ar-sa': 'مهمتك أن تقرر فيما إذا كانت الجمل صحيحة أم خاطئة. ستجد بجانب كل جملة أيقونة تحديد. قم بما يلي :',
 };
-const tli54: ILocItem = {
+const tli54: DLoc.ILocItem = {
   'en-gb': 'If the correct answer is Yes, click on YES.',
   'de-de': 'Falls die richtige Antwort Ja heißt, klicken Sie auf JA.',
   'sp-sp': 'If the correct answer is Yes, click on YES.',
@@ -53,7 +53,7 @@ const tli54: ILocItem = {
   'bs': 'If the correct answer is Yes, click on YES.',
   'ar-sa': 'إذا كان الجواب الصحيح نعم , أنقر على الخيار نعم',
 };
-const tli55: ILocItem = {
+const tli55: DLoc.ILocItem = {
   'en-gb': 'If the correct answer is No, click on NO.',
   'de-de': 'Falls die richtige Antwort Nein heißt, klicken Sie auf NEIN.',
   'sp-sp': 'If the correct answer is No, click on NO.',

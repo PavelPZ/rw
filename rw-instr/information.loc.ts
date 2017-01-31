@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th120: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th120: DLoc.ILocItem = {
   'en-gb': 'INFORMATION',
   'de-de': 'INFORMATION',
   'sp-sp': 'INFORMACIÓN',
@@ -17,7 +17,7 @@ const th120: ILocItem = {
   'bs': 'INFORMATION',
   'ar-sa': 'معلومات',
 };
-const tp94: ILocItem = {
+const tp94: DLoc.ILocItem = {
   'en-gb': 'Your task is to carefully read the information on this page.',
 };
 const res = { [globId]: { th120, tp94 } };

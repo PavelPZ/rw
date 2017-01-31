@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th114: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th114: DLoc.ILocItem = {
   'en-gb': 'FILLING IN FROM A MENU',
   'de-de': 'EINSATZ VON OBJEKTEN AUS DEM MENÜ',
   'sp-sp': 'FILLING IN FROM A MENU',
@@ -17,7 +17,7 @@ const th114: ILocItem = {
   'bs': 'FILLING IN FROM A MENU',
   'ar-sa': 'ملء الفراغات من لائحة',
 };
-const tp21: ILocItem = {
+const tp21: DLoc.ILocItem = {
   'en-gb': 'Your task is to fill in the empty boxes within the text. You are given a list of items with different properties as described below:',
   'de-de': 'Gehen Sie folgendermassen vor:',
   'sp-sp': 'Realizar de la manera siguiente:',
@@ -35,7 +35,7 @@ const tp21: ILocItem = {
   'bs': 'Your task is to fill in the empty boxes within the text. You are given a list of items with different properties as described below:',
   'ar-sa': 'قم بما يلي :',
 };
-const tli45: ILocItem = {
+const tli45: DLoc.ILocItem = {
   'en-gb': 'after filling in to the text, the item in the menu is deactivated',
   'de-de': 'nach dem Einsatz im Text wird das Objekt in der Liste deaktiviert',
   'sp-sp': 'after filling in to the text, the item in the menu is deactivated',
@@ -53,7 +53,7 @@ const tli45: ILocItem = {
   'bs': 'after filling in to the text, the item in the menu is deactivated',
   'ar-sa': 'بعد ملئ الفراغات في النص سيتم إلغاء العنصر من اللائحة',
 };
-const tli46: ILocItem = {
+const tli46: DLoc.ILocItem = {
   'en-gb': 'after filling in, the item in the list is not deactivated and can be used again',
   'de-de': 'das Objekt bleibt nach dem Einsetzen im Text aktiv und kann wiederholt verwendet werden',
   'sp-sp': 'after filling in, the item in the list is not deactivated and can be used again',
@@ -71,7 +71,7 @@ const tli46: ILocItem = {
   'bs': 'after filling in, the item in the list is not deactivated and can be used again',
   'ar-sa': 'لا تلغي العنصر من القائمة بعد ملئ الفراغات و إنما حافظ على إمكانية استخدامه مرة أخرى',
 };
-const tp22: ILocItem = {
+const tp22: DLoc.ILocItem = {
   'en-gb': 'Proceed as follows:',
   'de-de': 'Um das Objekt von der Lücke zurück in die Liste zu geben, klicken Sie es an oder ziehen Sie ein anderes Objekt von der Lise.',
   'sp-sp': 'Para editar el campo, arrastre otro objeto de la lista hacia dicho campo.',
@@ -89,7 +89,7 @@ const tp22: ILocItem = {
   'bs': 'Proceed as follows:',
   'ar-sa': 'للتراجع عن خيار أجريته قم بإختيار عنصر آخر من القائمة و اسحبه إلى مكانه',
 };
-const tli47: ILocItem = {
+const tli47: DLoc.ILocItem = {
   'en-gb': 'Click on the empty gap - a menu with items appears',
   'de-de': 'Klicken Sie auf das leere Fenster - er erscheint ein Objektmenü.',
   'sp-sp': 'Click on the empty gap - a menu with items appears',
@@ -107,7 +107,7 @@ const tli47: ILocItem = {
   'bs': 'Click on the empty gap - a menu with items appears',
   'ar-sa': 'أنقر على المكان الفارغ لتظهر لك لائحة من العناصر',
 };
-const tli48: ILocItem = {
+const tli48: DLoc.ILocItem = {
   'en-gb': 'Click a selected item. It will be filled in to the gap.',
   'de-de': 'Klicken Sie auf das gewählte Objekt. Das Objekt erscheint im Fenster.',
   'sp-sp': 'Click a selected item. It will be filled in to the gap.',
@@ -125,7 +125,7 @@ const tli48: ILocItem = {
   'bs': 'Click a selected item. It will be filled in to the gap.',
   'ar-sa': 'أنقر على العنصر الذي حددته ليتم ملئ الفراغ به',
 };
-const tp23: ILocItem = {
+const tp23: DLoc.ILocItem = {
   'en-gb': 'To change the filled in item, fill in another one into its place.',
   'de-de': 'Ihre Aufgabe ist es, die leeren Lücken im Text zu füllen. Eine Liste mit Objekten mit verschiedenen Verhaltensweisen, wie unten beschrieben, ist gegeben:',
   'sp-sp': 'Su tarea es rellenar los espacios vacíos en el texto. Más abajo dispone de una lista de elementos con diferentes comportamientos:',

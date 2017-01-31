@@ -1,5 +1,5 @@
-import { ILocItem, toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
-const th19: ILocItem = {
+import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+const th19: DLoc.ILocItem = {
   'en-gb': 'MULTIPLE CHOICE - MORE CORRECT ANSWERS',
   'de-de': 'MULTIPLE CHOICE - MEHR RICHTIGE ANTWORTEN',
   'sp-sp': 'MULTIPLE CHOICE - MÁS DE UNA RESPUESTA PUEDE SER CORRECTA',
@@ -17,7 +17,7 @@ const th19: ILocItem = {
   'bs': 'MULTIPLE CHOICE - MORE CORRECT ANSWERS',
   'ar-sa': 'الإختيار من متعدد - عدة إجابات صحيحة',
 };
-const tp11: ILocItem = {
+const tp11: DLoc.ILocItem = {
   'en-gb': 'Your task is to select (mark) correct options. None of the options are selected by default. Proceed as follows:',
   'de-de': 'Um Ihre Auswahl abzubrechen, klicken Sie noch einmal auf das gewählte Objekt.',
   'sp-sp': 'Para cancelar una selección, haga otro clic en el objeto seleccionado.',
@@ -35,7 +35,7 @@ const tp11: ILocItem = {
   'bs': 'Your task is to select (mark) correct options. None of the options are selected by default. Proceed as follows:',
   'ar-sa': 'Your task is to select (mark) correct options. None of the options are selected by default. Proceed as follows:',
 };
-const tli30: ILocItem = {
+const tli30: DLoc.ILocItem = {
   'en-gb': 'Left click the chosen item.',
   'de-de': 'Links Click auf den gewählten Artikel.',
   'sp-sp': 'Haga clic con el botón izquierdo del ratón en la opción elegida.',
@@ -53,7 +53,7 @@ const tli30: ILocItem = {
   'bs': 'Left click the chosen item.',
   'ar-sa': 'نقرة يسارية على العنصر الذي تم إختياره',
 };
-const tli31: ILocItem = {
+const tli31: DLoc.ILocItem = {
   'en-gb': 'The option will be selected (marked).',
   'de-de': 'Die Option wird markiert (gewählt).',
   'sp-sp': 'The option will be selected (marked).',
@@ -71,7 +71,7 @@ const tli31: ILocItem = {
   'bs': 'The option will be selected (marked).',
   'ar-sa': 'The option will be selected (marked).',
 };
-const tp12: ILocItem = {
+const tp12: DLoc.ILocItem = {
   'en-gb': 'To cancel your selection click on selected item again.',
   'de-de': 'Ihre Aufgabe ist es, die korrekte Auswahl zu markieren. Vorgegebene Objekte sind unmarkiert. Gehen Sie folgendermassen vor:',
   'sp-sp': 'Su tarea consiste en seleccionar (marcar) la opción correcta. Al principio los elementos están sin marcar. Proceda de la siguiente manera:',
