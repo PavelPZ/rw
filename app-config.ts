@@ -1,16 +1,10 @@
 ﻿namespace config {
-  export interface IConfig {
-    basicUrl: string;
-    rootPath: string;
-    loc: string;
-    serverRun: boolean;
-  }
 
   export const config: IConfig = {
     loc: 'en-gb',
     basicUrl: null,
     rootPath: null,
-    serverRun: typeof window == 'undefined', //nodejs design run
+    serverRun: typeof window == 'undefined', //nodejs design run 
     route: {
       isHashRouter: true,
       initRoute: null,
@@ -38,7 +32,6 @@
     config.rootPath = startUrl.substr(0, idx);
     idx = config.rootPath.lastIndexOf('/');
     config.rootPath = config.rootPath.substr(0, idx+1);
-    debugger;
   })();
 
 }

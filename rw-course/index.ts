@@ -1,7 +1,7 @@
 export * from './lib';
 export * from './dom';
 export * from './dom-meta';
-//export * from './context';
+export * from './sitemap';
 export * from './compiler';
 export * from './state';
 export * from './components/others';
@@ -12,3 +12,8 @@ export * from './components/page';
 export * from './components/tag';
 export * from './components/img';
 export * from './loaders/page';
+
+var x: ITest;
+
+x.a = x.b;
+

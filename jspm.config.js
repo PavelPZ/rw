@@ -1,6 +1,6 @@
 SystemJS.config({
   production: false,
-  baseURL: "/",
+  baseURL: "./",
   paths: {
     "npm:": "jspm_packages/npm/",
     "config": "./app-config.js",
@@ -8,6 +8,7 @@ SystemJS.config({
   },
   packages: {
     "rw-lib": {
+      "main": "index.js",
       "defaultExtension": "js"
     },
     "rw-gui-rt": {
@@ -34,7 +35,7 @@ SystemJS.config({
     "lm": {
       "defaultExtension": "js"
     }
-}
+  }
 });
 
 SystemJS.config({

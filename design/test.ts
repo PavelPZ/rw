@@ -1,6 +1,6 @@
 ﻿import { preCompile } from 'rw-course';
 
-import gapFill from '../rw-course/examples/gap-fill'
+import gapFill from './rw-course/examples/gap-fill';
 
 const precomp = preCompile(gapFill);
 

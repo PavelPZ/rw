@@ -1,13 +1,13 @@
-import { IConfig, config } from 'config';
+import { config } from 'config';
 
-declare module 'config' {
-  interface IConfig {
-    route: {
-      isHashRouter: boolean;
-      initRoute: () => IRouteDir;
-    }
-  }
-}
+//declare module 'config' {
+//  interface IConfig {
+//    route: {
+//      isHashRouter: boolean;
+//      initRoute: () => IRouteDir;
+//    }
+//  }
+//}
 
 //Provadi konverzi IRouteNode tree do stringu a naopak.
 //url je napr. "hand1;a=1;b=2/hand2;c=1;d=2$//ch1-hand3;e=1;f=2/hand31;c=1;d=2$//ch1-hand32;e=1;f=2$//ch2-hand33;g=1;h=2$/$//ch2-hand4;g=1;h=2"
@@ -17,19 +17,6 @@ declare module 'config' {
 // - ch1-hand3: hand3 je identifikace handleru (RouteHandler.id), ch1 je hookId
 // - zanoruje se pomoci IRouteData.path, ve ktere je <hookId>/<hookId>/...
 
-
-export interface IRouteData {
-  handlerId: string; //handler id for route management
-  path?: string; //path, e.g. '/' for root, '//' for root.child, /ch1/ for root.childs['ch1'] etc.
-  //helper fields for route manipulation
-  $asyncData?: any; //data, added during prepare
-  $childs?: { [hookId:string]: IRouteData; };
-}
-
-//normalized redux route state
-export interface IRouteDir {
-  [path: string]: IRouteData;
-}
 
 export const route2string = (route: IRouteDir) => {
   if (!route) route = config.route.initRoute();

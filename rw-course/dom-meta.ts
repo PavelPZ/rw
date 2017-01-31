@@ -6,4 +6,4 @@ export interface IMetaNode extends IPtr {
   flag?: TRuntimeType; // | Array<TRuntimeType>;
 }
 
-export type TRuntimeType = "grammarRoot" | "mod" | "taskCourse";
+export type TRuntimeType = "modGrammar" | "mod" | "taskCourse" | "ex";

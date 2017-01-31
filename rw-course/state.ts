@@ -2,7 +2,7 @@
 
 import { IConfig, config } from 'config';
 import { IRootState, TDispatch, IAsyncProcPar, doAsyncAction, addAsyncProc, IAsyncResultAction, Reducer } from 'rw-redux';
-import { routerCHANGE_END, IDoRouteChangeEnd, RouteHandler, IRouteData } from 'rw-router';
+import { routerCHANGE_END, IDoRouteChangeEnd, RouteHandler } from 'rw-router';
 import * as dom from './dom';
 
 declare module 'rw-redux' {
