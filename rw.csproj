@@ -41,6 +41,8 @@
     <Content Include="rw-gui-rt\recordings\app.css" />
     <Content Include="rw-gui-rt\login\img\login-providers.png" />
     <Content Include="rw-gui-rt\toolbox.css" />
+    <TypeScriptCompile Include="design\rw-course\examples\test.tsx" />
+    <TypeScriptCompile Include="design\rw-course\examples\testEnumOldEA.tsx" />
     <TypeScriptCompile Include="typings\rw\dconfig.d.ts" />
     <TypeScriptCompile Include="design\test-build.ts" />
     <TypeScriptCompile Include="design\test.ts" />
@@ -83,11 +85,11 @@
     <TypeScriptCompile Include="design\rw-course\examples\widthattribute.tsx" />
     <TypeScriptCompile Include="rw-course\index.ts" />
     <TypeScriptCompile Include="rw-course\lib.ts" />
+    <TypeScriptCompile Include="typings\rw\dazure-course.d.ts" />
     <TypeScriptCompile Include="typings\rw\dcourse.d.ts" />
     <TypeScriptCompile Include="rw-course\loader.ts" />
-    <TypeScriptCompile Include="rw-course\loaders\page.ts" />
     <TypeScriptCompile Include="rw-course\sitemap.ts" />
-    <TypeScriptCompile Include="rw-course\state.ts" />
+    <TypeScriptCompile Include="rw-course\state.tsx" />
     <TypeScriptCompile Include="rw-gui-rt\login\img\login-providers.png.ts" />
     <TypeScriptCompile Include="rw-instr\character_sequencing.loc.ts" />
     <TypeScriptCompile Include="rw-instr\character_sequencing.tsx" />
@@ -240,7 +242,7 @@
     <TypeScriptCompile Include="rw-redux\app-loader.tsx" />
     <TypeScriptCompile Include="rw-redux\async.ts" />
     <TypeScriptCompile Include="rw-redux\block-gui.ts" />
-    <TypeScriptCompile Include="design\rw-course\examples\test.tsx" />
+    <TypeScriptCompile Include="design\rw-course\examples\testSystemJS.tsx" />
     <TypeScriptCompile Include="rw-redux\types.ts" />
     <TypeScriptCompile Include="rw-router\lib.ts" />
     <TypeScriptCompile Include="rw-router\router.ts" />
@@ -308,7 +310,9 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="rw-course\persist\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
   </PropertyGroup>

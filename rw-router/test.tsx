@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 
 //lm libs
-import { blockGuiReducerFnc, appInit, TMiddlewareAPI } from 'rw-redux';
+import { blockGuiReducerFnc, appInit, TMiddlewareAPI, getActState } from 'rw-redux';
 import config from 'rw-config';
 //import { loginReducerFnc } from 'rw-login/index';
 
@@ -41,7 +41,7 @@ const createAppRoute = (title: string, child: IAppChildRoute, ch1$child: IAppChi
 
 //handler
 class RootHandler extends RouteHandler<IAppRootRoute> {
-  createComponent(route: IAppRootRoute, state: DRouter.IRouteDir): JSX.Element { return <RootPresenter {...route} instanceTitle='instance 1' />; }
+  createComponent(route: IAppRootRoute): JSX.Element { return <RootPresenter {...route} instanceTitle='instance 1' />; }
   prepare(route: IAppRootRoute): Promise<string> { return new Promise<string>(resolve => setTimeout(() => resolve('parent async data x'), 500)); }
   //prepare(route: IRouteData): Promise<any> { return new Promise<any>(resolve => resolve('parent async data')); }
   //prepare(route: IRouteData): Promise<any> { return 'parent async data' as any; }
@@ -70,8 +70,9 @@ interface IAppChildRoute extends DRouter.IRouteData {
 const createChildRoute = (numId: number) => ({ handlerId: APP_CHILD, numId: numId } as IAppChildRoute)
 
 class ChildHandler extends RouteHandler<IAppChildRoute> {
-  createComponent(routeData: IAppChildRoute, state: DRouter.IRouteDir): JSX.Element {
+  createComponent(routeData: IAppChildRoute): JSX.Element {
     console.log('render ChildHandler');
+    const state = getActState().router;
     const parPath = parentPath(state, routeData.path);
     return <div>
       <h2>{routeData.numId}</h2>

@@ -4,14 +4,17 @@ import { connect } from 'react-redux';
 import { IMapDispatchToProps, } from 'rw-redux';
 import { RouteHandler } from 'rw-router';
 
-export interface IRouteHookMapStateToProps { root: DRouter.IRouteDir; path: string; }
+export type IRouteHookMapStateToProps = DRouter.IRouteData;
 export interface IRouteHookOwnProps { parentPath: string, hookId: string; }
 
-const RouteHookPresent: React.StatelessComponent<IRouteHookMapStateToProps & IMapDispatchToProps> = props => {
-  const rt = props.root[props.path];
-  return rt && rt.handlerId ? RouteHandler.find(rt.handlerId).createComponent(rt, props.root) : null;
+const RouteHookPresent: React.StatelessComponent<IRouteHookMapStateToProps & IMapDispatchToProps> = router => {
+  return router && router.handlerId ? RouteHandler.find(router.handlerId).createComponent(router) : null;
 };
 
 export const RouteHook = connect<IRouteHookMapStateToProps, IMapDispatchToProps, IRouteHookOwnProps>(
-  (state: DRedux.IRootState, ownProps: IRouteHookOwnProps) => ({ root: state.router, path: ownProps.parentPath + ownProps.hookId + '/' })
+  (state: DRedux.IRootState, ownProps: IRouteHookOwnProps) => {
+    const path = ownProps.parentPath + ownProps.hookId + '/';
+    const res = state.router[path]
+    return res ? res : {}; //state.router[path];
+  }
 )(RouteHookPresent);

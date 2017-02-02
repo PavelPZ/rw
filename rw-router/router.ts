@@ -49,14 +49,16 @@ const routerCHANGE_START = 'router.CHANGE_START'; interface IRouterAsyncPar exte
 const dispatchRouterActionStart = (dispatch: TDispatch, newRoute: DRouter.IRouteDir, withPustState: boolean, subPath: string) => dispatch(doAsyncAction<IRouterAsyncPar>({ type: routerCHANGE_START, newRoute: newRoute, withPustState: withPustState, subPath: subPath }));
 
 export const routerCHANGE_END = 'router.CHANGE_END';
-export interface IDoRouteChangeEnd extends IAsyncResultAction<string> {
+export interface IDoRouteChangeEnd extends IAsyncResultAction<any> {
   type: 'router.CHANGE_END';
   newRoute: DRouter.IRouteDir;
   withPustState: boolean;
-  forHandlerReducers: IForHandlerReducers; //changed handlers data. Iti is possible to create reducer, which modified state when handler route changed
+  forHandlerReducers: IForHandlerReducers; //changed handlers data. It is possible to create reducer, which modified state when handler route changed
 }
 export interface IForHandlerReducers { [handlerId: string]: Array<string>; }
 const dispatchRouteActionEnd = (dispatch: TDispatch, newRoute: DRouter.IRouteDir, withPustState: boolean, forHandlerReducers: IForHandlerReducers) => dispatch({ type: routerCHANGE_END, newRoute: newRoute, withPustState: withPustState, forHandlerReducers: forHandlerReducers } as IDoRouteChangeEnd);
+
+//export const actRoute = () => (api.getState() as DRedux.IRootState).router;
 
 addAsyncProc<IRouterAsyncPar>(routerCHANGE_START, async (par, completed, api) => {
   const oldRoute = (api.getState() as DRedux.IRootState).router;
@@ -86,6 +88,7 @@ addAsyncProc<IRouterAsyncPar>(routerCHANGE_START, async (par, completed, api) =>
 
   //Prepare new routes, async data to route
   const asyncData = await Promise.all(diffs.newAll.map(path => newRouteState[path]).map(rt => RouteHandler.find(rt.handlerId).prepare(rt))); //array of async data
+
   const forHandlerReducers: IForHandlerReducers = {};
   for (let i = 0; i < diffs.newAll.length; i++) {
     const path = diffs.newAll[i];
@@ -116,7 +119,7 @@ export abstract class RouteHandler<T extends DRouter.IRouteData> {
     RouteHandler.register(this);
   }
   //virtuals
-  createComponent(route: T, state: DRouter.IRouteDir): JSX.Element { return null; }
+  createComponent(route: T): JSX.Element { return null; }
   prepare(route: T): Promise<any> { return null; } //chance to fetch async data
   unPrepare(route: T): Promise<never> { return null; }
   normalizeStringProps(props: T) { }

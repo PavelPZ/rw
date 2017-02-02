@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 
-import { matchMediaReducerFnc, blockGuiReducerFnc, appInit, TMiddlewareAPI } from 'rw-redux';
+import { matchMediaReducerFnc, blockGuiReducerFnc, appInit, TMiddlewareAPI, getActState } from 'rw-redux';
 
 import getRTAppRoot from 'rw-gui-rt/get-app-root';
 
@@ -30,7 +30,7 @@ const createAppRoute = (child: DRouter.IRouteData) => ({ handlerId: APP_ROOT, $c
 
 //handler
 class RootHandler extends RouteHandler<IAppRootRoute> {
-  createComponent(route: IAppRootRoute, state: DRouter.IRouteDir): JSX.Element { return <RootPresenter {...route} />; }
+  createComponent(route: IAppRootRoute): JSX.Element { return <RootPresenter {...route} />; }
 }
 new RootHandler(APP_ROOT);
 
@@ -53,8 +53,9 @@ interface IAppChildRoute extends DRouter.IRouteData {
 const createChildRoute = () => ({ handlerId: APP_CHILD } as IAppChildRoute)
 
 class ChildHandler extends RouteHandler<IAppChildRoute> {
-  createComponent(routeData: IAppChildRoute, state: DRouter.IRouteDir): JSX.Element {
+  createComponent(routeData: IAppChildRoute): JSX.Element {
     console.log('render ChildHandler');
+    const state = getActState().router;
     const parPath = parentPath(state, routeData.path);
     return <div>
       <h2>Login needed component</h2>

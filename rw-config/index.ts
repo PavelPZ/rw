@@ -33,7 +33,3 @@
 })();
 
 export default config;
-
-//declare module "config" {
-//  export = config;
-//}

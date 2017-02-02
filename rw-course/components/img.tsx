@@ -1,4 +1,4 @@
-﻿import * as React from 'react';
+﻿import React from 'react';
 import { registerTag } from '../compiler';
 //import * as DCourse from '../dom';
 

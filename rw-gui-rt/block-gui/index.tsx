@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import Overlay from "react-toolbox/lib/overlay/Overlay";
+import { Overlay } from "react-toolbox/lib/overlay/Overlay";
 
 import theme from "rw-gui-rt/theme";
 import { blockGuiCreator, TBlockGuiPresent, blockGuiProxy } from 'rw-redux';

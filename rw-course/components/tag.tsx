@@ -1,4 +1,4 @@
-﻿import * as React from 'react';
+﻿import React from 'react';
 //import * as DCourse from '../dom';
 //import * as context from '../context';
 

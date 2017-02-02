@@ -7,8 +7,8 @@
 //https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.j51l7utk9
 //https://github.com/reactjs/reselect
 
-import * as ReactDOM from 'react-dom';
-import * as React from 'react';
+import ReactDOM from 'react-dom';
+import React from 'react';
 import createLogger from 'redux-logger';
 import { Provider } from 'react-redux';
 import { Action, Store, createStore, GenericStoreEnhancer, applyMiddleware } from 'redux';
@@ -34,6 +34,7 @@ export function appInit(reducer: TReducer, element: Element, getComponent: () =>
   return changeAppInitState(initState);
 }
 export let store: Store<any>;
+export const getActState = () => store.getState() as DRedux.IRootState;
 
 //export function replaceReducer(reducer: Reducer<any>) {
 //  store.replaceReducer(reducer);

@@ -68,7 +68,7 @@ declare module 'react-toolbox/lib/avatar/Avatar' {
 }
 declare module 'react-toolbox/lib/button/Button' {
   const Button: typeof __RT.Button; export default Button;
-  type ButtonTheme = __RT.ButtonTheme; export { ButtonTheme };
+  type ButtonTheme = __RT.ButtonTheme; export { Button, ButtonTheme };
 }
 declare module 'react-toolbox/lib/button/IconButton' {
   const IconButton: typeof __RT.IconButton; export default IconButton;
@@ -136,8 +136,8 @@ declare module 'react-toolbox/lib/layout/Layout' {
   type LayoutThemeAll = __RT.LayoutThemeAll; export { LayoutThemeAll };
 }
 declare module 'react-toolbox/lib/overlay/Overlay' {
-  const Overlay: typeof __RT.Overlay; export default Overlay;
-  type OverlayTheme = __RT.OverlayTheme; export { OverlayTheme };
+  const Overlay: typeof __RT.Overlay; //export default Overlay;
+  type OverlayTheme = __RT.OverlayTheme; export { Overlay, OverlayTheme };
 }
 declare module 'react-toolbox/lib/layout/Panel' {
   const Panel: typeof __RT.Panel; export default Panel;

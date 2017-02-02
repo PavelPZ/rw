@@ -1,4 +1,4 @@
-﻿import * as React from 'react';
+﻿import React from 'react';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 
@@ -8,15 +8,13 @@ import { IMapDispatchToProps } from 'rw-redux';
 import { Tag } from './tag';
 import { registerTag } from '../compiler';
 
-//export interface IPageState extends objects.ITagState {}
-
 //const pageSelector = createSelector<DRedux.IRootState, IParentMapStateToProps, Array<string>, IParentSubState>(
 //  state => state.parent.childIds,
 //  state => state.parent.root,
 //  (childIds, par) => ({ textProp: par.text, childIds: childIds })
 //);
 
-//http://stackoverflow.com/questions/36392048/how-can-i-get-ownprops-using-reselect-on-redux
+//https://github.com/reactjs/reselect#accessing-react-props-in-selectors
 //const getPageState = (state: DRedux.IRootState, props: dom.IPageProps) => state.courses[props.courseUrl].pageResult;
 
 
@@ -29,32 +27,32 @@ export const Page = connect<any, IMapDispatchToProps, DCourse.IPageProps>(
 )(PagePresenter);
 registerTag('Page', Page);
 
-interface Props {
-  xxxx: 'error' | 'warning';
-}
+//interface Props {
+//  xxxx: 'error' | 'warning';
+//}
 
-const Bar = ({ xxxx = 'error' }: Props) => `This is my type: ${xxxx}`;
+//const Bar = ({ xxxx = 'error' }: Props) => `This is my type: ${xxxx}`;
 
-function bBar({ xxxx = 'error' }: Props) { `This is my type: ${xxxx}`; }
+//function bBar({ xxxx = 'error' }: Props) { `This is my type: ${xxxx}`; }
 
-bBar({ xxxx: 'warning' });
+//bBar({ xxxx: 'warning' });
 
-interface Props2 {
-  zzz: 'a' | 'b';
-  yyy: number;
-  ddd?: string;
-}
-//const { zzz = 'zzz', yyy = 1 }: Props2 = {};
+//interface Props2 {
+//  zzz: 'a' | 'b';
+//  yyy: number;
+//  ddd?: string;
+//}
+////const { zzz = 'zzz', yyy = 1 }: Props2 = {};
 
-function yyy({ zzz = 'zzz', yyy = 1 }: Props2) { `This is my type: ${zzz}, ${yyy.toString()}`; }
+//function yyy({ zzz = 'zzz', yyy = 1 }: Props2) { `This is my type: ${zzz}, ${yyy.toString()}`; }
 
-yyy({ yyy: 1, zzz: 'a', ddd: '2' });
-yyy({ zzz: 'b', yyy: 1 });
+//yyy({ yyy: 1, zzz: 'a', ddd: '2' });
+//yyy({ zzz: 'b', yyy: 1 });
 
-function yyyy(zzz = 'zzz', yyy = 1) { `This is my type: ${zzz}, ${yyy.toString()}`; }
+//function yyyy(zzz = 'zzz', yyy = 1) { `This is my type: ${zzz}, ${yyy.toString()}`; }
 
-yyyy('s', 2);
+//yyyy('s', 2);
 
-let res = { x: 3, y: 4, z: 4 };
-const { x = 1, y = 2, ...rest } = res;
-res = { x, y, ...rest };
+//let res = { x: 3, y: 4, z: 4 };
+//const { x = 1, y = 2, ...rest } = res;
+//res = { x, y, ...rest };

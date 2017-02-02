@@ -104,30 +104,40 @@
     blPretestEx = 524288,
   }
 
+  type TResultFlag =
+    'page' | // page with exercise
+    'course' // summary item for whole course
+    ;
+
   export interface IFlagResult {
-    flag?: CourseDataFlag;
+    flag?: Array<TResultFlag>;
   }
   export interface IScore {
     s?: number; //actual score
     ms?: number; //max score
   }
-  export interface IResult extends IScore {
-    id: string; //ITagProps.id
+  export interface IResult { //extends IScore {
+    //id: string; //ITagProps.id
   }
   export interface orderingResult extends IResult {
     indexes: Array<number>;
   }
-  export type TPageStatus = //undefined - to work or working
-    'eval-ed' | //evaluated x passed
-    'toLector'; //wait for lector evaluation
-  export interface IPageResult extends IFlagResult, IScore {
+  //export type TPageStatus = //undefined - to work or working
+  //  'eval-ed' | //evaluated x passed
+  //  'toLector'; //wait for lector evaluation
+  export interface IPageResultShort extends IFlagResult {
     //i: number;
-    st: TPageStatus;
+    //st: TPageStatus;
+    done: boolean; //page passed
     b: number; //start time
     //et: number;
     d: number; //for !eval: last worked date-time. eval: evaluated date-time
     t: number; //elapsed timespan in seconds
+    score: IScore;
     //Results: any;
+  }
+  export interface IPageResult {
+    results: { [tagId: string]: IResult; };
   }
   export interface PairingResult extends IResult {
     Value: Array<number>;
@@ -617,10 +627,10 @@ declare namespace DCourse {
   interface IMetaNode extends IPtr {
     childs?: Array<IMetaNode | string>;
     maxScore?: number;
-    flag?: TRuntimeType; // | Array<TRuntimeType>;
+    flag?: TMetaFlag; // | Array<TRuntimeType>;
   }
 
-  export type TRuntimeType = "modGrammar" | "mod" | "taskCourse" | "ex";
+  export type TMetaFlag = "modGrammar" | "mod" | "taskCourse" | "ex";
 
   export interface ICoursesState { [contextId: string]: ICourseState; } //contextId - <userEmail>#<courseUrl>#<attemptId>
 
@@ -629,7 +639,7 @@ declare namespace DCourse {
     //courseUrl: string; //unique course ID
     //attemptId: string; //more attempts for single course
     //pageUrl: string; //aktualni stranka
-    //userCourse?: { [pageUrl: string]: dom.IFlagResult; }
+    //userCourse?: { [pageUrl: string]: DCourse.IFlagResult; }
   }
 
   export interface ICourseNavigData extends ICourseContext {
@@ -641,12 +651,14 @@ declare namespace DCourse {
 
   export interface ICourseContext {
     userEmail: string; //unique user email
-    courseUrl: string; //unique course ID
-    attemptId: string; //more attempts for single course
+    courseUrl: string; //unique course ID. Could be empty => work with page without course
+    skipCourseSitemap: boolean; //courseUrl not empty: do not use need sitemap
+    attemptId: string; //in case of more attempts for single course
   }
 
-  //short results for all course (act page could have long result in userCourse included)
+  //short results for whole course (act page could have long result in userCourse included)
   export interface IPagesState {
+    attemptId: string;
     userCourse?: { [pageUrl: string]: DCourse.IFlagResult; }
   }
 

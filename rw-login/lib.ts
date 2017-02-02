@@ -91,6 +91,6 @@ const LOGIN = 'login.LOGIN';
 export interface ILogindRoute extends DRouter.IRouteData { handlerId: 'login.LOGIN'; }
 export const createLoginRoute = () => ({ handlerId: LOGIN } as ILogindRoute)
 class LoginHandler extends RouteHandler<ILogindRoute> {
-  createComponent(routeData: ILogindRoute, state: DRouter.IRouteDir): JSX.Element { return loginProxy.value(); }
+  createComponent(routeData: ILogindRoute): JSX.Element { return loginProxy.value(); }
 }
 new LoginHandler(LOGIN);

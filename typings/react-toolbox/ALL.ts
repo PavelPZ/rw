@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import AppBar from 'react-toolbox/lib/app_bar/AppBar';
 import Autocomplete from 'react-toolbox/lib/autocomplete/Autocomplete';
 import Avatar from 'react-toolbox/lib/avatar/Avatar';

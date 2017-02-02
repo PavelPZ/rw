@@ -1,7 +1,7 @@
 ﻿import React from 'react';
-import FontIcon from 'react-toolbox/lib/font_icon/FontIcon';
-import Button from 'react-toolbox/lib/button/Button';
-import IconButton from 'react-toolbox/lib/button/IconButton';
+//import FontIcon from 'react-toolbox/lib/font_icon/FontIcon';
+import { Button } from 'react-toolbox/lib/button/Button';
+//import IconButton from 'react-toolbox/lib/button/IconButton';
 import classNames from "classnames";
 
 import theme from "rw-gui-rt/theme";
