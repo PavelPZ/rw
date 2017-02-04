@@ -1,7 +1,7 @@
 ﻿import { Store, MiddlewareAPI, Action } from 'redux';
 
 //*****
-import { changeAppInitState, store, ASYNC_START, IAsyncStartAction, TDispatch, RecordingStatus, IRecording, recordingHook, playActionsStart, getActState } from 'rw-redux';
+import { changeAppInitState, store, TDispatch, RecordingStatus, IRecording, recordingHook, playActionsStart, getActState } from 'rw-redux';
 
 export interface IRecNotify {
   playList?: Array<IRecording>;

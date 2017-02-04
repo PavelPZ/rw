@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 import { Action } from 'redux';
 
-import { addAsyncProc, IAsyncProcPar, doAsyncAction, IAsyncResultAction, store, IMapDispatchToProps, TDispatch, Reducer, TMiddlewareAPI, onAsyncStart, IAsync2EndAction, IAsync2StartAction, getActState, asyncFlagStart } from 'rw-redux';
+import { store, IMapDispatchToProps, TDispatch, Reducer, TMiddlewareAPI, onAsyncStart, IAsyncEndAction, IAsyncStartAction, getActState, asyncActionStartProto } from 'rw-redux';
 import config from 'rw-config';
 
 //*******
@@ -45,8 +45,8 @@ function changeRoute(newRoute: DRouter.IRouteDir, withPustState: boolean, subPat
 export const loginREDIRECT = 'router.LOGIN_REDIRECT'; export interface ILoginRedirectAction extends Action { type: 'router.LOGIN_REDIRECT', returnUrl: string }
 const dispatchLoginRedirect = (dispatch: TDispatch, returnUrl: string) => dispatch({ type: loginREDIRECT, returnUrl: returnUrl } as ILoginRedirectAction);
 
-const routerCHANGE_START = 'ASYNC_START_ROUTER'; interface IRouteChangeStartAction extends IAsync2StartAction { type: 'ASYNC_START_ROUTER', newRoute: DRouter.IRouteDir; withPustState: boolean; subPath: string; }
-const dispatchRouterActionStart = (dispatch: TDispatch, newRoute: DRouter.IRouteDir, withPustState: boolean, subPath: string) => dispatch({ type: routerCHANGE_START, newRoute: newRoute, withPustState: withPustState, subPath: subPath, asyncFlag: asyncFlagStart } as IRouteChangeStartAction);
+const routerCHANGE_START = 'ASYNC_START_ROUTER'; interface IRouteChangeStartAction extends IAsyncStartAction { type: 'ASYNC_START_ROUTER', newRoute: DRouter.IRouteDir; withPustState: boolean; subPath: string; }
+const dispatchRouterActionStart = (dispatch: TDispatch, newRoute: DRouter.IRouteDir, withPustState: boolean, subPath: string) => dispatch({ ...asyncActionStartProto, type: routerCHANGE_START, newRoute: newRoute, withPustState: withPustState, subPath: subPath } as IRouteChangeStartAction);
 
 export interface IRouteChangeStartResult {
   newRoute: DRouter.IRouteDir;
@@ -55,7 +55,7 @@ export interface IRouteChangeStartResult {
 }
 export interface IForHandlerReducers { [handlerId: string]: Array<string>; }
 
-export interface IRouteChangeEndAction extends IAsync2EndAction {
+export interface IRouteChangeEndAction extends IAsyncEndAction {
   type: 'ASYNC_END_ROUTER';
   asyncResult?: IRouteChangeStartResult;
 }

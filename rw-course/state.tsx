@@ -2,7 +2,7 @@
 import { Action } from 'redux';
 
 import config from 'rw-config';
-import { TDispatch, IAsyncProcPar, doAsyncAction, addAsyncProc, IAsyncResultAction, Reducer } from 'rw-redux';
+import { TDispatch, onAsyncStart, IAsyncEndAction, IAsyncStartAction, getActState, asyncActionStartProto, asyncActionEndProto, Reducer } from 'rw-redux';
 import { routerCHANGE_END, IRouteChangeEndAction, RouteHandler } from 'rw-router';
 import { loadCourse, PageLoader } from 'rw-course';
 
@@ -11,12 +11,12 @@ const fromContextId = (str: string) => { const parts = str.split('#'); const n =
 
 const eqNavigData = (dt1: DCourse.ICourseNavigData, dt2: DCourse.ICourseNavigData) => dt1.pageUrl === dt2.pageUrl && dt1.userEmail === dt2.userEmail && dt1.courseUrl === dt2.courseUrl && dt1.attemptId === dt2.attemptId;
 
-const COURSE_NAVIG_ASYNC = 'COURSE_NAVIG_ASYNC'; interface ICourseNavigAsyncPar extends IAsyncProcPar { type: 'COURSE_NAVIG_ASYNC'; data: DCourse.ICourseNavigData }
-export const courseNavigAction = (dispatch: any, data: DCourse.ICourseNavigData, ev?: React.SyntheticEvent<any>) => { if (ev) ev.preventDefault(); dispatch(doAsyncAction({ type: COURSE_NAVIG_ASYNC, data: data } as ICourseNavigAsyncPar)); };
+const COURSE_NAVIG_ASYNC = 'COURSE_NAVIG_ASYNC'; interface ICourseNavigAsyncPar extends IAsyncStartAction { type: 'COURSE_NAVIG_ASYNC'; data: DCourse.ICourseNavigData }
+export const courseNavigAction = (dispatch: any, data: DCourse.ICourseNavigData, ev?: React.SyntheticEvent<any>) => { if (ev) ev.preventDefault(); dispatch({ ...asyncActionStartProto, type: COURSE_NAVIG_ASYNC, data: data } as ICourseNavigAsyncPar) };
 export type TCourseNavigClick = (data: DCourse.ICourseNavigData, ev?: React.SyntheticEvent<any>) => void;
 
-const COURSE_NAVIG_END = 'COURSE_NAVIG_END'; interface ICourseNavigActionEnd extends IAsyncResultAction<ICourseNavigAsyncResult> { type: 'COURSE_NAVIG_END'; data: DCourse.ICoursesState }
-const courseNavigActionEnd = (dispatch: TDispatch, data: DCourse.ICoursesState) => dispatch({ type: COURSE_NAVIG_END, data: data } as ICourseNavigActionEnd);
+const COURSE_NAVIG_END = 'COURSE_NAVIG_END'; interface ICourseNavigActionEnd extends IAsyncEndAction { type: 'COURSE_NAVIG_END'; data: DCourse.ICoursesState }
+const courseNavigActionEnd = (dispatch: TDispatch, data: DCourse.ICoursesState) => dispatch({ ...asyncActionEndProto, type: COURSE_NAVIG_END, data: data } as ICourseNavigActionEnd);
 interface ICourseNavigAsyncResult extends DCourse.IPagesState {
   userPage: DCourse.IPageResult;
 }
@@ -41,10 +41,10 @@ const courseReducer = (state: DCourse.ICoursesState, action: ICourseNavigActionE
   }
 };
 
-addAsyncProc<ICourseNavigAsyncPar>(COURSE_NAVIG_ASYNC, (par, completed, api) => {
-  loadCourse(par.data, (api.getState() as DRedux.IRootState).courses).then(newState => {
-    courseNavigActionEnd(api.dispatch, newState);
-  });
+//addAsyncProc<ICourseNavigAsyncPar>(COURSE_NAVIG_ASYNC, (par, completed, api) => {
+//  loadCourse(par.data, (api.getState() as DRedux.IRootState).courses).then(newState => {
+//    courseNavigActionEnd(api.dispatch, newState);
+//  });
   //dispatchCounterAction(api.dispatch);
 
   //setTimeout(() => completed(() => {
@@ -54,7 +54,7 @@ addAsyncProc<ICourseNavigAsyncPar>(COURSE_NAVIG_ASYNC, (par, completed, api) => 
   //dispatchCounterAction(api.dispatch);
   //dispatchChildActionEnd(api.dispatch, par.id);
   //}));
-});
+//});
 
 //export interface ICourseNode {
 //  title: string;

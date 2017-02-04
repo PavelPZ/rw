@@ -43,7 +43,7 @@
     <Content Include="rw-gui-rt\toolbox.css" />
     <TypeScriptCompile Include="design\rw-course\examples\test.tsx" />
     <TypeScriptCompile Include="design\rw-course\examples\testEnumOldEA.tsx" />
-    <TypeScriptCompile Include="rw-redux\async2.ts" />
+    <TypeScriptCompile Include="rw-redux\async.ts" />
     <TypeScriptCompile Include="typings\rw\dconfig.d.ts" />
     <TypeScriptCompile Include="design\test-build.ts" />
     <TypeScriptCompile Include="design\test.ts" />
@@ -241,7 +241,6 @@
     <TypeScriptCompile Include="rw-lib\unicode.ts" />
     <TypeScriptCompile Include="rw-redux\recording.ts" />
     <TypeScriptCompile Include="rw-redux\app-loader.tsx" />
-    <TypeScriptCompile Include="rw-redux\async.ts" />
     <TypeScriptCompile Include="rw-redux\block-gui.ts" />
     <TypeScriptCompile Include="design\rw-course\examples\testSystemJS.tsx" />
     <TypeScriptCompile Include="rw-redux\types.ts" />
