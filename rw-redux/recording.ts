@@ -1,22 +1,9 @@
 ﻿import { Store, MiddlewareAPI, Action } from 'redux';
 
 //*****
-//import { pushState } from '../rw-router/router';
-import { changeAppInitState, store, recordingHook, ASYNC_START, IAsyncStartAction , TDispatch } from 'rw-redux';
+import { changeAppInitState, store, ASYNC_START, IAsyncStartAction, TDispatch, RecordingStatus, IRecording, recordingHook, playActionsStart, getActState } from 'rw-redux';
 
-export enum RecordingStatus { no, recording, recorded, playing, cancelPlaying }
-
-export interface IRecording {
-  status?: RecordingStatus;
-  appState?: {};
-  actions?: Array<Action>;
-  //in playlist
-  title?: string;
-  isSelected?: boolean; //selected for playing
-}
-let currentRecording: IRecording = {};
-
-export interface INotify {
+export interface IRecNotify {
   playList?: Array<IRecording>;
   status?: RecordingStatus;
   title?: string;
@@ -25,47 +12,35 @@ export interface INotify {
   recordsCount?: number;
   recordsIdx?: number;
 }
-export const notifyDataInit = (data?: INotify) => actNotifyData = { title: '', actionCount: 0, actionIdx: 0, recordsCount: 0, recordsIdx: 0, ...data };
-export let actNotifyData: INotify = notifyDataInit({});
-export const notify = (data?: INotify) => onNotify.value(Object.assign(actNotifyData, data));
-export const onNotify = { value: (data: INotify) => { } };
-export const setStatus = (status: RecordingStatus) => { if (!currentRecording) return; currentRecording.status = status; notify({ status: status }); }
+export const notifyDataInit = (data?: IRecNotify) => actNotifyData = { title: '', actionCount: 0, actionIdx: 0, recordsCount: 0, recordsIdx: 0, ...data };
+export let actNotifyData: IRecNotify = notifyDataInit({});
+export const notify = (data?: IRecNotify) => onNotify.value(Object.assign(actNotifyData, data));
+export const onNotify = { value: (data: IRecNotify) => { } };
+export const setStatus = (status: RecordingStatus) => { const cr = recordingHook.currentRecording; if (!cr) return; cr.status = status; notify({ status: status }); }
 
 
 //play all actions
 export const playRecording = () => {
-  if (!currentRecording || currentRecording.status != RecordingStatus.recorded) return null;
+  const cr = recordingHook.currentRecording;
+  if (!cr || cr.status != RecordingStatus.recorded) return null;
   if (actNotifyData.playList)
-    notify({ title: currentRecording.title });
+    notify({ title: cr.title });
   else {
-    notifyDataInit({ title: currentRecording.title, actionCount: currentRecording.actions.length });
+    notifyDataInit({ title: cr.title, actionCount: cr.actions.length });
     notify();
   }
-  return new Promise((resolve, reject) => {
-    setStatus(RecordingStatus.playing);
-    if (!currentRecording || !currentRecording.appState || !currentRecording.actions || currentRecording.actions.length <= 0) resolve();
-    const store = changeAppInitState(currentRecording.appState);
-    //pushState((store.getState() as DRedux.IRootState).router);
-    let actIdx = 0; const dispatch = store.dispatch;
-    let play: () => void;
-    play = () => {
-      try {
-        if (!currentRecording || currentRecording.status != RecordingStatus.playing) { setStatus(RecordingStatus.recorded); notify({ playList:null }); return; }
-        if (actIdx >= currentRecording.actions.length) { setStatus(RecordingStatus.recorded); resolve(); return; }
-        playAction(dispatch, currentRecording.actions[actIdx]).then(() => setTimeout(() => { notify({ actionIdx: actNotifyData.actionIdx + 1 }); play(); }, 500));
-        actIdx++;
-      } catch (error) { reject(error); }
-    };
-    setTimeout(() => play(), 500);
-  });
+  if (!cr || !cr.appState || !cr.actions || cr.actions.length <= 0) return Promise.resolve(true);
+  setStatus(RecordingStatus.playing);
+  changeAppInitState(cr.appState);
+  return playActionsStart().then(res => { setStatus(RecordingStatus.recorded); return true; });
 };
 
-export const setCurrentRecording = (rec: IRecording) => currentRecording = rec;
+export const setCurrentRecording = (rec: IRecording) => recordingHook.currentRecording = rec;
 
 //start recording
 export const startRecording = () => {
   cancel();
-  currentRecording = { status: RecordingStatus.recording, appState: store.getState(), actions: [], title: actNotifyData.title = curentRecordingTitle };
+  recordingHook.currentRecording = { status: RecordingStatus.recording, appState: store.getState(), actions: [], title: actNotifyData.title = curentRecordingTitle };
   setStatus(RecordingStatus.recording);
 };
 export const curentRecordingTitle = 'Current';
@@ -73,37 +48,25 @@ export const curentRecordingTitle = 'Current';
 //cancel all
 export const cancel = () => {
   cancelPlaying(); stopRecording();
-  currentRecording = null;
+  recordingHook.currentRecording = null;
   notifyDataInit({}); notify();
 };
 
 //stop recording
 export const stopRecording = (title?: string) => {
-  if (!currentRecording || currentRecording.status != RecordingStatus.recording) return;
-  setStatus(RecordingStatus.recorded); if (title) currentRecording.title = title;
+  const cr = recordingHook.currentRecording;
+  if (!cr || cr.status != RecordingStatus.recording) return;
+  setStatus(RecordingStatus.recorded); if (title) cr.title = title;
   //save recordedActions
-  if (!currentRecording.title) currentRecording.title = curentRecordingTitle;
-  localStorage.setItem(locStoragePrefix + currentRecording.title, JSON.stringify(currentRecording));
+  if (!cr.title) cr.title = curentRecordingTitle;
+  localStorage.setItem(locStoragePrefix + cr.title, JSON.stringify(cr));
 };
 export const locStoragePrefix = 'records/';
 
 //cancel playing
 export const cancelPlaying = () => {
-  if (!currentRecording || currentRecording.status != RecordingStatus.playing) return;
-  currentRecording.status = RecordingStatus.cancelPlaying;
+  const cr = recordingHook.currentRecording;
+  if (!cr || cr.status != RecordingStatus.playing) return;
+  cr.status = RecordingStatus.cancelPlaying;
 }
 
-recordingHook.pushActions = act => {
-  if (!currentRecording || currentRecording.status != RecordingStatus.recording) return;
-  currentRecording.actions.push(act);
-  notify({ actionCount: currentRecording.actions.length });
-};
-
-const playAction = (dispatch: TDispatch, action: Action) => {
-  return new Promise(resolve => {
-    if (action.type != ASYNC_START) { dispatch(action); resolve(); return; }
-    const act = action as IAsyncStartAction;
-    act.$playbackDone = () => { resolve(); delete act.$playbackDone; };
-    dispatch(action);
-  });
-};
