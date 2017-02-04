@@ -43,6 +43,7 @@
     <Content Include="rw-gui-rt\toolbox.css" />
     <TypeScriptCompile Include="design\rw-course\examples\test.tsx" />
     <TypeScriptCompile Include="design\rw-course\examples\testEnumOldEA.tsx" />
+    <TypeScriptCompile Include="rw-redux\async2.ts" />
     <TypeScriptCompile Include="typings\rw\dconfig.d.ts" />
     <TypeScriptCompile Include="design\test-build.ts" />
     <TypeScriptCompile Include="design\test.ts" />

@@ -41,8 +41,8 @@ const createAppRoute = (title: string, child: IAppChildRoute, ch1$child: IAppChi
 
 //handler
 class RootHandler extends RouteHandler<IAppRootRoute> {
-  createComponent(route: IAppRootRoute): JSX.Element { return <RootPresenter {...route} instanceTitle='instance 1' />; }
-  prepare(route: IAppRootRoute): Promise<string> { return new Promise<string>(resolve => setTimeout(() => resolve('parent async data x'), 500)); }
+  createComponent(route: IAppRootRoute): JSX.Element { return <RootPresenter {...route} instanceTitle='instance-1' />; }
+  prepare(route: IAppRootRoute): Promise<string> { return new Promise<string>(resolve => setTimeout(() => resolve('parent-async-data-x'), 500)); }
   //prepare(route: IRouteData): Promise<any> { return new Promise<any>(resolve => resolve('parent async data')); }
   //prepare(route: IRouteData): Promise<any> { return 'parent async data' as any; }
 }
@@ -72,11 +72,15 @@ const createChildRoute = (numId: number) => ({ handlerId: APP_CHILD, numId: numI
 class ChildHandler extends RouteHandler<IAppChildRoute> {
   createComponent(routeData: IAppChildRoute): JSX.Element {
     console.log('render ChildHandler');
-    const state = getActState().router;
-    const parPath = parentPath(state, routeData.path);
     return <div>
       <h2>{routeData.numId}</h2>
-      <a href="#" onClick={ev => navigate(routeModify<IAppRootRoute>(state, parPath, res => { res.title += ' x'; res.$childs.ch1.numId += 1; }), ev, parPath)}>Click</a>
+      <a href="#" onClick={ev => {
+        const state = getActState().router;
+        const parPath = parentPath(state, routeData.path);
+        return navigate(routeModify<IAppRootRoute>(state, parPath, parent => { parent.title += '-x'; parent.$childs.ch1.numId += 1; }), ev, parPath);
+        //const selfPath = routeData.path;
+        //return navigate(routeModify<IAppChildRoute>(state, selfPath, self => self.numId += 1), ev, selfPath);
+      }}>Click</a>
     </div>;
   }
   unPrepare(route: IAppChildRoute): Promise<never> { return new Promise<never>(resolve => setTimeout(() => resolve(), 500)); }
@@ -99,7 +103,7 @@ const rootReducer = (state: DRedux.IRootState, action: any): DRedux.IRootState =
 export function init() {
   appInit(rootReducer, document.getElementById('content'), getRTAppRoot);
   //Route definition
-  config.route.initRoute = () => routeTreeToDir(createAppRoute('Hallo world x', createChildRoute(10), createChildRoute(20)));
+  config.route.initRoute = () => routeTreeToDir(createAppRoute('Hallo-world-x', createChildRoute(10), createChildRoute(20)));
   //Router init
   routerInit();
 }

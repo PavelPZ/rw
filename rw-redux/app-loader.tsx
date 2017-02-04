@@ -35,6 +35,7 @@ export function appInit(reducer: TReducer, element: Element, getComponent: () =>
 }
 export let store: Store<any>;
 export const getActState = () => store.getState() as DRedux.IRootState;
+export const setStore = (st: Store<any>) => store = st;
 
 //export function replaceReducer(reducer: Reducer<any>) {
 //  store.replaceReducer(reducer);
@@ -45,7 +46,7 @@ export function changeAppInitState(initState: any): Store<any> {
   const st = createStore(initData.reducer, initState, initData.middlewares);
   ReactDOM.unmountComponentAtNode(initData.element);
   ReactDOM.render(<Provider store={st}>{initData.getComponent()}</Provider>, initData.element);
-  return store = st;
+  return setStore(st);
 }
 
 //vse potrebne pro vicenasobnou inicializaci aplikace (kvuli replay recorded actions)
