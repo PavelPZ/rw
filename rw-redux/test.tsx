@@ -5,7 +5,10 @@ import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 
 //******
-import { blockGuiReducerFnc, blockGuiCreator, TBlockGuiPresent, startRecording, playRecording, Reducer, TDispatch, IMapDispatchToProps, appInit, addAsyncProc, doAsyncAction, IAsyncStartAction, IAsyncResultAction, ASYNC_END, ASYNC_START, noRecordFnc, IAsyncProcPar } from 'rw-redux';
+import {
+  blockGuiReducerFnc, blockGuiCreator, TBlockGuiPresent, startRecording, playRecording, Reducer, TDispatch, IMapDispatchToProps, appInit, addAsyncProc, doAsyncAction, IAsyncStartAction, IAsyncResultAction, noRecordFnc, IAsyncProcPar,
+  onAsyncStart, IAsync2EndAction, IAsync2StartAction, getActState, asyncFlagStart, asyncFlagEnd
+} from 'rw-redux';
 
 /***********************************************
               BLOCK GUI
@@ -32,11 +35,14 @@ interface IParentAction extends Action { type: 'PARENT_ACT'; } const PARENT_ACT 
 //http://stackoverflow.com/questions/34427851/reducing-an-entire-subtree-with-redux-combinereducers
 export function doParentAction(dispatch: TDispatch): Action { return dispatch({ type: PARENT_ACT }); }
 
-const parentReducer: Reducer<IParentState, IParentAction | IDoChild> = (state = { root: { text: 'parent' }, childIds: [], childs: {} }, action) => {
+const parentReducer: Reducer<IParentState, IParentAction | IChildAsyncEndAction | IChildAsyncStartAction> = (state = { root: { text: 'parent' }, childIds: [], childs: {} }, action) => {
   switch (action.type) {
     //case PARENT_ACT: return { root: { text: state.root.text + ' x' }, childs: state.childs, childIds: state.childIds };
     //case CHILD_ACT: return { root: state.root, childIds: state.childIds, childs: Object.assign({}, state.childs, { [action.id]: childReducer(state.childs[action.id], action) }) };
     case PARENT_ACT: return { ...state, ... ({ root: { text: state.root.text + ' x' } }) };
+    case CHILD_ASYNC:
+      childReducer(state.childs[action.id], action);
+      return state;
     case CHILD_ACT: return { ...state, childs: { ...state.childs, [action.id]: childReducer(state.childs[action.id], action) } };
     default: return state;
   }
@@ -85,17 +91,23 @@ const Parent = connect<IParentMapStateToProps, IParentMapDispatchToProps, never>
 //************* DO_CHILD
 export interface IChildState { text: string; }
 
-const childReducer = (state: IChildState, action: IDoChild): IChildState => {
-  if (!state) return { text: `child ${action.id}` };
+const childReducer = (state: IChildState, action: IChildAsyncEndAction | IChildAsyncStartAction): IChildState => {
+  if (!state) return { text: 'child '+ action.id };
   switch (action.type) {
-    case CHILD_ACT: return { text: state.text + ' x' };
     //case CHILD_ACT: return { text: action.asyncResult };
+    case CHILD_ASYNC:
+      const endAct: IChildAsyncEndAction = { id: action.id, type: CHILD_ACT, asyncFlag: asyncFlagEnd  };
+      onAsyncStart(action, endAct, new Promise((resolve, reject) => {
+        setTimeout(() => resolve(), 500);
+      }));
+      return state;
+    case CHILD_ACT: return { text: state.text + ' x' };
     default: return state;
   }
 };
 
 interface IChildMapStateToProps { textProp: string; }
-interface IChildMapDispatchToProps { onClickProp: (ev?: React.SyntheticEvent<any>) => IAsyncStartAction; }
+interface IChildMapDispatchToProps { onClickProp: (ev?: React.SyntheticEvent<any>) => IChildAsyncStartAction; }
 interface IChildOwnProps { id: string; initState: IChildState }
 
 const ChildPresent: React.StatelessComponent<IChildMapStateToProps & IChildMapDispatchToProps> = props => {
@@ -103,24 +115,24 @@ const ChildPresent: React.StatelessComponent<IChildMapStateToProps & IChildMapDi
   return <h2 onClick={ev => props.onClickProp(ev)}>{props.textProp}</h2>;
 };
 
-const CHILD_ASYNC = 'CHILD_ASYNC'; interface IChildAsyncPar extends IAsyncProcPar { type: 'CHILD_ASYNC'; id: string; }
-const dispatchChildActionStart = (dispatch: TDispatch, id: string) => dispatch(doAsyncAction({ type: CHILD_ASYNC, id: id } as IChildAsyncPar));
+const CHILD_ASYNC = 'CHILD_ASYNC'; interface IChildAsyncStartAction extends IAsync2StartAction { type: 'CHILD_ASYNC'; id: string; }
+const dispatchChildActionStart = (dispatch: TDispatch, id: string) => dispatch({ type: CHILD_ASYNC, id: id, asyncFlag: asyncFlagStart } as IChildAsyncStartAction);
 
-const CHILD_ACT = 'CHILD_ACT'; interface IDoChild extends IAsyncResultAction<string> { type: 'CHILD_ACT'; id: string }
-const dispatchChildActionEnd = (dispatch: TDispatch, id: string, asyncResult?: string) => dispatch({ type: CHILD_ACT, id: id, asyncResult: asyncResult } as IDoChild);
+const CHILD_ACT = 'CHILD_ACT'; interface IChildAsyncEndAction extends IAsync2EndAction { type: 'CHILD_ACT'; id: string }
+//const dispatchChildActionEnd = (dispatch: TDispatch, id: string, asyncResult?: string) => dispatch({ type: CHILD_ACT, id: id, asyncResult: asyncResult } as IDoChild);
 
-addAsyncProc<IChildAsyncPar>(CHILD_ASYNC, (par, completed, api) => {
-  dispatchCounterAction(api.dispatch);
+//addAsyncProc<IChildAsyncPar>(CHILD_ASYNC, (par, completed, api) => {
+//  dispatchCounterAction(api.dispatch);
 
-  setTimeout(() => completed(() => {
-    dispatchCounterAction(api.dispatch);
-    dispatchChildActionEnd(api.dispatch, par.id);
-  }), 500);
-  //fetch('fetch-test.json').then(resp => resp.json()).then(res => completed(() => {
-  //dispatchCounterAction(api.dispatch);
-  //dispatchChildActionEnd(api.dispatch, par.id);
-  //}));
-});
+//  setTimeout(() => completed(() => {
+//    dispatchCounterAction(api.dispatch);
+//    dispatchChildActionEnd(api.dispatch, par.id);
+//  }), 500);
+//  //fetch('fetch-test.json').then(resp => resp.json()).then(res => completed(() => {
+//  //dispatchCounterAction(api.dispatch);
+//  //dispatchChildActionEnd(api.dispatch, par.id);
+//  //}));
+//});
 
 const Child = connect<IChildMapStateToProps, IChildMapDispatchToProps, IChildOwnProps>(
   (state: DRedux.IRootState, props: IChildOwnProps) => {

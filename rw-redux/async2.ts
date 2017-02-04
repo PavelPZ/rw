@@ -14,23 +14,28 @@ export interface IRecording {
 }
 
 export let recordingHook = {
-  //isRecording: false,
-  //isPlaying: false,
   currentRecording: null as IRecording,
   resolve: null as (res: boolean) => void,
 };
 
-export interface IAsync2EndAction extends Action {
-  asyncFlag: '@asyncFlag',
+export interface IAsyncFlagAction extends Action { asyncFlag: string }
+export interface IAsync2EndAction extends IAsyncFlagAction {
+  asyncFlag: '@asyncFlagEnd',
   asyncResult?: any;
 }
-const asyncFlag = '@asyncFlag';
-export const asyncTypeStartPrefix = 'ASYNC_START_';
-export const asyncTypeEndPrefix = 'ASYNC_END_';
+export const asyncFlagEnd = '@asyncFlagEnd';
 
-export function onAsyncStart(asyncProc: Promise<any>, endType: string) {
+export interface IAsync2StartAction extends IAsyncFlagAction {
+  asyncFlag: '@asyncFlagStart',
+  asyncResult?: any;
+}
+export const asyncFlagStart = '@asyncFlagStart';
+
+export function onAsyncStart(action: IAsync2StartAction, endType: string | IAsync2EndAction, asyncProc: Promise<any>) {
+  if (action.asyncFlag != asyncFlagStart) throw new Error('action.asyncFlag != asyncFlagStart');
   asyncProc.then(res => {
-    const end: IAsync2EndAction = { type: endType, asyncFlag: asyncFlag, asyncResult: res };
+    const end: IAsync2EndAction = typeof endType == 'string' ? { type: endType, asyncFlag: asyncFlagEnd } : endType;
+    end.asyncResult = res;
     if (recordingHook.currentRecording && recordingHook.currentRecording.status == RecordingStatus.playing) playActionsContinue(res, end); /* 5 */
     else store.dispatch(end);
   });
@@ -56,13 +61,13 @@ const playActionsContinue = (asyncResult?: any, endAction?: IAsync2EndAction) =>
   const cr = recordingHook.currentRecording;
   if (cr.actIdx >= cr.actions.length) { recordingHook.resolve(true); delete recordingHook.resolve; return; } //playing finished
   let nextAction = cr.actions[cr.actIdx];
-  if (!endAction && (nextAction as IAsync2EndAction).asyncFlag == asyncFlag) return; /* 4 */ //next action is asyncEnd action. Wait for async action completed
+  if (!endAction && (nextAction as IAsync2EndAction).asyncFlag == asyncFlagEnd) return; /* 4 */ //next action is asyncEnd action. Wait for async action completed
   cr.actIdx++; //increase action pointer
   if (endAction && endAction.type != nextAction.type) throw new Error('endAction.type != nextAction.type'); //end action check
   setTimeout(() => {
     store.dispatch(endAction ? endAction : nextAction); /* 1. !endAction => AsyncStart, 6. endAction => AsyncEnd */
     playActionsContinue(); /* 3. nextAction is IAsyncEndAction */
-  }, 1);
+  }, 300);
 };
 
 //********************** TEST
@@ -76,11 +81,11 @@ export function init() {
   setStore(createStore(rootReducer, {}, middlewares));
   recordingHook.currentRecording = { actions: [], actIdx: 0, status: RecordingStatus.recording };
   store.dispatch({ type: 'ANY' });
-  store.dispatch({ type: asyncTypeStartPrefix + 'TEST' });
+  store.dispatch({ type: 'START' });
   store.dispatch({ type: 'ANY' });
   setTimeout(() => {
     store.dispatch({ type: 'ANY' });
-    store.dispatch({ type: asyncTypeStartPrefix + 'TEST' });
+    store.dispatch({ type: 'START' });
     store.dispatch({ type: 'ANY' });
     setTimeout(() => {
       const log = getActState()['test'].testLog.join(',');
@@ -97,15 +102,15 @@ export function init() {
 const testReducer: Reducer<ITestState, Action> = (state, action) => {
   if (!state) return { testLog: [] };
   switch (action.type) {
-    case asyncTypeStartPrefix + 'TEST':
-      onAsyncStart(new Promise((resolve, reject) => {
+    case 'TEST':
+      onAsyncStart(action as any, 'END', new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve('async-data');
         }, 200);
         //}), { type: 'END', asyncFlag: asyncFlag }, true); /* 2 */
-      }), asyncTypeEndPrefix + 'END'); /* 2 */
+      })); /* 2 */
       return { testLog: [...state.testLog, `START ${getActState().blockGui.counter.toString()}`] };
-    case asyncTypeEndPrefix + 'END':
+    case 'END':
       const act = action as IAsync2EndAction;
       return { testLog: [...state.testLog, `END ${act.asyncResult.toString()} ${getActState().blockGui.counter.toString()}`] };
     case 'ANY':

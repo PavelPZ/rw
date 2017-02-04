@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 import { Action } from 'redux';
 
-import { addAsyncProc, IAsyncProcPar, doAsyncAction, IAsyncResultAction, store, IMapDispatchToProps, TDispatch, Reducer, TMiddlewareAPI, onAsyncStart, IAsync2EndAction, getActState, asyncTypeStartPrefix, asyncTypeEndPrefix } from 'rw-redux';
+import { addAsyncProc, IAsyncProcPar, doAsyncAction, IAsyncResultAction, store, IMapDispatchToProps, TDispatch, Reducer, TMiddlewareAPI, onAsyncStart, IAsync2EndAction, IAsync2StartAction, getActState, asyncFlagStart } from 'rw-redux';
 import config from 'rw-config';
 
 //*******
@@ -45,8 +45,8 @@ function changeRoute(newRoute: DRouter.IRouteDir, withPustState: boolean, subPat
 export const loginREDIRECT = 'router.LOGIN_REDIRECT'; export interface ILoginRedirectAction extends Action { type: 'router.LOGIN_REDIRECT', returnUrl: string }
 const dispatchLoginRedirect = (dispatch: TDispatch, returnUrl: string) => dispatch({ type: loginREDIRECT, returnUrl: returnUrl } as ILoginRedirectAction);
 
-const routerCHANGE_START = 'ASYNC_START_ROUTER'; interface IRouteChangeStartAction extends Action { type: 'ASYNC_START_ROUTER', newRoute: DRouter.IRouteDir; withPustState: boolean; subPath: string; }
-const dispatchRouterActionStart = (dispatch: TDispatch, newRoute: DRouter.IRouteDir, withPustState: boolean, subPath: string) => dispatch({ type: routerCHANGE_START, newRoute: newRoute, withPustState: withPustState, subPath: subPath } as IRouteChangeStartAction);
+const routerCHANGE_START = 'ASYNC_START_ROUTER'; interface IRouteChangeStartAction extends IAsync2StartAction { type: 'ASYNC_START_ROUTER', newRoute: DRouter.IRouteDir; withPustState: boolean; subPath: string; }
+const dispatchRouterActionStart = (dispatch: TDispatch, newRoute: DRouter.IRouteDir, withPustState: boolean, subPath: string) => dispatch({ type: routerCHANGE_START, newRoute: newRoute, withPustState: withPustState, subPath: subPath, asyncFlag: asyncFlagStart } as IRouteChangeStartAction);
 
 export interface IRouteChangeStartResult {
   newRoute: DRouter.IRouteDir;
@@ -67,7 +67,7 @@ const routerReducer: Reducer<DRouter.IRouteDir, IRouteChangeEndAction | IRouteCh
   switch (action.type) {
     case routerCHANGE_START:
 
-      onAsyncStart(new Promise<IRouteChangeStartResult>(async (resolve, reject) => {
+      onAsyncStart(action, routerCHANGE_END, new Promise<IRouteChangeStartResult>(async (resolve, reject) => {
         const oldRoute = getActState().router;
         const diffs = diff(oldRoute, action.newRoute, action.subPath);
         const modifyRouteState = () => { //merge: old routes, delete modified routes, add new routes
@@ -105,7 +105,7 @@ const routerReducer: Reducer<DRouter.IRouteDir, IRouteChangeEndAction | IRouteCh
           reds.push(path);
         }
         resolve({ newRoute: newRouteState, withPustState: action.withPustState, forHandlerReducers: forHandlerReducers  } as IRouteChangeStartResult);
-      }), routerCHANGE_END);
+      }));
 
       return state;
 

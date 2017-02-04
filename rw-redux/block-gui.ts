@@ -1,16 +1,8 @@
 ﻿import React from 'react';
 import { connect, ComponentDecorator } from 'react-redux';
-//import { Action } from 'redux';
 
 //*****
-import { TAction, ASYNC_END, ASYNC_START, Reducer, IMapDispatchToProps, asyncTypeStartPrefix, asyncTypeEndPrefix } from 'rw-redux';
-
-//declare module 'rw-redux' {
-//  interface DRedux.IRootState {
-//    blockGui?: IBlockGuiState;
-//  }
-//}
-//export interface IBlockGuiState { counter: number; }
+import { TAction, Reducer, IMapDispatchToProps, asyncFlagEnd, asyncFlagStart, IAsyncFlagAction } from 'rw-redux';
 
 export const blockGuiReducerFnc = (state: DRedux.IRootState, action: any): DRedux.IRootState => {
   return {
@@ -24,11 +16,14 @@ export const blockGuiProxy: { value?: () => JSX.Element } = {};
 
 export interface IBlockGuiMapStateToProps { counterProp: number; }
 
-const blockGuiReducer: Reducer<DRedux.IBlockGuiState, TAction> = (state, action) => {
+const blockGuiReducer: Reducer<DRedux.IBlockGuiState, IAsyncFlagAction> = (state, action) => {
   if (!state) return { counter: 0 };
-  if (action.type.startsWith(asyncTypeStartPrefix)) return { counter: state.counter + 1 };
-  if (action.type.startsWith(asyncTypeEndPrefix)) return { counter: state.counter - 1 };
-  return state;
+  switch (action.asyncFlag) {
+    case asyncFlagStart: return { counter: state.counter + 1 };
+    case asyncFlagEnd: return { counter: state.counter - 1 };
+    default: return state;
+  }
+  
 };
 
 
