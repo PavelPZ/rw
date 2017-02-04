@@ -1,9 +1,9 @@
 ﻿import React from 'react';
 import { connect, ComponentDecorator } from 'react-redux';
-import { Action } from 'redux';
+//import { Action } from 'redux';
 
 //*****
-import { ASYNC_END, ASYNC_START, Reducer, IMapDispatchToProps } from 'rw-redux';
+import { TAction, ASYNC_END, ASYNC_START, Reducer, IMapDispatchToProps, asyncTypeStartPrefix, asyncTypeEndPrefix } from 'rw-redux';
 
 //declare module 'rw-redux' {
 //  interface DRedux.IRootState {
@@ -24,13 +24,11 @@ export const blockGuiProxy: { value?: () => JSX.Element } = {};
 
 export interface IBlockGuiMapStateToProps { counterProp: number; }
 
-const blockGuiReducer: Reducer<DRedux.IBlockGuiState, Action> = (state, action) => {
+const blockGuiReducer: Reducer<DRedux.IBlockGuiState, TAction> = (state, action) => {
   if (!state) return { counter: 0 };
-  switch (action.type) {
-    case ASYNC_START: return { counter: state.counter + 1 };
-    case ASYNC_END: return { counter: state.counter - 1 };
-    default: return state;
-  }
+  if (action.type.startsWith(asyncTypeStartPrefix)) return { counter: state.counter + 1 };
+  if (action.type.startsWith(asyncTypeEndPrefix)) return { counter: state.counter - 1 };
+  return state;
 };
 
 

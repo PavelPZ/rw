@@ -61,7 +61,7 @@ class ChildHandler extends RouteHandler<IAppChildRoute> {
       <h2>Login needed component</h2>
     </div>;
   }
-  loginNeeded(route: IAppChildRoute, api: TMiddlewareAPI): boolean { return true; }
+  loginNeeded(route: IAppChildRoute): boolean { return true; }
 }
 new ChildHandler(APP_CHILD);
 

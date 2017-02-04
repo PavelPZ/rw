@@ -17,8 +17,8 @@ import { Action, Store, createStore, GenericStoreEnhancer, applyMiddleware } fro
 import { asyncMiddleware, TReducer, TMiddleware, Middleware } from 'rw-redux';
 
 //recording data
-export let isRecording = { value: false };
-export const recordedActions: { startStatus: {}; actions: Array<Action> } = { startStatus: {}, actions: [] }
+//export let isRecording = { value: false };
+//export const recordedActions: { startStatus: {}; actions: Array<Action> } = { startStatus: {}, actions: [] }
 
 //init app - called once
 export function appInit(reducer: TReducer, element: Element, getComponent: () => JSX.Element, initState: DRedux.IRootState = {}): Store<any> {

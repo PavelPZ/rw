@@ -5,7 +5,7 @@ import { Button } from 'react-toolbox/lib/button/Button';
 import classNames from "classnames";
 
 import theme from "rw-gui-rt/theme";
-import { playList, onNotify, INotify, cancel, playRecording, startRecording, stopRecording, cancelPlaying, actNotifyData, RecordingStatus } from "rw-redux";
+import { playList, onNotify, IRecNotify, cancel, playRecording, startRecording, stopRecording, cancelPlaying, actNotifyData, RecordingStatus } from "rw-redux";
 
 export interface IHomeState {
   size: number; //home size
@@ -50,7 +50,7 @@ export class RecHome extends React.Component<{}, IHomeState> {
   }
 }
 
-const btnMetas: Array<[string, string, () => void, (nd: INotify) => boolean]> = [
+const btnMetas: Array<[string, string, () => void, (nd: IRecNotify) => boolean]> = [
   ['Play', 'play_circle_filled', playRecording, nd => !nd.playList && inStatus(nd.status, [RecordingStatus.recorded])],
   ['Record', 'fiber_manual_record', startRecording, nd => !nd.playList && inStatus(nd.status, [RecordingStatus.recorded, RecordingStatus.no])],
   //['Stop', 'stop', cancel, nd => inStatus(nd.status, [RecordingStatus.playing])],

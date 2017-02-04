@@ -3,9 +3,9 @@
 //*****
 import { TMiddlewareAPI, Middleware } from 'rw-redux';
 
-export let recordingHook = {
-  pushActions: (act: Action) => { }
-};
+//export let recordingHook = {
+//  pushActions: (act: Action) => { }
+//};
 
 export type TAsyncComplete = (onResolve?: () => void) => void;
 export interface IAsyncProcPar { type: string; }
@@ -31,19 +31,19 @@ export const doAsyncEndAction = () => ({ type: ASYNC_END } as IAsyncEndAction);
 export interface IAsyncErrorAction extends Action { type: ASYNC_ERROR; msg: any; }
 export const doAsyncErrorAction = (msg: any) => ({ type: ASYNC_ERROR, msg: msg } as IAsyncErrorAction);
 
-export const asyncMiddleware: Middleware<IAsyncStartAction> = middlAPI => next => act => {
-  next(act);
-  if (!noRecordFlag && typeof act == 'object') recordingHook.pushActions(act); //typeof act == 'object' je kvuli ev. Thunk action
-  if (act.type != ASYNC_START) return;
-  const asyncProc = asyncProcs[act.asyncProcName];
-  noRecordFnc(() => //no record action zone, before async 
-    asyncProc(act.asyncProcPar, onResolve => noRecordFnc(() => { //no record action zone, async resolved
-      if (onResolve) onResolve();
-      middlAPI.dispatch(doAsyncEndAction());
-      if (act.$playbackDone) act.$playbackDone();
-    }), middlAPI)
-  );
-}
+//export const asyncMiddleware: Middleware<IAsyncStartAction> = middlAPI => next => act => {
+  //next(act);
+  //if (!noRecordFlag && typeof act == 'object') recordingHook.pushActions(act); //typeof act == 'object' je kvuli ev. Thunk action
+  //if (act.type != ASYNC_START) return;
+  //const asyncProc = asyncProcs[act.asyncProcName];
+  //noRecordFnc(() => //no record action zone, before async 
+  //  asyncProc(act.asyncProcPar, onResolve => noRecordFnc(() => { //no record action zone, async resolved
+  //    if (onResolve) onResolve();
+  //    middlAPI.dispatch(doAsyncEndAction());
+  //    if (act.$playbackDone) act.$playbackDone();
+  //  }), middlAPI)
+  //);
+//}
 
 export function addAsyncProc<TPar extends IAsyncProcPar>(name: string, proc: TAsyncProc<TPar>) {
   if (asyncProcs[name]) throw new Error('asyncProcs[name]');

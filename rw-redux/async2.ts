@@ -1,60 +1,63 @@
 ﻿import { Action, createStore, applyMiddleware } from 'redux';
-import { TDispatch, Reducer, TMiddlewareAPI, Middleware, TMiddleware, store, setStore } from 'rw-redux';
+import { TDispatch, Reducer, TMiddlewareAPI, Middleware, TMiddleware, store, setStore, blockGuiReducerFnc, getActState } from 'rw-redux';
 
-export interface IAsyncEndAction extends Action {
-  asyncFlag: '@asyncFlag',
-  noBlockGui?: boolean;
-  asyncResult?: any;
-}
-const asyncFlag = '@asyncFlag';
+export enum RecordingStatus { no, recording, recorded, playing, cancelPlaying }
 
-export function onAsyncStart<TAsyncResult, TEnd extends IAsyncEndAction>(asyncProc: Promise<TAsyncResult>, end: TEnd, noBlockGui?: boolean): DRedux.IRootState {
-  asyncProc.then(res => {
-    end.asyncResult = res;
-    end.noBlockGui = noBlockGui;
-    if (recordingHook.isPlaying) playActionsContinue(res, end); /* 5 */
-    else store.dispatch(end);
-  });
-  let st = store.getState() as DRedux.IRootState;
-  return noBlockGui ? st : { ...st, blockGui: { counter: st.blockGui.counter + 1 } };
-}
-
-export const onAsyncEnd = (action: IAsyncEndAction): DRedux.IRootState => {
-  let st = store.getState() as DRedux.IRootState;
-  return action.noBlockGui ? st : { ...st, blockGui: { counter: st.blockGui.counter - 1 } };
+export interface IRecording {
+  status?: RecordingStatus;
+  appState?: {};
+  actions?: Array<Action>;
+  actIdx?: number;
+  //in playlist
+  title?: string;
+  isSelected?: boolean; //selected for playing
 }
 
 export let recordingHook = {
-  isRecording: false,
-  isPlaying: false,
+  //isRecording: false,
+  //isPlaying: false,
+  currentRecording: null as IRecording,
+  resolve: null as (res: boolean) => void,
 };
+
+export interface IAsync2EndAction extends Action {
+  asyncFlag: '@asyncFlag',
+  asyncResult?: any;
+}
+const asyncFlag = '@asyncFlag';
+export const asyncTypeStartPrefix = 'ASYNC_START_';
+export const asyncTypeEndPrefix = 'ASYNC_END_';
+
+export function onAsyncStart(asyncProc: Promise<any>, endType: string) {
+  asyncProc.then(res => {
+    const end: IAsync2EndAction = { type: endType, asyncFlag: asyncFlag, asyncResult: res };
+    if (recordingHook.currentRecording && recordingHook.currentRecording.status == RecordingStatus.playing) playActionsContinue(res, end); /* 5 */
+    else store.dispatch(end);
+  });
+}
 
 export const asyncMiddleware: Middleware<Action> = middlAPI => next => act => {
   next(act);
-  if (recordingHook.isRecording) pushActions(act);
+  if (recordingHook.currentRecording && recordingHook.currentRecording.status == RecordingStatus.recording) pushActions(act);
 }
-
-interface IRecordingGlob {
-  actions: Array<Action>;
-  actIdx: number;
-  resolve: (res: boolean) => void;
-}
-const recordingGlob: IRecordingGlob = { actions: [], actIdx: 0, resolve: null };
 
 export function playActionsStart(): Promise<boolean> {
+  if (!recordingHook.currentRecording) return Promise.resolve(true);
+  recordingHook.currentRecording.actIdx = 0;
   return new Promise((resolve, reject) => {
-    recordingGlob.resolve = res => resolve(res);
+    recordingHook.resolve = res => resolve(res);
     playActionsContinue();
   });
 }
 
-const pushActions = (act: Action) => recordingGlob.actions.push(act);
+const pushActions = (act: Action) => recordingHook.currentRecording.actions.push(act);
 
-const playActionsContinue = (asyncResult?: any, endAction?: IAsyncEndAction) => {
-  if (recordingGlob.actIdx >= recordingGlob.actions.length) { recordingGlob.resolve(true); return; } //playing finished
-  let nextAction = recordingGlob.actions[recordingGlob.actIdx];
-  if (!endAction && (nextAction as IAsyncEndAction).asyncFlag == asyncFlag) return; /* 4 */ //next action is asyncEnd action. Wait for async action completed
-  recordingGlob.actIdx++; //increase action pointer
+const playActionsContinue = (asyncResult?: any, endAction?: IAsync2EndAction) => {
+  const cr = recordingHook.currentRecording;
+  if (cr.actIdx >= cr.actions.length) { recordingHook.resolve(true); delete recordingHook.resolve; return; } //playing finished
+  let nextAction = cr.actions[cr.actIdx];
+  if (!endAction && (nextAction as IAsync2EndAction).asyncFlag == asyncFlag) return; /* 4 */ //next action is asyncEnd action. Wait for async action completed
+  cr.actIdx++; //increase action pointer
   if (endAction && endAction.type != nextAction.type) throw new Error('endAction.type != nextAction.type'); //end action check
   setTimeout(() => {
     store.dispatch(endAction ? endAction : nextAction); /* 1. !endAction => AsyncStart, 6. endAction => AsyncEnd */
@@ -64,27 +67,27 @@ const playActionsContinue = (asyncResult?: any, endAction?: IAsyncEndAction) => 
 
 //********************** TEST
 
-interface ITestState extends DRedux.IRootState {
-  log: Array<string>;
+interface ITestState {
+  testLog: Array<string>;
 }
 
 export function init() {
   const middlewares = applyMiddleware.apply({}, [asyncMiddleware]);
-  setStore(createStore(testReducer, middlewares));
-  recordingHook.isRecording = true;
+  setStore(createStore(rootReducer, {}, middlewares));
+  recordingHook.currentRecording = { actions: [], actIdx: 0, status: RecordingStatus.recording };
   store.dispatch({ type: 'ANY' });
-  store.dispatch({ type: 'START' });
+  store.dispatch({ type: asyncTypeStartPrefix + 'TEST' });
   store.dispatch({ type: 'ANY' });
   setTimeout(() => {
     store.dispatch({ type: 'ANY' });
-    store.dispatch({ type: 'START' });
+    store.dispatch({ type: asyncTypeStartPrefix + 'TEST' });
     store.dispatch({ type: 'ANY' });
     setTimeout(() => {
-      const log = (store.getState() as ITestState).log.join(',');
-      recordingHook.isRecording = false; recordingHook.isPlaying = true;
-      setStore(createStore(testReducer, middlewares));
+      const log = getActState()['test'].testLog.join(',');
+      recordingHook.currentRecording.status = RecordingStatus.playing;
+      setStore(createStore(rootReducer, {}, middlewares));
       playActionsStart().then(() => {
-        const newLog = (store.getState() as ITestState).log.join(',');
+        const newLog = getActState()['test'].testLog.join(',');
         alert(log === newLog);
       });
     }, 300);
@@ -92,26 +95,35 @@ export function init() {
 }
 
 const testReducer: Reducer<ITestState, Action> = (state, action) => {
-  if (!state) return { log: [], blockGui: { counter: 0 } };
+  if (!state) return { testLog: [] };
   switch (action.type) {
-    case 'START':
-      const st = <ITestState>onAsyncStart(new Promise((resolve, reject) => {
+    case asyncTypeStartPrefix + 'TEST':
+      onAsyncStart(new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve('async-data');
         }, 200);
         //}), { type: 'END', asyncFlag: asyncFlag }, true); /* 2 */
-      }), { type: 'END', asyncFlag: asyncFlag }); /* 2 */
-      st.log.push(`START - ${st.blockGui.counter.toString()}`);
-      return st;
-    case 'END':
-      const act = action as IAsyncEndAction;
-      const st2 = <ITestState>onAsyncEnd(act);
-      st2.log.push(`END - ${act.asyncResult} - ${st2.blockGui.counter.toString()}`);
-      return st2;
+      }), asyncTypeEndPrefix + 'END'); /* 2 */
+      return { testLog: [...state.testLog, `START ${getActState().blockGui.counter.toString()}`] };
+    case asyncTypeEndPrefix + 'END':
+      const act = action as IAsync2EndAction;
+      return { testLog: [...state.testLog, `END ${act.asyncResult.toString()} ${getActState().blockGui.counter.toString()}`] };
     case 'ANY':
-      return { ...state, log: [...state.log, 'ANY'] };
+      return { testLog: [...state.testLog, 'ANY'] };
     default:
       return state;
   }
 };
 
+const testReducerFnc = (state: any, action: any): any => {
+  return {
+    test: testReducer(state.test, action)
+  }
+}
+
+const rootReducer = (state: DRedux.IRootState, action: any): DRedux.IRootState => {
+  return {
+    ...blockGuiReducerFnc(state, action),
+    ...testReducerFnc(state, action),
+  };
+}

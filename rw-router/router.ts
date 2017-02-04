@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 import { Action } from 'redux';
 
-import { addAsyncProc, IAsyncProcPar, doAsyncAction, IAsyncResultAction, store, IMapDispatchToProps, TDispatch, Reducer, TMiddlewareAPI } from 'rw-redux';
+import { addAsyncProc, IAsyncProcPar, doAsyncAction, IAsyncResultAction, store, IMapDispatchToProps, TDispatch, Reducer, TMiddlewareAPI, onAsyncStart, IAsync2EndAction, getActState, asyncTypeStartPrefix, asyncTypeEndPrefix } from 'rw-redux';
 import config from 'rw-config';
 
 //*******
@@ -45,69 +45,74 @@ function changeRoute(newRoute: DRouter.IRouteDir, withPustState: boolean, subPat
 export const loginREDIRECT = 'router.LOGIN_REDIRECT'; export interface ILoginRedirectAction extends Action { type: 'router.LOGIN_REDIRECT', returnUrl: string }
 const dispatchLoginRedirect = (dispatch: TDispatch, returnUrl: string) => dispatch({ type: loginREDIRECT, returnUrl: returnUrl } as ILoginRedirectAction);
 
-const routerCHANGE_START = 'router.CHANGE_START'; interface IRouterAsyncPar extends IAsyncProcPar { newRoute: DRouter.IRouteDir; withPustState: boolean; subPath: string; }
-const dispatchRouterActionStart = (dispatch: TDispatch, newRoute: DRouter.IRouteDir, withPustState: boolean, subPath: string) => dispatch(doAsyncAction<IRouterAsyncPar>({ type: routerCHANGE_START, newRoute: newRoute, withPustState: withPustState, subPath: subPath }));
+const routerCHANGE_START = 'ASYNC_START_ROUTER'; interface IRouteChangeStartAction extends Action { type: 'ASYNC_START_ROUTER', newRoute: DRouter.IRouteDir; withPustState: boolean; subPath: string; }
+const dispatchRouterActionStart = (dispatch: TDispatch, newRoute: DRouter.IRouteDir, withPustState: boolean, subPath: string) => dispatch({ type: routerCHANGE_START, newRoute: newRoute, withPustState: withPustState, subPath: subPath } as IRouteChangeStartAction);
 
-export const routerCHANGE_END = 'router.CHANGE_END';
-export interface IDoRouteChangeEnd extends IAsyncResultAction<any> {
-  type: 'router.CHANGE_END';
+export interface IRouteChangeStartResult {
   newRoute: DRouter.IRouteDir;
   withPustState: boolean;
   forHandlerReducers: IForHandlerReducers; //changed handlers data. It is possible to create reducer, which modified state when handler route changed
 }
 export interface IForHandlerReducers { [handlerId: string]: Array<string>; }
-const dispatchRouteActionEnd = (dispatch: TDispatch, newRoute: DRouter.IRouteDir, withPustState: boolean, forHandlerReducers: IForHandlerReducers) => dispatch({ type: routerCHANGE_END, newRoute: newRoute, withPustState: withPustState, forHandlerReducers: forHandlerReducers } as IDoRouteChangeEnd);
 
-//export const actRoute = () => (api.getState() as DRedux.IRootState).router;
+export interface IRouteChangeEndAction extends IAsync2EndAction {
+  type: 'ASYNC_END_ROUTER';
+  asyncResult?: IRouteChangeStartResult;
+}
 
-addAsyncProc<IRouterAsyncPar>(routerCHANGE_START, async (par, completed, api) => {
-  const oldRoute = (api.getState() as DRedux.IRootState).router;
-  const diffs = diff(oldRoute, par.newRoute, par.subPath);
-  const modifyRouteState = () => { //merge: old routes, delete modified routes, add new routes
-    const routerNew = { ...oldRoute } as DRouter.IRouteDir; //plain cony
-    diffs.changedAll.forEach(path => delete routerNew[path]);
-    diffs.newAll.forEach(path => routerNew[path] = par.newRoute[path]);
-    return routerNew;
-  }
+export const routerCHANGE_END = 'ASYNC_END_ROUTER';
 
-  //Login redirect chance
-  const {login} = (api.getState() as DRedux.IRootState);
-  if (login && !login.isLogged) {
-    const loginNeeded = diffs.newAll.find(path => {
-      const rt = par.newRoute[path];
-      return RouteHandler.find(rt.handlerId).loginNeeded(rt, api);
-    });
-    if (loginNeeded) { completed(() => dispatchLoginRedirect(api.dispatch, route2string(modifyRouteState()))); return; }
-  }
-
-  //Unprepare old routes
-  await Promise.all(diffs.changedAll.map(path => oldRoute[path]).map(rt => RouteHandler.find(rt.handlerId).unPrepare(rt)));
-
-  //Get route state - change pointer to modified nodes
-  const newRouteState = modifyRouteState();
-
-  //Prepare new routes, async data to route
-  const asyncData = await Promise.all(diffs.newAll.map(path => newRouteState[path]).map(rt => RouteHandler.find(rt.handlerId).prepare(rt))); //array of async data
-
-  const forHandlerReducers: IForHandlerReducers = {};
-  for (let i = 0; i < diffs.newAll.length; i++) {
-    const path = diffs.newAll[i];
-    const rt = newRouteState[path]; rt.$asyncData = asyncData[i];
-    let reds = forHandlerReducers[rt.handlerId];
-    if (!reds) reds = forHandlerReducers[rt.handlerId] = [];
-    reds.push(path);
-  }
-
-  //Call route end action. Chance for handler reducers
-  completed(() => dispatchRouteActionEnd(api.dispatch, newRouteState, par.withPustState, forHandlerReducers));
-});
-
-const routerReducer: Reducer<DRouter.IRouteDir, IDoRouteChangeEnd> = (state, action) => {
+const routerReducer: Reducer<DRouter.IRouteDir, IRouteChangeEndAction | IRouteChangeStartAction> = (state, action) => {
   if (!state) return state = {}; //config.route.initRoute;
   switch (action.type) {
+    case routerCHANGE_START:
+
+      onAsyncStart(new Promise<IRouteChangeStartResult>(async (resolve, reject) => {
+        const oldRoute = getActState().router;
+        const diffs = diff(oldRoute, action.newRoute, action.subPath);
+        const modifyRouteState = () => { //merge: old routes, delete modified routes, add new routes
+          const routerNew = { ...oldRoute } as DRouter.IRouteDir; //plain cony
+          diffs.changedAll.forEach(path => delete routerNew[path]);
+          diffs.newAll.forEach(path => routerNew[path] = action.newRoute[path]);
+          return routerNew;
+        }
+
+        //Login redirect chance
+        const {login} = getActState();
+        if (login && !login.isLogged) {
+          const loginNeeded = diffs.newAll.find(path => {
+            const rt = action.newRoute[path];
+            return RouteHandler.find(rt.handlerId).loginNeeded(rt);
+          });
+          if (loginNeeded) { dispatchLoginRedirect(store.dispatch, route2string(modifyRouteState())); return; }
+        }
+
+        //Unprepare old routes
+        await Promise.all(diffs.changedAll.map(path => oldRoute[path]).map(rt => RouteHandler.find(rt.handlerId).unPrepare(rt)));
+
+        //Get route state - change pointer to modified nodes
+        const newRouteState = modifyRouteState();
+
+        //Prepare new routes, async data to route
+        const asyncData = await Promise.all(diffs.newAll.map(path => newRouteState[path]).map(rt => RouteHandler.find(rt.handlerId).prepare(rt))); //array of async data
+
+        const forHandlerReducers: IForHandlerReducers = {};
+        for (let i = 0; i < diffs.newAll.length; i++) {
+          const path = diffs.newAll[i];
+          const rt = newRouteState[path]; rt.$asyncData = asyncData[i];
+          let reds = forHandlerReducers[rt.handlerId];
+          if (!reds) reds = forHandlerReducers[rt.handlerId] = [];
+          reds.push(path);
+        }
+        resolve({ newRoute: newRouteState, withPustState: action.withPustState, forHandlerReducers: forHandlerReducers  } as IRouteChangeStartResult);
+      }), routerCHANGE_END);
+
+      return state;
+
     case routerCHANGE_END:
-      if (action.withPustState) pushState(action.newRoute);
-      return action.newRoute;
+      if (action.asyncResult.withPustState) pushState(action.asyncResult.newRoute);
+      return action.asyncResult.newRoute;
+
     default:
       return state;
   }
@@ -123,7 +128,7 @@ export abstract class RouteHandler<T extends DRouter.IRouteData> {
   prepare(route: T): Promise<any> { return null; } //chance to fetch async data
   unPrepare(route: T): Promise<never> { return null; }
   normalizeStringProps(props: T) { }
-  loginNeeded(props: T, api: TMiddlewareAPI): boolean { return false; }
+  loginNeeded(props: T): boolean { return false; }
   //statics
   static register(handler: TRouteHandler) { if (RouteHandler.handlers[handler.id]) throw new Error(handler.id); RouteHandler.handlers[handler.id] = handler; }
   static find(id: string): TRouteHandler { var res = RouteHandler.handlers[id]; if (!res) throw new Error(`TRouteHandler.find: cannot find ${id} handler`); return res; }

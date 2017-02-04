@@ -1,4 +1,4 @@
-﻿import { IRecording, cancel, INotify, playRecording, setCurrentRecording, locStoragePrefix, actNotifyData, RecordingStatus, notifyDataInit, notify } from 'rw-redux';
+﻿import { IRecording, cancel, IRecNotify, playRecording, setCurrentRecording, locStoragePrefix, actNotifyData, RecordingStatus, notifyDataInit, notify } from 'rw-redux';
 
 export interface IPlayList {
   records: Array<IRecording>;

@@ -3,7 +3,7 @@ import { Action } from 'redux';
 
 import config from 'rw-config';
 import { TDispatch, IAsyncProcPar, doAsyncAction, addAsyncProc, IAsyncResultAction, Reducer } from 'rw-redux';
-import { routerCHANGE_END, IDoRouteChangeEnd, RouteHandler } from 'rw-router';
+import { routerCHANGE_END, IRouteChangeEndAction, RouteHandler } from 'rw-router';
 import { loadCourse, PageLoader } from 'rw-course';
 
 const toContextId = (ctx: DCourse.ICourseContext) => `${ctx.userEmail ? ctx.userEmail : ''}#${ctx.courseUrl ? ctx.courseUrl : ''}#${ctx.attemptId ? ctx.attemptId : ''}`;
@@ -21,7 +21,7 @@ interface ICourseNavigAsyncResult extends DCourse.IPagesState {
   userPage: DCourse.IPageResult;
 }
 
-const courseReducer = (state: DCourse.ICoursesState, action: ICourseNavigActionEnd | IDoRouteChangeEnd): DCourse.ICoursesState => {
+const courseReducer = (state: DCourse.ICoursesState, action: ICourseNavigActionEnd | IRouteChangeEndAction): DCourse.ICoursesState => {
   if (!state) return {} as any;
   switch (action.type) {
     case COURSE_NAVIG_END:
@@ -32,9 +32,9 @@ const courseReducer = (state: DCourse.ICoursesState, action: ICourseNavigActionE
       //if (action.asyncResult.userPage) res.userCourse[res.pageUrl] = action.asyncResult.userPage;
       //return res;
     case routerCHANGE_END:
-      const reducData = action.forHandlerReducers[COURSE_ROOT]; if (!reducData) return state;
+      const reducData = action.asyncResult.forHandlerReducers[COURSE_ROOT]; if (!reducData) return state;
       if (reducData.length > 1) throw new Error('reducData.length > 1'); //only single course route
-      const route = action.newRoute[reducData[0]] as ICourseRoute;
+      const route = action.asyncResult.newRoute[reducData[0]] as ICourseRoute;
       const newState = route.$asyncData; delete route.$asyncData;
       return newState;
     default: return state;
@@ -91,7 +91,7 @@ addAsyncProc<ICourseNavigAsyncPar>(COURSE_NAVIG_ASYNC, (par, completed, api) => 
 //  crsResult: Array<DCourse.IPageResult>;  //crsResult[x] is result proxy for node with ICourseNode.id===x
 //}
 
-export const courseReducerFnc = (state: DRedux.IRootState, action: IDoRouteChangeEnd): DRedux.IRootState => {
+export const courseReducerFnc = (state: DRedux.IRootState, action: IRouteChangeEndAction): DRedux.IRootState => {
   return {
     courses: courseReducer(state.courses, action)
   }
