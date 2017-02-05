@@ -1,20 +1,21 @@
 ﻿import React from 'react';
 import { connect, ComponentDecorator } from 'react-redux';
+import { createSelector } from 'reselect';
 
 //*****
-import { TAction, Reducer, IMapDispatchToProps, asyncFlagEnd, asyncFlagStart, IAsyncFlagAction } from 'rw-redux';
+import { Reducer, asyncFlagEnd, asyncFlagStart, IAsyncFlagAction } from 'rw-redux';
 
-export const blockGuiReducerFnc = (state: DRedux.IRootState, action: any): DRedux.IRootState => {
-  return {
-    blockGui: blockGuiReducer(state.blockGui, action),
-  }
-}
-
-export const blockGuiCreator: ComponentDecorator<IBlockGuiMapStateToProps & IMapDispatchToProps, never> = connect<IBlockGuiMapStateToProps, IMapDispatchToProps, never>((state: DRedux.IRootState) => ({ counterProp: state.blockGui.counter } as IBlockGuiMapStateToProps));
-export type TBlockGuiPresent = React.StatelessComponent<IBlockGuiMapStateToProps & IMapDispatchToProps>;
+export const blockGuiCreator = connect<IBlockGuiProps, never, never>(
+  (state: DRedux.IRootState) => blockGuiSelector(state)
+);
+export type TBlockGuiPresent = React.StatelessComponent<IBlockGuiProps>;
 export const blockGuiProxy: { value?: () => JSX.Element } = {};
+export interface IBlockGuiProps { show: boolean; }
 
-export interface IBlockGuiMapStateToProps { counterProp: number; }
+const blockGuiSelector = createSelector<DRedux.IRootState, IBlockGuiProps, number>(
+  (state: DRedux.IRootState) => state.blockGui.counter,
+  counter => ({ show: counter > 0 })
+);
 
 const blockGuiReducer: Reducer<DRedux.IBlockGuiState, IAsyncFlagAction> = (state, action) => {
   if (!state) return { counter: 0 };
@@ -23,7 +24,11 @@ const blockGuiReducer: Reducer<DRedux.IBlockGuiState, IAsyncFlagAction> = (state
     case asyncFlagEnd: return { counter: state.counter - 1 };
     default: return state;
   }
-  
+
 };
 
-
+export const blockGuiReducerFnc = (state: DRedux.IRootState, action: any): DRedux.IRootState => {
+  return {
+    blockGui: blockGuiReducer(state.blockGui, action),
+  }
+}
