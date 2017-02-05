@@ -8,17 +8,11 @@
 .Bg\(t\) {
   background: transparent;
 }
-.Bgc\(green\) {
-  background-color: green;
-}
 .Bgc\(white\) {
   background-color: white;
 }
 .Bgc\(yellow\) {
   background-color: yellow;
-}
-.Bgz\(300px\) {
-  background-size: 300px;
 }
 .D\(f\) {
   display: -ms-flexbox;
@@ -64,11 +58,11 @@
 .Pos\(f\) {
   position: fixed;
 }
-.W\(65px\) {
-  width: 65px;
-}
 .W\(600px\) {
   width: 600px;
+}
+.W\(65px\) {
+  width: 65px;
 }
 .Z\(999\) {
   z-index: 999;

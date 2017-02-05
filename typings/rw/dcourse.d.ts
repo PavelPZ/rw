@@ -1,4 +1,11 @@
-﻿declare namespace DCourse {
+﻿/*
+do D:\rw\rw\jspm_packages\npm\@types\react@0.14.57\index.d.ts, 
+  interface HTMLAttributes<T> extends DOMAttributes<T> {
+    childProps?: DCourse.IChildProps; //!!!!!!
+*/
+
+
+declare namespace DCourse {
   export interface IPtr {
     title: string;
     url: string;

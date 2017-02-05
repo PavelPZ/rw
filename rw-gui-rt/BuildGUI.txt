@@ -1,0 +1,4 @@
+﻿1. in order to refresh react-toolbox, run D:\rw\design\build-react-toolbox.cmd, then 
+   - modify extension to TS for D:\rw\rw\rw-gui-rt\theme.js
+   - modify const theme = {???}; export default theme;
+2. in order to refresh D:\rw\rw\rw-gui-rt\app.css bz CSS atomizer, run D:\rw\rw\cmd-atomic-css.cmd

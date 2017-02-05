@@ -1,28 +1,27 @@
 ﻿import React from 'react';
 import ReactDOM from 'react-dom';
 
+//import { Button } from "react-toolbox/lib/button/Button";
 import Button from "react-toolbox/lib/button/Button";
 import { ThemeProvider } from "react-css-themr";
 import theme from "./theme";
 
 export function init() {
-  const b = <Ca x={{}}>
-    <Cb x={{}}>
-      <Cc x={{}}/>
-    </Cb>
-    <Cc x={{}}/>
-  </Ca>;
+  //const b = <Ca x={{}}>
+  //  <Cb x={{}}>
+  //    <Cc x={{}}/>
+  //  </Cb>
+  //  <Cc x={{}}/>
+  //</Ca>;
   //b.props['x']['x'] = 'y';
   //const t = b.type===Ca;
   //debugger;
-  ReactDOM.render(<div>
+  //
+  ReactDOM.render(
     <ThemeProvider theme={theme}>
-      <div className='Bgz(300px) Bgc(green)'>
-        <Button primary raised>Hallo world</Button><br />
-        {b}  
-      </div>
-    </ThemeProvider>
-  </div>, document.getElementById('content'));
+      <Button primary raised>Hallo world</Button>
+    </ThemeProvider>,
+    document.getElementById('content'));
 }
 
 

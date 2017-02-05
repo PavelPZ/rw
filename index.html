@@ -3,14 +3,14 @@
 <head>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-  <link href="rw-gui-rt/toolbox.css" rel="stylesheet" />
-  <!--<link href="rw-gui-rt/app.css" rel="stylesheet" />-->
+  <link href="rw-gui-rt/theme.css" rel="stylesheet" />
+  <link href="rw-gui-rt/app.css" rel="stylesheet" />
 
   <script src="jspm_packages/npm/core-js@2.4.1/client/shim.min.js"></script>
   <script src="jspm_packages/npm/whatwg-fetch@2.0.2/fetch.js"></script>
-  <script src="jspm_packages/system.src20.js"></script>
+  <script src="jspm_packages/system.src.js"></script>
   <!--
-    <script src="jspm_packages/system.src.js"></script>
+  <script src="jspm_packages/system.src20.js"></script>
   -->
   <script src="jspm.config.js"></script>
   <!-- **** BUNDLE version, after call: jspm bundle index.js - react - react-dom app-bundle.js --minify-->
@@ -19,8 +19,8 @@
 
   <script>
     //System.config({ "defaultJSExtensions": true });
-    //System.import('rw-router/test.js').then(function (m) { m.init(); });
-    System.import('rw-redux/test.js').then(function (m) { m.init(); });
+    System.import('rw-router/test.js').then(function (m) { m.init(); });
+    //System.import('rw-redux/test.js').then(function (m) { m.init(); });
     //System.import('rw-gui-rt/test.js').then(function (m) { m.init(); });
     //System.import('rw-gui-rt/login/test.js').then(function (m) { m.init(); });
     //System.import('rw-lib/services/emailer-test.js').then(function (m) { m.init(); });

@@ -38,12 +38,14 @@
       //"rw-course": [ "rw-course/index" ],
 
       "react": [ "jspm_packages/npm/@types/react@0.14.57/index" ],
-      "react-dom": [ "jspm_packages/npm/@types/react-dom@0.14.20/index" ],
+      "react-dom": [ "jspm_packages/npm/@types/react-dom@0.14.22/index" ],
       "redux": [ "jspm_packages/npm/redux@3.6.0/index" ],
-      "react-redux": [ "jspm_packages/npm/@types/react-redux@4.4.35/index" ],
-      "lodash/*": [ "jspm_packages/npm/@types/lodash@4.14.50/*/index" ],
+      "react-redux": [ "jspm_packages/npm/@types/react-redux@4.4.36/index" ],
+      "react-toolbox/*": [ "jspm_packages/npm/react-toolbox@2.0.0-beta.6/*" ],
+      "lodash/*": [ "jspm_packages/npm/@types/lodash@4.14.52/*/index" ],
+      "react-css-themr": [ "jspm_packages/npm/react-css-themr@1.7.2/index.d.ts"]
       //get from https://raw.githubusercontent.com/Semantic-Org/Semantic-UI-React/master/typings/index.d.ts
-      "semantic-ui": [ "typings/semantic-ui-react/index" ]
+      //"semantic-ui": [ "typings/semantic-ui-react/index" ]
     },
     "lib": [
       "dom",
@@ -53,7 +55,8 @@
   },
 
   "exclude": [
-    "jspm_packages/"
+    "jspm_packages/",
+    "typings/react-toolbox"
     //"rw-course/examples/",
     //"design/"
   ]
