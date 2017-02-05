@@ -3,7 +3,7 @@ SystemJS.config({
   baseURL: "./",
   paths: {
     "npm:": "jspm_packages/npm/",
-    "config": "./app-config.js",
+    //"config": "./app-config.js",
     //"lm/*": "./getData.ashx?/lm/*"
   },
   packages: {

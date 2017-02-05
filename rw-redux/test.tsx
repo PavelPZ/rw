@@ -15,7 +15,7 @@ import {
 ***********************************************/
 const BlockGuiPresent: TBlockGuiPresent = props => {
   console.log('render BlockGui');
-  return props.counterProp > 0 ? <h3 style={{ color: 'red' }}>Loading...</h3> : null;
+  return props.show ? <h3 style={{ color: 'red' }}>Loading...</h3> : null;
 };
 
 const BlockGui = blockGuiCreator(BlockGuiPresent);

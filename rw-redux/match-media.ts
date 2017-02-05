@@ -31,11 +31,11 @@ if (!config.serverRun) breakpoints.forEach(brk => {
 // reducers
 export const matchMediaReducerFnc = (state: DRedux.IRootState, action: any): DRedux.IRootState => {
   return {
-    gui: maatchMediaReducer(state.gui, action),
+    gui: matchMediaReducer(state.gui, action),
   }
 }
 
-const maatchMediaReducer: Reducer<DRedux.IMatchMediaState, IMatchMediaAction> = (state, action) => {
+const matchMediaReducer: Reducer<DRedux.IMatchMediaState, IMatchMediaAction> = (state, action) => {
   if (!state || action.type == guiMATCHMEDIA) {
     const res: DRedux.IMatchMediaState = {} as any; let changed = !state;
     breakpoints.forEach(brk => {
