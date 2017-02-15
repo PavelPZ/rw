@@ -18,42 +18,19 @@ export let recordingHook = {
   resolve: null as (res: boolean) => void,
 };
 
-//export interface IAsyncFlagAction extends Action { asyncFlag: string }
-
-//export interface IAsyncEndAction extends IAsyncFlagAction { asyncFlag: '@asyncFlagEnd', asyncResult?: any; }
-//export const asyncFlagEnd = '@asyncFlagEnd';
-//export const asyncActionEndProto: IAsyncEndAction = { type: null, asyncFlag: asyncFlagEnd };
-
-//export interface IAsyncStartAction extends IAsyncFlagAction { asyncFlag: '@asyncFlagStart' }
-//export const asyncFlagStart = '@asyncFlagStart';
-//export const asyncActionStartProto: IAsyncStartAction = { type: null, asyncFlag: asyncFlagStart };
-
-const isPlaying = () => recordingHook.currentRecording && recordingHook.currentRecording.status == RecordingStatus.playing;
-const isRecording = () => recordingHook.currentRecording && recordingHook.currentRecording.status == RecordingStatus.recording;
-
-//export function onAsyncStart(action: IAsyncStartAction, endType: string | IAsyncEndAction, asyncProc: Promise<any>) {
-//if (action.asyncFlag != asyncFlagStart) throw new Error('action.asyncFlag != asyncFlagStart');
-//asyncProc.then(res => {
-//  const end: IAsyncEndAction = typeof endType == 'string' ? { ...asyncActionEndProto, type: endType } : endType;
-//  end.asyncResult = res;
-//  if (isPlaying()) playActionsContinue(end); /* 5 */
-//  else store.dispatch(end);
-//});
-//}
-
 export const asyncMiddleware: Middleware<Action> = middlAPI => next => (act: IAsyncActionHelper) => {
-  if (act.$asyncEnd) { next(act); return; } //async completed action (async promise result) => don't record
-  if (isRecording()) pushActions(act); //recording => record action
+  if (act.$asyncEnd) { next(act); return; } //action is async.promise result => don't record
+  if (recordingHook.currentRecording && recordingHook.currentRecording.status == RecordingStatus.recording) pushActions(act); //recording => record action
   next(act);
   if (act.$asyncStart) { //some reducer called makeAsync() proc
-    changeBlockCouterState(middlAPI.getState(), false);
     const $asyncStart = act.$asyncStart; delete act.$asyncStart; //remove temporaty data
     Promise.all($asyncStart).then(actions => {
+      changeBlockCouterState(middlAPI.getState(), false); //block gui END
       let dispatched = false;
       actions.forEach(act => {
         if (!act) return;
         dispatched = true;
-        if (!act.$asyncEnd) act.$asyncEnd = true; //priznak: vysledek async akce
+        act.$asyncEnd = true; //priznak: vysledek async akce
         middlAPI.dispatch(act); //must be SYNC action
       });
       if (!dispatched) middlAPI.dispatch({ type: '', $asyncEnd: true } as IAsyncActionHelper); //fake dispatch: chance to blockGui component re-render etc.
@@ -66,8 +43,10 @@ export const asyncMiddleware: Middleware<Action> = middlAPI => next => (act: IAs
 //Mark action as async
 export const makeAsync = (act: Action, promise: Promise<Action>) => {
   const asyncAct = act as IAsyncActionHelper;
-  changeBlockCouterState(store.getState(), true);
-  if (!asyncAct.$asyncStart) asyncAct.$asyncStart = [];
+  if (!asyncAct.$asyncStart) {
+    changeBlockCouterState(store.getState(), true); //block gui START
+    asyncAct.$asyncStart = [];
+  }
   asyncAct.$asyncStart.push(promise);
 };
 
@@ -89,7 +68,7 @@ export function playActionsStart(): Promise<boolean> {
 const pushActions = (act: Action) => recordingHook.currentRecording.actions.push(act);
 
 const playActionsContinue = () => {
-  if (!isPlaying()) return;
+  if (!recordingHook.currentRecording || recordingHook.currentRecording.status != RecordingStatus.playing) return;
   const cr = recordingHook.currentRecording;
   if (cr.actIdx >= cr.actions.length) { recordingHook.resolve(true); delete recordingHook.resolve; return; } //playing finished
   let nextAction = cr.actions[cr.actIdx]; cr.actIdx++;
