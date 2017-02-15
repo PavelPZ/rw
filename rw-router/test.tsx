@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 
 //lm libs
-import { blockGuiReducerFnc, appInit, TMiddlewareAPI, getActState } from 'rw-redux';
+import { appInit, TMiddlewareAPI, getActState, blockGuiReducerFnc } from 'rw-redux';
 import config from 'rw-config';
 //import { loginReducerFnc } from 'rw-login/index';
 

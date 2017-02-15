@@ -2,7 +2,7 @@
   export interface IConfig {
     basicUrl: string;
     rootPath: string;
-    loc: string;
+    initLoc: string;
     serverRun: boolean;
   }
 }

@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 
-import { matchMediaReducerFnc, blockGuiReducerFnc, appInit, TMiddlewareAPI, getActState } from 'rw-redux';
+import { blockGuiReducerFnc, matchMediaReducerFnc, appInit, TMiddlewareAPI, getActState } from 'rw-redux';
 
 import getRTAppRoot from 'rw-gui-rt/get-app-root';
 

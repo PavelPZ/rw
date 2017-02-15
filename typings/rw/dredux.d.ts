@@ -2,6 +2,7 @@
   interface IRootState {
     gui?: IMatchMediaState;
     blockGui?: IBlockGuiState;
+    actLoc?: string;
   }
   export interface IBlockGuiState { counter: number; }
   interface IMatchMediaState {

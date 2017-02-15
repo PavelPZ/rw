@@ -2,3 +2,8 @@
    - modify extension to TS for D:\rw\rw\rw-gui-rt\theme.js
    - modify const theme = {???}; export default theme;
 2. in order to refresh D:\rw\rw\rw-gui-rt\app.css bz CSS atomizer, run D:\rw\rw\cmd-atomic-css.cmd
+
+add react-toolbox-themr:
+in rw/design
+  npm install react-toolbox-themr react-toolbox (ver. 2.0.0)
+  modify "reactToolbox" section in D:\rw\design\package.json

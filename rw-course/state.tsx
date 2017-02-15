@@ -2,7 +2,7 @@
 import { Action } from 'redux';
 
 import config from 'rw-config';
-import { TDispatch, onAsyncStart, IAsyncEndAction, IAsyncStartAction, getActState, asyncActionStartProto, asyncActionEndProto, Reducer } from 'rw-redux';
+import { TDispatch, getActState, Reducer } from 'rw-redux';
 import { routerCHANGE_END, IRouteChangeEndAction, RouteHandler } from 'rw-router';
 import { loadCourse, PageLoader } from 'rw-course';
 
@@ -11,12 +11,12 @@ const fromContextId = (str: string) => { const parts = str.split('#'); const n =
 
 const eqNavigData = (dt1: DCourse.ICourseNavigData, dt2: DCourse.ICourseNavigData) => dt1.pageUrl === dt2.pageUrl && dt1.userEmail === dt2.userEmail && dt1.courseUrl === dt2.courseUrl && dt1.attemptId === dt2.attemptId;
 
-const COURSE_NAVIG_ASYNC = 'COURSE_NAVIG_ASYNC'; interface ICourseNavigAsyncPar extends IAsyncStartAction { type: 'COURSE_NAVIG_ASYNC'; data: DCourse.ICourseNavigData }
-export const courseNavigAction = (dispatch: any, data: DCourse.ICourseNavigData, ev?: React.SyntheticEvent<any>) => { if (ev) ev.preventDefault(); dispatch({ ...asyncActionStartProto, type: COURSE_NAVIG_ASYNC, data: data } as ICourseNavigAsyncPar) };
+const COURSE_NAVIG_ASYNC = 'COURSE_NAVIG_ASYNC'; interface ICourseNavigAsyncPar  { type: 'COURSE_NAVIG_ASYNC'; data: DCourse.ICourseNavigData }
+export const courseNavigAction = (dispatch: any, data: DCourse.ICourseNavigData, ev?: React.SyntheticEvent<any>) => { if (ev) ev.preventDefault(); dispatch({ type: COURSE_NAVIG_ASYNC, data: data } as ICourseNavigAsyncPar) };
 export type TCourseNavigClick = (data: DCourse.ICourseNavigData, ev?: React.SyntheticEvent<any>) => void;
 
-const COURSE_NAVIG_END = 'COURSE_NAVIG_END'; interface ICourseNavigActionEnd extends IAsyncEndAction { type: 'COURSE_NAVIG_END'; data: DCourse.ICoursesState }
-const courseNavigActionEnd = (dispatch: TDispatch, data: DCourse.ICoursesState) => dispatch({ ...asyncActionEndProto, type: COURSE_NAVIG_END, data: data } as ICourseNavigActionEnd);
+const COURSE_NAVIG_END = 'COURSE_NAVIG_END'; interface ICourseNavigActionEnd { type: 'COURSE_NAVIG_END'; data: DCourse.ICoursesState }
+const courseNavigActionEnd = (dispatch: TDispatch, data: DCourse.ICoursesState) => dispatch({ type: COURSE_NAVIG_END, data: data } as ICourseNavigActionEnd);
 interface ICourseNavigAsyncResult extends DCourse.IPagesState {
   userPage: DCourse.IPageResult;
 }

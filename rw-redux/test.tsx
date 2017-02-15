@@ -6,8 +6,8 @@ import { createSelector } from 'reselect';
 
 //******
 import {
-  blockGuiReducerFnc, blockGuiCreator, TBlockGuiPresent, startRecording, playRecording, Reducer, TDispatch, IMapDispatchToProps, appInit, 
-  onAsyncStart, IAsyncEndAction, IAsyncStartAction, getActState, asyncActionStartProto, asyncActionEndProto
+  blockGuiCreator, TBlockGuiPresent, startRecording, playRecording, Reducer, TDispatch, IMapDispatchToProps, appInit,
+  makeAsync, getActState, blockGuiReducerFnc
 } from 'rw-redux';
 
 /***********************************************
@@ -63,8 +63,8 @@ const ParentPresent: React.StatelessComponent<IParentMapStateToProps & IParentMa
     {/*props.childIds.map(id => <Child id={id} key={id} />)*/}
     <BlockGui />
     <Counter />
-    <div onClick={ev => { ev.preventDefault(); startRecording(); } }>Start recording</div>
-    <div onClick={ev => { ev.preventDefault(); playRecording(); } }>Play actions</div>
+    <div onClick={ev => { ev.preventDefault(); startRecording(); }}>Start recording</div>
+    <div onClick={ev => { ev.preventDefault(); playRecording(); }}>Play actions</div>
   </div>;
 };
 
@@ -92,11 +92,12 @@ const Parent = connect<IParentMapStateToProps, IParentMapDispatchToProps, never>
 export interface IChildState { text: string; }
 
 const childReducer = (state: IChildState, action: IChildAsyncEndAction | IChildAsyncStartAction): IChildState => {
-  if (!state) return { text: 'child '+ action.id };
+  if (!state) return { text: 'child ' + action.id };
   switch (action.type) {
     //case CHILD_ACT: return { text: action.asyncResult };
     case CHILD_ASYNC:
-      onAsyncStart(action, { ...asyncActionEndProto, type: CHILD_ACT, id: action.id }, new Promise((resolve, reject) => setTimeout(() => resolve(), 500)));
+      makeAsync(action, new Promise<IChildAsyncEndAction>((resolve, reject) => setTimeout(() => resolve({ type: CHILD_ACT, id: action.id }), 500)));
+      //onAsyncStart(action, { ...asyncActionEndProto, type: CHILD_ACT, id: action.id }, new Promise((resolve, reject) => setTimeout(() => resolve(), 500)));
       return state;
     case CHILD_ACT: return { text: state.text + ' x' };
     default: return state;
@@ -112,10 +113,10 @@ const ChildPresent: React.StatelessComponent<IChildMapStateToProps & IChildMapDi
   return <h2 onClick={ev => props.onClickProp(ev)}>{props.textProp}</h2>;
 };
 
-const CHILD_ASYNC = 'CHILD_ASYNC'; interface IChildAsyncStartAction extends IAsyncStartAction { type: 'CHILD_ASYNC'; id: string; }
-const dispatchChildActionStart = (dispatch: TDispatch, id: string) => dispatch({ ...asyncActionStartProto, type: CHILD_ASYNC, id: id } as IChildAsyncStartAction);
+const CHILD_ASYNC = 'CHILD_ASYNC'; interface IChildAsyncStartAction { type: 'CHILD_ASYNC'; id: string; }
+const dispatchChildActionStart = (dispatch: TDispatch, id: string) => dispatch({ type: CHILD_ASYNC, id: id } as IChildAsyncStartAction);
 
-const CHILD_ACT = 'CHILD_ACT'; interface IChildAsyncEndAction extends IAsyncEndAction { type: 'CHILD_ACT'; id: string }
+const CHILD_ACT = 'CHILD_ACT'; interface IChildAsyncEndAction { type: 'CHILD_ACT'; id: string }
 
 const Child = connect<IChildMapStateToProps, IChildMapDispatchToProps, IChildOwnProps>(
   (state: DRedux.IRootState, props: IChildOwnProps) => {
@@ -165,8 +166,8 @@ const Counter = connect<ICounterMapStateToProps, IMapDispatchToProps, never>(
 
 declare namespace DRedux {
   interface IRootState {
-    parent ?: IParentState;
-    counter ?: ICounterState;
+    parent?: IParentState;
+    counter?: ICounterState;
   }
 }
 //declare module 'rw-redux' {

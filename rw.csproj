@@ -37,13 +37,14 @@
     <Content Include="design\rw-course\examples\media\video.mp4" />
     <Content Include="design\rw-course\examples\media\video.small.mp4" />
     <Content Include="design\rw-course\examples\media\video.xml" />
+    <Content Include="rw-gui-rt\app.css" />
+    <Content Include="rw-gui-rt\BuildGUI.txt" />
     <Content Include="rw-gui-rt\HelpAtomizer.txt" />
-    <Content Include="rw-gui-rt\recordings\app.css" />
     <Content Include="rw-gui-rt\login\img\login-providers.png" />
     <Content Include="rw-gui-rt\theme.css" />
-    <None Include="rw-gui-rt\toolbox.css_" />
     <TypeScriptCompile Include="design\rw-course\examples\test.tsx" />
     <TypeScriptCompile Include="design\rw-course\examples\testEnumOldEA.tsx" />
+    <TypeScriptCompile Include="rw-lib\loc-change.ts" />
     <TypeScriptCompile Include="rw-redux\async.ts" />
     <TypeScriptCompile Include="typings\rw\dconfig.d.ts" />
     <TypeScriptCompile Include="design\test-build.ts" />
@@ -178,7 +179,6 @@
     <TypeScriptCompile Include="rw-gui-rt\block-gui\index.tsx" />
     <TypeScriptCompile Include="rw-gui-rt\login\test.tsx" />
     <TypeScriptCompile Include="rw-gui-rt\recordings\index.tsx" />
-    <None Include="rw-gui-rt\theme.ts_" />
     <TypeScriptCompile Include="rw-gui-rt\get-app-root.tsx" />
     <TypeScriptCompile Include="typings\rw\dlib.d.ts" />
     <TypeScriptCompile Include="rw-lib\loc.ts" />
@@ -201,9 +201,8 @@
     <TypeScriptCompile Include="rw-router\index.ts" />
     <TypeScriptCompile Include="rw-router\route-hook.tsx" />
     <TypeScriptCompile Include="typings\rw\drouter.d.ts" />
+    <Content Include="rw-gui-rt\theme.ts" />
     <Content Include="web.config" />
-    <TypeScriptCompile Include="typings\load-script\index.d.ts" />
-    <TypeScriptCompile Include="typings\semantic-ui-react\index.d.ts" />
     <TypeScriptCompile Include="typings\systemjs.d.ts" />
   </ItemGroup>
   <ItemGroup>

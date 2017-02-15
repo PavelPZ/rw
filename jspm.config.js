@@ -48,9 +48,10 @@ SystemJS.config({
   map: {
     "@types/lodash": "npm:@types/lodash@4.14.52",
     "@types/react": "npm:@types/react@0.14.57",
-    "@types/react-dom": "npm:@types/react-dom@0.14.22",
+    "@types/react-dom": "npm:@types/react-dom@0.14.23",
+    "@types/react-intl": "npm:@types/react-intl@2.2.2",
     "@types/react-redux": "npm:@types/react-redux@4.4.36",
-    "ajv": "npm:ajv@4.11.2",
+    "ajv": "npm:ajv@4.11.3",
     "assert": "npm:jspm-nodelibs-assert@0.2.0",
     "buffer": "npm:jspm-nodelibs-buffer@0.2.1",
     "child_process": "npm:jspm-nodelibs-child_process@0.2.0",
@@ -74,6 +75,7 @@ SystemJS.config({
     "react-addons-css-transition-group": "npm:react-addons-css-transition-group@15.4.2",
     "react-css-themr": "npm:react-css-themr@1.7.2",
     "react-dom": "npm:react-dom@15.4.2",
+    "react-intl": "npm:react-intl@2.2.3",
     "react-redux": "npm:react-redux@4.4.6",
     "react-toolbox": "npm:react-toolbox@2.0.0-beta.6",
     "readline": "npm:jspm-nodelibs-readline@0.2.0",
@@ -94,11 +96,6 @@ SystemJS.config({
     "npm:@types/react-redux@4.4.36": {
       "map": {
         "redux": "npm:redux@3.6.0",
-        "@types/react": "npm:@types/react@0.14.57"
-      }
-    },
-    "npm:@types/react-dom@0.14.22": {
-      "map": {
         "@types/react": "npm:@types/react@0.14.57"
       }
     },
@@ -282,7 +279,7 @@ SystemJS.config({
         "inherits": "npm:inherits@2.0.3",
         "bn.js": "npm:bn.js@4.11.6",
         "browserify-rsa": "npm:browserify-rsa@4.0.1",
-        "elliptic": "npm:elliptic@6.3.2",
+        "elliptic": "npm:elliptic@6.3.3",
         "parse-asn1": "npm:parse-asn1@5.0.0"
       }
     },
@@ -322,7 +319,7 @@ SystemJS.config({
     "npm:create-ecdh@4.0.0": {
       "map": {
         "bn.js": "npm:bn.js@4.11.6",
-        "elliptic": "npm:elliptic@6.3.2"
+        "elliptic": "npm:elliptic@6.3.3"
       }
     },
     "npm:browserify-cipher@1.0.0": {
@@ -346,7 +343,7 @@ SystemJS.config({
     "npm:miller-rabin@4.0.0": {
       "map": {
         "bn.js": "npm:bn.js@4.11.6",
-        "brorand": "npm:brorand@1.0.6"
+        "brorand": "npm:brorand@1.0.7"
       }
     },
     "npm:browserify-aes@1.0.6": {
@@ -367,14 +364,6 @@ SystemJS.config({
       "map": {
         "randombytes": "npm:randombytes@2.0.3",
         "bn.js": "npm:bn.js@4.11.6"
-      }
-    },
-    "npm:elliptic@6.3.2": {
-      "map": {
-        "inherits": "npm:inherits@2.0.3",
-        "bn.js": "npm:bn.js@4.11.6",
-        "brorand": "npm:brorand@1.0.6",
-        "hash.js": "npm:hash.js@1.0.3"
       }
     },
     "npm:browserify-des@1.0.0": {
@@ -507,11 +496,11 @@ SystemJS.config({
         "babel-code-frame": "npm:babel-code-frame@6.22.0",
         "mkdirp": "npm:mkdirp@0.5.1",
         "progress": "npm:progress@1.1.8",
-        "js-yaml": "npm:js-yaml@3.7.0",
+        "js-yaml": "npm:js-yaml@3.8.1",
         "pluralize": "npm:pluralize@1.2.1",
         "espree": "npm:espree@3.4.0",
         "table": "npm:table@3.8.3",
-        "debug": "npm:debug@2.6.0",
+        "debug": "npm:debug@2.6.1",
         "globals": "npm:globals@9.14.0",
         "is-my-json-valid": "npm:is-my-json-valid@2.15.0",
         "ignore": "npm:ignore@3.2.2",
@@ -616,7 +605,7 @@ SystemJS.config({
         "string-width": "npm:string-width@2.0.0",
         "slice-ansi": "npm:slice-ansi@0.0.4",
         "ajv-keywords": "npm:ajv-keywords@1.5.1",
-        "ajv": "npm:ajv@4.11.2"
+        "ajv": "npm:ajv@4.11.3"
       }
     },
     "npm:glob@7.1.1": {
@@ -753,12 +742,6 @@ SystemJS.config({
         "object-assign": "npm:object-assign@4.1.1"
       }
     },
-    "npm:js-yaml@3.7.0": {
-      "map": {
-        "argparse": "npm:argparse@1.0.9",
-        "esprima": "npm:esprima@2.7.3"
-      }
-    },
     "npm:strip-ansi@3.0.1": {
       "map": {
         "ansi-regex": "npm:ansi-regex@2.1.1"
@@ -780,11 +763,6 @@ SystemJS.config({
       "map": {
         "once": "npm:once@1.4.0",
         "wrappy": "npm:wrappy@1.0.2"
-      }
-    },
-    "npm:debug@2.6.0": {
-      "map": {
-        "ms": "npm:ms@0.7.2"
       }
     },
     "npm:readline2@1.0.1": {
@@ -952,12 +930,6 @@ SystemJS.config({
         "exit-hook": "npm:exit-hook@1.1.1"
       }
     },
-    "npm:ajv@4.11.2": {
-      "map": {
-        "json-stable-stringify": "npm:json-stable-stringify@1.0.1",
-        "co": "npm:co@4.6.0"
-      }
-    },
     "npm:globby@5.0.0": {
       "map": {
         "glob": "npm:glob@7.1.1",
@@ -992,6 +964,59 @@ SystemJS.config({
     "npm:array-union@1.0.2": {
       "map": {
         "array-uniq": "npm:array-uniq@1.0.3"
+      }
+    },
+    "npm:@types/react-dom@0.14.23": {
+      "map": {
+        "@types/react": "npm:@types/react@0.14.57"
+      }
+    },
+    "npm:ajv@4.11.3": {
+      "map": {
+        "json-stable-stringify": "npm:json-stable-stringify@1.0.1",
+        "co": "npm:co@4.6.0"
+      }
+    },
+    "npm:js-yaml@3.8.1": {
+      "map": {
+        "argparse": "npm:argparse@1.0.9",
+        "esprima": "npm:esprima@3.1.3"
+      }
+    },
+    "npm:debug@2.6.1": {
+      "map": {
+        "ms": "npm:ms@0.7.2"
+      }
+    },
+    "npm:elliptic@6.3.3": {
+      "map": {
+        "bn.js": "npm:bn.js@4.11.6",
+        "inherits": "npm:inherits@2.0.3",
+        "hash.js": "npm:hash.js@1.0.3",
+        "brorand": "npm:brorand@1.0.7"
+      }
+    },
+    "npm:react-intl@2.2.3": {
+      "map": {
+        "intl-messageformat": "npm:intl-messageformat@1.3.0",
+        "intl-format-cache": "npm:intl-format-cache@2.0.5",
+        "intl-relativeformat": "npm:intl-relativeformat@1.3.0",
+        "invariant": "npm:invariant@2.2.2"
+      }
+    },
+    "npm:intl-relativeformat@1.3.0": {
+      "map": {
+        "intl-messageformat": "npm:intl-messageformat@1.3.0"
+      }
+    },
+    "npm:intl-messageformat@1.3.0": {
+      "map": {
+        "intl-messageformat-parser": "npm:intl-messageformat-parser@1.2.0"
+      }
+    },
+    "npm:@types/react-intl@2.2.2": {
+      "map": {
+        "@types/react": "npm:@types/react@0.14.57"
       }
     }
   }

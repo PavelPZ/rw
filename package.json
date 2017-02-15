@@ -5,10 +5,12 @@
       "@types/lodash": "npm:@types/lodash@^4.14.45",
       "@types/react": "npm:@types/react@^0.14.55",
       "@types/react-dom": "npm:@types/react-dom@^0.14.20",
+      "@types/react-intl": "npm:@types/react-intl@^2.2.2",
       "@types/react-redux": "npm:@types/react-redux@^4.4.35",
       "load-script": "npm:load-script@^1.0.0",
       "lodash": "npm:lodash@^4.17.2",
       "react-css-themr": "npm:react-css-themr@^1.7.2",
+      "react-intl": "npm:react-intl@^2.2.3",
       "react-redux": "npm:react-redux@^4.4.6",
       "react-toolbox": "npm:react-toolbox@^2.0.0-beta.6",
       "redux-logger": "npm:redux-logger@^2.7.4",
@@ -18,7 +20,7 @@
     },
     "devDependencies": {},
     "peerDependencies": {
-      "ajv": "npm:ajv",
+      "ajv": "npm:ajv@^4.11.3",
       "assert": "npm:jspm-nodelibs-assert@^0.2.0",
       "buffer": "npm:jspm-nodelibs-buffer@^0.2.0",
       "child_process": "npm:jspm-nodelibs-child_process@^0.2.0",
@@ -26,7 +28,7 @@
       "constants": "npm:jspm-nodelibs-constants@^0.2.0",
       "crypto": "npm:jspm-nodelibs-crypto@^0.2.0",
       "domain": "npm:jspm-nodelibs-domain@^0.2.0",
-      "eslint": "npm:eslint",
+      "eslint": "npm:eslint@^3.15.0",
       "events": "npm:jspm-nodelibs-events@^0.2.0",
       "fs": "npm:jspm-nodelibs-fs@^0.2.0",
       "http": "npm:jspm-nodelibs-http@^0.2.0",
@@ -59,7 +61,7 @@
           "_stream_transform": "readable-stream/transform"
         }
       },
-      "npm:debug@2.6.0": {
+      "npm:debug@2.6.1": {
         "main": "src/browser.js",
         "jspmNodeConversion": false,
         "format": "cjs",
@@ -75,9 +77,6 @@
           "tty": "@node/tty",
           "util": "@node/util"
         }
-      },
-      "npm:esprima@2.7.3": {
-        "jspmNodeConversion": false
       },
       "npm:inherits@2.0.3": {
         "ignore": [
