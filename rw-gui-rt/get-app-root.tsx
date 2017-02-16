@@ -1,6 +1,5 @@
 ﻿import React from 'react';
 import { ThemeProvider } from "react-css-themr";
-import { IntlProvider } from "react-intl";
 import theme from "rw-gui-rt/theme";
 
 import { RouteHook } from 'rw-router';
@@ -9,7 +8,7 @@ import { RecHome } from 'rw-gui-rt/recordings/index';
 import { blockGuiProxy } from 'rw-redux';
 
 const getRTAppRoot = () => {
-  return <IntlProvider><ThemeProvider theme={theme}><div><RouteHook parentPath='' hookId='' /><RecHome />{blockGuiProxy.value()}</div></ThemeProvider></IntlProvider>;
+  return <ThemeProvider theme={theme}><div><RouteHook parentPath='' hookId='' /><RecHome />{blockGuiProxy.value()}</div></ThemeProvider>;
 };
 
 export default getRTAppRoot;

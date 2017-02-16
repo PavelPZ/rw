@@ -7,6 +7,7 @@
       "@types/react-dom": "npm:@types/react-dom@^0.14.20",
       "@types/react-intl": "npm:@types/react-intl@^2.2.2",
       "@types/react-redux": "npm:@types/react-redux@^4.4.35",
+      "intl": "npm:intl@^1.2.5",
       "load-script": "npm:load-script@^1.0.0",
       "lodash": "npm:lodash@^4.17.2",
       "react-css-themr": "npm:react-css-themr@^1.7.2",

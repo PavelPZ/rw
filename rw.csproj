@@ -44,7 +44,9 @@
     <Content Include="rw-gui-rt\theme.css" />
     <TypeScriptCompile Include="design\rw-course\examples\test.tsx" />
     <TypeScriptCompile Include="design\rw-course\examples\testEnumOldEA.tsx" />
-    <TypeScriptCompile Include="rw-lib\loc-change.ts" />
+    <TypeScriptCompile Include="rw-lib\deferred.ts" />
+    <TypeScriptCompile Include="rw-lib\loc-change.tsx" />
+    <TypeScriptCompile Include="rw-lib\loc-test.tsx" />
     <TypeScriptCompile Include="rw-redux\async.ts" />
     <TypeScriptCompile Include="typings\rw\dconfig.d.ts" />
     <TypeScriptCompile Include="design\test-build.ts" />

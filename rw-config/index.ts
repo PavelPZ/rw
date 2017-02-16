@@ -1,5 +1,5 @@
 ﻿const config: DConfig.IConfig = {
-  initLoc: 'en-gb',
+  initLoc: 'cs-cz',
   basicUrl: null,
   rootPath: null,
   serverRun: typeof window == 'undefined', //nodejs design run 

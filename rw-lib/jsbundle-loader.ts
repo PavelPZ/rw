@@ -1,22 +1,31 @@
 ﻿import keys from 'lodash/keys';
+import { PromiseQueue } from './deferred';
 
 //https://github.com/systemjs/systemjs/blob/master/docs/system-api.md
 //import load from 'load-script';
 
 export class Loader {
-  constructor(public id: string, public subId?: string) {
+  constructor(public id: string /*short name, e.g. rw-lib/loc.js, for bundle or module*/, public idInBundle?: string /*module id when this.id is bundle*/) {
     this.name = System.normalizeSync(id)
   }
-  name: string; //full module or bundle name
-  lazyLoaded: Array<string>; //all dependencies
+  private name: string; //full module or bundle name, e.g. http://localhost/rw-lib/loc.js
+  private lazyLoaded: Array<string>; //all dependencies
+  mod: any;
 
   load(): Promise<any> {
+    if (this.mod) return Promise.resolve(this.mod);
+    return Loader.queue.add(() => this.doLoad());
+  }
+
+  private doLoad(): Promise<any> {
+
+    //if (Loader.justLoading) throw new Error('Loader.loading');
+    //Loader.justLoading = true;
+
     let oldInstantiate;
     let lazyLoaded: { [name: string]: boolean; } = {}
 
     const start = () => {
-      if (Loader.justLoading) throw new Error('Loader.loading');
-      Loader.justLoading = true;
       oldInstantiate = System.instantiate;
       System.instantiate = function (obj) {
         lazyLoaded[obj.name] = true; //register module, loaded in bundle
@@ -24,19 +33,23 @@ export class Loader {
       };
     }
 
-    const finish = (res: boolean) => {
-      System.instantiate = oldInstantiate; Loader.justLoading = false;
-      if (!res) return;
+    const finish = (mod?: any) => {
+      System.instantiate = oldInstantiate; //Loader.justLoading = false;
+      if (!mod) return;
+      this.mod = mod;
       this.lazyLoaded = keys(lazyLoaded);
+      console.log(`*L* loaded ${this.lazyLoaded.reduce((r, i) => r + ', ' + i)})`);
     };
 
-    return new Promise((res, rej) => {
+    return new Promise((resume, reject) => {
       start();
       System.import(this.name).then(m => {
-        if (!this.subId) { finish(true); res(m); return; }
-        const subName = System.normalizeSync(this.subId);
-        System.import(subName).then(m => { finish(true); res(m); }).catch(err => { finish(false); rej(err); });
-      }).catch(err => { finish(false); rej(err); });
+        if (!this.idInBundle) { finish(m); resume(m); return; }
+        const subName = System.normalizeSync(this.idInBundle);
+        const subm = System.get(subName);
+        if (!subm) { finish(); reject('!subm'); } else { finish(subm); resume(subm); }
+        //System.import(subName).then(m => { finish(true); res(m); }).catch(err => { finish(false); rej(err); });
+      }).catch(err => { finish(null); reject(err); });
     });
   }
 
@@ -44,77 +57,40 @@ export class Loader {
     if (!this.lazyLoaded) return;
     this.lazyLoaded.forEach(name => {
       //const m = System.get(name); if (!m) return;
+      console.log(`*L* unloaded ${this.lazyLoaded.reduce((r,i) => r + ', ' + i)})`);
       System.delete(name);
     });
     delete this.lazyLoaded; delete this.name;
   }
 
-  static replaceLoader(old: Loader, id: string, subId: string, setLoader: (nw: Loader) => void): Promise<any> {
-    if (old && old.id === id) return null;
-    const nw = new Loader(id, subId); setLoader(nw);
-    return nw.load();
-  }
+  //static replaceLoader(old: Loader, id: string, subId: string, setLoader: (nw: Loader) => void): Promise<any> {
+  //  if (old && old.id === id) return null;
+  //  const nw = new Loader(id, subId); setLoader(nw);
+  //  return nw.load();
+  //}
 
-  private static justLoading: boolean; //hlida paralelni beh dvou LOAD najednou, coz neni dovoleno
+  //private static justLoading: boolean; //hlida paralelni beh dvou LOAD najednou, coz neni dovoleno
+  private static queue: PromiseQueue = new PromiseQueue(() => { }, err => { throw new Error(err); });
 }
 
-//export const loadBundle = (relBundle: string, relModule: string) => {
-//  return new Promise((resolve, reject) => {
-//    System.normalize(relBundle).then(modUrl => { //get full bundle URL
-//      const modules: { [name: string]: boolean; } = {};
-//      //hook System.instantiate, 
-//      const oldInstantiate = System.instantiate;
-//      System.instantiate = function (obj) {
-//        modules[obj.name] = true; //register module, loaded in bundle
-//        return oldInstantiate.apply(this, arguments); 
-//      };
-//      //create 
-//      const unloadBundle = load(modUrl, (err, script) => {
-//        if (err) { reject(err); return; }
-//        //remove loaded modules from SystemJS cache
-//        System.import(relModule).then(mod => {
-//          System.instantiate = oldInstantiate;
-//          for (const name in modules) {
-//            const m = System.get(name); if (!m) continue;
-//            System.delete(name);
-//            delete modules[name];
-//          }
-//          resolve(mod);
-//        });
-//      })
-//    });
-//  });
-//};
-
-
-//export class lazyModuleHandler {
-//  constructor(public relBundle: string, public relModule: string) {
-//    //this.name = `${config.rootPath}${this.id}`; }
-//  }
-//  name: string; //SystemJS normalized name, eg. http://localhost/module.js
-//  module: any; //loaded module
-//  onLoading() { } //before loading hook
-//  onLoaded() { } //loaded hook
-//  onUnloaded() { } //unloaded hook
-//}
-
-//export function load(handler: lazyModuleHandler): Promise<lazyModuleHandler> {
-//  return new Promise((resolve, reject) => {
-//    if (handler) handler.onLoading();
-//    System.import(handler.id).then(m => {
-//      handler.module = m;
-//      handler.onLoaded();
-//      console.log(`lazy-loader.loaded: ${handler.id}`);
-//      resolve(handler);
-//    }).catch(err => reject(err));
-//  });
-//}
-
-//export function unload(handler: lazyModuleHandler) {
-//  const m = System.get(handler.name);
-//  if (!m || handler.module !== m) throw new Error('mod.module !== m');
-//  handler.onUnloaded();
-//  System.delete(handler.name);
-//  console.log(`lazy-loader.unloaded: ${handler.id}`);
-//}
-const x = 0;
+export class LoaderCache {
+  constructor(private len: number) { }
+  adjust(id: string, idInBundle?: string): Loader {
+    let res = this.queue.find(l => l.id == id);
+    if (res) {
+      if (res !== this.queue[this.queue.length - 1]) {
+        const idx = this.queue.indexOf(res);
+        this.queue.splice(idx, 1); this.queue.push(res);
+      }
+      return res;
+    }
+    if (this.queue.length == this.len) {
+      this.queue[0].unload();
+      this.queue.splice(0, 1);
+    }
+    res = new Loader(id, idInBundle);
+    this.queue.push(res);
+    return res;
+  }
+  private queue: Array<Loader> = [];
+}

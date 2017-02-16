@@ -1,5 +1,5 @@
 ﻿import { Action, createStore, applyMiddleware } from 'redux';
-import { blockGuiReducerFnc, TDispatch, Reducer, TMiddlewareAPI, Middleware, TMiddleware, store, setStore, getActState, changeBlockCouterState } from 'rw-redux';
+import { blockGuiReducerFnc, TDispatch, Reducer, TMiddlewareAPI, Middleware, TMiddleware, store, setStore, getActState } from 'rw-redux';
 
 export enum RecordingStatus { no, recording, recorded, playing, cancelPlaying }
 
@@ -64,6 +64,13 @@ export function playActionsStart(): Promise<boolean> {
     playActionsContinue();
   });
 }
+
+const changeBlockCouterState = (state: DRedux.IRootState, increase: boolean) => {
+  if (!state.blockGui) return;
+  if (increase) state.blockGui.counter++; else state.blockGui.counter--;
+};
+
+
 
 const pushActions = (act: Action) => recordingHook.currentRecording.actions.push(act);
 

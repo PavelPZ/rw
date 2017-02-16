@@ -65,6 +65,7 @@ SystemJS.config({
     "http": "npm:jspm-nodelibs-http@0.2.0",
     "https": "npm:jspm-nodelibs-https@0.2.1",
     "immutability-helper": "npm:immutability-helper@2.1.1",
+    "intl": "npm:intl@1.2.5",
     "load-script": "npm:load-script@1.0.0",
     "lodash": "npm:lodash@4.17.4",
     "module": "npm:jspm-nodelibs-module@0.2.0",
