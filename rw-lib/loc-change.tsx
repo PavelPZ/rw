@@ -42,8 +42,9 @@ const actLocReducer: Reducer<string, IActLocActionStart | IActLocActionEnd> = (s
   //if (!state) return '';
   switch (action.type) {
     case ACT_LOC_START:
-      const loader = cache.adjust(getIntlPath(action.loc)).load();
-      const polyfilLoader = needsPolyfill ? cache.adjust(getPolyfillPath(action.loc)).load() : null;
+      const adjustLoader = (id:string) => cache.adjust<Loader>(() => new Loader(id), l => l.id == id);
+      const loader = adjustLoader(getIntlPath(action.loc));
+      const polyfilLoader = needsPolyfill ? adjustLoader(getPolyfillPath(action.loc)) : null;
       makeAsync(action, Promise.all([loader, polyfilLoader]).then((res: [LocaleData, any]) => {
         const actEnd: IActLocActionEnd = { type: ACT_LOC_END, loc: action.loc, locale: res[0] };
         return actEnd;
@@ -67,12 +68,11 @@ const languageWithoutRegionCode = (lang:string) => lang.toLowerCase().split(/[_-
 const locCookie = 'loc-cookie';
 
 const actLoc = () => {
-  const language: DLoc.Langs = /*cookieRead(locCookie) ||*/ ((navigator as any).languages && (navigator as any).languages[0]) || navigator.language || (navigator as any).userLanguage || config.initLoc || 'en-gb';
+  const language: DLoc.Langs = cookieRead(locCookie) || config.initLoc || ((navigator as any).languages && (navigator as any).languages[0]) || navigator.language || (navigator as any).userLanguage || 'en-gb';
   return language;
 }
 
-//const needsPolyfill = typeof Intl === 'undefined';
-const needsPolyfill = true; 
+const needsPolyfill = true; //typeof Intl === 'undefined'; 
 const cache: LoaderCache = new LoaderCache(needsPolyfill ? 2 : 1);
 const getIntlPath = (lang: DLoc.Langs) => `react-intl/locale-data/${languageWithoutRegionCode(lang)}.js`;
 const getPolyfillPath = (lang: DLoc.Langs) => `intl/locale-data/jsonp/${languageWithoutRegionCode(lang)}.js`;

@@ -13,6 +13,10 @@ SystemJS.config({
       "main": "index.js",
       "defaultExtension": "js"
     },
+    "rw-login": {
+      "main": "index.js",
+      "defaultExtension": "js"
+    },
     "rw-router": {
       "main": "index.js",
       "defaultExtension": "js"

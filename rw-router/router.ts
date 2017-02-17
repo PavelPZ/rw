@@ -10,9 +10,8 @@ import { routeTreeToDir, diff, IDiffStateResult, string2route, route2string } fr
 
 
 export function init() {
-  //if (initTree) config.route.initRoute = () => routeTreeToDir(initTree());
   const routeFromUrl = string2route(window.location.href, RouteHandler.normalizeStringProps);
-  changeRoute(routeFromUrl ? routeFromUrl : config.route.initRoute(), false);
+  changeRoute(routeFromUrl, false);
 }
 
 export function navigate(tree: DRouter.IRouteData, ev?: React.SyntheticEvent<any>, subPath?: string) { if (ev) ev.preventDefault(); changeRoute(routeTreeToDir(tree, subPath), true, subPath); }
@@ -40,7 +39,10 @@ export const pushState = (route: DRouter.IRouteDir) => {
   history.pushState(null, null, urlStr);
 }
 
-function changeRoute(newRoute: DRouter.IRouteDir, withPustState: boolean, subPath?: string) { dispatchRouterActionStart(store.dispatch, newRoute, withPustState, subPath); }
+function changeRoute(newRoute: DRouter.IRouteDir, withPustState: boolean, subPath?: string) {
+  if (!newRoute) newRoute = config.route.initRoute();
+  dispatchRouterActionStart(store.dispatch, newRoute, withPustState, subPath);
+}
 
 export const loginREDIRECT = 'router.LOGIN_REDIRECT'; export interface ILoginRedirectAction extends Action { type: 'router.LOGIN_REDIRECT', returnUrl: string }
 const dispatchLoginRedirect = (dispatch: TDispatch, returnUrl: string) => dispatch({ type: loginREDIRECT, returnUrl: returnUrl } as ILoginRedirectAction);
@@ -79,7 +81,7 @@ const routerReducer: Reducer<DRouter.IRouteDir, IRouteChangeEndAction | IRouteCh
 const routeAsyncProc = (action: IRouteChangeStartAction) => new Promise<IRouteChangeEndAction>(async (resolve, reject) => {
   const oldRoute = getActState().router;
   const diffs = diff(oldRoute, action.newRoute, action.subPath);
-  const modifyRouteState = () => { //merge: old routes, delete modified routes, add new routes
+  const getNewRouteState = () => { //merge: old routes, delete modified routes, add new routes
     const routerNew = { ...oldRoute } as DRouter.IRouteDir; //plain cony
     diffs.changedAll.forEach(path => delete routerNew[path]);
     diffs.newAll.forEach(path => routerNew[path] = action.newRoute[path]);
@@ -93,14 +95,18 @@ const routeAsyncProc = (action: IRouteChangeStartAction) => new Promise<IRouteCh
       const rt = action.newRoute[path];
       return RouteHandler.find(rt.handlerId).loginNeeded(rt);
     });
-    if (loginNeeded) { dispatchLoginRedirect(store.dispatch, route2string(modifyRouteState())); return; }
+    if (loginNeeded) {
+      setTimeout(() => dispatchLoginRedirect(store.dispatch, route2string(getNewRouteState())), 1); //reducer may not dispatch action
+      resolve();
+      return;
+    }
   }
 
   //Unprepare old routes
   await Promise.all(diffs.changedAll.map(path => oldRoute[path]).map(rt => RouteHandler.find(rt.handlerId).unPrepare(rt)));
 
   //Get route state - change pointer to modified nodes
-  const newRouteState = modifyRouteState();
+  const newRouteState = getNewRouteState();
 
   //Prepare new routes, async data to route
   const asyncData = await Promise.all(diffs.newAll.map(path => newRouteState[path]).map(rt => RouteHandler.find(rt.handlerId).prepare(rt))); //array of async data

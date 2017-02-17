@@ -151,3 +151,19 @@ const rootReducer = (state: DRedux.IRootState, action: any): DRedux.IRootState =
     ...testReducerFnc(state, action),
   };
 }
+
+const actions: Array<Action> = [];
+
+const modifiedRootReducer = enableBatching(rootReducer);
+
+export function enableBatching(reduce) {
+  return function batchingReducer(state, action) {
+    switch (action.type) {
+      case 'BATCH':
+        //for init value (state) call state = batchingReducer(state, actions[i]) and return last assigned state
+        return action.payload.reduce(batchingReducer, state);
+      default:
+        return reduce(state, action);
+    }
+  }
+}

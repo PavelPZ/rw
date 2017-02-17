@@ -57,7 +57,8 @@ const loginReducer: Reducer<DRedux.ILoginState, ILoginRedirectAction | ILoginSel
         return state;
       }
       writeObj(loginCookieName, { returnUrl: action.returnUrl } as DRedux.ILoginState);
-      nextTick(() => navigate(config.login.loginRoute()));
+      const loginRoute = config.login.loginRoute ? config.login.loginRoute() : null;
+      nextTick(() => navigate(loginRoute));
       return state;
     case loginSELECT_PROVIDER:
       writeObj(loginCookieName, { returnUrl: homeUrl(), ...readObj<DRedux.ILoginState>(loginCookieName), providerId: action.providerId } as DRedux.ILoginState);

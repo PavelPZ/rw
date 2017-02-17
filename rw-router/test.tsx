@@ -3,7 +3,7 @@
 //lm libs
 import { appInit, TMiddlewareAPI, getActState, blockGuiReducerFnc } from 'rw-redux';
 import config from 'rw-config';
-//import { loginReducerFnc } from 'rw-login/index';
+import { loginReducerFnc } from 'rw-login/index';
 
 //GUI libs
 import getRTAppRoot from 'rw-gui-rt/get-app-root';
@@ -96,7 +96,7 @@ const rootReducer = (state: DRedux.IRootState, action: any): DRedux.IRootState =
   return {
     ...blockGuiReducerFnc(state, action),
     ...routeReducerFnc(state, action),
-    //...loginReducerFnc(state, action),
+    ...loginReducerFnc(state, action),
   };
 }
 

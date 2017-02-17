@@ -4,7 +4,7 @@ import { PromiseQueue } from './deferred';
 //https://github.com/systemjs/systemjs/blob/master/docs/system-api.md
 //import load from 'load-script';
 
-export class Loader {
+export class Loader implements DLib.Loader {
   constructor(public id: string /*short name, e.g. rw-lib/loc.js, for bundle or module*/, public idInBundle?: string /*module id when this.id is bundle*/) {
     this.name = System.normalizeSync(id)
   }
@@ -38,7 +38,7 @@ export class Loader {
       if (!mod) return;
       this.mod = mod;
       this.lazyLoaded = keys(lazyLoaded);
-      console.log(`*L* loaded ${this.lazyLoaded.reduce((r, i) => r + ', ' + i)})`);
+      console.log(`*L* loaded ${this.lazyLoaded.reduce((r, i) => r + ', ' + i)}`);
     };
 
     return new Promise((resume, reject) => {
@@ -53,14 +53,15 @@ export class Loader {
     });
   }
 
-  unload() {
-    if (!this.lazyLoaded) return;
+  unload(): Promise<any> {
+    if (!this.lazyLoaded) return null;
     this.lazyLoaded.forEach(name => {
       //const m = System.get(name); if (!m) return;
-      console.log(`*L* unloaded ${this.lazyLoaded.reduce((r,i) => r + ', ' + i)})`);
+      console.log(`*L* unloaded ${this.lazyLoaded.reduce((r, i) => r + ', ' + i)}`);
       System.delete(name);
     });
     delete this.lazyLoaded; delete this.name;
+    return null;
   }
 
   //static replaceLoader(old: Loader, id: string, subId: string, setLoader: (nw: Loader) => void): Promise<any> {
@@ -75,22 +76,23 @@ export class Loader {
 
 export class LoaderCache {
   constructor(private len: number) { }
-  adjust(id: string, idInBundle?: string): Loader {
-    let res = this.queue.find(l => l.id == id);
+  adjust<T extends DLib.Loader>(getLoader: () => T, itsMe: (l: T) => boolean): Promise<any> {
+    let res = this.queue.find(l => itsMe(l as T));
     if (res) {
       if (res !== this.queue[this.queue.length - 1]) {
         const idx = this.queue.indexOf(res);
         this.queue.splice(idx, 1); this.queue.push(res);
       }
-      return res;
+      return res.load();
     }
+    let unload: Promise<any> = null;
     if (this.queue.length == this.len) {
-      this.queue[0].unload();
+      unload = this.queue[0].unload();
       this.queue.splice(0, 1);
     }
-    res = new Loader(id, idInBundle);
+    res = getLoader();
     this.queue.push(res);
-    return res;
+    return unload ? unload.then(() => res.load()) : res.load();
   }
-  private queue: Array<Loader> = [];
+  private queue: Array<DLib.Loader> = [];
 }

@@ -1,16 +1,16 @@
 export function read(id: string, def: string = ""): string {
-  return getCookie(id, def);
+  return decode(getCookie(id, def));
 }
 export function write(name: string, value: string, persist: boolean = false): void {
   //_.each(allSubDomains, s => gCookie.setCookie(name, '', -1, undefined, s + '.' + LowUtils.cookieDomain()));
-  setCookie(name, value, persist ? 100000000 : undefined, "/", cookieDomain());
+  setCookie(name, encode(value), persist ? 100000000 : undefined, "/", cookieDomain());
 }
 export function remove(id: string): void {
   removeCookie(id, "/", cookieDomain());
 }
 
 export function readObj<T>(id: string): T {
-  var cook = getCookie(id, null); if (!cook) return null;
+  var cook = read(id, null); if (!cook) return null;
   return JSON.parse(cook);
 }
 
@@ -29,6 +29,9 @@ function cookieDomain() {
   } else
     return parts[len - 2] + "." + parts[len - 1];
 }
+
+function encode(val: string): string { return encodeURIComponent(val); }
+function decode(val: string): string { return decodeURIComponent(val); }
 
 
 // Copyright 2006 The Closure Library Authors. All Rights Reserved.

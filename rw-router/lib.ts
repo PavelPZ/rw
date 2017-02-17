@@ -3,6 +3,7 @@
 export function route<T extends DRouter.IRouteData>(data: T, childs?: { [hookId: string]: DRouter.IRouteData; }): DRouter.IRouteData { data.$childs = childs; return data; }
 
 export function routeTreeToDir(root: DRouter.IRouteData, parentPath?: string): DRouter.IRouteDir {
+  if (!root) return null;
   const toRouteStateInner = (route: DRouter.IRouteData, parentPath?: string, state?: DRouter.IRouteDir) => {
     route.path = parentPath; state[route.path] = route;
     if (route.$childs) for (var p in route.$childs) toRouteStateInner(route.$childs[p], route.path + p + '/', state);

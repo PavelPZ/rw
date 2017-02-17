@@ -96,3 +96,10 @@
     "ku-arab"?: string;
   }
 }
+
+declare namespace DLib {
+  interface Loader {
+    load: () => Promise<any>;
+    unload: () => Promise<any>;
+  }
+}
