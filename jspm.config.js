@@ -85,6 +85,7 @@ SystemJS.config({
     "react-toolbox": "npm:react-toolbox@2.0.0-beta.6",
     "readline": "npm:jspm-nodelibs-readline@0.2.0",
     "redux": "npm:redux@3.6.0",
+    "redux-batched-actions": "npm:redux-batched-actions@0.1.5",
     "redux-logger": "npm:redux-logger@2.8.1",
     "reselect": "npm:reselect@2.5.4",
     "stream": "npm:jspm-nodelibs-stream@0.2.0",

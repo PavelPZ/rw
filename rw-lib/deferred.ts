@@ -42,7 +42,7 @@ export class PromiseQueue {
   running: boolean;
 }
 
-export const timerPromise = (msec: number) => new Promise(resolve => setTimeout(() => resolve(), msec));
+export function timerPromise<T>(msec: number, result?: T) { return new Promise<T>(resolve => setTimeout(() => resolve(result), msec)); }
 
 //******* TEST
 

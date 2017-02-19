@@ -12,6 +12,7 @@ import React from 'react';
 import createLogger from 'redux-logger';
 import { Provider } from 'react-redux';
 import { Action, Store, createStore, GenericStoreEnhancer, applyMiddleware } from 'redux';
+import { enableBatching } from 'redux-batched-actions';
 
 //*****
 import { asyncMiddleware, TReducer, TMiddleware, Middleware } from 'rw-redux';
@@ -23,7 +24,7 @@ import { asyncMiddleware, TReducer, TMiddleware, Middleware } from 'rw-redux';
 //init app - called once
 export function appInit(reducer: TReducer, element: Element, getComponent: () => JSX.Element, initState: DRedux.IRootState = {}): Store<any> {
   initData = {
-    reducer: reducer,
+    reducer: enableBatching(reducer),
     getComponent: getComponent,
     element: element,
   };

@@ -1,5 +1,6 @@
 ﻿import { Action, createStore, applyMiddleware } from 'redux';
 import { blockGuiReducerFnc, TDispatch, Reducer, TMiddlewareAPI, Middleware, TMiddleware, store, setStore, getActState } from 'rw-redux';
+import { BATCH, BatchAction } from 'redux-batched-actions';
 
 export enum RecordingStatus { no, recording, recorded, playing, cancelPlaying }
 
@@ -18,22 +19,41 @@ export let recordingHook = {
   resolve: null as (res: boolean) => void,
 };
 
+export const toActions = (src: Array<TAsyncActionPromise>) => {
+  let actions: Array<Action> = [];
+  if (!src) return Promise.resolve(actions);
+  const promises = [];
+  //actions
+  src.forEach(act => {
+    if (!act) return;
+    if (isPromise(act)) promises.push(act);
+    else if (isArray(act)) actions = actions.concat(act);
+    else actions.push(act);
+  });
+  if (promises.length == 0) return Promise.resolve(actions);
+  //promises
+  return Promise.all<TAsyncActions>(promises).then(res => {
+    res.forEach(act => {
+      if (!act) return;
+      if (isArray(act)) actions = actions.concat(act); else actions.push(act);
+    });
+    return actions;
+  });
+};
+
 export const asyncMiddleware: Middleware<Action> = middlAPI => next => (act: IAsyncActionHelper) => {
   if (act.$asyncEnd) { next(act); return; } //action is async.promise result => don't record
   if (recordingHook.currentRecording && recordingHook.currentRecording.status == RecordingStatus.recording) pushActions(act); //recording => record action
   next(act);
   if (act.$asyncStart) { //some reducer called makeAsync() proc
-    const $asyncStart = act.$asyncStart; delete act.$asyncStart; //remove temporaty data
-    Promise.all($asyncStart).then(actions => {
+    const asyncStart = act.$asyncStart; delete act.$asyncStart; //remove temporaty data
+    toActions(asyncStart).then(actions => {
       changeBlockCouterState(middlAPI.getState(), false); //block gui END
-      let dispatched = false;
-      actions.forEach(act => {
-        if (!act) return;
-        dispatched = true;
-        act.$asyncEnd = true; //priznak: vysledek async akce
-        middlAPI.dispatch(act); //must be SYNC action
-      });
-      if (!dispatched) middlAPI.dispatch({ type: '', $asyncEnd: true } as IAsyncActionHelper); //fake dispatch: chance to blockGui component re-render etc.
+      //force action: chance to blockGui component re-render etc.
+      if (actions.length == 0) actions.push({ type: '' });
+      //single or batch action
+      if (actions.length == 1) { (actions[0] as IAsyncActionHelper).$asyncEnd = true; middlAPI.dispatch(actions[0]); }
+      else middlAPI.dispatch({ type: BATCH, payload: actions, $asyncEnd: true } as BatchAction);
       playActionsContinue(); //for isPlaying: chance to continue action playing
     });
   } else
@@ -41,7 +61,7 @@ export const asyncMiddleware: Middleware<Action> = middlAPI => next => (act: IAs
 }
 
 //Mark action as async
-export const makeAsync = (act: Action, promise: Promise<Action>) => {
+export const makeAsync = (act: Action, promise: TAsyncActionPromise) => {
   const asyncAct = act as IAsyncActionHelper;
   if (!asyncAct.$asyncStart) {
     changeBlockCouterState(store.getState(), true); //block gui START
@@ -50,8 +70,14 @@ export const makeAsync = (act: Action, promise: Promise<Action>) => {
   asyncAct.$asyncStart.push(promise);
 };
 
+export type TAsyncActions = Action | Array<Action>;
+export type TAsyncActionPromise = Promise<Action> | Promise<Array<Action>> | TAsyncActions;
+
+function isPromise(arg: any): arg is Promise<Action> | Promise<Array<Action>> { return arg && typeof arg.then === 'function'; }
+function isArray(arg: any): arg is Array<any> { return arg && arg instanceof Array }
+
 interface IAsyncActionHelper extends Action {
-  $asyncStart?: Array<Promise<IAsyncActionHelper>>; //sance pro async akci naplnit promise
+  $asyncStart?: Array<TAsyncActionPromise>; //sance pro async akci naplnit promise
   $asyncEnd?: boolean;
 }
 

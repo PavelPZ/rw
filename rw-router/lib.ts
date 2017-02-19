@@ -5,6 +5,7 @@ export function route<T extends DRouter.IRouteData>(data: T, childs?: { [hookId:
 export function routeTreeToDir(root: DRouter.IRouteData, parentPath?: string): DRouter.IRouteDir {
   if (!root) return null;
   const toRouteStateInner = (route: DRouter.IRouteData, parentPath?: string, state?: DRouter.IRouteDir) => {
+    if (!route) return;
     route.path = parentPath; state[route.path] = route;
     if (route.$childs) for (var p in route.$childs) toRouteStateInner(route.$childs[p], route.path + p + '/', state);
     return state;
@@ -24,7 +25,7 @@ function parentRoute(state: DRouter.IRouteDir, path: string): IParentRouteResult
 export interface IParentRouteResult { parent: DRouter.IRouteData; hookId: string; }
 
 //odstrani z DRouter.IRouteData pomocne pracovni fields
-function clearRoute(state: DRouter.IRouteDir) { for (let p in state) { delete state[p].$childs; delete state[p].$asyncData; } };
+function clearRoute(state: DRouter.IRouteDir) { for (let p in state) { delete state[p].$childs; } }; //delete state[p].$asyncData; } };
 
 export function routeModify<T extends DRouter.IRouteData>(state: DRouter.IRouteDir, path: string, modify: (res:T) => void): T {
   const res = routeDirToTree<T>(state, path); modify(res); return res;

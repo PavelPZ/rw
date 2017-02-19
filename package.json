@@ -14,6 +14,7 @@
       "react-intl": "npm:react-intl@^2.2.3",
       "react-redux": "npm:react-redux@^4.4.6",
       "react-toolbox": "npm:react-toolbox@^2.0.0-beta.6",
+      "redux-batched-actions": "npm:redux-batched-actions@^0.1.5",
       "redux-logger": "npm:redux-logger@^2.7.4",
       "reselect": "npm:reselect@^2.5.4",
       "tslib": "npm:tslib@^1.5.0",

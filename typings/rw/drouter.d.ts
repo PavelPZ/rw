@@ -3,7 +3,7 @@
     handlerId: string; //handler id for route management
     path?: string; //jednoznacna identifikace IRouteData v IRouteDir, e.g. '/' for root, '//' for root.child, /ch1/ for root.childs['ch1'] etc.
     //helper fields for route manipulation
-    $asyncData?: any; //data, added during prepare
+    //$asyncData?: any; //data, added during prepare
     $childs?: { [hookId: string]: IRouteData; };
   }
 

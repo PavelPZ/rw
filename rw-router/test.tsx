@@ -1,9 +1,13 @@
 ﻿import React from 'react';
+import { Action } from 'redux';
+import { connect } from 'react-redux';
+import { createSelector } from 'reselect';
 
 //lm libs
-import { appInit, TMiddlewareAPI, getActState, blockGuiReducerFnc } from 'rw-redux';
+import { appInit, TMiddlewareAPI, getActState, blockGuiReducerFnc, TAsyncActionPromise, Reducer } from 'rw-redux';
 import config from 'rw-config';
 import { loginReducerFnc } from 'rw-login/index';
+import { timerPromise } from 'rw-lib/deferred';
 
 //GUI libs
 import getRTAppRoot from 'rw-gui-rt/get-app-root';
@@ -12,98 +16,148 @@ import initBlockGui from 'rw-gui-rt/block-gui/index'; initBlockGui();
 //self lib
 import { routeTreeToDir, route, routeDirToTree, routeModify, parentPath, RouteHook, routeReducerFnc, RouteHandler, init as routerInit, navigate } from 'rw-router';
 
-//declare const __moduleName: string;
-//const id = __moduleName.substring(config.rootPath.length - 1);
-//debugger;
-//const name = System.normalize(id).then(s => {
-//  const idl = id; const mn = __moduleName;
-//  debugger;
-//});
+/***********************************************
+              STATE
+***********************************************/
+interface ITitle { title: string; }
+interface IAppState {
+  //parentState: ITitle;
+  [id: string]: ITitle;
+}
+type IAppStore = DRedux.IRootState & { app: IAppState; };
+const parentState = 'parentState';
+
+const adjustTitleState = (state: ITitle, tit: string): ITitle => state ? state : { title: tit };
 
 /***********************************************
               PARENT
 ***********************************************/
-let cnt = 1;
-
-//route
-const APP_ROOT = 'test.AppRoot';
-interface IAppRootRoute extends DRouter.IRouteData {
-  handlerId: 'test.AppRoot';
-  title: string;
-  $asyncData?: string;
+const PARENT = 'PARENT';
+interface IParentRoute extends DRouter.IRouteData {
+  handlerId: 'PARENT';
+  routeTitle: string;
   $childs?: {
-    '': IAppChildRoute,
-    ch1: IAppChildRoute
+    '': IChildRoute,
+    ch1: IChildRoute
   }
 }
-//create app route
-const createAppRoute = (title: string, child: IAppChildRoute, ch1$child: IAppChildRoute) => ({ handlerId: APP_ROOT, title: title, $childs: { '': child, ch1: ch1$child } } as IAppRootRoute);
+const createParentRoute = (title: string, child?: IChildRoute, ch1$child?: IChildRoute) => ({ handlerId: PARENT, routeTitle: title, $childs: { '': child, ch1: ch1$child } } as IParentRoute);
+
+interface IParentProps { propsTitle: string; ownProps: IParentOwnProps; } //presenter props
+interface IParentOwnProps { initTitle: string; route: IParentRoute; } //HOC connected component props
+
+const parentSelector = createSelector<IAppStore, IParentProps, IParentProps>(
+  (state, ownProps: IParentOwnProps) => ({
+    propsTitle: 'Parent '+ adjustTitleState(state.app['parentState'], ownProps.initTitle).title,
+    ownProps:ownProps
+  }),
+  res => res
+);
+
+const parentPresenter: React.StatelessComponent<IParentProps> = props => {
+  console.log('> render parent ');
+  const path = props.ownProps.route.path;
+  return <div>
+    <h1 onClick={ev => {
+      const state = getActState().router;
+      return navigate(routeModify<IParentRoute>(state, path, route => route.routeTitle += '-x'), ev, path);
+    }}>{props.propsTitle}</h1>
+    <RouteHook parentPath={path} hookId='' />
+    <RouteHook parentPath={path} hookId='ch1' />
+  </div>;
+};
+
+const Parent = connect<IParentProps, never, IParentOwnProps>(
+  (state: IAppStore, ownProps) => parentSelector(state, ownProps),
+)(parentPresenter);
+
+interface IParentPrepareAction extends Action { type: 'PARENT_PREPARE'; actionTitle: string; }
+const PARENT_PREPARE = 'PARENT_PREPARE';
+
+const parentReducer: Reducer<IAppState, IParentPrepareAction | IChildPrepareAction> = (state, action) => {
+  if (!state) return { };
+  switch (action.type) {
+    case PARENT_PREPARE: return { ...state, parentState: { title: action.actionTitle } };
+    default: return childReducer(state, action);
+  }
+}
 
 //handler
-class RootHandler extends RouteHandler<IAppRootRoute> {
-  createComponent(route: IAppRootRoute): JSX.Element { return <RootPresenter {...route} instanceTitle='instance-1' />; }
-  prepare(route: IAppRootRoute): Promise<string> { return new Promise<string>(resolve => setTimeout(() => resolve('parent-async-data-x'), 500)); }
-  //prepare(route: IRouteData): Promise<any> { return new Promise<any>(resolve => resolve('parent async data')); }
-  //prepare(route: IRouteData): Promise<any> { return 'parent async data' as any; }
+class ParentHandler extends RouteHandler<IParentRoute> {
+  createComponent(route: IParentRoute): JSX.Element { return <Parent route={route} initTitle='Parent' />; }
+  prepare(route: IParentRoute): TAsyncActionPromise { return timerPromise(500, { type: PARENT_PREPARE, actionTitle: route.routeTitle } as IParentPrepareAction); }
 }
-new RootHandler(APP_ROOT);
-
-//components
-interface IRootPresenterProps { instanceTitle: string; }
-const RootPresenter: React.StatelessComponent<IRootPresenterProps & IAppRootRoute> = props => {
-  console.log('render RootPresenter');
-  return <div>
-    <h1>{props.title}: {props.instanceTitle}: {props.$asyncData}</h1>
-    <RouteHook parentPath={props.path} hookId='' />
-    <RouteHook parentPath={props.path} hookId='ch1' />
-  </div>;
-}
+new ParentHandler(PARENT);
 
 /***********************************************
               CHILD
 ***********************************************/
-const APP_CHILD = 'test.AppChild';
-interface IAppChildRoute extends DRouter.IRouteData {
-  handlerId: 'test.AppChild';
-  numId: number;
+const CHILD = 'CHILD';
+interface IChildRoute extends DRouter.IRouteData {
+  handlerId: 'CHILD';
+  routeChildTitle: string;
 }
-const createChildRoute = (numId: number) => ({ handlerId: APP_CHILD, numId: numId } as IAppChildRoute)
+const createChildRoute = (title: string) => ({ handlerId: CHILD, routeChildTitle: title } as IChildRoute);
 
-class ChildHandler extends RouteHandler<IAppChildRoute> {
-  createComponent(routeData: IAppChildRoute): JSX.Element {
-    console.log('render ChildHandler');
-    return <div>
-      <h2>{routeData.numId}</h2>
-      <a href="#" onClick={ev => {
-        const state = getActState().router;
-        const parPath = parentPath(state, routeData.path);
-        return navigate(routeModify<IAppRootRoute>(state, parPath, parent => { parent.title += '-x'; parent.$childs.ch1.numId += 1; }), ev, parPath);
-        //const selfPath = routeData.path;
-        //return navigate(routeModify<IAppChildRoute>(state, selfPath, self => self.numId += 1), ev, selfPath);
-      }}>Click</a>
-    </div>;
-  }
-  unPrepare(route: IAppChildRoute): Promise<never> { return new Promise<never>(resolve => setTimeout(() => resolve(), 500)); }
-  normalizeStringProps(route: IAppChildRoute) { if (typeof route.numId === 'string') route.numId = parseInt(route.numId as any); }
-  loginNeeded(route: IAppChildRoute): boolean { return route.numId >= 25; }
+interface IChildProps { propsChildTitle: string; ownProps: IChildOwnProps} //presenter props
+interface IChildOwnProps { initChildTitle: string; route: IChildRoute} //HOC connected component props
+
+const childSelector = createSelector<IAppStore, IChildProps, IChildProps>(
+  (state, ownProps: IChildOwnProps) => ({
+    propsChildTitle: 'Child ' + adjustTitleState(state.app[ownProps.route.path], ownProps.initChildTitle).title,
+    ownProps: ownProps
+  }),
+  res => res
+);
+
+const childPresenter: React.StatelessComponent<IChildProps> = props => {
+  const path = props.ownProps.route.path;
+  console.log('> render child ' + path);
+  return <h3 onClick={ev => {
+    const state = getActState().router;
+    return navigate(routeModify<IChildRoute>(state, path, route => route.routeChildTitle += '-x'), ev, path);
+  }}>{props.propsChildTitle}</h3>;
 }
-new ChildHandler(APP_CHILD);
+
+const Child = connect<IChildProps, never, IChildOwnProps>(
+  (state: IAppStore, ownProps) => childSelector(state, ownProps),
+)(childPresenter);
+
+interface IChildPrepareAction extends Action { type: 'CHILD_PREPARE'; actionId: string; actionTitle: string; }
+const CHILD_PREPARE = 'CHILD_PREPARE';
+
+const childReducer: Reducer<IAppState, IChildPrepareAction> = (state, action) => {
+  //if (!state) return { zzz: 'zzz' };
+  switch (action.type) {
+    case CHILD_PREPARE: return { ...state, [action.actionId]: { title: action.actionTitle }};
+    default: return state;
+  }
+}
+
+class ChildHandler extends RouteHandler<IChildRoute> {
+  createComponent(route: IChildRoute): JSX.Element { return <Child initChildTitle='child own title' route={route} />; }
+  prepare(route: IChildRoute): TAsyncActionPromise { const res: IChildPrepareAction = { type: CHILD_PREPARE, actionTitle: route.routeChildTitle, actionId: route.path }; return timerPromise(500, res); }
+}
+new ChildHandler(CHILD);
 
 /***********************************************
               APP
 ***********************************************/
-const rootReducer = (state: DRedux.IRootState, action: any): DRedux.IRootState => {
+const rootReducer = (state: IAppStore, action: any): IAppStore => {
   return {
     ...blockGuiReducerFnc(state, action),
     ...routeReducerFnc(state, action),
     ...loginReducerFnc(state, action),
+    app: parentReducer(state.app, action)
   };
 }
 
 export function init() {
   appInit(rootReducer, document.getElementById('content'), getRTAppRoot);
   //Route definition
-  config.route.initRoute = () => routeTreeToDir(createAppRoute('Hallo-world-x', createChildRoute(10), createChildRoute(20)));
+  config.route.initRoute = () => routeTreeToDir(createParentRoute('Hallo-parent', createChildRoute('Hallo-child-1'), createChildRoute('Hallo-child-2')));
+  //config.route.initRoute = () => routeTreeToDir(createParentRoute('Hallo-world-x', null, null));
   //Router init
   routerInit();
 }
+

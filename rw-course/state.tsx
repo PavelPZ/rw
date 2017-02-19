@@ -2,7 +2,7 @@
 import { Action } from 'redux';
 
 import config from 'rw-config';
-import { TDispatch, getActState, Reducer } from 'rw-redux';
+import { TDispatch, getActState, Reducer, TAsyncActionPromise } from 'rw-redux';
 import { routerCHANGE_END, IRouteChangeEndAction, RouteHandler } from 'rw-router';
 import { loadCourse, PageLoader } from 'rw-course';
 
@@ -31,12 +31,12 @@ const courseReducer = (state: DCourse.ICoursesState, action: ICourseNavigActionE
       //if (!res.userCourse) res.userCourse = {};
       //if (action.asyncResult.userPage) res.userCourse[res.pageUrl] = action.asyncResult.userPage;
       //return res;
-    case routerCHANGE_END:
-      const reducData = action.asyncResult.forHandlerReducers[COURSE_ROOT]; if (!reducData) return state;
-      if (reducData.length > 1) throw new Error('reducData.length > 1'); //only single course route
-      const route = action.asyncResult.newRoute[reducData[0]] as ICourseRoute;
-      const newState = route.$asyncData; delete route.$asyncData;
-      return newState;
+    //case routerCHANGE_END:
+    //  const reducData = action.asyncResult.forHandlerReducers[COURSE_ROOT]; if (!reducData) return state;
+    //  if (reducData.length > 1) throw new Error('reducData.length > 1'); //only single course route
+    //  const route = action.asyncResult.newRoute[reducData[0]] as ICourseRoute;
+    //  const newState = route.$asyncData; delete route.$asyncData;
+    //  return newState;
     default: return state;
   }
 };
@@ -117,7 +117,7 @@ export const courseReducerFnc = (state: DRedux.IRootState, action: IRouteChangeE
 const COURSE_ROOT = 'course';
 export interface ICourseRoute extends DRouter.IRouteData, DCourse.ICourseNavigData {
   handlerId: 'course';
-  $asyncData?: DCourse.ICoursesState;
+  //$asyncData?: DCourse.ICoursesState;
 }
 //course route async data 
 //interface ICourseRouteAsync {
@@ -125,10 +125,10 @@ export interface ICourseRoute extends DRouter.IRouteData, DCourse.ICourseNavigDa
 
 
 class RootHandler extends RouteHandler<ICourseRoute> {
-  prepare(route: ICourseRoute): Promise<DCourse.ICoursesState> {
-    return loadCourse(route, null/*TODO Courses state*/);
-  }
-  unPrepare(route: ICourseRoute): Promise<never> {
+  //prepare(route: ICourseRoute): Promise<DCourse.ICoursesState> {
+  //  return loadCourse(route, null/*TODO Courses state*/);
+  //}
+  unPrepare(route: ICourseRoute): TAsyncActionPromise {
     //TODO: save course data - what about saving course data in loadCourse?
     return null;
   }
