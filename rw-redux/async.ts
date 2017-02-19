@@ -48,13 +48,12 @@ export const asyncMiddleware: Middleware<Action> = middlAPI => next => (act: IAs
   if (act.$asyncStart) { //some reducer called makeAsync() proc
     const asyncStart = act.$asyncStart; delete act.$asyncStart; //remove temporaty data
     toActions(asyncStart).then(actions => {
-      changeBlockCouterState(middlAPI.getState(), false); //block gui END
+      changeBlockCouterState(middlAPI.dispatch, false); //block gui END
       //force action: chance to blockGui component re-render etc.
       if (actions.length == 0) actions.push({ type: '' });
       //single or batch action
       if (actions.length == 1) { (actions[0] as IAsyncActionHelper).$asyncEnd = true; middlAPI.dispatch(actions[0]); }
       else middlAPI.dispatch({ type: BATCH, payload: actions.reverse(), $asyncEnd: true } as BatchAction);
-      //else actions.forEach((act: IAsyncActionHelper) => { act.$asyncEnd = true; middlAPI.dispatch(act); });
       playActionsContinue(); //for isPlaying: chance to continue action playing
     });
   } else
@@ -65,7 +64,7 @@ export const asyncMiddleware: Middleware<Action> = middlAPI => next => (act: IAs
 export const makeAsync = (act: Action, promise: TAsyncActionPromise) => {
   const asyncAct = act as IAsyncActionHelper;
   if (!asyncAct.$asyncStart) {
-    changeBlockCouterState(store.getState(), true); //block gui START
+    //changeBlockCouterState(store.getState(), true); //block gui START
     asyncAct.$asyncStart = [];
   }
   asyncAct.$asyncStart.push(promise);
@@ -92,6 +91,7 @@ export function playActionsStart(): Promise<boolean> {
   });
 }
 
+export const ASYNC_START = 'ASYNC_START'; export const ASYNC_END = 'ASYNC_END';
 const changeBlockCouterState = (state: DRedux.IRootState, increase: boolean) => {
   if (!state.blockGui) return;
   if (increase) state.blockGui.counter++; else state.blockGui.counter--;

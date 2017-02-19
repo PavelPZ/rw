@@ -6,7 +6,7 @@ import { store, IMapDispatchToProps, TDispatch, Reducer, TMiddlewareAPI, getActS
 import config from 'rw-config';
 
 //*******
-import { routeTreeToDir, diff, IDiffStateResult, string2route, route2string } from 'rw-router';
+import { routeTreeToDir, diff, IDiffStateResult, string2route, route2string, routeDirToTree } from 'rw-router';
 
 
 export function init() {
@@ -15,6 +15,11 @@ export function init() {
 }
 
 export function navigate(tree: DRouter.IRouteData, ev?: React.SyntheticEvent<any>, subPath?: string) { if (ev) ev.preventDefault(); changeRoute(routeTreeToDir(tree, subPath), true, subPath); }
+export function navigateModified<T extends DRouter.IRouteData>(subPath: string, modify: (res: T) => void, ev?: React.SyntheticEvent<any>) {
+  const state = getActState().router;
+  const res = routeDirToTree<T>(state, subPath); modify(res);
+  navigate(res, ev, subPath);
+}
 export function navigateDir(dir: DRouter.IRouteDir, ev?: React.SyntheticEvent<any>, subPath?: string) { if (ev) ev.preventDefault(); changeRoute(dir, true, subPath); }
 export const gotoHome = () => navigateDir(config.route.initRoute());
 export const homeUrl = () => route2string(config.route.initRoute());

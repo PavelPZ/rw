@@ -14,7 +14,7 @@ import getRTAppRoot from 'rw-gui-rt/get-app-root';
 import initBlockGui from 'rw-gui-rt/block-gui/index'; initBlockGui();
 
 //self lib
-import { routeTreeToDir, route, routeDirToTree, routeModify, parentPath, RouteHook, routeReducerFnc, RouteHandler, init as routerInit, navigate } from 'rw-router';
+import { routeTreeToDir, route, routeDirToTree, routeModify, parentPath, RouteHook, routeReducerFnc, RouteHandler, init as routerInit, navigateModified } from 'rw-router';
 
 /***********************************************
               STATE
@@ -57,10 +57,7 @@ const parentPresenter: React.StatelessComponent<IParentProps & IParentOwnProps> 
   console.log('> render parent ');
   const path = props.route.path;
   return <div>
-    <h1 onClick={ev => {
-      const state = getActState().router;
-      return navigate(routeModify<IParentRoute>(state, path, route => route.routeTitle += '-x'), ev, path);
-    }}>{props.propsTitle}</h1>
+    <h1 onClick={ev => navigateModified<IParentRoute>(props.route.path, route => route.routeTitle += '-x', ev)}>{props.propsTitle}</h1>
     <RouteHook parentPath={path} hookId='' />
     <RouteHook parentPath={path} hookId='ch1' />
   </div>;
@@ -113,10 +110,7 @@ const makeMapChildStateToProps = () => (state: IAppStore, ownProps: IChildOwnPro
 const childPresenter: React.StatelessComponent<IChildProps & IChildOwnProps> = props => {
   const path = props.route.path;
   console.log('> render child ' + path);
-  return <h3 onClick={ev => {
-    const state = getActState().router;
-    return navigate(routeModify<IChildRoute>(state, path, route => route.routeChildTitle += '-x'), ev, path);
-  }}>{props.propsChildTitle}</h3>;
+  return <h3 onClick={ev => navigateModified<IChildRoute>(props.route.path, route => route.routeChildTitle += '-x', ev)}>{props.propsChildTitle}</h3>;
 }
 
 const Child = connect<IChildProps, never, IChildOwnProps>(
