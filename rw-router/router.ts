@@ -102,8 +102,8 @@ const routeAsyncProc = async (action: IRouteChangeStartAction) => {
 
   const asyncEndActions = [
     ...unprepareActions,
+    { type: routerCHANGE_END, newRoute: newRouteState, withPustState: action.withPustState } as IRouteChangeEndAction,
     ...prepareActions,
-    { type: routerCHANGE_END, newRoute: newRouteState, withPustState: action.withPustState } as IRouteChangeEndAction
   ];
 
   return asyncEndActions;

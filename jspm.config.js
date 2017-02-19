@@ -51,7 +51,7 @@ SystemJS.config({
   ],
   map: {
     "@types/lodash": "npm:@types/lodash@4.14.52",
-    "@types/react": "npm:@types/react@0.14.57",
+    "@types/react": "npm:@types/react@15.0.11",
     "@types/react-dom": "npm:@types/react-dom@0.14.23",
     "@types/react-intl": "npm:@types/react-intl@2.2.2",
     "@types/react-redux": "npm:@types/react-redux@4.4.36",
@@ -81,7 +81,7 @@ SystemJS.config({
     "react-css-themr": "npm:react-css-themr@1.7.2",
     "react-dom": "npm:react-dom@15.4.2",
     "react-intl": "npm:react-intl@2.2.3",
-    "react-redux": "npm:react-redux@4.4.6",
+    "react-redux": "npm:react-redux@5.0.2",
     "react-toolbox": "npm:react-toolbox@2.0.0-beta.6",
     "readline": "npm:jspm-nodelibs-readline@0.2.0",
     "redux": "npm:redux@3.6.0",
@@ -103,14 +103,6 @@ SystemJS.config({
       "map": {
         "redux": "npm:redux@3.6.0",
         "@types/react": "npm:@types/react@0.14.57"
-      }
-    },
-    "npm:react-redux@4.4.6": {
-      "map": {
-        "lodash": "npm:lodash@4.17.4",
-        "hoist-non-react-statics": "npm:hoist-non-react-statics@1.2.0",
-        "invariant": "npm:invariant@2.2.2",
-        "loose-envify": "npm:loose-envify@1.3.1"
       }
     },
     "npm:redux@3.6.0": {
@@ -444,7 +436,7 @@ SystemJS.config({
     "npm:gulp-rimraf@0.2.1": {
       "map": {
         "through2": "npm:through2@2.0.3",
-        "rimraf": "npm:rimraf@2.5.4",
+        "rimraf": "npm:rimraf@2.6.0",
         "gulp-util": "npm:gulp-util@3.0.8"
       }
     },
@@ -507,7 +499,7 @@ SystemJS.config({
         "espree": "npm:espree@3.4.0",
         "table": "npm:table@3.8.3",
         "debug": "npm:debug@2.6.1",
-        "globals": "npm:globals@9.14.0",
+        "globals": "npm:globals@9.16.0",
         "is-my-json-valid": "npm:is-my-json-valid@2.15.0",
         "ignore": "npm:ignore@3.2.2",
         "inquirer": "npm:inquirer@0.12.0",
@@ -531,11 +523,6 @@ SystemJS.config({
         "lodash._basetostring": "npm:lodash._basetostring@3.0.1",
         "lodash.templatesettings": "npm:lodash.templatesettings@3.1.1",
         "lodash.keys": "npm:lodash.keys@3.1.2"
-      }
-    },
-    "npm:rimraf@2.5.4": {
-      "map": {
-        "glob": "npm:glob@7.1.1"
       }
     },
     "npm:file-entry-cache@2.0.0": {
@@ -883,7 +870,7 @@ SystemJS.config({
     "npm:del@2.2.2": {
       "map": {
         "object-assign": "npm:object-assign@4.1.1",
-        "rimraf": "npm:rimraf@2.5.4",
+        "rimraf": "npm:rimraf@2.6.0",
         "is-path-in-cwd": "npm:is-path-in-cwd@1.0.0",
         "is-path-cwd": "npm:is-path-cwd@1.0.0",
         "globby": "npm:globby@5.0.0",
@@ -1023,6 +1010,20 @@ SystemJS.config({
     "npm:@types/react-intl@2.2.2": {
       "map": {
         "@types/react": "npm:@types/react@0.14.57"
+      }
+    },
+    "npm:rimraf@2.6.0": {
+      "map": {
+        "glob": "npm:glob@7.1.1"
+      }
+    },
+    "npm:react-redux@5.0.2": {
+      "map": {
+        "lodash": "npm:lodash@4.17.4",
+        "invariant": "npm:invariant@2.2.2",
+        "lodash-es": "npm:lodash-es@4.17.4",
+        "hoist-non-react-statics": "npm:hoist-non-react-statics@1.2.0",
+        "loose-envify": "npm:loose-envify@1.3.1"
       }
     }
   }

@@ -37,7 +37,7 @@
 
       //"rw-course": [ "rw-course/index" ],
 
-      "react": [ "jspm_packages/npm/@types/react@0.14.57/index" ],
+      "react": [ "jspm_packages/npm/@types/react@15.0.11/index" ],
       "react-dom": [ "jspm_packages/npm/@types/react-dom@0.14.23/index" ],
       "redux": [ "jspm_packages/npm/redux@3.6.0/index" ],
       "react-redux": [ "jspm_packages/npm/@types/react-redux@4.4.36/index" ],

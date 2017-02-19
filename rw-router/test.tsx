@@ -27,7 +27,9 @@ interface IAppState {
 type IAppStore = DRedux.IRootState & { app: IAppState; };
 const parentState = 'parentState';
 
-const adjustTitleState = (state: ITitle, tit: string): ITitle => state ? state : { title: tit };
+const adjustTitleState = (state: ITitle, tit: string): ITitle => {
+  return state ? state : { title: tit };
+};
 
 /***********************************************
               PARENT
@@ -43,20 +45,17 @@ interface IParentRoute extends DRouter.IRouteData {
 }
 const createParentRoute = (title: string, child?: IChildRoute, ch1$child?: IChildRoute) => ({ handlerId: PARENT, routeTitle: title, $childs: { '': child, ch1: ch1$child } } as IParentRoute);
 
-interface IParentProps { propsTitle: string; ownProps: IParentOwnProps; } //presenter props
+interface IParentProps { propsTitle: string; } //presenter props
 interface IParentOwnProps { initTitle: string; route: IParentRoute; } //HOC connected component props
 
-const parentSelector = createSelector<IAppStore, IParentProps, IParentProps>(
-  (state, ownProps: IParentOwnProps) => ({
-    propsTitle: 'Parent ' + adjustTitleState(state.app['parentState'], ownProps.initTitle).title,
-    ownProps: ownProps
-  }),
-  res => res
+const parentSelector = createSelector<IAppStore, IParentProps, string>(
+  (state, ownProps: IParentOwnProps) => adjustTitleState(state.app['parentState'], ownProps.initTitle).title,
+  title => ({ propsTitle: title })
 );
 
-const parentPresenter: React.StatelessComponent<IParentProps> = props => {
+const parentPresenter: React.StatelessComponent<IParentProps & IParentOwnProps> = props => {
   console.log('> render parent ');
-  const path = props.ownProps.route.path;
+  const path = props.route.path;
   return <div>
     <h1 onClick={ev => {
       const state = getActState().router;
@@ -99,22 +98,20 @@ interface IChildRoute extends DRouter.IRouteData {
 }
 const createChildRoute = (title: string) => ({ handlerId: CHILD, routeChildTitle: title } as IChildRoute);
 
-interface IChildProps { propsChildTitle: string; ownProps: IChildOwnProps } //presenter props
+interface IChildProps { propsChildTitle: string } //presenter props
 interface IChildOwnProps { initChildTitle: string; route: IChildRoute } //HOC connected component props
 
-const makeChildSelector = () => createSelector<IAppStore, IChildProps, ITitle, IChildOwnProps>(
-  (state, ownProps: IChildOwnProps) => state.app[ownProps.route.path],
-  (state, ownProps: IChildOwnProps) => ownProps,
-  (tit, ownProps) => ({
-    propsChildTitle: adjustTitleState(tit, ownProps.initChildTitle).title,
-    ownProps: ownProps
+const makeChildSelector = () => createSelector<IAppStore, IChildProps, string>(
+  (state, ownProps: IChildOwnProps) => adjustTitleState(state.app[ownProps.route.path], ownProps.initChildTitle).title,
+  title => ({
+    propsChildTitle: title
   })
 );
 
 const makeMapChildStateToProps = () => (state: IAppStore, ownProps: IChildOwnProps) => makeChildSelector()(state, ownProps);
 
-const childPresenter: React.StatelessComponent<IChildProps> = props => {
-  const path = props.ownProps.route.path;
+const childPresenter: React.StatelessComponent<IChildProps & IChildOwnProps> = props => {
+  const path = props.route.path;
   console.log('> render child ' + path);
   return <h3 onClick={ev => {
     const state = getActState().router;
@@ -123,14 +120,14 @@ const childPresenter: React.StatelessComponent<IChildProps> = props => {
 }
 
 const Child = connect<IChildProps, never, IChildOwnProps>(
-  //makeMapChildStateToProps
-  (state: IAppStore, ownProps) => {
-    const st = state.app[ownProps.route.path];
-    return {
-      propsChildTitle: st ? st.title : ownProps.initChildTitle,
-      ownProps: ownProps
-    }
-  }
+  makeMapChildStateToProps
+  //(state: IAppStore, ownProps) => {
+  //  const st = state.app[ownProps.route.path];
+  //  return {
+  //    propsChildTitle: st ? st.title : ownProps.initChildTitle,
+  //    ownProps: ownProps
+  //  }
+  //}
 )(childPresenter);
 
 interface IChildPrepareAction extends Action { type: 'CHILD_PREPARE'; actionId: string; actionTitle: string; }
