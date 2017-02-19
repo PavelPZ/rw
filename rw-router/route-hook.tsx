@@ -7,6 +7,7 @@ export type IRouteHookMapStateToProps = DRouter.IRouteData;
 export interface IRouteHookOwnProps { parentPath: string, hookId: string; }
 
 const RouteHookPresent: React.StatelessComponent<IRouteHookMapStateToProps> = router => {
+  console.log('> render RouteHook ' + router.path);
   return router && router.handlerId ? RouteHandler.find(router.handlerId).createComponent(router) : null;
 };
 

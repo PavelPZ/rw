@@ -48,8 +48,8 @@ interface IParentOwnProps { initTitle: string; route: IParentRoute; } //HOC conn
 
 const parentSelector = createSelector<IAppStore, IParentProps, IParentProps>(
   (state, ownProps: IParentOwnProps) => ({
-    propsTitle: 'Parent '+ adjustTitleState(state.app['parentState'], ownProps.initTitle).title,
-    ownProps:ownProps
+    propsTitle: 'Parent ' + adjustTitleState(state.app['parentState'], ownProps.initTitle).title,
+    ownProps: ownProps
   }),
   res => res
 );
@@ -75,7 +75,7 @@ interface IParentPrepareAction extends Action { type: 'PARENT_PREPARE'; actionTi
 const PARENT_PREPARE = 'PARENT_PREPARE';
 
 const parentReducer: Reducer<IAppState, IParentPrepareAction | IChildPrepareAction> = (state, action) => {
-  if (!state) return { };
+  if (!state) return {};
   switch (action.type) {
     case PARENT_PREPARE: return { ...state, parentState: { title: action.actionTitle } };
     default: return childReducer(state, action);
@@ -99,16 +99,19 @@ interface IChildRoute extends DRouter.IRouteData {
 }
 const createChildRoute = (title: string) => ({ handlerId: CHILD, routeChildTitle: title } as IChildRoute);
 
-interface IChildProps { propsChildTitle: string; ownProps: IChildOwnProps} //presenter props
-interface IChildOwnProps { initChildTitle: string; route: IChildRoute} //HOC connected component props
+interface IChildProps { propsChildTitle: string; ownProps: IChildOwnProps } //presenter props
+interface IChildOwnProps { initChildTitle: string; route: IChildRoute } //HOC connected component props
 
-const childSelector = createSelector<IAppStore, IChildProps, IChildProps>(
-  (state, ownProps: IChildOwnProps) => ({
-    propsChildTitle: 'Child ' + adjustTitleState(state.app[ownProps.route.path], ownProps.initChildTitle).title,
+const makeChildSelector = () => createSelector<IAppStore, IChildProps, ITitle, IChildOwnProps>(
+  (state, ownProps: IChildOwnProps) => state.app[ownProps.route.path],
+  (state, ownProps: IChildOwnProps) => ownProps,
+  (tit, ownProps) => ({
+    propsChildTitle: adjustTitleState(tit, ownProps.initChildTitle).title,
     ownProps: ownProps
-  }),
-  res => res
+  })
 );
+
+const makeMapChildStateToProps = () => (state: IAppStore, ownProps: IChildOwnProps) => makeChildSelector()(state, ownProps);
 
 const childPresenter: React.StatelessComponent<IChildProps> = props => {
   const path = props.ownProps.route.path;
@@ -120,16 +123,22 @@ const childPresenter: React.StatelessComponent<IChildProps> = props => {
 }
 
 const Child = connect<IChildProps, never, IChildOwnProps>(
-  (state: IAppStore, ownProps) => childSelector(state, ownProps),
+  //makeMapChildStateToProps
+  (state: IAppStore, ownProps) => {
+    const st = state.app[ownProps.route.path];
+    return {
+      propsChildTitle: st ? st.title : ownProps.initChildTitle,
+      ownProps: ownProps
+    }
+  }
 )(childPresenter);
 
 interface IChildPrepareAction extends Action { type: 'CHILD_PREPARE'; actionId: string; actionTitle: string; }
 const CHILD_PREPARE = 'CHILD_PREPARE';
 
 const childReducer: Reducer<IAppState, IChildPrepareAction> = (state, action) => {
-  //if (!state) return { zzz: 'zzz' };
   switch (action.type) {
-    case CHILD_PREPARE: return { ...state, [action.actionId]: { title: action.actionTitle }};
+    case CHILD_PREPARE: return { ...state, [action.actionId]: { title: action.actionTitle } };
     default: return state;
   }
 }
