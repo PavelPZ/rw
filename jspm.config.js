@@ -50,6 +50,7 @@ SystemJS.config({
     "npm:*.json"
   ],
   map: {
+    "@types/js-cookie": "npm:@types/js-cookie@2.0.28",
     "@types/lodash": "npm:@types/lodash@4.14.52",
     "@types/react": "npm:@types/react@15.0.11",
     "@types/react-dom": "npm:@types/react-dom@0.14.23",
@@ -70,6 +71,7 @@ SystemJS.config({
     "https": "npm:jspm-nodelibs-https@0.2.1",
     "immutability-helper": "npm:immutability-helper@2.1.1",
     "intl": "npm:intl@1.2.5",
+    "js-cookie": "npm:js-cookie@2.1.3",
     "load-script": "npm:load-script@1.0.0",
     "lodash": "npm:lodash@4.17.4",
     "module": "npm:jspm-nodelibs-module@0.2.0",
@@ -102,7 +104,7 @@ SystemJS.config({
     "npm:@types/react-redux@4.4.36": {
       "map": {
         "redux": "npm:redux@3.6.0",
-        "@types/react": "npm:@types/react@0.14.57"
+        "@types/react": "npm:@types/react@15.0.11"
       }
     },
     "npm:redux@3.6.0": {
@@ -961,7 +963,7 @@ SystemJS.config({
     },
     "npm:@types/react-dom@0.14.23": {
       "map": {
-        "@types/react": "npm:@types/react@0.14.57"
+        "@types/react": "npm:@types/react@15.0.11"
       }
     },
     "npm:ajv@4.11.3": {

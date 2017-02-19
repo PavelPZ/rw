@@ -45,8 +45,8 @@
     <TypeScriptCompile Include="design\rw-course\examples\test.tsx" />
     <TypeScriptCompile Include="design\rw-course\examples\testEnumOldEA.tsx" />
     <TypeScriptCompile Include="rw-lib\deferred.ts" />
-    <TypeScriptCompile Include="rw-lib\loc-change.tsx" />
-    <TypeScriptCompile Include="rw-lib\loc-test.tsx" />
+    <TypeScriptCompile Include="rw-lib\loc\change.tsx" />
+    <TypeScriptCompile Include="rw-lib\loc\test.tsx" />
     <TypeScriptCompile Include="rw-redux\async.ts" />
     <TypeScriptCompile Include="snippets\routerComponent.tsx" />
     <TypeScriptCompile Include="typings\rw\dconfig.d.ts" />
@@ -184,7 +184,7 @@
     <TypeScriptCompile Include="rw-gui-rt\recordings\index.tsx" />
     <TypeScriptCompile Include="rw-gui-rt\get-app-root.tsx" />
     <TypeScriptCompile Include="typings\rw\dlib.d.ts" />
-    <TypeScriptCompile Include="rw-lib\loc.ts" />
+    <TypeScriptCompile Include="rw-lib\loc\base.ts" />
     <TypeScriptCompile Include="rw-lib\render-markup.ts" />
     <TypeScriptCompile Include="rw-lib\services\common.ts" />
     <TypeScriptCompile Include="rw-lib\services\dconfig.d.ts" />
@@ -198,7 +198,7 @@
     <TypeScriptCompile Include="rw-login\login-page.ts" />
     <TypeScriptCompile Include="rw-redux\index.ts" />
     <TypeScriptCompile Include="typings\rw\dredux.d.ts" />
-    <TypeScriptCompile Include="rw-redux\match-media.ts" />
+    <TypeScriptCompile Include="rw-lib\match-media.ts" />
     <TypeScriptCompile Include="rw-redux\recordings.ts" />
     <TypeScriptCompile Include="rw-redux\test.tsx" />
     <TypeScriptCompile Include="rw-router\index.ts" />
@@ -234,7 +234,7 @@
     <TypeScriptCompile Include="rw-lib\base64.ts" />
     <TypeScriptCompile Include="rw-lib\cammel-case.ts" />
     <TypeScriptCompile Include="rw-lib\common.ts" />
-    <TypeScriptCompile Include="rw-lib\cookie.ts" />
+    <None Include="rw-lib\cookie.ts_" />
     <TypeScriptCompile Include="rw-lib\crypt.ts" />
     <TypeScriptCompile Include="rw-lib\date2int.ts" />
     <TypeScriptCompile Include="rw-lib\random.ts" />

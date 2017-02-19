@@ -1,4 +1,4 @@
-import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+import { toGlobId } from 'rw-lib/index'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
 const th19: DLoc.ILocItem = {
   'en-gb': 'MULTIPLE CHOICE - MORE CORRECT ANSWERS',
   'de-de': 'MULTIPLE CHOICE - MEHR RICHTIGE ANTWORTEN',

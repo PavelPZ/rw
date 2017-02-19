@@ -5,7 +5,7 @@ import filling_in from 'rw-instr/filling_in';
 import img04 from './media/04.png';
 
 //**** CONST START
-import React from 'react'; import { $l } from 'rw-lib/loc'; const l = ll[meta.url]; export default () => /*
+import React from 'react'; import { $l } from 'rw-lib/index'; const l = ll[meta.url]; export default () => /*
 //**** CONST END, START MARKUP HERE: */
 
 

@@ -1,4 +1,4 @@
-import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+import { toGlobId } from 'rw-lib/index'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
 const th111: DLoc.ILocItem = {
   'en-gb': 'SORTING INTO GROUPS (DRAG AND DROP)',
   'de-de': 'IN GRUPPEN SORTIEREN (ZIEHEN UND LOS LASSEN)',

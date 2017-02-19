@@ -1,4 +1,4 @@
-import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+import { toGlobId } from 'rw-lib/index'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
 const th17: DLoc.ILocItem = {
   'en-gb': 'TEXT SELECTION (MARKING) - ONE CORRECT ANSWER',
   'de-de': 'TEXTAUSWAHL (MARKIERUNG) - EINE RICHTIGE ANTWORT',

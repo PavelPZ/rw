@@ -1,4 +1,4 @@
-import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+import { toGlobId } from 'rw-lib/index'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
 const th113: DLoc.ILocItem = {
   'en-gb': 'FILLING IN FROM A LIST (DRAG \u0026amp; DROP)',
   'de-de': 'AUSFÜLLEN VON EINER LISTE (DRAG \u0026amp; DROP)',

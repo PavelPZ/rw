@@ -8,7 +8,7 @@ import {
   intlShape,
   injectIntl,
 } from 'react-intl';
-import { LocProvider, locInit, actLocReducerFnc, doActLocAction } from './loc-change';
+import { LocProvider, locInit, actLocReducerFnc, doActLocAction } from './change';
 import { Store } from 'redux';
 import { blockGuiProxy, appInit, TMiddlewareAPI, getActState, blockGuiReducerFnc } from 'rw-redux';
 

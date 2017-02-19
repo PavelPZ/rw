@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import page from './gap-fill';
 import { courseNavigAction, TCourseNavigClick, scanSitemap } from 'rw-course';
 import { Loader } from 'rw-lib/jsbundle-loader';
-import { TClickEvent, TDispatch } from 'rw-redux';
+import { TDispatch } from 'rw-redux';
 import valuesIn from 'lodash/valuesIn';
 
 export const init = async () => {

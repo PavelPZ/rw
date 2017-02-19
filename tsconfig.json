@@ -37,6 +37,7 @@
 
       //"rw-course": [ "rw-course/index" ],
 
+      "js-cookie": [ "jspm_packages/npm/@types/js-cookie@2.0.28/index" ],
       "react": [ "jspm_packages/npm/@types/react@15.0.11/index" ],
       "react-dom": [ "jspm_packages/npm/@types/react-dom@0.14.23/index" ],
       "redux": [ "jspm_packages/npm/redux@3.6.0/index" ],

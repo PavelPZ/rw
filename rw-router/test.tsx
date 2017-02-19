@@ -98,13 +98,15 @@ const createChildRoute = (title: string) => ({ handlerId: CHILD, routeChildTitle
 interface IChildProps { propsChildTitle: string } //presenter props
 interface IChildOwnProps { initChildTitle: string; route: IChildRoute } //HOC connected component props
 
-const makeChildSelector = () => createSelector<IAppStore, IChildProps, string>(
+const childSelector = createSelector<IAppStore, IChildProps, string>(
   (state, ownProps: IChildOwnProps) => adjustTitleState(state.app[ownProps.route.path], ownProps.initChildTitle).title,
-  title => ({
-    propsChildTitle: title
-  })
+  title => {
+    console.log('> child selector');
+    return { propsChildTitle: title };
+  }
 );
 
+const makeChildSelector = () => childSelector;
 const makeMapChildStateToProps = () => (state: IAppStore, ownProps: IChildOwnProps) => makeChildSelector()(state, ownProps);
 
 const childPresenter: React.StatelessComponent<IChildProps & IChildOwnProps> = props => {
@@ -114,14 +116,8 @@ const childPresenter: React.StatelessComponent<IChildProps & IChildOwnProps> = p
 }
 
 const Child = connect<IChildProps, never, IChildOwnProps>(
-  makeMapChildStateToProps
-  //(state: IAppStore, ownProps) => {
-  //  const st = state.app[ownProps.route.path];
-  //  return {
-  //    propsChildTitle: st ? st.title : ownProps.initChildTitle,
-  //    ownProps: ownProps
-  //  }
-  //}
+  (state: IAppStore, ownProps) => childSelector(state, ownProps),
+  //makeMapChildStateToProps
 )(childPresenter);
 
 interface IChildPrepareAction extends Action { type: 'CHILD_PREPARE'; actionId: string; actionTitle: string; }

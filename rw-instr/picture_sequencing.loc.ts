@@ -1,4 +1,4 @@
-import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+import { toGlobId } from 'rw-lib/index'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
 const th11: DLoc.ILocItem = {
   'en-gb': 'PICTURE SEQUENCING',
   'de-de': 'BILDER SEQUENTIALISIEREN',

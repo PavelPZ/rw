@@ -1,6 +1,4 @@
-﻿//import { DRouter.IRouteData, DRouter.IRouteDir } from 'rw-router';
-
-export function route<T extends DRouter.IRouteData>(data: T, childs?: { [hookId: string]: DRouter.IRouteData; }): DRouter.IRouteData { data.$childs = childs; return data; }
+﻿export function route<T extends DRouter.IRouteData>(data: T, childs?: { [hookId: string]: DRouter.IRouteData; }): DRouter.IRouteData { data.$childs = childs; return data; }
 
 export function routeTreeToDir(root: DRouter.IRouteData, parentPath?: string): DRouter.IRouteDir {
   if (!root) return null;

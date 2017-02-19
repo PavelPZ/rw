@@ -2,7 +2,7 @@
 import gapFill from './gap-fill.meta';
 
 //import { IMetaNode } from 'rw-course/dom-meta';
-import { $l, toGlobId } from "rw-lib/loc"; declare const __moduleName: string; const globId = toGlobId(__moduleName); const l = ll[globId];
+import { $l, toGlobId } from 'rw-lib/index'; declare const __moduleName: string; const globId = toGlobId(__moduleName); const l = ll[globId];
 
 const sitemap: DCourse.IMetaNode = {
   title: $l(l.title),

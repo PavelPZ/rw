@@ -3,9 +3,9 @@ import config from 'rw-config';
 import { store, makeAsync, Reducer, TDispatch } from 'rw-redux';
 import { connect, ComponentDecorator } from 'react-redux';
 import { Action, Dispatch } from 'redux';
-import { LoaderCache, Loader } from './jsbundle-loader';
+import { LoaderCache, Loader } from 'rw-lib/jsbundle-loader';
 import { IntlProvider, addLocaleData, LocaleData } from "react-intl";
-import { read as cookieRead, write as cookieWrite } from "./cookie";
+import * as Cookies from "js-cookie";
 import { createSelector } from 'reselect';
 
 //async INIT - load default locales
@@ -51,7 +51,7 @@ const actLocReducer: Reducer<string, IActLocActionStart | IActLocActionEnd> = (s
       }));
       return state;
     case ACT_LOC_END:
-      cookieWrite(locCookie, action.loc, true);
+      Cookies.set(locCookie, action.loc, { expires:365 });
       addLocaleData(action.locale);
       return action.loc;
     default: return state;
@@ -68,7 +68,7 @@ const languageWithoutRegionCode = (lang:string) => lang.toLowerCase().split(/[_-
 const locCookie = 'loc-cookie';
 
 const actLoc = () => {
-  const language: DLoc.Langs = cookieRead(locCookie) || config.initLoc || ((navigator as any).languages && (navigator as any).languages[0]) || navigator.language || (navigator as any).userLanguage || 'en-gb';
+  const language: DLoc.Langs = Cookies.get(locCookie) || config.initLoc || ((navigator as any).languages && (navigator as any).languages[0]) || navigator.language || (navigator as any).userLanguage || 'en-gb';
   return language;
 }
 

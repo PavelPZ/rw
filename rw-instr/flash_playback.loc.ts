@@ -1,4 +1,4 @@
-import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+import { toGlobId } from 'rw-lib/index'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
 const th126: DLoc.ILocItem = {
   'en-gb': 'FLASH PLAYBACK',
   'de-de': 'FLASH PLAYBACK',

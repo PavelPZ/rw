@@ -1,4 +1,4 @@
-import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+import { toGlobId } from 'rw-lib/index'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
 const th125: DLoc.ILocItem = {
   'en-gb': 'LISTEN \u0026amp; TALK',
   'de-de': 'LISTEN \u0026amp; TALK',

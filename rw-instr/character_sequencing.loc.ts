@@ -1,4 +1,4 @@
-import { toGlobId } from 'rw-lib/loc'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
+import { toGlobId } from 'rw-lib/index'; declare const __moduleName: string; const globId = toGlobId(__moduleName);
 const th13: DLoc.ILocItem = {
   'en-gb': 'CHARACTER SEQUENCING',
   'de-de': 'EINORDNUNG DER SCHRIFTZEICHEN',

@@ -1,1 +1,1 @@
-﻿export * from './loc';
+﻿export * from './loc/base';
