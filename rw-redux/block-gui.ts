@@ -7,6 +7,9 @@ import { createSelector } from 'reselect';
 //*****
 import { Reducer } from 'rw-redux';
 
+const BLOCK_GUI_START = 'BLOCK_GUI_START'; export const BLOCK_GUI_END = 'BLOCK_GUI_END';
+export const blockGuiAction = (increase: boolean) => ({ type: increase ? BLOCK_GUI_START : BLOCK_GUI_END, $asyncEnd: true });
+
 export const blockGuiCreator = connect<IBlockGuiProps, never, never>(
   (state: DRedux.IRootState) => blockGuiSelector(state)
 );
@@ -20,7 +23,12 @@ const blockGuiSelector = createSelector<DRedux.IRootState, IBlockGuiProps, numbe
 );
 
 const blockGuiReducer: Reducer<DRedux.IBlockGuiState, Action> = (state, action) => {
-  return state ? state : { counter: 0 };
+  if (!state) state = { counter: 0 };
+  switch (action.type) {
+    case BLOCK_GUI_START: return { counter: state.counter + 1 };
+    case BLOCK_GUI_END: return { counter: state.counter - 1 };
+    default: return state;
+  }
 };
 
 export const blockGuiReducerFnc = (state: DRedux.IRootState, action: any): DRedux.IRootState => {

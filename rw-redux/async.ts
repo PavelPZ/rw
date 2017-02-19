@@ -1,5 +1,5 @@
 ﻿import { Action, createStore, applyMiddleware } from 'redux';
-import { blockGuiReducerFnc, TDispatch, Reducer, TMiddlewareAPI, Middleware, TMiddleware, store, setStore, getActState } from 'rw-redux';
+import { blockGuiReducerFnc, TDispatch, Reducer, TMiddlewareAPI, Middleware, TMiddleware, store, setStore, getActState, blockGuiAction } from 'rw-redux';
 import { BATCH, BatchAction } from 'redux-batched-actions';
 
 export enum RecordingStatus { no, recording, recorded, playing, cancelPlaying }
@@ -42,15 +42,13 @@ export const toActions = (src: Array<TAsyncActionPromise>) => {
 };
 
 export const asyncMiddleware: Middleware<Action> = middlAPI => next => (act: IAsyncActionHelper) => {
-  if (act.$asyncEnd) { next(act); return; } //action is async.promise result => don't record
+  if (act.$asyncEnd) { next(act); return; } //action is inner action during async processing => don't record it
   if (recordingHook.currentRecording && recordingHook.currentRecording.status == RecordingStatus.recording) pushActions(act); //recording => record action
   next(act);
   if (act.$asyncStart) { //some reducer called makeAsync() proc
-    const asyncStart = act.$asyncStart; delete act.$asyncStart; //remove temporaty data
-    toActions(asyncStart).then(actions => {
-      changeBlockCouterState(middlAPI.dispatch, false); //block gui END
-      //force action: chance to blockGui component re-render etc.
-      if (actions.length == 0) actions.push({ type: '' });
+    middlAPI.dispatch(blockGuiAction(true)); //block gui START
+    toActions(act.$asyncStart).then(actions => {
+      actions.push(blockGuiAction(false)); //block gui END
       //single or batch action
       if (actions.length == 1) { (actions[0] as IAsyncActionHelper).$asyncEnd = true; middlAPI.dispatch(actions[0]); }
       else middlAPI.dispatch({ type: BATCH, payload: actions.reverse(), $asyncEnd: true } as BatchAction);
@@ -63,10 +61,7 @@ export const asyncMiddleware: Middleware<Action> = middlAPI => next => (act: IAs
 //Mark action as async
 export const makeAsync = (act: Action, promise: TAsyncActionPromise) => {
   const asyncAct = act as IAsyncActionHelper;
-  if (!asyncAct.$asyncStart) {
-    //changeBlockCouterState(store.getState(), true); //block gui START
-    asyncAct.$asyncStart = [];
-  }
+  if (!asyncAct.$asyncStart) asyncAct.$asyncStart = [];
   asyncAct.$asyncStart.push(promise);
 };
 
@@ -90,12 +85,6 @@ export function playActionsStart(): Promise<boolean> {
     playActionsContinue();
   });
 }
-
-export const ASYNC_START = 'ASYNC_START'; export const ASYNC_END = 'ASYNC_END';
-const changeBlockCouterState = (state: DRedux.IRootState, increase: boolean) => {
-  if (!state.blockGui) return;
-  if (increase) state.blockGui.counter++; else state.blockGui.counter--;
-};
 
 const pushActions = (act: Action) => recordingHook.currentRecording.actions.push(act);
 
