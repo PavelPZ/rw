@@ -20,8 +20,8 @@ declare namespace DConfig {
   interface IConfig {
     login: {
       loginRoute: () => DRouter.IRouteData;
-      availableLogins: Array<string>;
-      guiBreakpoint: keyof DRedux.IMatchMediaState;
+      availableLogins: Array<DLogin.TProviderIds>;
+      //guiBreakpoint: keyof DRedux.IMatchMediaState;
     }
   }
 }

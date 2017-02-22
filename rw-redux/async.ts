@@ -21,7 +21,7 @@ export let recordingHook = {
 
 export const toActions = (src: Array<TAsyncActionPromise>) => {
   let actions: Array<Action> = [];
-  if (!src) return Promise.resolve(actions);
+  if (!src || src.length==0) return Promise.resolve(actions);
   const promises = [];
   //actions
   src.forEach(act => {

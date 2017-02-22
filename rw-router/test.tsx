@@ -133,6 +133,7 @@ const childReducer: Reducer<IAppState, IChildPrepareAction> = (state, action) =>
 class ChildHandler extends RouteHandler<IChildRoute> {
   createComponent(route: IChildRoute): JSX.Element { return <Child initChildTitle='child own title' route={route} />; }
   prepare(route: IChildRoute): TAsyncActionPromise { const res: IChildPrepareAction = { type: CHILD_PREPARE, actionTitle: route.routeChildTitle, actionId: route.path }; return timerPromise(500, res); }
+  loginNeeded(route: IChildRoute): boolean { return route.routeChildTitle.length >= 20; }
 }
 new ChildHandler(CHILD);
 

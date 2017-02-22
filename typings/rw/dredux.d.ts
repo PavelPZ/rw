@@ -27,7 +27,7 @@ declare namespace DRedux {
 
 declare namespace DRedux {
   interface IRootState {
-    login?: ILoginState;
+    loginState?: ILoginState;
   }
 
   export interface ILoginState {

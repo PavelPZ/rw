@@ -125,9 +125,9 @@ export interface ICourseRoute extends DRouter.IRouteData, DCourse.ICourseNavigDa
 
 
 class RootHandler extends RouteHandler<ICourseRoute> {
-  //prepare(route: ICourseRoute): Promise<DCourse.ICoursesState> {
-  //  return loadCourse(route, null/*TODO Courses state*/);
-  //}
+  prepare(route: ICourseRoute): TAsyncActionPromise {
+    return null; //loadCourse(route, null/*TODO Courses state*/);
+  }
   unPrepare(route: ICourseRoute): TAsyncActionPromise {
     //TODO: save course data - what about saving course data in loadCourse?
     return null;

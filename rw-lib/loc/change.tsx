@@ -72,7 +72,7 @@ const actLoc = () => {
   return language;
 }
 
-const needsPolyfill = true; //typeof Intl === 'undefined'; 
+const needsPolyfill = typeof Intl === 'undefined'; 
 const cache: LoaderCache = new LoaderCache(needsPolyfill ? 2 : 1);
 const getIntlPath = (lang: DLoc.Langs) => `react-intl/locale-data/${languageWithoutRegionCode(lang)}.js`;
 const getPolyfillPath = (lang: DLoc.Langs) => `intl/locale-data/jsonp/${languageWithoutRegionCode(lang)}.js`;

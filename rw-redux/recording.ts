@@ -40,7 +40,7 @@ export const setCurrentRecording = (rec: IRecording) => recordingHook.currentRec
 //start recording
 export const startRecording = () => {
   cancel();
-  recordingHook.currentRecording = { status: RecordingStatus.recording, appState: store.getState(), actions: [], title: actNotifyData.title = curentRecordingTitle };
+  recordingHook.currentRecording = { status: RecordingStatus.recording, appState: getActState(), actions: [], title: actNotifyData.title = curentRecordingTitle };
   setStatus(RecordingStatus.recording);
 };
 export const curentRecordingTitle = 'Current';

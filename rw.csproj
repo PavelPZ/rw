@@ -25,6 +25,7 @@
     <Content Include=".gitignore" />
     <Content Include="indexBundle.html" />
     <Content Include="indexBuild.html" />
+    <Content Include="install.txt" />
     <Content Include="login.html" />
     <Content Include="index.html" />
     <Content Include="jspm.config.js" />
@@ -47,6 +48,7 @@
     <TypeScriptCompile Include="rw-lib\deferred.ts" />
     <TypeScriptCompile Include="rw-lib\loc\change.tsx" />
     <TypeScriptCompile Include="rw-lib\loc\test.tsx" />
+    <TypeScriptCompile Include="rw-login\dlogin.d.ts" />
     <TypeScriptCompile Include="rw-redux\async.ts" />
     <TypeScriptCompile Include="snippets\routerComponent.tsx" />
     <TypeScriptCompile Include="typings\rw\dconfig.d.ts" />
@@ -92,6 +94,7 @@
     <TypeScriptCompile Include="rw-course\index.ts" />
     <TypeScriptCompile Include="rw-course\lib.ts" />
     <TypeScriptCompile Include="typings\rw\dazure-course.d.ts" />
+    <TypeScriptCompile Include="typings\rw\dcourse-state..ts" />
     <TypeScriptCompile Include="typings\rw\dcourse.d.ts" />
     <TypeScriptCompile Include="rw-course\loader.ts" />
     <TypeScriptCompile Include="rw-course\sitemap.ts" />
@@ -192,9 +195,8 @@
     <TypeScriptCompile Include="rw-lib\services\emailer.ts" />
     <TypeScriptCompile Include="rw-lib\test2.d.ts" />
     <TypeScriptCompile Include="rw-lib\test.d.ts" />
-    <TypeScriptCompile Include="rw-login\common.ts" />
     <TypeScriptCompile Include="rw-login\index.ts" />
-    <TypeScriptCompile Include="rw-login\lib.ts" />
+    <TypeScriptCompile Include="rw-login\state.ts" />
     <TypeScriptCompile Include="rw-login\login-page.ts" />
     <TypeScriptCompile Include="rw-redux\index.ts" />
     <TypeScriptCompile Include="typings\rw\dredux.d.ts" />
@@ -234,7 +236,6 @@
     <TypeScriptCompile Include="rw-lib\base64.ts" />
     <TypeScriptCompile Include="rw-lib\cammel-case.ts" />
     <TypeScriptCompile Include="rw-lib\common.ts" />
-    <None Include="rw-lib\cookie.ts_" />
     <TypeScriptCompile Include="rw-lib\crypt.ts" />
     <TypeScriptCompile Include="rw-lib\date2int.ts" />
     <TypeScriptCompile Include="rw-lib\random.ts" />

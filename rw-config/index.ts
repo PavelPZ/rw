@@ -8,8 +8,7 @@
     initRoute: null,
   },
   login: {
-    availableLogins: null,
-    guiBreakpoint: 'xxs',
+    availableLogins: ['google', 'facebook','msoft'],
     loginRoute: null
   },
   serviceEmailerUrl: 'rw-lib/services/emailer.ashx',
