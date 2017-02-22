@@ -6,15 +6,16 @@ import { createSelector } from 'reselect';
 //lm libs
 import { appInit, TMiddlewareAPI, getActState, blockGuiReducerFnc, TAsyncActionPromise, Reducer } from 'rw-redux';
 import config from 'rw-config';
-import { loginReducerFnc } from 'rw-login/index';
+import { loginReducerFnc, createLoginRoute } from 'rw-login/index';
 import { timerPromise } from 'rw-lib/deferred';
 
 //GUI libs
 import getRTAppRoot from 'rw-gui-rt/get-app-root';
 import initBlockGui from 'rw-gui-rt/block-gui/index'; initBlockGui();
+import initLogin from 'rw-gui-rt/login/index'; initLogin();
 
 //self lib
-import { routeTreeToDir, route, routeDirToTree, routeModify, parentPath, RouteHook, routeReducerFnc, RouteHandler, init as routerInit, navigateModified } from 'rw-router';
+import { routeTreeToDir, route, routeDirToTree, parentPath, RouteHook, routeReducerFnc, RouteHandler, init as routerInit, navigateModified } from 'rw-router';
 
 /***********************************************
               STATE
@@ -153,7 +154,7 @@ export function init() {
   appInit(rootReducer, document.getElementById('content'), getRTAppRoot);
   //Route definition
   config.route.initRoute = () => routeTreeToDir(createParentRoute('Hallo-parent', createChildRoute('Hallo-child-1'), createChildRoute('Hallo-child-2')));
-  //config.route.initRoute = () => routeTreeToDir(createParentRoute('Hallo-world-x', null, null));
+  //config.login.loginRoute = () => createParentRoute(createLoginRoute());
   //Router init
   routerInit();
 }

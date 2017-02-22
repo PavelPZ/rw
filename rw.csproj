@@ -10,7 +10,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -253,8 +253,6 @@
     <TypeScriptCompile Include="rw-router\test.tsx" />
     <TypeScriptCompile Include="rw-router\url-parser.ts" />
     <TypeScriptCompile Include="typings\classnames\index.d.ts" />
-    <TypeScriptCompile Include="typings\lib.fetch.d.ts" />
-    <TypeScriptCompile Include="typings\lib.streams.d.ts" />
     <TypeScriptCompile Include="typings\redux-logger\index.d.ts" />
     <TypeScriptCompile Include="typings\reselect.d.ts" />
   </ItemGroup>

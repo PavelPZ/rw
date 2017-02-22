@@ -6,7 +6,7 @@ import { store, IMapDispatchToProps, TDispatch, Reducer, TMiddlewareAPI, getActS
 import config from 'rw-config';
 
 //*******
-import { routeTreeToDir, diff, IDiffStateResult, string2route, route2string, routeDirToTree } from 'rw-router';
+import { routeTreeToDir, routeDirToTree, diff, IDiffStateResult, string2route, route2string } from 'rw-router';
 
 
 export function init() {
@@ -20,6 +20,11 @@ export function navigateModified<T extends DRouter.IRouteData>(subPath: string, 
   modify(res);
   navigate(res, ev, subPath);
 }
+//export function modified<T extends DRouter.IRouteData>(subPath: string, modify: (res: T) => void): DRouter.IRouteData {
+//  const res = routeDirToTree<T>(getActState().router, subPath);
+//  modify(res);
+//  return res, ev, subPath);
+//}
 export function navigateDir(dir: DRouter.IRouteDir, ev?: React.SyntheticEvent<any>, subPath?: string) { if (ev) ev.preventDefault(); changeRoute(dir, true, subPath); }
 export const navigateHome = () => navigateDir(config.route.initRoute());
 const navigateHomeAction = () => changeRouteAction(config.route.initRoute());
@@ -45,7 +50,7 @@ export const pushState = (route: DRouter.IRouteDir) => {
   history.pushState(null, null, urlStr);
 }
 
-const changeRoute = (newRoute: DRouter.IRouteDir, withPustState: boolean, subPath?: string) => { store.dispatch(changeRouteAction(newRoute, withPustState, subPath)); };
+const changeRoute = (dir: DRouter.IRouteDir, withPustState: boolean, subPath?: string) => { store.dispatch(changeRouteAction(dir, withPustState, subPath)); };
 
 const changeRouteAction = (newRoute: DRouter.IRouteDir, withPustState: boolean = true, subPath?: string) => {
   if (!newRoute) newRoute = config.route.initRoute();

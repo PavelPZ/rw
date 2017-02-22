@@ -10,11 +10,11 @@
     "declarationDir": "../data/typings/",
 
     //"noEmitHelpers": true,
-    //"importHelpers": true,
+    "importHelpers": true,
     //"importHelpers": true,
     "baseUrl": ".",
     "paths": {
-      //"tslib": [ "jspm_packages/npm/tslib@1.5.0/tslib.d.ts" ],
+      "tslib": [ "jspm_packages/npm/tslib@1.6.0/tslib.d.ts" ],
       "rw-router": [ "rw-router/index" ],
       "rw-redux": [ "rw-redux/index" ],
       "rw-login": [ "rw-login/index" ],

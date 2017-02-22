@@ -10,7 +10,7 @@ import getRTAppRoot from 'rw-gui-rt/get-app-root';
 import initBlockGui from 'rw-gui-rt/block-gui/index'; initBlockGui();
 
 //self lib
-import { routeTreeToDir, route, routeDirToTree, routeModify, parentPath, RouteHook, routeReducerFnc, RouteHandler, init as routerInit, navigate } from 'rw-router';
+import { routeTreeToDir, route, routeDirToTree, parentPath, RouteHook, routeReducerFnc, RouteHandler, init as routerInit, navigate } from 'rw-router';
 
 //declare const __moduleName: string;
 //const id = __moduleName.substring(config.rootPath.length - 1);

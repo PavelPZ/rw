@@ -25,9 +25,9 @@ export interface IParentRouteResult { parent: DRouter.IRouteData; hookId: string
 //odstrani z DRouter.IRouteData pomocne pracovni fields
 function clearRoute(state: DRouter.IRouteDir) { for (let p in state) { delete state[p].$childs; } }; //delete state[p].$asyncData; } };
 
-export function routeModify<T extends DRouter.IRouteData>(state: DRouter.IRouteDir, path: string, modify: (res:T) => void): T {
-  const res = routeDirToTree<T>(state, path); modify(res); return res;
-}
+//export function routeModify<T extends DRouter.IRouteData>(state: DRouter.IRouteDir, path: string, modify: (res:T) => void): T {
+//  const res = routeDirToTree<T>(state, path); modify(res); return res;
+//}
 
 export function routeDirToTree<T extends DRouter.IRouteData>(state: DRouter.IRouteDir, path: string): T {
   //filter and clone

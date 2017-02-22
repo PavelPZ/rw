@@ -7,7 +7,7 @@ import getRTAppRoot from 'rw-gui-rt/get-app-root';
 
 import config from 'rw-config';
 
-import { RouteHook, routeReducerFnc, RouteHandler, init as routerInit, navigate, routeTreeToDir, route, routeDirToTree, routeModify, parentPath } from 'rw-router';
+import { RouteHook, routeReducerFnc, RouteHandler, init as routerInit, navigate, routeTreeToDir, route, routeDirToTree, parentPath } from 'rw-router';
 
 import { loginReducerFnc, createLoginRoute } from 'rw-login/index';
 
