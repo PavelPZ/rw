@@ -623,8 +623,20 @@ declare namespace DCourse {
     origPath: string;
   }
 
+  export interface IImgMap {
+    img: IImgData;
+    sections: { [id: string]: IImgSegment; }
+  }
+
+  export interface IImgSection {
+    map: IImgMap;
+    id: string;
+  }
+
+  export interface IImgSegment { top: number; left: number; width: number; height: number; }
+
   export interface IImgProps extends React.HTMLProps<{}> {
-    imgData: IImgData;
+    imgData?: IImgData | IImgSection;
   }
 
 }

@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+
 import { registerTag } from '../compiler';
 //import * as DCourse from '../dom';
 
@@ -10,9 +11,19 @@ import { registerTag } from '../compiler';
 
 export const Img: React.StatelessComponent<DCourse.IImgProps> = props => {
   const { imgData, ...other } = props;
-  other.width = other.width ? other.width : imgData.width + 'px';
-  other.height = other.height ? other.height : imgData.height + 'px';
-  other.src = imgData.url;
+  if (isMap(imgData)) {
+    other.src = imgData.map.img.url;
+    const sect = imgData.map.sections[imgData.id];
+    other.width = other.width ? other.width : sect.width + 'px';
+    other.height = other.height ? other.height : sect.height + 'px';
+
+  } else {
+    other.width = other.width ? other.width : imgData.width + 'px';
+    other.height = other.height ? other.height : imgData.height + 'px';
+    other.src = imgData.url;
+  }
   return <img {...other} />;
 };
 registerTag('Img', Img);
+
+function isMap(imgData: DCourse.IImgData | DCourse.IImgSection): imgData is DCourse.IImgSection { return !!(imgData as DCourse.IImgSection).map; }
