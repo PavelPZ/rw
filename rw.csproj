@@ -45,12 +45,16 @@
     <Content Include="rw-gui-rt\theme.css" />
     <TypeScriptCompile Include="design\rw-course\examples\test.tsx" />
     <TypeScriptCompile Include="design\rw-course\examples\testEnumOldEA.tsx" />
+    <TypeScriptCompile Include="rw-gui-rt\login\img\login-providers.map.ts" />
     <TypeScriptCompile Include="rw-lib\deferred.ts" />
     <TypeScriptCompile Include="rw-lib\loc\change.tsx" />
     <TypeScriptCompile Include="rw-lib\loc\test.tsx" />
+    <TypeScriptCompile Include="rw-lib\style-lib.ts" />
     <TypeScriptCompile Include="rw-login\dlogin.d.ts" />
     <TypeScriptCompile Include="rw-redux\async.ts" />
     <TypeScriptCompile Include="snippets\routerComponent.tsx" />
+    <TypeScriptCompile Include="typings\fela\dfela.d.ts" />
+    <TypeScriptCompile Include="typings\fela\fela.d.ts" />
     <TypeScriptCompile Include="typings\rw\dconfig.d.ts" />
     <TypeScriptCompile Include="design\test-build.ts" />
     <TypeScriptCompile Include="design\test.ts" />

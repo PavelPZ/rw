@@ -1,1 +1,1 @@
-﻿jspm install npm:react npm:react-dom npm:redux npm:react-redux npm:reselect npm:redux-logger npm:whatwg-fetch npm:lodash npm:js-cookie npm:@types/react npm:@types/react-dom npm:@types/react-redux npm:@types/lodash npm:@types/js-cookie
+﻿jspm install npm:firebase npm:react npm:react-dom npm:redux npm:react-redux npm:reselect npm:redux-logger npm:whatwg-fetch npm:lodash npm:@types/react npm:@types/react-dom npm:@types/react-redux npm:@types/lodash 

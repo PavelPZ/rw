@@ -614,18 +614,20 @@ declare namespace DCourse {
     whenClass?: { [className: string]: IChildProps; } //child props, filtered bu className
   }
 
-  export interface IImgData {
-    id: string;
-    url: string;
-    width: number;
-    height: number;
+  export interface IImgData extends DFela.IStyle {
     type: string;
-    origPath: string;
+    //id: string;
+    //url: string;
+    //width: number;
+    //height: number;
+    //type: string;
+    //origPath: string;
   }
 
   export interface IImgMap {
     img: IImgData;
-    sections: { [id: string]: IImgSegment; }
+    [id: string]: DFela.IStyle;
+    //sections: { [id: string]: DFela.IStyle; }
   }
 
   export interface IImgSection {
