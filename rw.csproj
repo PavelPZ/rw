@@ -26,6 +26,8 @@
     <Content Include="indexBundle.html" />
     <Content Include="indexBuild.html" />
     <Content Include="install.txt" />
+    <Content Include="js\fela\fela-dom.js" />
+    <Content Include="js\fela\fela.js" />
     <Content Include="login.html" />
     <Content Include="index.html" />
     <Content Include="jspm.config.js" />
@@ -47,6 +49,7 @@
     <TypeScriptCompile Include="design\rw-course\examples\testEnumOldEA.tsx" />
     <TypeScriptCompile Include="rw-gui-rt\login\img\login-providers.map.ts" />
     <TypeScriptCompile Include="rw-lib\deferred.ts" />
+    <TypeScriptCompile Include="rw-lib\fela.ts" />
     <TypeScriptCompile Include="rw-lib\loc\change.tsx" />
     <TypeScriptCompile Include="rw-lib\loc\test.tsx" />
     <TypeScriptCompile Include="rw-lib\style-lib.ts" />

@@ -25,8 +25,8 @@
   interface ISubscribeClearMessage extends ISubscribeMessage { }
 
   interface IRenderer {
-    renderRule(rule: TRule, props: TRuleProps): void;
-    renderKeyframe(keyFrame: TKeyFrame, props: TRuleProps): void;
+    renderRule(rule: TRule, props: TRuleProps): string;
+    renderKeyframe(keyFrame: TKeyFrame, props: TRuleProps): string;
     renderFont(family: string, files: Array<string>, props: TRuleProps): void;
     renderStatic(style: string, selector?: string): void;
     renderToString(): string;
@@ -43,8 +43,24 @@
     selectorPrefix?: string;
   }
 
+
+  type TDisplay = 'inline' | 'block' | 'flex' | 'inline-block' | 'inline-flex' | 'inline-table' | 'list-item' | 'run-in' | 'table' | 'table-caption' | 'table-column-group' | 'table-header-group' | 'table-footer-group' | 'table-row-group' | 'table-cell' | 'table-column' | 'table-row' | 'none' | 'initial' | 'inherit';
+  //https://github.com/nachoaIvarez/flexbox-react
+  type TAlignContent = 'center' | 'flex-end' | 'flex-start' | 'space-around' | 'space-between' | 'stretch';
+  type TAlignItems = 'baseline' | 'center' | 'flex-end' | 'flex-start' | 'stretch';
+  type TFlexDirections = 'column-reverse' | 'column' | 'row-reverse' | 'row';
+  type TFlexWraps = 'nowrap' | 'wrap-reverse' | 'wrap';
+  type TJustifyContent = 'center' | 'flex-end' | 'flex-start' | 'space-around' | 'space-between';
+
   interface IStyle extends CSSProperties {
-    display?: 'inline' | 'block' | 'flex' | 'inline-block' | 'inline-flex' | 'inline-table' | 'list-item' | 'run-in' | 'table' | 'table-caption' | 'table-column-group' | 'table-header-group' | 'table-footer-group' | 'table-row-group' | 'table-cell' | 'table-column' | 'table-row' | 'none' | 'initial' | 'inherit';
+    display?: CSSWideKeyword | TDisplay;
+
+    alignContent?: CSSWideKeyword | TAlignContent;
+    alignItems?: CSSWideKeyword | TAlignItems;
+    alignSelf?: CSSWideKeyword | TAlignItems;
+    flexDirection?: CSSWideKeyword | TFlexDirections;
+    flexWrap?: CSSWideKeyword | TFlexWraps;
+    justifyContent?: CSSWideKeyword | TJustifyContent;
     //TODO: add properties, missing in React.CSSProperties
   }
 

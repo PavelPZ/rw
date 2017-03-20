@@ -13,7 +13,7 @@ export const Img: React.StatelessComponent<DCourse.IImgProps> = props => {
   const { imgData, ...other } = props;
   if (isMap(imgData)) {
     other.src = imgData.map.img.url;
-    const sect = imgData.map.sections[imgData.id];
+    const sect = imgData.map.segments[imgData.id];
     other.width = other.width ? other.width : sect.width + 'px';
     other.height = other.height ? other.height : sect.height + 'px';
 

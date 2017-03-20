@@ -8,6 +8,8 @@
       "@types/react-dom": "npm:@types/react-dom@^0.14.23",
       "@types/react-intl": "npm:@types/react-intl@^2.2.2",
       "@types/react-redux": "npm:@types/react-redux@^4.4.36",
+      "fela": "npm:fela@^4.2.6",
+      "fela-dom": "npm:fela-dom@^4.2.6",
       "intl": "npm:intl@^1.2.5",
       "js-cookie": "npm:js-cookie@^2.1.3",
       "load-script": "npm:load-script@^1.0.0",

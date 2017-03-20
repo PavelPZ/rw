@@ -614,20 +614,20 @@ declare namespace DCourse {
     whenClass?: { [className: string]: IChildProps; } //child props, filtered bu className
   }
 
-  export interface IImgData extends DFela.IStyle {
+  export interface IImgData {
     type: string;
     //id: string;
-    //url: string;
-    //width: number;
-    //height: number;
+    url: string
+    width: number;
+    height: number;
     //type: string;
     //origPath: string;
   }
 
   export interface IImgMap {
     img: IImgData;
-    [id: string]: DFela.IStyle;
-    //sections: { [id: string]: DFela.IStyle; }
+    defaultWidth?: number; defaultHeight?: number; //difotni rozmery pro pripad, ze v IImgSegment chybi
+    segments: { [id: string]: IImgSegment; };
   }
 
   export interface IImgSection {
@@ -635,7 +635,7 @@ declare namespace DCourse {
     id: string;
   }
 
-  export interface IImgSegment { top: number; left: number; width: number; height: number; }
+  export interface IImgSegment { top?: number; left?: number; width?: number; height?: number; }
 
   export interface IImgProps extends React.HTMLProps<{}> {
     imgData?: IImgData | IImgSection;

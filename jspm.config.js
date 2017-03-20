@@ -66,6 +66,8 @@ SystemJS.config({
     "domain": "npm:jspm-nodelibs-domain@0.2.0",
     "eslint": "npm:eslint@3.16.0",
     "events": "npm:jspm-nodelibs-events@0.2.0",
+    "fela": "npm:fela@4.2.6",
+    "fela-dom": "npm:fela-dom@4.2.6",
     "fs": "npm:jspm-nodelibs-fs@0.2.0",
     "http": "npm:jspm-nodelibs-http@0.2.0",
     "https": "npm:jspm-nodelibs-https@0.2.1",
@@ -1026,6 +1028,11 @@ SystemJS.config({
         "buffer-shims": "npm:buffer-shims@1.0.0",
         "util-deprecate": "npm:util-deprecate@1.0.2",
         "process-nextick-args": "npm:process-nextick-args@1.0.7"
+      }
+    },
+    "npm:fela@4.2.6": {
+      "map": {
+        "hyphenate-style-name": "npm:hyphenate-style-name@1.0.1"
       }
     }
   }
