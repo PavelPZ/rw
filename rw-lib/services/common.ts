@@ -1,4 +1,6 @@
-﻿export interface serviceOUT {
+﻿//declare const fetch;
+
+export interface serviceOUT {
   error: string;
 }
 

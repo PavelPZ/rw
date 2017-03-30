@@ -55,6 +55,7 @@
     <TypeScriptCompile Include="rw-lib\style-lib.ts" />
     <TypeScriptCompile Include="rw-login\dlogin.d.ts" />
     <TypeScriptCompile Include="rw-redux\async.ts" />
+    <TypeScriptCompile Include="rw\dfact.d.ts" />
     <TypeScriptCompile Include="snippets\routerComponent.tsx" />
     <TypeScriptCompile Include="typings\fela\dfela.d.ts" />
     <TypeScriptCompile Include="typings\fela\fela.d.ts" />
@@ -274,6 +275,9 @@
       <DependentUpon>emailer.ashx</DependentUpon>
     </Compile>
     <Compile Include="rw-lib\string2bytes.cs" />
+    <Compile Include="StemmerBreaker\StemmerBreaker.cs" />
+    <Compile Include="StemmerBreaker\StemmerBreakerCOM.cs" />
+    <Compile Include="StemmerBreaker\StemmerBreakerLib.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
