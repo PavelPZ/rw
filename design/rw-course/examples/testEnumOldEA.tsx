@@ -61,7 +61,7 @@ class Root extends React.Component<never, { title: string; }> {
   }
   doClick() {
     debugger;
-    let idx = 0; const errors = [];
+    let idx = 0; const errors: Array<string> = [];
     const loaders = exs.map(ex => new Loader(ex.url));
     const processIdx = () => {
       //if (idx > 1000) return;

@@ -1,4 +1,7 @@
-﻿//declare const System;
+﻿import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga/index';
+import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
+//declare const System;
 //if (System) {
 //  const oldNormalize = System.normalize;
 //  System.normalize = function (name, parentName) {
@@ -32,4 +35,77 @@
 //    });
 //  };
 //}
-let x: object;
+
+//D:\rw\rw\jspm.config.js
+//"redux-saga": "npm:redux-saga@0.14.6/lib",
+//"redux-saga/effects": "npm:redux-saga@0.14.6/lib/effects",
+
+
+
+function* mySaga() {
+  yield takeEvery("USER_FETCH_REQUESTED", fetchUser);
+}
+
+// worker Saga: will be fired on USER_FETCH_REQUESTED actions
+function* fetchUser(action: any) {
+  try {
+    const user = yield { id: 123 }; //call(Api.fetchUser, action.payload.userId);
+    yield put({ type: "USER_FETCH_SUCCEEDED", user: user });
+  } catch (e) {
+    yield put({ type: "USER_FETCH_FAILED", message: e.message });
+  }
+}
+
+export const init = () => {
+  debugger;
+  const sagaMiddleware = createSagaMiddleware();
+  const store = createStore(
+    (st: any, act: any) => {
+      debugger;
+      if (!st) return {};
+      return st;
+    },
+    applyMiddleware(sagaMiddleware)
+  );
+  sagaMiddleware.run(mySaga);
+
+  store.dispatch({ type: 'USER_FETCH_REQUESTED'});
+  return;
+  speakLikeSloth("never gonna give you up never gonna let you down".split(" "));
+  return;
+  const gen = testGenerator();
+  for (let i of gen) {
+    console.log(i);
+  }
+};
+
+function* testGenerator() {
+  yield 1;
+  yield 2;
+  return 4;
+}
+
+// Returns a Promise that resolves after a certain amount of time.
+function sleep(milliseconds: number) {
+  return new Promise<void>(resolve => {
+    setTimeout(resolve, milliseconds);
+  });
+}
+
+// This converts the iterable into an async iterable.
+// Each element is yielded back with a delay.
+async function* getItemsReallySlowly<T>(items: string[]) {
+  for (const item of items) {
+    await sleep(500);
+    yield item;
+  }
+}
+
+async function speakLikeSloth(items: string[]) {
+  // Awaits before each iteration until a result is ready.
+  for await (const item of getItemsReallySlowly(items)) {
+    console.log(item);
+  }
+}
+
+

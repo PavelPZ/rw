@@ -20,8 +20,9 @@
       "react-toolbox": "npm:react-toolbox@^2.0.0-beta.6",
       "redux-batched-actions": "npm:redux-batched-actions@^0.1.5",
       "redux-logger": "npm:redux-logger@^2.8.1",
+      "redux-saga": "npm:redux-saga@^0.14.6",
       "reselect": "npm:reselect@^2.5.4",
-      "tslib": "npm:tslib@^1.5.0",
+      "tslib": "npm:tslib@^1.6.0",
       "whatwg-fetch": "npm:whatwg-fetch@^2.0.2"
     },
     "devDependencies": {},
@@ -112,6 +113,14 @@
           "isarray": "0.0.1",
           "string_decoder": "~0.10.0",
           "stream-browserify": "^1.0.0"
+        }
+      },
+      "npm:tslib@1.6.0": {
+        "format": "cjs",
+        "meta": {
+          "tslib.js": {
+            "esModule": true
+          }
         }
       }
     }

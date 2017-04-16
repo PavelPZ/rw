@@ -14,13 +14,14 @@
   <script src="jspm_packages/system.src20.js"></script>
   -->
   <script src="jspm.config.js"></script>
-  <!-- **** BUNDLE version, after call: jspm bundle index.js - react - react-dom app-bundle.js --minify-->
+  <!-- **** BUNDLE version, after call: jspm bundle index.js - react - react-dom app-bundle.js \-\-minify -->
   <!--script src="app-bundle.js"></script-->
   
 
   <script>
     //System.config({ "defaultJSExtensions": true });
-    System.import('rw-router/test.js').then(function (m) { m.init(); }).catch(function (err) { debugger; });
+    System.import('hooks.js').then(function (m) { m.init(); }).catch(function (err) { debugger; });
+    //System.import('rw-router/test.js').then(function (m) { m.init(); }).catch(function (err) { debugger; });
     //System.import('rw-redux/test.js').then(function (m) { m.init(); }).catch(function (err) { debugger; });
     //System.import('rw-gui-rt/test.js').then(function (m) { m.init(); }).catch(function (err) { debugger; });
     //System.import('rw-gui-rt/login/test.js').then(function (m) { m.init(); }).catch(function (err) { debugger; });
