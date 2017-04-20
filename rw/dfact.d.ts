@@ -1,8 +1,11 @@
-﻿interface IFact {
+﻿interface IData {
   id: string;
-  versions: Array<IFactVersion>;
 }
 
-interface IFactVersion { 
- 
+interface IDataLeft extends IData {
+  rights: { [lang: string]: IDataRight; };
+}
+
+interface IDataRight extends IData {
+  lang: DLoc.Langs;
 }

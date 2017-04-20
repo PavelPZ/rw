@@ -107,5 +107,3 @@ async function speakLikeSloth(items: string[]) {
     console.log(item);
   }
 }
-
-
