@@ -43,7 +43,8 @@ SystemJS.config({
     }
   },
   map: {
-    "redux-saga/effects": "npm:redux-saga@0.14.8/lib/effects"
+    "redux-saga/effects": "npm:redux-saga@0.14.8/lib/effects",
+    "redux-saga/index": "npm:redux-saga@0.14.8/lib/index",
   }
 });
 
