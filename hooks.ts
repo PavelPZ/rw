@@ -5,7 +5,7 @@ import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
 //if (System) {
 //  const oldNormalize = System.normalize;
 //  System.normalize = function (name, parentName) {
-//    const res: Promise<any> = oldNormalize.apply(this, arguments); if (!(res instanceof Promise)) return res;
+//    const res: Promise<any> = oldNormalize.apply(this, arguments); if (!(res instanceof Promise)) return res; 
 //    return res.then(x => {
 //      return x;
 //    });
