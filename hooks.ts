@@ -63,14 +63,14 @@ export const init = () => {
 };
 
 function test3() {
-  const gen = testGenerator(); 
+  const gen = testGenerator();
   for (let i of gen) {
     console.log(i);
   }
 }
 
 function test2() {
-  speakLikeSloth("never gonna give you up never gonna let you down".split(" ")); 
+  speakLikeSloth("never gonna give you up never gonna let you down".split(" "));
 }
 
 function test1() {
@@ -85,10 +85,10 @@ function test1() {
   );
   sagaMiddleware.run(mySaga);
 
-  store.dispatch({ type: 'USER_FETCH_REQUESTED' }); 
+  store.dispatch({ type: 'USER_FETCH_REQUESTED' });
 }
 
-function* testGenerator() { 
+function* testGenerator() {
   yield 1;
   yield 2;
   return 4;
@@ -103,7 +103,7 @@ function sleep(milliseconds: number) {
 
 // This converts the iterable into an async iterable.
 // Each element is yielded back with a delay.
-async function* getItemsReallySlowly<T>(items: string[]) {
+async function* getItemsReallySlowly<T>(items: string[]): any {
   for (const item of items) {
     await sleep(500);
     yield item;
@@ -112,7 +112,7 @@ async function* getItemsReallySlowly<T>(items: string[]) {
 
 async function speakLikeSloth(items: string[]) {
   // Awaits before each iteration until a result is ready.
-  for await (const item of getItemsReallySlowly(items)) {
+  for await (let item of getItemsReallySlowly(items)) {
     console.log(item);
   }
 }
