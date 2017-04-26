@@ -53,10 +53,13 @@ SystemJS.config({
     "npm:*.json"
   ],
   map: {
+    "dns": "npm:jspm-nodelibs-dns@0.2.1",
+    "firebase": "npm:firebase@3.9.0",
+    "net": "npm:jspm-nodelibs-net@0.2.1",
     "@types/js-cookie": "npm:@types/js-cookie@2.0.28",
     "@types/lodash": "npm:@types/lodash@4.14.63",
-    "@types/react": "npm:@types/react@15.0.22",
-    "@types/react-dom": "npm:@types/react-dom@0.14.23",
+    "@types/react": "npm:@types/react@15.0.23",
+    "@types/react-dom": "npm:@types/react-dom@15.5.0",
     "@types/react-intl": "npm:@types/react-intl@2.2.6",
     "@types/react-redux": "npm:@types/react-redux@4.4.39",
     "ajv": "npm:ajv@4.11.7",
@@ -92,12 +95,13 @@ SystemJS.config({
     "react-toolbox": "npm:react-toolbox@2.0.0-beta.8",
     "readline": "npm:jspm-nodelibs-readline@0.2.1",
     "redux": "npm:redux@3.6.0",
-    "redux-batched-actions": "npm:redux-batched-actions@0.1.5",
-    "redux-logger": "npm:redux-logger@2.10.2",
+    "redux-batched-actions": "npm:redux-batched-actions@0.2.0",
+    "redux-logger": "npm:redux-logger@3.0.1",
     "redux-saga": "npm:redux-saga@0.14.7",
-    "reselect": "npm:reselect@2.5.4",
+    "reselect": "npm:reselect@3.0.0",
     "stream": "npm:jspm-nodelibs-stream@0.2.1",
     "string_decoder": "npm:jspm-nodelibs-string_decoder@0.2.1",
+    "tls": "npm:jspm-nodelibs-tls@0.2.1",
     "tslib": "npm:tslib@1.6.1",
     "tty": "npm:jspm-nodelibs-tty@0.2.1",
     "url": "npm:jspm-nodelibs-url@0.2.1",
@@ -118,20 +122,6 @@ SystemJS.config({
     "npm:jspm-nodelibs-http@0.2.0": {
       "map": {
         "http-browserify": "npm:stream-http@2.7.0"
-      }
-    },
-    "npm:react-dom@15.4.2": {
-      "map": {
-        "loose-envify": "npm:loose-envify@1.3.1",
-        "object-assign": "npm:object-assign@4.1.1",
-        "fbjs": "npm:fbjs@0.8.12"
-      }
-    },
-    "npm:react@15.4.2": {
-      "map": {
-        "loose-envify": "npm:loose-envify@1.3.1",
-        "object-assign": "npm:object-assign@4.1.1",
-        "fbjs": "npm:fbjs@0.8.12"
       }
     },
     "npm:react-addons-css-transition-group@15.4.2": {
@@ -597,11 +587,6 @@ SystemJS.config({
         "array-uniq": "npm:array-uniq@1.0.3"
       }
     },
-    "npm:@types/react-dom@0.14.23": {
-      "map": {
-        "@types/react": "npm:@types/react@15.0.22"
-      }
-    },
     "npm:react-intl@2.2.3": {
       "map": {
         "intl-messageformat": "npm:intl-messageformat@1.3.0",
@@ -639,7 +624,7 @@ SystemJS.config({
     "npm:@types/react-redux@4.4.39": {
       "map": {
         "redux": "npm:redux@3.6.0",
-        "@types/react": "npm:@types/react@15.0.22"
+        "@types/react": "npm:@types/react@15.0.23"
       }
     },
     "npm:react-toolbox@2.0.0-beta.8": {
@@ -750,11 +735,6 @@ SystemJS.config({
       "map": {
         "json-stable-stringify": "npm:json-stable-stringify@1.0.1",
         "co": "npm:co@4.6.0"
-      }
-    },
-    "npm:redux-logger@2.10.2": {
-      "map": {
-        "deep-diff": "npm:deep-diff@0.3.4"
       }
     },
     "npm:prop-types@15.5.8": {
@@ -955,6 +935,92 @@ SystemJS.config({
     "npm:rimraf@2.6.1": {
       "map": {
         "glob": "npm:glob@7.1.1"
+      }
+    },
+    "npm:@types/react-dom@15.5.0": {
+      "map": {
+        "@types/react": "npm:@types/react@15.0.23"
+      }
+    },
+    "npm:firebase@3.9.0": {
+      "map": {
+        "dom-storage": "npm:dom-storage@2.0.2",
+        "faye-websocket": "npm:faye-websocket@0.9.3",
+        "xmlhttprequest": "npm:xmlhttprequest@1.8.0",
+        "promise-polyfill": "npm:promise-polyfill@6.0.2",
+        "jsonwebtoken": "npm:jsonwebtoken@7.4.0"
+      }
+    },
+    "npm:faye-websocket@0.9.3": {
+      "map": {
+        "websocket-driver": "npm:websocket-driver@0.6.5"
+      }
+    },
+    "npm:jsonwebtoken@7.4.0": {
+      "map": {
+        "jws": "npm:jws@3.1.4",
+        "lodash.once": "npm:lodash.once@4.1.1",
+        "xtend": "npm:xtend@4.0.1",
+        "joi": "npm:joi@6.10.1",
+        "ms": "npm:ms@0.7.3"
+      }
+    },
+    "npm:redux-logger@3.0.1": {
+      "map": {
+        "deep-diff": "npm:deep-diff@0.3.4"
+      }
+    },
+    "npm:websocket-driver@0.6.5": {
+      "map": {
+        "websocket-extensions": "npm:websocket-extensions@0.1.1"
+      }
+    },
+    "npm:jws@3.1.4": {
+      "map": {
+        "safe-buffer": "npm:safe-buffer@5.0.1",
+        "base64url": "npm:base64url@2.0.0",
+        "jwa": "npm:jwa@1.1.5"
+      }
+    },
+    "npm:jwa@1.1.5": {
+      "map": {
+        "base64url": "npm:base64url@2.0.0",
+        "safe-buffer": "npm:safe-buffer@5.0.1",
+        "buffer-equal-constant-time": "npm:buffer-equal-constant-time@1.0.1",
+        "ecdsa-sig-formatter": "npm:ecdsa-sig-formatter@1.0.9"
+      }
+    },
+    "npm:joi@6.10.1": {
+      "map": {
+        "isemail": "npm:isemail@1.2.0",
+        "hoek": "npm:hoek@2.16.3",
+        "topo": "npm:topo@1.1.0",
+        "moment": "npm:moment@2.18.1"
+      }
+    },
+    "npm:topo@1.1.0": {
+      "map": {
+        "hoek": "npm:hoek@2.16.3"
+      }
+    },
+    "npm:ecdsa-sig-formatter@1.0.9": {
+      "map": {
+        "base64url": "npm:base64url@2.0.0",
+        "safe-buffer": "npm:safe-buffer@5.0.1"
+      }
+    },
+    "npm:react@15.4.2": {
+      "map": {
+        "fbjs": "npm:fbjs@0.8.12",
+        "loose-envify": "npm:loose-envify@1.3.1",
+        "object-assign": "npm:object-assign@4.1.1"
+      }
+    },
+    "npm:react-dom@15.4.2": {
+      "map": {
+        "fbjs": "npm:fbjs@0.8.12",
+        "loose-envify": "npm:loose-envify@1.3.1",
+        "object-assign": "npm:object-assign@4.1.1"
       }
     }
   }
