@@ -57,35 +57,44 @@ function* fetchUser(action: any) {
 }
 
 export const init = () => {
-  debugger;
+  test1();
+  test2();
+  test3();
+};
+
+function test3() {
+  const gen = testGenerator(); 
+  for (let i of gen) {
+    console.log(i);
+  }
+}
+
+function test2() {
+  speakLikeSloth("never gonna give you up never gonna let you down".split(" ")); 
+}
+
+function test1() {
   const sagaMiddleware = createSagaMiddleware();
   const store = createStore(
     (st: any, act: any) => {
-      debugger;
       if (!st) return {};
+      console.log(act.type);
       return st;
     },
     applyMiddleware(sagaMiddleware)
   );
   sagaMiddleware.run(mySaga);
 
-  store.dispatch({ type: 'USER_FETCH_REQUESTED'});
-  return;
-  speakLikeSloth("never gonna give you up never gonna let you down".split(" "));
-  return;
-  const gen = testGenerator();
-  for (let i of gen) {
-    console.log(i);
-  }
-};
+  store.dispatch({ type: 'USER_FETCH_REQUESTED' }); 
+}
 
-function* testGenerator() {
+function* testGenerator() { 
   yield 1;
   yield 2;
   return 4;
 }
 
-// Returns a Promise that resolves after a certain amount of time.
+// Returns a Promise that resolves after a certain amount of time. 
 function sleep(milliseconds: number) {
   return new Promise<void>(resolve => {
     setTimeout(resolve, milliseconds);

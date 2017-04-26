@@ -1,5 +1,5 @@
 ﻿/*
-do D:\rw\rw\jspm_packages\npm\@types\react@0.14.57\index.d.ts, 
+do D:\rw\rw\jspm_packages\npm\@types\react@15.0.22\index.d.ts,
   interface HTMLAttributes<T> extends DOMAttributes<T> {
     childProps?: DCourse.IChildProps; //!!!!!!
 */
