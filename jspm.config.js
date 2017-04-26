@@ -97,7 +97,7 @@ SystemJS.config({
     "redux": "npm:redux@3.6.0",
     "redux-batched-actions": "npm:redux-batched-actions@0.2.0",
     "redux-logger": "npm:redux-logger@3.0.1",
-    "redux-saga": "npm:redux-saga@0.14.7",
+    "redux-saga": "npm:redux-saga@0.14.8",
     "reselect": "npm:reselect@3.0.0",
     "stream": "npm:jspm-nodelibs-stream@0.2.1",
     "string_decoder": "npm:jspm-nodelibs-string_decoder@0.2.1",

@@ -20,7 +20,7 @@
       "react-toolbox": "npm:react-toolbox@^2.0.0-beta.8",
       "redux-batched-actions": "npm:redux-batched-actions@^0.2.0",
       "redux-logger": "npm:redux-logger@^3.0.1",
-      "redux-saga": "npm:redux-saga@^0.14.6",
+      "redux-saga": "npm:redux-saga@^0.14.8",
       "reselect": "npm:reselect@^3.0.0",
       "tslib": "npm:tslib@^1.6.1",
       "whatwg-fetch": "npm:whatwg-fetch@^2.0.3"

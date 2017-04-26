@@ -59,6 +59,7 @@
     <TypeScriptCompile Include="snippets\routerComponent.tsx" />
     <TypeScriptCompile Include="typings\fela\dfela.d.ts" />
     <TypeScriptCompile Include="typings\fela\fela.d.ts" />
+    <TypeScriptCompile Include="typings\lib.esnext.asynciterable.d.ts" />
     <TypeScriptCompile Include="typings\rw\dconfig.d.ts" />
     <TypeScriptCompile Include="design\test-build.ts" />
     <TypeScriptCompile Include="design\test.ts" />
