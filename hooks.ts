@@ -1,6 +1,6 @@
-﻿import { createStore, applyMiddleware } from 'redux';
+﻿import { createStore, applyMiddleware } from 'redux'; 
 import createSagaMiddleware from 'redux-saga/index';
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';     
 //declare const System;
 //if (System) {
 //  const oldNormalize = System.normalize;
