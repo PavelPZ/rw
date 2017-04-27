@@ -8,8 +8,8 @@
 		//"strict": true,
 		"downlevelIteration": true,
 		//Export definitions file to DATA
-		"declaration": true,
-		"declarationDir": "../data/typings/",
+		//"declaration": true,
+		//"declarationDir": "../data/typings/",
 
 		//"noEmitHelpers": true,
 		"importHelpers": true,
