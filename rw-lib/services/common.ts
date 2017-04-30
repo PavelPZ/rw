@@ -5,7 +5,7 @@ export interface serviceOUT {
 }
 
 export function callRequest<TIN, TOUT extends serviceOUT>(methodPath: string, inPar: TIN, isGet?: boolean): Promise<TOUT> {
-  return new Promise((resolve, reject) => {
+  return new Promise<TOUT>((resolve, reject) => {
     const inParJson = inPar ? JSON.stringify(inPar, null, 2) : '';
     if (isGet) methodPath = methodPath + '?' + encodeURIComponent(inParJson);
     fetch(methodPath, { method: isGet ? 'GET' : 'POST', body: isGet ? null : inParJson }).then(r => r.json().then((res: TOUT) => {

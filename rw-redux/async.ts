@@ -80,7 +80,7 @@ export function playActionsStart(): Promise<boolean> {
   const cr = recordingHook.currentRecording;
   if (!cr || !cr.actions || cr.actions.length == 0) return Promise.resolve(true);
   recordingHook.currentRecording.actIdx = 0;
-  return new Promise((resolve, reject) => {
+  return new Promise<boolean>((resolve, reject) => {
     recordingHook.resolve = res => resolve(res);
     playActionsContinue();
   });

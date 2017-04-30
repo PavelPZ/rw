@@ -259,3 +259,6 @@ jspm_packages/
 rw-course/examples/**/*.png
 !jspm.config.js
 !gulpfile.js
+*.dll
+*.bin
+*.lex

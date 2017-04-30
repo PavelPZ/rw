@@ -6,7 +6,7 @@
 		"inlineSourceMap": true,
 		"inlineSources": true,
 		//"strict": true,
-		"downlevelIteration": true,
+		//"downlevelIteration": true,
 		//Export definitions file to DATA
 		//"declaration": true,
 		//"declarationDir": "../data/typings/",

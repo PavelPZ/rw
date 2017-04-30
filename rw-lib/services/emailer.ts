@@ -1,4 +1,4 @@
-﻿import { callRequest } from './common';
+﻿import { callRequest, serviceOUT } from './common';
 import render from 'rw-lib/render-markup';
 import config from 'rw-config';
 
@@ -18,7 +18,7 @@ export interface ISendEmailIN {
   subject: string;
 }
 
-export function sendEMail(email: ISendEmailIN): Promise<never> {
+export function sendEMail(email: ISendEmailIN): Promise<serviceOUT> {
   if (typeof email.body != 'string') {
     email.isBodyHtml = true;
     email.body = render(email.body);
