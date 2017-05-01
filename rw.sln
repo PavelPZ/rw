@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{77CF233F-E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpellChecker", "libs\SpellChecker\SpellChecker.csproj", "{034AE400-7592-4CF2-93A4-7AB55E1FD270}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fulltext", "libs\Fulltext\Fulltext.csproj", "{98B908BE-5507-4583-9234-16FD6586B075}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +68,10 @@ Global
 		{034AE400-7592-4CF2-93A4-7AB55E1FD270}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{034AE400-7592-4CF2-93A4-7AB55E1FD270}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{034AE400-7592-4CF2-93A4-7AB55E1FD270}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98B908BE-5507-4583-9234-16FD6586B075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98B908BE-5507-4583-9234-16FD6586B075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98B908BE-5507-4583-9234-16FD6586B075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98B908BE-5507-4583-9234-16FD6586B075}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,5 +83,6 @@ Global
 		{A05DDF14-BF88-416F-931B-023DD3E6523B} = {93477B7B-3FDD-4A05-AF6C-76BBC7F8E72C}
 		{50A5BAEF-343A-49C2-8444-E3F73C09D5B1} = {93477B7B-3FDD-4A05-AF6C-76BBC7F8E72C}
 		{034AE400-7592-4CF2-93A4-7AB55E1FD270} = {77CF233F-E7E1-4CBF-9B63-ED5FBAE9D12C}
+		{98B908BE-5507-4583-9234-16FD6586B075} = {77CF233F-E7E1-4CBF-9B63-ED5FBAE9D12C}
 	EndGlobalSection
 EndGlobal
