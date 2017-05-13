@@ -235,6 +235,7 @@
     <Content Include="cmd-build.cmd" />
     <Content Include="cmd-bundle.cmd" />
     <Content Include="cmd-build4server.cmd" />
+    <Content Include="typings\Microsoft.TypeScript.targets" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

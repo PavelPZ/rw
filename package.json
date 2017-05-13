@@ -3,11 +3,11 @@
     "main": "app.js",
     "dependencies": {
       "@types/js-cookie": "npm:@types/js-cookie@^2.0.28",
-      "@types/lodash": "npm:@types/lodash@^4.14.63",
-      "@types/react": "npm:@types/react@^15.0.23",
+      "@types/lodash": "npm:@types/lodash@^4.14.64",
+      "@types/react": "npm:@types/react@^15.0.24",
       "@types/react-dom": "npm:@types/react-dom@^15.5.0",
-      "@types/react-intl": "npm:@types/react-intl@^2.2.6",
-      "@types/react-redux": "npm:@types/react-redux@^4.4.39",
+      "@types/react-intl": "npm:@types/react-intl@^2.2.7",
+      "@types/react-redux": "npm:@types/react-redux@^4.4.40",
       "fela-dom": "npm:fela-dom@^4.2.6",
       "firebase": "npm:firebase@^3.9.0",
       "intl": "npm:intl@^1.2.5",
@@ -20,9 +20,9 @@
       "react-toolbox": "npm:react-toolbox@^2.0.0-beta.8",
       "redux-batched-actions": "npm:redux-batched-actions@^0.2.0",
       "redux-logger": "npm:redux-logger@^3.0.1",
-      "redux-saga": "npm:redux-saga@^0.14.8",
-      "reselect": "npm:reselect@^3.0.0",
-      "tslib": "npm:tslib@^1.6.1",
+      "redux-saga": "npm:redux-saga@^0.15.3",
+      "reselect": "npm:reselect@^3.0.1",
+      "tslib": "npm:tslib@^1.7.0",
       "whatwg-fetch": "npm:whatwg-fetch@^2.0.3"
     },
     "devDependencies": {},
@@ -48,9 +48,9 @@
       "os": "npm:jspm-nodelibs-os@^0.2.0",
       "path": "npm:jspm-nodelibs-path@^0.2.0",
       "process": "npm:jspm-nodelibs-process@^0.2.0",
-      "react": "npm:react@^15.4.2",
+      "react": "npm:react@^15.5.4",
       "react-addons-css-transition-group": "npm:react-addons-css-transition-group@15.4",
-      "react-dom": "npm:react-dom@15.4",
+      "react-dom": "npm:react-dom@^15.5.4",
       "readline": "npm:jspm-nodelibs-readline@^0.2.0",
       "redux": "npm:redux@^3.6.0",
       "stream": "npm:jspm-nodelibs-stream@^0.2.0",
@@ -107,7 +107,13 @@
         "jspmNodeConversion": false,
         "format": "cjs"
       },
-      "npm:tslib@1.6.1": {
+      "npm:pbkdf2@3.0.12": {
+        "main": "browser.js"
+      },
+      "npm:safe-buffer@5.0.1": {
+        "browser": "index.js"
+      },
+      "npm:tslib@1.7.0": {
         "format": "cjs",
         "meta": {
           "tslib.js": {
@@ -117,5 +123,4 @@
       }
     }
   }
-}
-
+}
