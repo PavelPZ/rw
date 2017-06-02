@@ -6,7 +6,7 @@
 		"inlineSourceMap": true,
 		"inlineSources": true,
 		//"strict": true,
-		//"downlevelIteration": true,
+		"downlevelIteration": true,
 		//Export definitions file to DATA
 		//"declaration": true,
 		//"declarationDir": "../data/typings/",
@@ -16,7 +16,7 @@
 		//"importHelpers": true,
 		"baseUrl": ".",
 		"paths": {
-			"tslib": [ "jspm_packages/npm/tslib@1.7.0/tslib.d.ts" ],
+			"tslib": [ "jspm_packages/npm/tslib@1.7.1/tslib.d.ts" ],
 			"rw-router": [ "rw-router/index" ],
 			"rw-redux": [ "rw-redux/index" ],
 			"rw-login": [ "rw-login/index" ],
@@ -43,10 +43,10 @@
 			"react": [ "jspm_packages/npm/@types/react@15.0.24/index" ],
 			"react-dom": [ "jspm_packages/npm/@types/react-dom@15.5.0/index" ],
 			"redux": [ "jspm_packages/npm/redux@3.6.0/index" ],
-			"redux-saga/*": [ "jspm_packages/npm/redux-saga@0.14.8/*" ],
+			"redux-saga/*": [ "jspm_packages/npm/redux-saga@0.15.3/*" ],
 			//"redux-saga/effects": [ "jspm_packages/npm/redux-saga@0.14.6/effects" ],
 			"react-redux": [ "jspm_packages/npm/@types/react-redux@4.4.40/index" ],
-			"react-intl": [ "jspm_packages/npm/@types/react-intl@2.2.7/index" ],
+			"react-intl": [ "jspm_packages/npm/@types/react-intl@2.2.8/index" ],
 			"react-toolbox/*": [ "jspm_packages/npm/react-toolbox@2.0.0-beta.8/*" ],
 			"lodash/*": [ "jspm_packages/npm/@types/lodash@4.14.64/*/index" ],
 			"react-css-themr": [ "jspm_packages/npm/react-css-themr@1.7.2/index.d.ts" ],
@@ -56,7 +56,9 @@
 		},
 		"lib": [
 			"dom",
-			"es6"
+			//"es6",
+			"es2015",
+			"esnext.asynciterable"
 		],
 		"jsx": "react"
 	},

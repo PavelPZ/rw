@@ -43,8 +43,8 @@ SystemJS.config({
     }
   },
   map: {
-    "redux-saga/effects": "npm:redux-saga@0.14.8/lib/effects",
-    "redux-saga/index": "npm:redux-saga@0.14.8/lib/index"
+    "redux-saga/effects": "npm:redux-saga@0.15.3/lib/effects",
+    "redux-saga/index": "npm:redux-saga@0.15.3/lib/index"
   }
 });
 
@@ -55,13 +55,13 @@ SystemJS.config({
   ],
   map: {
     "dns": "npm:jspm-nodelibs-dns@0.2.1",
-    "firebase": "npm:firebase@3.9.0",
+    "firebase": "npm:firebase@4.0.0",
     "net": "npm:jspm-nodelibs-net@0.2.1",
     "@types/js-cookie": "npm:@types/js-cookie@2.0.28",
     "@types/lodash": "npm:@types/lodash@4.14.64",
     "@types/react": "npm:@types/react@15.0.24",
     "@types/react-dom": "npm:@types/react-dom@15.5.0",
-    "@types/react-intl": "npm:@types/react-intl@2.2.7",
+    "@types/react-intl": "npm:@types/react-intl@2.2.8",
     "@types/react-redux": "npm:@types/react-redux@4.4.40",
     "ajv": "npm:ajv@4.11.7",
     "assert": "npm:jspm-nodelibs-assert@0.2.1",
@@ -92,18 +92,18 @@ SystemJS.config({
     "react-css-themr": "npm:react-css-themr@1.7.2",
     "react-dom": "npm:react-dom@15.5.4",
     "react-intl": "npm:react-intl@2.2.3",
-    "react-redux": "npm:react-redux@5.0.4",
+    "react-redux": "npm:react-redux@5.0.5",
     "react-toolbox": "npm:react-toolbox@2.0.0-beta.8",
     "readline": "npm:jspm-nodelibs-readline@0.2.1",
     "redux": "npm:redux@3.6.0",
     "redux-batched-actions": "npm:redux-batched-actions@0.2.0",
-    "redux-logger": "npm:redux-logger@3.0.1",
+    "redux-logger": "npm:redux-logger@3.0.6",
     "redux-saga": "npm:redux-saga@0.15.3",
     "reselect": "npm:reselect@3.0.1",
     "stream": "npm:jspm-nodelibs-stream@0.2.1",
     "string_decoder": "npm:jspm-nodelibs-string_decoder@0.2.1",
     "tls": "npm:jspm-nodelibs-tls@0.2.1",
-    "tslib": "npm:tslib@1.7.0",
+    "tslib": "npm:tslib@1.7.1",
     "tty": "npm:jspm-nodelibs-tty@0.2.1",
     "url": "npm:jspm-nodelibs-url@0.2.1",
     "util": "npm:jspm-nodelibs-util@0.2.2",
@@ -592,17 +592,6 @@ SystemJS.config({
         "invariant": "npm:invariant@2.2.2"
       }
     },
-    "npm:react-redux@5.0.4": {
-      "map": {
-        "lodash": "npm:lodash@4.17.4",
-        "prop-types": "npm:prop-types@15.5.10",
-        "create-react-class": "npm:create-react-class@15.5.3",
-        "loose-envify": "npm:loose-envify@1.3.1",
-        "invariant": "npm:invariant@2.2.2",
-        "lodash-es": "npm:lodash-es@4.17.4",
-        "hoist-non-react-statics": "npm:hoist-non-react-statics@1.2.0"
-      }
-    },
     "npm:react-toolbox@2.0.0-beta.8": {
       "map": {
         "react-css-themr": "npm:react-css-themr@1.7.2",
@@ -779,18 +768,13 @@ SystemJS.config({
     },
     "npm:readable-stream@2.2.9": {
       "map": {
-        "string_decoder": "npm:string_decoder@1.0.0",
+        "string_decoder": "npm:string_decoder@1.0.1",
         "inherits": "npm:inherits@2.0.3",
         "isarray": "npm:isarray@1.0.0",
         "buffer-shims": "npm:buffer-shims@1.0.0",
         "util-deprecate": "npm:util-deprecate@1.0.2",
         "process-nextick-args": "npm:process-nextick-args@1.0.7",
         "core-util-is": "npm:core-util-is@1.0.2"
-      }
-    },
-    "npm:string_decoder@1.0.0": {
-      "map": {
-        "buffer-shims": "npm:buffer-shims@1.0.0"
       }
     },
     "npm:es6-map@0.1.5": {
@@ -898,32 +882,9 @@ SystemJS.config({
         "@types/react": "npm:@types/react@15.0.24"
       }
     },
-    "npm:firebase@3.9.0": {
-      "map": {
-        "dom-storage": "npm:dom-storage@2.0.2",
-        "faye-websocket": "npm:faye-websocket@0.9.3",
-        "xmlhttprequest": "npm:xmlhttprequest@1.8.0",
-        "promise-polyfill": "npm:promise-polyfill@6.0.2",
-        "jsonwebtoken": "npm:jsonwebtoken@7.4.0"
-      }
-    },
     "npm:faye-websocket@0.9.3": {
       "map": {
         "websocket-driver": "npm:websocket-driver@0.6.5"
-      }
-    },
-    "npm:jsonwebtoken@7.4.0": {
-      "map": {
-        "jws": "npm:jws@3.1.4",
-        "lodash.once": "npm:lodash.once@4.1.1",
-        "xtend": "npm:xtend@4.0.1",
-        "joi": "npm:joi@6.10.1",
-        "ms": "npm:ms@0.7.3"
-      }
-    },
-    "npm:redux-logger@3.0.1": {
-      "map": {
-        "deep-diff": "npm:deep-diff@0.3.4"
       }
     },
     "npm:websocket-driver@0.6.5": {
@@ -1045,6 +1006,45 @@ SystemJS.config({
     "npm:hash-base@2.0.2": {
       "map": {
         "inherits": "npm:inherits@2.0.3"
+      }
+    },
+    "npm:react-redux@5.0.5": {
+      "map": {
+        "lodash": "npm:lodash@4.17.4",
+        "invariant": "npm:invariant@2.2.2",
+        "hoist-non-react-statics": "npm:hoist-non-react-statics@1.2.0",
+        "lodash-es": "npm:lodash-es@4.17.4",
+        "prop-types": "npm:prop-types@15.5.10",
+        "create-react-class": "npm:create-react-class@15.5.3",
+        "loose-envify": "npm:loose-envify@1.3.1"
+      }
+    },
+    "npm:firebase@4.0.0": {
+      "map": {
+        "dom-storage": "npm:dom-storage@2.0.2",
+        "faye-websocket": "npm:faye-websocket@0.9.3",
+        "xmlhttprequest": "npm:xmlhttprequest@1.8.0",
+        "promise-polyfill": "npm:promise-polyfill@6.0.2",
+        "jsonwebtoken": "npm:jsonwebtoken@7.4.1"
+      }
+    },
+    "npm:redux-logger@3.0.6": {
+      "map": {
+        "deep-diff": "npm:deep-diff@0.3.8"
+      }
+    },
+    "npm:jsonwebtoken@7.4.1": {
+      "map": {
+        "lodash.once": "npm:lodash.once@4.1.1",
+        "jws": "npm:jws@3.1.4",
+        "ms": "npm:ms@2.0.0",
+        "joi": "npm:joi@6.10.1",
+        "xtend": "npm:xtend@4.0.1"
+      }
+    },
+    "npm:string_decoder@1.0.1": {
+      "map": {
+        "safe-buffer": "npm:safe-buffer@5.0.1"
       }
     }
   }
