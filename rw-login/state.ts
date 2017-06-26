@@ -64,7 +64,7 @@ const loginSelector = createSelector<DRedux.IRootState, ILoginMapStateToProps, D
 );
 
 export interface ILoginProps { availableLogins: Array<string>; }
-export const loginCreator: ComponentDecorator<ILoginProps, ILoginMapStateToProps & ILoginMapDispatchToProps> = connect<DRedux.IRootState, ILoginMapStateToProps & ILoginMapDispatchToProps, ILoginProps>(
+export const loginCreator: ComponentDecorator<ILoginMapStateToProps & ILoginMapDispatchToProps, ILoginProps> = connect<DRedux.IRootState, ILoginMapStateToProps & ILoginMapDispatchToProps, ILoginProps>(
   (state: DRedux.IRootState) => loginSelector(state),
   (dispatch: TDispatch, props) => ({ onSelectProvider: (providerId, ev) => { if (ev) ev.preventDefault(); return dispatchLoginSelectProvider(dispatch, providerId); } })
 );

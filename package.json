@@ -3,13 +3,13 @@
     "main": "app.js",
     "dependencies": {
       "@types/js-cookie": "npm:@types/js-cookie@^2.0.28",
-      "@types/lodash": "npm:@types/lodash@^4.14.64",
-      "@types/react": "npm:@types/react@^15.0.24",
-      "@types/react-dom": "npm:@types/react-dom@^15.5.0",
-      "@types/react-intl": "npm:@types/react-intl@^2.2.8",
-      "@types/react-redux": "npm:@types/react-redux@^4.4.40",
+      "@types/lodash": "npm:@types/lodash@^4.14.66",
+      "@types/react": "npm:@types/react@^15.0.31",
+      "@types/react-dom": "npm:@types/react-dom@^15.5.1",
+      "@types/react-intl": "npm:@types/react-intl@^2.3.1",
+      "@types/react-redux": "npm:@types/react-redux@^4.4.45",
       "fela-dom": "npm:fela-dom@^4.2.6",
-      "firebase": "npm:firebase@^4.0.0",
+      "firebase": "npm:firebase@^4.1.3",
       "intl": "npm:intl@^1.2.5",
       "js-cookie": "npm:js-cookie@^2.1.3",
       "load-script": "npm:load-script@^1.0.0",
@@ -20,7 +20,7 @@
       "react-toolbox": "npm:react-toolbox@^2.0.0-beta.8",
       "redux-batched-actions": "npm:redux-batched-actions@^0.2.0",
       "redux-logger": "npm:redux-logger@^3.0.6",
-      "redux-saga": "npm:redux-saga@^0.15.3",
+      "redux-saga": "npm:redux-saga@^0.15.4",
       "reselect": "npm:reselect@^3.0.1",
       "tslib": "npm:tslib@^1.7.1",
       "whatwg-fetch": "npm:whatwg-fetch@^2.0.3"
@@ -48,11 +48,11 @@
       "os": "npm:jspm-nodelibs-os@^0.2.0",
       "path": "npm:jspm-nodelibs-path@^0.2.0",
       "process": "npm:jspm-nodelibs-process@^0.2.0",
-      "react": "npm:react@^15.5.4",
+      "react": "npm:react@^15.6.1",
       "react-addons-css-transition-group": "npm:react-addons-css-transition-group@15.4",
-      "react-dom": "npm:react-dom@^15.5.4",
+      "react-dom": "npm:react-dom@^15.6.1",
       "readline": "npm:jspm-nodelibs-readline@^0.2.0",
-      "redux": "npm:redux@^3.6.0",
+      "redux": "npm:redux@^3.7.1",
       "stream": "npm:jspm-nodelibs-stream@^0.2.0",
       "string_decoder": "npm:jspm-nodelibs-string_decoder@^0.2.0",
       "tls": "npm:jspm-nodelibs-tls@^0.2.0",
@@ -113,6 +113,9 @@
       "npm:safe-buffer@5.0.1": {
         "browser": "index.js"
       },
+      "npm:safe-buffer@5.1.1": {
+        "browser": "index.js"
+      },
       "npm:tslib@1.7.1": {
         "format": "cjs",
         "meta": {
@@ -123,5 +126,4 @@
       }
     }
   }
-}
-
+}
