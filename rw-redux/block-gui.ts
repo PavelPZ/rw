@@ -10,7 +10,7 @@ import { Reducer } from 'rw-redux';
 const BLOCK_GUI_START = 'BLOCK_GUI_START'; export const BLOCK_GUI_END = 'BLOCK_GUI_END';
 export const blockGuiAction = (increase: boolean) => ({ type: increase ? BLOCK_GUI_START : BLOCK_GUI_END, $asyncEnd: true });
 
-export const blockGuiCreator = connect<IBlockGuiProps, never, never>(
+export const blockGuiCreator = connect<IBlockGuiProps, {}, {}>(
   (state: DRedux.IRootState) => blockGuiSelector(state)
 );
 export type TBlockGuiPresent = React.StatelessComponent<IBlockGuiProps>;

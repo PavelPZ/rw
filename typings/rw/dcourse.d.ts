@@ -237,7 +237,8 @@ declare namespace DCourse {
   }
   export interface ITagState {
   }
-  export interface ITagProps extends React.Props<any> {
+  export interface ITagProps extends React.ClassAttributes<any> {
+  //export interface ITagProps { extends React.Props<any> {
     id?: string; //unique component Id
     className?: string;
     childProps?: IChildProps;

@@ -3,8 +3,8 @@
     "main": "app.js",
     "dependencies": {
       "@types/js-cookie": "npm:@types/js-cookie@^2.0.28",
-      "@types/lodash": "npm:@types/lodash@^4.14.66",
-      "@types/react": "npm:@types/react@^15.0.31",
+      "@types/lodash": "npm:@types/lodash@^4.14.67",
+      "@types/react": "npm:@types/react@^15.0.33",
       "@types/react-dom": "npm:@types/react-dom@^15.5.1",
       "@types/react-intl": "npm:@types/react-intl@^2.3.1",
       "@types/react-redux": "npm:@types/react-redux@^4.4.45",

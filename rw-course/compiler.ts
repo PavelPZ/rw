@@ -54,7 +54,7 @@ function compile(root: IElement): IElement {
   return root;
 }
 
-export const registerTag = (name: string, type: typeof React.Component | React.StatelessComponent<any>) => {
+export const registerTag = (name: string, type: any /*typeof React.Component | React.StatelessComponent*/) => {
   if (types[name]) throw new Error(`Tag ${name} already registered`);
   type[typeId] = name;
   types[name] = type;

@@ -57,10 +57,10 @@ const loginReducer: Reducer<DRedux.ILoginState, ILoginRedirectAction | ILoginSel
 };
 
 //interface na Login GUI
-const loginSelector = createSelector<DRedux.IRootState, ILoginMapStateToProps, DRedux.ILoginState, boolean>(
+const loginSelector = createSelector<DRedux.IRootState, ILoginMapStateToProps & ILoginMapDispatchToProps, DRedux.ILoginState, boolean>(
   state => state.loginState,
   state => true, //config.login.guiBreakpoint ? state.gui[config.login.guiBreakpoint] : undefined,
-  (login, gui) => ({ email: login.email, firstName: login.firstName, lastName: login.lastName, guiLarge: gui, availableLogins: config.login.availableLogins })
+  (login, gui) => ({ email: login.email, firstName: login.firstName, lastName: login.lastName, guiLarge: gui, availableLogins: config.login.availableLogins, onSelectProvider:null })
 );
 
 export interface ILoginProps { availableLogins: Array<string>; }

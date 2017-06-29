@@ -6,7 +6,7 @@ import { createSelector } from 'reselect';
 
 //******
 import {
-  blockGuiCreator, TBlockGuiPresent, startRecording, playRecording, Reducer, TDispatch, IMapDispatchToProps, appInit,
+  blockGuiCreator, TBlockGuiPresent, startRecording, playRecording, Reducer, TDispatch, IMapDispatchToProps, appInit, TAction,
   makeAsync, getActState, blockGuiReducerFnc
 } from 'rw-redux';
 
@@ -78,7 +78,7 @@ const parentSelector = createSelector<DRedux.IRootState, IParentMapStateToProps,
 
 //...Parent komponenta re-rendruje ParentPresent komponentu
 //Container
-const Parent = connect<IParentMapStateToProps, IParentMapDispatchToProps, never>(
+const Parent = connect<IParentMapStateToProps, IParentMapDispatchToProps, {}>(
   (state: DRedux.IRootState) => parentSelector(state),
   (dispatch: TDispatch) => ({ onClickProp: (ev?: React.SyntheticEvent<any>) => { if (ev) ev.preventDefault(); return doParentAction(dispatch); } })
 )(ParentPresent);
@@ -155,7 +155,7 @@ const CounterPresent: React.StatelessComponent<ICounterMapStateToProps & IMapDis
   return <h4 style={{ color: 'blue' }}>{props.counterProp}</h4>;
 };
 
-const Counter = connect<ICounterMapStateToProps, IMapDispatchToProps, never>(
+const Counter = connect<ICounterMapStateToProps, IMapDispatchToProps, {}>(
   (state: DRedux.IRootState) => ({ counterProp: state.counter.count })
 )(CounterPresent);
 
@@ -185,7 +185,7 @@ const appReducerFnc = (state: DRedux.IRootState, action: any): DRedux.IRootState
 }
 
 
-const rootReducer = (state: DRedux.IRootState, action: any): DRedux.IRootState => {
+const rootReducer = (state: {}/*DRedux.IRootState*/, action: any): {} /*DRedux.IRootState*/ => {
   return {
     ...blockGuiReducerFnc(state, action),
     ...appReducerFnc(state, action),

@@ -23,7 +23,7 @@ const locSelector = createSelector<DRedux.IRootState, ILocProps, string>(
 
 const locPresent: React.StatelessComponent<ILocProps> = props => props.actLoc ? <IntlProvider locale={props.actLoc}>{props.children}</IntlProvider> : null;
 
-export const LocProvider = connect<ILocProps, never, never>(
+export const LocProvider = connect<ILocProps, {}, {}>(
   (state: DRedux.IRootState) => locSelector(state)
 )(locPresent);
 

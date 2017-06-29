@@ -13,7 +13,7 @@ export const init = async () => {
 
 const exs: Array<DCourse.IMetaNode> = [];
 
-class Root extends React.Component<never, { title: string; }> {
+class Root extends React.Component<{}, { title: string; }> {
   render(): JSX.Element {
     return <h3>
       <a href='#' onClick={ev => { ev.preventDefault(); this.doInit(); }}>INIT</a> |
